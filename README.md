@@ -18,15 +18,15 @@ Open Repository Maintainers are responsible for oversight of this project's comm
 Initially, the TAPICC  Steering Committee members have designated one or more persons to serve as Maintainer(s); subsequently, participating community members may select additional or substitute Maintainers.
  
 Current Maintainers of this Open Repository
-•	Klaus Fleischmann; GitHub ID:  https://github.com/klauskaleidos; WWW:  Kaleidoscope GmbH
-•	David Filip; GitHub ID:  https://github.com/DavidFatDavidF; WWW: ADAPT Centre
-•	Serge Gladkoff; GitHub ID:  https://github.com/Sgladkoff; WWW: Logrus Global
-•	Laura Brandon; GitHub ID: https://github.com/laurabrandon; WWW: GALA
+* Klaus Fleischmann; GitHub ID: https://github.com/klauskaleidos; WWW:  [Kaleidoscope GmbH](http://www.kaleidoscope.at/)
+* David Filip; GitHub ID:  https://github.com/DavidFatDavidF; WWW: [ADAPT Centre](http://adaptcentre.ie/)
+* Serge Gladkoff; GitHub ID:  https://github.com/Sgladkoff; WWW: [Logrus Global](http://www.logrusglobal.com/)
+* Laura Brandon; GitHub ID: https://github.com/laurabrandon; WWW: [GALA](http://www.gala-global.org/)
  
 ##About TAPICC
-•	General info
-•	Project charter (ADD LINK)
-•	TAPICC discussion group on GALA Connect 
+* [General info](https://www.gala-global.org/translation-api-class-and-cases)
+* [Project charter]*ADD LINK WHEN POSTED*
+* [TAPICC discussion group on GALA Connect](https://www.gala-global.org/tapicc-translation-api-class-and-cases-initiative)
  
 ##Feedback
 Questions or comments about this Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) listed above. Please send general questions about GALA to info@gala-global.org. 
