@@ -46,7 +46,7 @@ SUCH TERMS AND CONDITIONS.
 
 1. Definitions
 
-* a. "Collective Work" means a work, such as a periodical issue,
+    a. "Collective Work" means a work, such as a periodical issue,
 anthology or encyclopedia, in which the Work in its entirety in
 unmodified form, along with a number of other contributions,
 constituting separate and independent works in themselves, are
