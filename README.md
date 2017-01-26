@@ -11,7 +11,7 @@ BSD-3 Clause:	https://opensource.org/licenses/BSD-3-Clause
 
 CC-BY 2.0:	https://creativecommons.org/licenses/by/2.0/legalcode
  
-Contributions to this GALA Open Repository are invited from all parties, whether affiliated with GALA or not. Participants must have a GitHub account, but no fees or GALA membership obligations are required. Participation is expected to be consistent with the open source LICENSE (change link) designated for this particular repository.
+Contributions to this GALA Open Repository are invited from all parties, whether affiliated with GALA or not. Participants must have a GitHub account, but no fees or GALA membership obligations are required. Participation is expected to be consistent with the open source LICENSE designated for this particular repository.
  
 ##Maintainers
 Open Repository Maintainers are responsible for oversight of this project's community development activities, including evaluation of GitHub pull requests and preserving open source principles of openness and fairness. Maintainers are recognized and trusted experts who serve to implement community goals and consensus design preferences.
