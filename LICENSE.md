@@ -1,6 +1,7 @@
 #Licenses
 ##The 3-Clause BSD License
 Source:  https://opensource.org/licenses/BSD-3-Clause
+
 SPDX short identifier: BSD-3-Clause
 
 Further resources on the 3-clause BSD license
