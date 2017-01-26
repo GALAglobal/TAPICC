@@ -46,7 +46,7 @@ SUCH TERMS AND CONDITIONS.
 
 1. Definitions
 
-a. "Collective Work" means a work, such as a periodical issue,
+* a. "Collective Work" means a work, such as a periodical issue,
 anthology or encyclopedia, in which the Work in its entirety in
 unmodified form, along with a number of other contributions,
 constituting separate and independent works in themselves, are
@@ -54,7 +54,7 @@ assembled into a collective whole. A work that constitutes a
 Collective Work will not be considered a Derivative Work (as defined
 below) for the purposes of this License.
 
-b. "Derivative Work" means a work based upon the Work or upon the Work
+* b. "Derivative Work" means a work based upon the Work or upon the Work
 and other pre-existing works, such as a translation, musical
 arrangement, dramatization, fictionalization, motion picture version,
 sound recording, art reproduction, abridgment, condensation, or any
@@ -66,7 +66,7 @@ recording, the synchronization of the Work in timed-relation with a
 moving image ("synching") will be considered a Derivative Work for the
 purpose of this License.
 
-c. "Licensor" means the individual or entity that offers the Work
+* c. "Licensor" means the individual or entity that offers the Work
 under the terms of this License.
 
 d. "Original Author" means the individual or entity who created the
