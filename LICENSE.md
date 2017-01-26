@@ -1,7 +1,7 @@
 #Licenses
 ##The 3-Clause BSD License
-[https://opensource.org/licenses/BSD-3-Clause]
-###SPDX short identifier: BSD-3-Clause
+Source:  https://opensource.org/licenses/BSD-3-Clause
+SPDX short identifier: BSD-3-Clause
 
 Further resources on the 3-clause BSD license
 Note: This license has also been called the "New BSD License" or "Modified BSD License". See also the 2-clause BSD License.
@@ -19,7 +19,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ##Creative Commons Legal Code (CC-BY 2.0)
-[https://creativecommons.org/licenses/by/2.0/legalcode]
+Source:  https://creativecommons.org/licenses/by/2.0/legalcode
 
 Attribution 2.0
 
