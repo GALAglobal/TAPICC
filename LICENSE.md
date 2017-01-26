@@ -109,13 +109,13 @@ transmission Derivative Works.
     e. For the avoidance of doubt, where the work is a musical
 composition:
 
-      i. Performance Royalties Under Blanket Licenses. Licensor waives the
+     i. Performance Royalties Under Blanket Licenses. Licensor waives the
   exclusive right to collect, whether individually or via a
   performance rights society (e.g. ASCAP, BMI, SESAC), royalties for
   the public performance or public digital performance (e.g. webcast)
   of the Work.
 
-      ii. Mechanical Rights and Statutory Royalties. Licensor waives the
+     ii. Mechanical Rights and Statutory Royalties. Licensor waives the
   exclusive right to collect, whether individually or via a music
   rights agency or designated agent (e.g. Harry Fox Agency), royalties
   for any phonorecord You create from the Work ("cover version") and
