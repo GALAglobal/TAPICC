@@ -8,6 +8,7 @@ This GitHub public repository (https://github.com/GALAglobal/TAPICC) was created
 All contributions made to this Open Repository are subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0 License, the declared applicable licenses when the Open Repository was created.
 
 BSD-3 Clause:	https://opensource.org/licenses/BSD-3-Clause
+
 CC-BY 2.0:	https://creativecommons.org/licenses/by/2.0/legalcode
  
 Contributions to this GALA Open Repository are invited from all parties, whether affiliated with GALA or not. Participants must have a GitHub account, but no fees or GALA membership obligations are required. Participation is expected to be consistent with the open source LICENSE (change link) designated for this particular repository.
