@@ -1,4 +1,18 @@
 #Licenses
+
+The TAPICC Project is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts, rather than proliferating proprietary implementations which in the long run hinder collaboration and are expensive to maintain.
+
+Governance
+
+This GitHub public repository (https://github.com/GALAglobal/TAPICC) was created as a GALA Open Repository to support development of open source resources related to the Translation API Class and Cases Initiative (TAPICC) initiative.
+
+All contributions made to this Open Repository are subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0 License, the declared applicable licenses when the Open Repository was created.
+
+BSD-3 Clause: https://opensource.org/licenses/BSD-3-Clause
+
+CC-BY 2.0: https://creativecommons.org/licenses/by/2.0/legalcode
+
+
 ##The 3-Clause BSD License
 Source:  https://opensource.org/licenses/BSD-3-Clause
 
