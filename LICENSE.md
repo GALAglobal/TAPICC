@@ -8,10 +8,8 @@ This GitHub public repository (https://github.com/GALAglobal/TAPICC) was created
 
 All contributions made to this Open Repository are subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0 License, the declared applicable licenses when the Open Repository was created.
 
-BSD-3 Clause: https://opensource.org/licenses/BSD-3-Clause
-
-CC-BY 2.0: https://creativecommons.org/licenses/by/2.0/legalcode
-
+1. The 3-Clause BSD License (BSD-3 Clause): https://opensource.org/licenses/BSD-3-Clause
+2. Creative Commons Legal Code (CC-BY 2.0): https://creativecommons.org/licenses/by/2.0/legalcode
 
 
 ##The 3-Clause BSD License
