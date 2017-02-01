@@ -1,5 +1,5 @@
 #Translation API Class and Cases Initiative (TAPICC)
-The TAPICC Project is a collaborative, community-driven, open-source project to advance API standards in the localization industry.   The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
+The TAPICC initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry.   The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
 
 ##Governance
  
