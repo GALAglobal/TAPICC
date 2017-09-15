@@ -26,7 +26,7 @@ Current Maintainers of this Open Repository
  
 ##About TAPICC
 * [General info](https://www.gala-global.org/translation-api-class-and-cases)
-* [Project charter]*ADD LINK WHEN POSTED*
+* [Project charter](https://www.gala-global.org/sites/default/files/uploads/pdfs/GALA%20TAPICC%20Project%20Charter.pdf)
 * [TAPICC discussion group on GALA Connect](https://www.gala-global.org/tapicc-translation-api-class-and-cases-initiative)
  
 ##Feedback
