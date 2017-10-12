@@ -1,0 +1,44 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>Sentence 1.</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <segment>
+                <source>Abbr.</source>
+            </segment>
+        </unit>
+        <unit id="u3">
+            <segment>
+                <source>in Sentence 2.</source>
+            </segment>
+        </unit>
+        <!-- Splitting each segment into separate unit could cause
+            segmentation issues, which cannot be fixed later in the 
+            round-trip, such as u2 and u3-->
+        <unit id="u4">
+            <segment>
+                <source>A</source>
+                <target>C</target>
+            </segment>
+        </unit>
+        <unit id="u5">
+            <segment>
+                <source>B</source>
+                <target>A</target>
+            </segment>
+        </unit>
+        <unit id="u6">
+            <segment>
+                <source>C</source>
+                <target>B</target>
+            </segment>
+        </unit>
+        <!-- Splitting each list item does not allow to employ segment reordering mechanisms
+            which are native capability of XLIFF2 
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#segorder
+        -->
+    </file>
+</xliff>

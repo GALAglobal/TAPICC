@@ -1,0 +1,20 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>bold<ph id="1"/> text</source>
+                <target>text tučným<ph id="1"/></target>
+                <!-- inline tag pair always needs to be part
+                    of the extracted content, event though it
+                    might seem irrelevant for localization.
+                    It could be important for languages with
+                    different word order, could cause problem
+                    after changing the segmentation or would
+                    need to be removed for languages such as
+                    Chinese -->
+                <!-- See Processing requirements in
+                    http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#ph -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

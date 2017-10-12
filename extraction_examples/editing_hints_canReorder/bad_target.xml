@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <link />
+    <!-- empty link -->
+    <title>this is linktext <uri>http://example.com</uri>
+        <!-- URI as a child of title -->
+    </title>
+</root>

@@ -1,0 +1,39 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" xml:space="preserve">
+    <!-- xml:space="preserve" declared on root -->
+    <file id="f1">
+        <unit id="u1">
+            <segment id="1">
+                <source>A 
+        
+        
+        paragraph               						       with unsignificant
+    
+    random 			 whitespaces</source>
+            </segment>
+            <!-- White-spaces are generally insignificant in text nodes of source html/xml documents used in CMSes
+                and have negative impact on TM leveraging (recycling). For that reason it would make sense
+                to let MODIFIER agents to normalize spaces, tabs and blank lines, to improve localizability.
+                Also the white-spaces between structural XLIFF nodes are not significant and should be possible
+                to normalize them.
+                https://www.w3.org/TR/2004/REC-xml11-20040204/#sec-white-space
+                https://www.w3.org/TR/2000/REC-xml-20001006#sec-common-syn
+            -->
+            <segment id="2">
+                <source>A paragraph with unsignificant random whitespaces</source>
+            </segment>
+            <!-- A normalized, semantically identical version of previous sentence.
+                Would be recycled as repetition in CAT tool if segment 1 could be
+                normalized too. 
+            -->
+        </unit>
+        <unit id="2">
+            <segment>
+                <source>Script 
+            sample 
+        where 
+            spaces 
+        matter</source>
+            </segment>
+        </unit>
+    </file>
+</xliff>

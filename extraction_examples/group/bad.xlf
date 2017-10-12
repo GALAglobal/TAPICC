@@ -1,0 +1,35 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" >
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>First paragraph</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <segment>
+                <source>Second paragraph</source>
+            </segment>
+        </unit>
+        <unit id="u4">
+            <segment>
+                <source>Firstname</source>
+            </segment>
+        </unit>
+        <unit id="u5">
+            <segment>
+                <source>Lastname</source>
+            </segment>
+        </unit>
+        <unit id="u6">
+            <segment>
+                <source>Age</source>
+            </segment>
+        </unit>
+        <!-- Flat XLIFF structure does not provide additional context information
+            possibly impairing the quality of the translation. Group can contain <notes>
+            and has an extension point for elements from MDA, SLR, VAL and ITS modules
+            and FS module attributes, thus narrowing the scope of the information
+            contained in them.
+        -->
+    </file>
+</xliff>

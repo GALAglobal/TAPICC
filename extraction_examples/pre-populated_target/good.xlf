@@ -1,0 +1,19 @@
+<xliff srcLang="en-US" trgLang="sk-SK" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0"
+    xmlns:mtc="urn:oasis:names:tc:xliff:matches:2.0">
+    <file id="f1">
+        <unit id="u1">
+            <mtc:matches>
+                <mtc:match ref="1" type="mt" origin="Moses-generic">
+                    <source>source text</source>
+                    <target>zdrojový text</target>
+                </mtc:match>
+            </mtc:matches>
+            <segment id="1">
+                <source>source text</source>
+            </segment>
+            <!-- Translation Candidates Module provides a native XLIFF capability to store
+                data necessary to correctly process the suggestions from different sources
+            -->
+        </unit>
+    </file>
+</xliff>

@@ -1,0 +1,18 @@
+{"dialog": [
+    {
+        "id": "OK_button",
+        "value": "OK"
+    },
+    {
+        "id": "Cancel_button",
+        "value": "Cancel"
+    },
+        {
+        "id": "0AD7C1F1-CF51-47FC-A560-74B999AC4811",
+        "value": "Complex dialog. Multiple sentences. Maybe a question?"
+    },
+        {
+        "id": "?",
+        "value": "Help"
+    }
+]}

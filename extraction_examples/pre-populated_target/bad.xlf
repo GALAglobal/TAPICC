@@ -1,0 +1,20 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment state="initial">
+                <source>source text</source>
+                <target>zdrojový text</target>
+                <!-- Modifier inserted machine translation into target without providing
+                    additional metadata -->
+            </segment>
+            <segment state="translated">
+                <source>source text</source>
+                <target>zdrojový text</target>
+                <!-- Modifier inserted machine translation into target AND set state="translated
+                    without providing additional metadata -->
+            </segment> 
+            <!-- Both approaches could cause interoperability issues, if the agents in the round-trip
+                are not aware of logic for pre-populating the target --> 
+        </unit>
+    </file>
+</xliff>

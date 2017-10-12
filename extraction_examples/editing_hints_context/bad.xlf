@@ -1,0 +1,12 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>A text with <pc id="1">hyperlink</pc>, <pc id="2">italics</pc> and some
+                    <ph id="3"/></source>
+                <!-- No additional context is provided to translator, which could impact the
+                    quality of translation. Role of the inline tags is unknown.-->
+            </segment>
+        </unit>
+    </file>
+</xliff>
