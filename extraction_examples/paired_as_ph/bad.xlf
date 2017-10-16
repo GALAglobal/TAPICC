@@ -3,10 +3,8 @@
         <unit id="u1">
             <segment>
                 <source><ph id="1"/>bold<ph id="2"/> text</source>
-                <target>text <ph id="1"/>tučným<ph id="2"/></target>
-                <!-- potential for switching the tag order without possibility to validate
                 <target>text <ph id="2"/>tučným<ph id="1"/></target>
-                -->
+                <!-- potential for switching the tag order without possibility to validate -->
                 <!-- See Processing requirements in
                     http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#ph -->
             </segment>
