@@ -4,7 +4,7 @@
             <segment>
                 <source>First paragraph
 
-Second paragraph</source>
+<pc id="1">Second paragraph. In Bold.</pc></source>
             </segment>
             <!-- empty line is significant formatting in Markdown -->
         </unit>

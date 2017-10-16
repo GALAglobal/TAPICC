@@ -1,22 +1,32 @@
-<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+<xliff srcLang="en-US" trgLang="sk-SK" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
     <file id="f1">
         <unit id="u1" xml:space="preserve">
-            <segment>
+            <segment state="final">
                 <source>First paragraph</source>
+                <target>Prvý odstavec</target>
             </segment>
             <ignorable>
                 <source>
 
                 </source>
             </ignorable>
+            <segment state="final">
+                <source><sc id="1" />Second paragraph.</source>
+                <target>Druhý odstavec</target>
+            </segment>
             <segment>
-                <source>Second paragraph</source>
+                <source>In Bold.<ec startRef="1" /></source>
             </segment>
             <!-- Empty line was moved to <ignorable> by Modifier to improve recycling
                 and translatability of content.
-                Merger is advised to consider all childer of unit, even though not all
+                Merger is advised to consider all children of unit, even though not all
                 of them have to have <target>:
-                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#d0e11072 -->
+                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#d0e11072
+            -->
+            <!-- <pc></pc> was replaced by Modifier with <sc />, <ec />.
+                Agents MUST be able to handle any of the above two types of inline code representation.
+                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#spanningcodeusage
+            -->
         </unit>
     </file>
 </xliff>
