@@ -2,9 +2,20 @@
     <file id="f1">
         <unit id="u1">
             <segment>
+                <source><sc id="2" />bold<ec startRef="2" /> text</source>
+                <target>text <sc id="2" />tučným<ec startRef="2" /></target>
+            </segment>
+            <!-- <sc /> <ec /> pair is most versatile for representing spanning codes
+                and has to be used for representing non well-formed codes or 
+                across multiple segments
+            -->
+            <segment>
                 <source><pc id="1">bold</pc> text</source>
                 <target>text <pc id="1">tučným</pc></target>
             </segment>
+            <!-- also <pc></pc> my be used for well-formed spanning code, such as <b></b> 
+                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#spanningcodeusage
+            -->
         </unit>
     </file>
 </xliff>
