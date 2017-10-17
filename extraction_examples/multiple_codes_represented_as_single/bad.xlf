@@ -1,13 +1,14 @@
 <xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US">
     <file id="f1">
         <unit id="u1">
-            <originalData>
-                <data id="d1">&lt;b&gt;&lt;a&gt;</data>
-                <data id="d2">&lt;/a&gt;&lt;/b&gt;</data>
-            </originalData>
+            <!-- added whitespaces for readability -->
             <segment>
-                <source><pc id="1" dataRefStart="d1" dataRefEnd="d2">bold hyperlink</pc></source>
-                <!-- Using single <pc> to represent both <b> and <a> could cause localizability issues -->
+                <source><pc id="1" equivStart="bold,link" equivEnd="/link,/bold">
+                    hyperlink text
+                </pc></source>
+                <!-- Using single <pc> to represent both <b> and <a> could cause localizability issues.
+                    E.g. styleguide for some languages might require removal of bold formatting.
+                -->
             </segment>
         </unit>
     </file>

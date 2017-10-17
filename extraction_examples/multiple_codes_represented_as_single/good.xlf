@@ -1,8 +1,13 @@
 <xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US">
     <file id="f1">
         <unit id="u1">
+            <!-- added whitespaces for readability -->
             <segment>
-                <source><pc id="1"><pc id="2">bold hyperlink</pc></pc></source>
+                <source><pc id="1" equivStart="bold" equivEnd="/bold">
+                    <pc id="2" equivStart="link" equivEnd="/link">
+                        hyperlink text
+                    </pc>
+                </pc></source>
             </segment>
         </unit>
     </file>
