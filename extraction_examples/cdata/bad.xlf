@@ -11,7 +11,7 @@
                 <!-- It's legal for Modifier to change CDATA into normal escaped content.
                      Merger  has to be able to accept such change
                 -->
-                <!-- http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#d0e8112 (4.4 CDATA sections)-->
+                <!-- http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112 (4.4 CDATA sections)-->
                 <!-- https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA -->
             </segment>
         </unit>
