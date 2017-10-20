@@ -4,7 +4,7 @@
             <segment>
                 <source>irrelevant <pc id="1">bold</pc> text and important <pc id="2">hyperlink</pc>, also a critical <ph id="3"/></source>
                 <target>nepodstatný <pc id="1">tučný</pc>text a dôležity hyperlink, tiež </target>
-                <!-- missing editing hints do not allow to distinguish between important and unimportant inline codes, preventing native validation -->
+                <!-- missing editing hints do not allow to distinguish between important and irrelevant inline codes, preventing native validation -->
             </segment>
         </unit>
     </file>
