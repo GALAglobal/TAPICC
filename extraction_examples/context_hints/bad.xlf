@@ -2,6 +2,11 @@
     <file id="f1">
         <unit id="u1">
             <segment>
+                <source>a link</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <segment>
                 <source>A text with <pc id="1">hyperlink</pc>, <pc id="2">italics</pc> and some
                     <ph id="3"/></source>
                 <!-- No additional context is provided to translator, which could impact the
