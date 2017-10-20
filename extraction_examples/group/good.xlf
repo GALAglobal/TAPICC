@@ -46,6 +46,6 @@
         </group>
         <!-- Focus is on XLIFF core features. In this case it would be particularly suitable to use
             Format Style Module for additional context and to help render the preview. 
-            http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#fs-mod -->
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod -->
     </file>
 </xliff>

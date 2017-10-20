@@ -46,6 +46,6 @@
         </group>
         <!-- Using Format Style Module for additional context and to help render the preview would
             not be possible with flat XLIFF structure.
-            http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#fs-mod -->
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod -->
     </file>
 </xliff>
