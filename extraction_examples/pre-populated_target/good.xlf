@@ -3,7 +3,7 @@
     <file id="f1">
         <unit id="u1">
             <mtc:matches>
-                <mtc:match ref="1" type="mt" origin="Moses-generic">
+                <mtc:match ref="#1" type="mt" origin="Moses-generic">
                     <source>source text</source>
                     <target>zdrojový text</target>
                 </mtc:match>
