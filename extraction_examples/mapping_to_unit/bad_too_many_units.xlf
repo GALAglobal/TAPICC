@@ -38,7 +38,7 @@
         </unit>
         <!-- Splitting each list item does not allow to employ segment reordering mechanisms
             which are native capability of XLIFF2 
-            http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#segorder
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segorder
         -->
     </file>
 </xliff>
