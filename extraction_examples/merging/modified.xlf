@@ -21,11 +21,11 @@
                 and translatability of content.
                 Merger is advised to consider all children of unit, even though not all
                 of them have to have <target>:
-                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#d0e11072
+                http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e11072
             -->
             <!-- <pc></pc> was replaced by Modifier with <sc />, <ec />.
                 Agents MUST be able to handle any of the above two types of inline code representation.
-                http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#spanningcodeusage
+                http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#spanningcodeusage
             -->
         </unit>
     </file>
