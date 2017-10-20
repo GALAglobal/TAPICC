@@ -24,7 +24,7 @@
         <!-- Attribute "name" on unit and group is designed to hold  the original identifier of the resource.
             Attribute type is "string", which is far less restrictive than NMTOKEN. Value could be used for
             resource id based recycling.
-            http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#name
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name
         -->
     </file>
 </xliff>
