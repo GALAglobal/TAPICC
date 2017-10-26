@@ -1,8 +1,8 @@
-#Licenses
+# Licenses
 
 The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
 
-##Governance
+## Governance
 
 This GitHub public repository (https://github.com/GALAglobal/TAPICC) was created as a GALA Open Repository to support development of open source resources related to the Translation API Class and Cases Initiative (TAPICC) initiative.
 
@@ -12,7 +12,7 @@ All contributions made to this Open Repository are subject to open source licens
 2. Creative Commons Legal Code (CC-BY 2.0): https://creativecommons.org/licenses/by/2.0/legalcode
 
 
-##The 3-Clause BSD License
+## The 3-Clause BSD License
 Source:  https://opensource.org/licenses/BSD-3-Clause
 
 SPDX short identifier: BSD-3-Clause
@@ -33,7 +33,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-##Creative Commons Legal Code (CC-BY 2.0)
+## Creative Commons Legal Code (CC-BY 2.0)
 Source:  https://creativecommons.org/licenses/by/2.0/legalcode
 
 Attribution 2.0
