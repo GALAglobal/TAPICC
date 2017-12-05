@@ -5,7 +5,7 @@
         it could be "en-UK" or the generic "en". Same for target language: 
         is it sr-Latn-BA or sr-Cyrl-RS.
         https://tools.ietf.org/html/rfc6497
-        http://cldr.unicode.org/translation/default-content
+        http://www.unicode.org/cldr/charts/latest/supplemental/likely_subtags.html#sr
     -->
     <file id="f1">
         <unit id="u1">
