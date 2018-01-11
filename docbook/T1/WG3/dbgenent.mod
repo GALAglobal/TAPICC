@@ -25,7 +25,7 @@
 
 <!-- Entities for GALA TAPICC publishing.................................... -->
 
-<!ENTITY name "xliff-ExtractMerge-BP">
+<!ENTITY name "XLIFF-EM-BP">
 <!ENTITY pversion "N/A">
 <!-- TAPICC Deliverbale Version String // 1.0.1 i.e. sub dot releases expected -->
 <!ENTITY version "1.0">
@@ -41,16 +41,36 @@
 <!-- <!ENTITY stage "Stable Reviewed Draft"> -->
 <!-- <!ENTITY stage "Released Specification"> -->
 <!-- Uncomment one that applies -->
+<!ENTITY stg "wd">
+<!-- <!ENTITY stg "prd"> -->
+<!-- <!ENTITY stg "srd"> -->
+<!-- <!ENTITY stage "RS"> -->
+<!-- Uncomment one that applies -->
 <!ENTITY pstage "N/A">
 <!-- <!ENTITY stage "Working Draft"> -->
 <!-- <!ENTITY stage "Public Review Draft"> -->
 <!-- <!ENTITY stage "Stable Reviewed Draft"> -->
+<!-- Uncomment one that applies -->
+<!ENTITY pstg "N/A">
+<!-- <!ENTITY pstg "wd"> -->
+<!-- <!ENTITY pstg "prd"> -->
+<!-- <!ENTITY pstg "srd"> -->
+
 <!ENTITY substage "01" >
 <!ENTITY psubstage "N/A" >
 <!ENTITY verbousstage "&releaseinfo; &stage; &substage;">
-<!ENTITY this-loc "http://docs.oasis-open.org/xliff/xliff-core/v&version;/&stage;">
-<!ENTITY previous-loc "http://docs.oasis-open.org/xliff/xliff-core/v&version;/&pstage;">
-<!ENTITY latest-loc "http://docs.oasis-open.org/xliff/xliff-core/v&version;">
+
+<!ENTITY track "T1" >
+<!ENTITY wg "WG3" >
+
+<!ENTITY editorsdraft "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-ED">
+<!ENTITY this-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/&name;-V&version;-&stg;&substage;">
+<!ENTITY previous-loc "N/A">
+<!-- <!ENTITY previous-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/&name;-V&version;-&pstg;&psubstage;">
+-->
+<!ENTITY latest "N/A">
+<!-- <!ENTITY latest "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-LP">
+-->
 <!ENTITY pubdate "16 January &pubyear;">
 <!ENTITY pubyear "2018">
 
