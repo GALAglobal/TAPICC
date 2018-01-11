@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article [
+<!ENTITY % dbgenent SYSTEM "dbgenent.mod">
+%dbgenent;
+]>
 <article version="5.1" xml:lang="en-us" xmlns="http://docbook.org/ns/docbook"
   xmlns:xl="http://www.w3.org/1999/xlink">
   <info>
-    <title>XLIFF 2 Extraction and Merging Best Practice</title>
+    <title>XLIFF 2 Extraction and Merging Best Practice, Version &version;</title>
     <authorgroup>
+      
+<!-- Editors appear in alphabetical order unless there is a lead editor among a group of editors -->
+      <editor>
+        <personname>David Filip</personname>
+        <email>david.filip@adaptcentre.ie</email>
+        <affiliation>
+          <orgname>ADAPT Centre</orgname>
+        </affiliation>
+      </editor>
+      
       <editor>
         <personname>Ján Husarčík</personname>
         <email>jhusarcik@moravia.com</email>
@@ -12,13 +26,7 @@
         </affiliation>
       </editor>
 
-      <editor>
-        <personname>David Filip</personname>
-        <email>david.filip@adaptcentre.ie</email>
-        <affiliation>
-          <orgname>ADAPT Centre</orgname>
-        </affiliation>
-      </editor>
+<!-- WG Chairs should be given credit -->
       <othercredit role="chair">
         <personname>Rodolfo Maya</personname>
       </othercredit>
@@ -46,8 +54,8 @@
     <releaseinfo role="committee">TAPICC T1/WG3</releaseinfo>
     <pubdate>12/2017</pubdate>
     <copyright>
-      <year>2017</year>
-      <holder>GALA TAPICC. All rigths reserved.</holder>
+      <year>&pubyear;</year>
+      <holder>GALA TAPICC. All rights reserved.</holder>
     </copyright>
     <legalnotice role="additional">
       <title>Additional artifacts</title>
@@ -62,7 +70,7 @@
 
     <legalnotice role="related">
       <title>Related work</title>
-      <para>This note provides informative best practiec for XLIFF 2 Specifications:</para>
+      <para>This note provides informative best practice for XLIFF 2 Specifications:</para>
       <itemizedlist>
         <listitem>
           <para>XLIFF Version 2.1 [XLIFF-2.1]</para>
