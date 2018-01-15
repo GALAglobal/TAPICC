@@ -6,42 +6,48 @@
 <article version="5.1" xml:lang="en-us" xmlns="http://docbook.org/ns/docbook"
   xmlns:xl="http://www.w3.org/1999/xlink">
   <info>
-    <title>XLIFF 2 Extraction and Merging Best Practice, Version &version;</title>
+    <title>Title of Your Prose Deliverable in Title Case, Should End with: Best Practice, Version
+      &version;</title>
     <authorgroup>
       
 <!-- Editors appear in alphabetical order unless there is a lead editor among a group of editors -->
       <editor>
-        <personname>David Filip</personname>
-        <email>david.filip@adaptcentre.ie</email>
+        <personname>Editor1 Editor1</personname>
+        <email>editor1@example.org</email>
         <affiliation>
-          <orgname>ADAPT Centre</orgname>
+          <orgname>Editor1's employer</orgname>
         </affiliation>
       </editor>
       
       <editor>
-        <personname>Ján Husarčík</personname>
-        <email>jhusarcik@moravia.com</email>
+        <personname>Editor2 Editor2</personname>
+        <email>editor2@example.org</email>
         <affiliation>
-          <orgname>Moravia</orgname>
+          <orgname>Editor2's employer</orgname>
         </affiliation>
       </editor>
 
 <!-- WG Chairs should be given credit -->
       <othercredit role="chair">
-        <personname>Rodolfo M. Raya</personname>
+        <personname>Co-Chair1 Co-Chair1</personname>
       </othercredit>
       <othercredit role="chair">
-        <personname>Andreas Galambos</personname>
+        <personname>Co-Chair2 Co-Chair2</personname>
       </othercredit>
     </authorgroup>
 
+<!-- Define at least three content related keywords -->
     <keywordset>
+      <keyword>Content keyword or phrase 1</keyword>
+      <keyword>Content keyword or phrase 2</keyword>
+      <keyword>Content keyword or phrase 3</keyword>
+<!--  other liekely keywords-->      
       <keyword>XLIFF</keyword>
-      <keyword>Extraction</keyword>
-      <keyword>Merging</keyword>
+<!--  compulsory key phrase-->      
       <keyword>Best Practice</keyword>
     </keywordset>
 
+<!-- This block is defined in the transformations and uses entities from the related dbgent.mod -->
     <releaseinfo role="this-location-authoritative" />
     <releaseinfo role="this-location-pdf" />
 
@@ -51,12 +57,15 @@
     <releaseinfo role="latest-location-authoritative" />
     <releaseinfo role="latest-location-pdf" />
 
+<!-- Which TAPPIC Track / WG developed the deliverable in the format "TAPICC T#/WG#" --> 
     <releaseinfo role="committee">TAPICC T1/WG3</releaseinfo>
     <pubdate>&pubdate;</pubdate>
     <copyright>
       <year>&pubyear;</year>
       <holder>GALA TAPICC. All rights reserved.</holder>
     </copyright>
+    
+<!-- Specify relationship to aditional artifacts if any, for example schemas, example code, example files, test suites, reference implementations etc. -->    
     <legalnotice role="additional">
       <title>Additional artifacts</title>
       <para>This prose specification is one component of a Work Product that also includes:</para>
@@ -68,6 +77,7 @@
       </itemizedlist>
     </legalnotice>
 
+<!-- Specify to which other specifcations is this work product related, e.g. other TAPICC, OASIS or other SDO specifications.. Only published specifcations should be referenced in this section, possibly other parts of the same work product at a comparbale level of stability -->
     <legalnotice role="related">
       <title>Related work</title>
       <para>This note provides informative best practice for XLIFF 2 Specifications:</para>
@@ -106,25 +116,26 @@
       <para>Copyright © GALA TAPICC &pubyear;. All rights reserved.</para>
       <para>
         The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.</para>
-      
-      <para>The usage of all deliverables of this initiative - including this specification - is
+        
+        <para>The usage of all deliverables of this initiative - including this specification - is
         subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0
         License, the declared applicable licenses when the project was chartered. <itemizedlist>
           <listitem>
             <para>The 3-Clause BSD License (BSD-3 Clause): <link
-              xl:href="https://opensource.org/licenses/BSD-3-Clause"
-              >https://opensource.org/licenses/BSD-3-Clause</link></para>
+                xl:href="https://opensource.org/licenses/BSD-3-Clause"
+                >https://opensource.org/licenses/BSD-3-Clause</link></para>
           </listitem>
           <listitem>
             <para>Creative Commons Legal Code (CC-BY 2.0): <link
-              xl:href="https://creativecommons.org/licenses/by/2.0/legalcode"
-              >https://creativecommons.org/licenses/by/2.0/legalcode</link></para>
+                xl:href="https://creativecommons.org/licenses/by/2.0/legalcode"
+                >https://creativecommons.org/licenses/by/2.0/legalcode</link></para>
           </listitem>
         </itemizedlist></para>
     </legalnotice>
   </info>
 
-  <!-- Terms and concepts defined in this section need to be highlighted throughou the specification using the glossterm element -->
+
+<!-- Terms and concepts defined in this section need to be highlighted throughou the specification using the glossterm element -->
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
     <glossentry>
@@ -139,143 +150,20 @@
   </glossary>
   <section xml:id="Intro">
     <title>Introduction</title>
-
-    <para>This specification targets designers of XLIFF Extracting and Merging Tools for content owners. XLIFF Roundtrip designers of all kinds will benefit, no matter if they design their XLIFF Extractor/Merger for corporate or blog use. Extraction and merging behavior is out of the normative scope of OASIS XLIFF Specifications. Although those specifications do provide some guidance for Extractor and Merger Agents, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content. This is mostly because XLIFF is a native format agnostic Localization Interchange Format. This informative best practice specification gathers common problems that are prone to appear when Extracting XLIFF Documents from HTML, generic XML, or MarkDown. This specification shows why some Extraction approaches will cause issues during an XLIFF Roundtrip, issues often so severe that Merging back of target content will not be possible without costly postprocessing or could fail utterly. This best practice guidance provides better thought through alternatives and shows how to use many of advanced XLIFF features for lossless Localization roundtrip of HTML and XML based content. Most of the times there are no ultimate prescribed solutions, rather possible design goals are described and best methods how to achieve them proposed.</para>
-
+    <para>Introduction content.</para>
+    <section>
+      
+      <title>Nested Section of Introduction</title>
+      <para>Don't use more than one nested level in the Summary section.</para>
+    </section>
+    
+    
   </section>
   
 
   <section xml:id="Spec">
     <title>Specification</title>
-  
-  <section>
-    <title>Inline Codes</title>
-      <section>
-        <title>Representing spanning codes</title>
-        <para> •[spanning_as_ph]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
-          •Extractor could use knowledge of schema and only use does not use &lt;ph> for codes that
-          are declared as EMPTY. To further help the extraction process, following W3C
-          recommendation could be followed: „The empty-element tag <emphasis role="italic"
-            >SHOULD</emphasis> be used, and <emphasis role="italic">SHOULD</emphasis> only be used,
-          for elements which are declared EMPTY.“ (https://www.w3.org/TR/REC-xml/#sec-starttags),
-          e.g. even &lt;span> without content would use &lt;span>&lt;/span> as compared to &lt;br
-          />. •https://issues.oasis-open.org/browse/XLIFF-14
-          http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph</para>
-      </section>
-      <section>
-        <title>Outermost tag pairs</title>
-        <para> •[outermost_inline_excluded]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded
-          •Both functional and formatting inline codes provide additional context for translator and
-          could be linguistically significant. •If they are important enough to be in native format,
-          they should be present in extracted content. </para>
-      </section>
-      <section>
-        <title> •<emphasis role="bold">Incomplete extraction of inline codes</emphasis></title>
-        <para> •[CDATA] https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata
-          •[inline_codes_plain_text]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text
-          •http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112
-          •https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA •Not using native XLIFF representation
-          leaves inline codes unprotected and increases risk of roundtrip corrupting them. </para>
-      </section>
-      <section>
-        <title> •Using single inline element to represent multiple subsequent codes</title>
-        <para> •[multiple_codes_represented_as_single]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single
-          •Grouping several independent inline codes into single representation could prove
-          challenging with negative impact on •Translation quality •Fluency •Functionality
-          •Automated actions •Validation •Some codes needs to be removed, copied, added or
-          reordered. •If any of the above actions is to be prevented, it can be controlled using
-          editing hints with finer granularity. </para>
-      </section>
-  </section>
-  <section>
-    <title>Target Content</title>
-  
-    <section>
-      <title>Inserting unmodified source content into &lt;target></title>
-      <para />
-    </section>
-      <section>
-        <title> Inserting possible translation into &lt;target></title>
-        <para />
-      </section>
-      <section>
-        <title> State Machine</title>
-        <para />
-      </section>
-  </section>
-  <section>
-    <title>Editing and Context Hints</title>
-      <section>
-        <title>Non-deletable Inline Codes</title>
-        <para />
-      </section>
-      <section>
-        <title> Preserving Order of Codes</title>
-        <para />
-      </section>
-      <section>
-        <title> Controlling Segmentation Modification</title>
-        <para />
-      </section>
-      <section>
-        <title>Providing Context</title>
-        <para><glossterm>Context hints</glossterm></para>
-      </section>
-      <section>
-        <title>Considerations for Using Spanning Codes</title>
-        <para />
-      </section>
-  </section>
-  <section>
-    <title>XLIFF Structure</title>
-      <section>
-        <title>File Structure</title>
-        <para />
-      </section>
-      <section>
-        <title>Role of &lt;unit></title>
-        <para />
-      </section>
-  </section>
-  <section>
-    <title>Miscellaneous</title>
-      <section>
-        <title>Value of @</title>
-        <para />
-      </section>
-      <section>
-        <title>Whitespace Handling</title>
-        <para />
-      </section>
-      <section>
-        <title>Protecting Non-localizable Content</title>
-        <para />
-      </section>
-      <section>
-        <title>Merging Translated Content</title>
-        <para />
-      </section>
-      <section>
-        <title>Selecting Language Tags</title>
-        <para />
-      </section>
-      <section>
-        <title>Validation of Extracted Content</title>
-        <para />
-      </section>
-  </section>
-  <section>
-    <title>XLIFF Validations</title>
-  </section>
-  </section>
-  
-  <section>
-    <title>Summary</title>
- <!--   <para>You can use not only paragraphs, but also programlistings:</para>
+    <para>You can use not only paragraphs, but also programlistings:</para>
     <programlisting><![CDATA[<article xmlns="http://docbook.org/ns/docbook" …>
   <title>Sample article</title>
   <para>This is a really short article.</para>
@@ -295,14 +183,46 @@
     </example>
     <para>Lists can be created using <tag>itemizedlist</tag> or <tag>orderedlist</tag>
       elements:</para>
+    
     <section>
-      <title>Nested section</title>
-      <para>some text</para>
+      <title>Technical Specification Subsection Title</title>
+      <para>Specification content.</para>
       <section>
-        <title>Nested nested section</title>
-        <para>some text</para>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
       </section>
-    </section>-->
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+        <section>
+          <title>Technical Specification Nested Nested Subsection Title</title>
+          <para>Specification content.</para>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>Technical Specification Subsection Title</title>
+      <para>Specification content.</para>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+      </section>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+      </section>
+    </section>
+  </section>
+  
+  <section>
+    <title>Summary</title>
+    <para> Summary content.</para> 
+    
+    <section>
+       
+      <title>Nested Section of Summary</title>
+      <para>Don't use more than one nested level in the Summary section.</para>
+    </section>
   </section>
 
   <bibliography xml:id="references">
@@ -324,12 +244,12 @@
         xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
       /></bibliomisc>
     </bibliomixed>
-
+    
     <bibliomixed>
       <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file format)</title><date>November 2017</date>
-      <bibliomisc><link version="International Standard"
-        xl:href="https://www.iso.org/standard/71490.html"
-      /></bibliomisc>
+    <bibliomisc><link version="International Standard"
+      xl:href="https://www.iso.org/standard/71490.html"
+    /></bibliomisc>
     </bibliomixed>
 
   </bibliography>
