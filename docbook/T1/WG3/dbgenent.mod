@@ -25,6 +25,10 @@
 
 <!-- Entities for GALA TAPICC publishing.................................... -->
 
+<!ENTITY pubdate "16 January &pubyear;">
+<!ENTITY pubyear "2018">
+
+
 <!ENTITY name "XLIFF-EM-BP">
 <!ENTITY pversion "N/A">
 <!-- TAPICC Deliverbale Version String // 1.0.1 i.e. sub dot releases expected -->
@@ -71,10 +75,8 @@
 <!ENTITY latest "N/A">
 <!-- <!ENTITY latest "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-LP">
 -->
-<!ENTITY pubdate "16 January &pubyear;">
-<!ENTITY pubyear "2018">
 
-<!-- <!ENTITY releaseinfo "Normative Recommendation Track Work Product"> -->
+
 <!-- End of GALA TAPICC publishing entities -->
 
 <!-- End of DocBook additional general entities V4.5 ...................... -->
