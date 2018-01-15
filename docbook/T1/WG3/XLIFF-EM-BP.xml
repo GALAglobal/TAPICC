@@ -106,33 +106,148 @@
   </info>
 
 
-
+  <glossary>
+    <title>Terminology and Concepts</title>
+    <glossentry>
+      <glossterm>Context hints</glossterm>
+      <glossdef><para>XLIFF attributes on structural or inline elements providing additional contexts, such as
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
+              xmlns:xlink="http://www.w3.org/1999/xlink">disp</link></code> or <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
+              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code>.</para></glossdef>
+    </glossentry>
+  </glossary>
   <section>
     <title>Introduction</title>
 
     <para>Introductory section goes here…</para>
 
   </section>
-  <section>
-    <title>Terminology and Concepts</title>
-  </section>
+  
+
   <section>
     <title>Specification</title>
   
   <section>
     <title>Inline Codes</title>
+      <section>
+        <title>Representing spanning codes</title>
+        <para> •[spanning_as_ph]
+          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
+          •Extractor could use knowledge of schema and only use does not use &lt;ph> for codes that
+          are declared as EMPTY. To further help the extraction process, following W3C
+          recommendation could be followed: „The empty-element tag <emphasis role="italic"
+            >SHOULD</emphasis> be used, and <emphasis role="italic">SHOULD</emphasis> only be used,
+          for elements which are declared EMPTY.“ (https://www.w3.org/TR/REC-xml/#sec-starttags),
+          e.g. even &lt;span> without content would use &lt;span>&lt;/span> as compared to &lt;br
+          />. •https://issues.oasis-open.org/browse/XLIFF-14
+          http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph</para>
+      </section>
+      <section>
+        <title>Outermost tag pairs</title>
+        <para> •[outermost_inline_excluded]
+          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded
+          •Both functional and formatting inline codes provide additional context for translator and
+          could be linguistically significant. •If they are important enough to be in native format,
+          they should be present in extracted content. </para>
+      </section>
+      <section>
+        <title> •<emphasis role="bold">Incomplete extraction of inline codes</emphasis></title>
+        <para> •[CDATA] https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata
+          •[inline_codes_plain_text]
+          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text
+          •http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112
+          •https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA •Not using native XLIFF representation
+          leaves inline codes unprotected and increases risk of roundtrip corrupting them. </para>
+      </section>
+      <section>
+        <title> •Using single inline element to represent multiple subsequent codes</title>
+        <para> •[multiple_codes_represented_as_single]
+          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single
+          •Grouping several independent inline codes into single representation could prove
+          challenging with negative impact on •Translation quality •Fluency •Functionality
+          •Automated actions •Validation •Some codes needs to be removed, copied, added or
+          reordered. •If any of the above actions is to be prevented, it can be controlled using
+          editing hints with finer granularity. </para>
+      </section>
   </section>
   <section>
     <title>Target Content</title>
+  
+    <section>
+      <title>Inserting unmodified source content into &lt;target></title>
+      <para />
+    </section>
+      <section>
+        <title> Inserting possible translation into &lt;target></title>
+        <para />
+      </section>
+      <section>
+        <title> State Machine</title>
+        <para />
+      </section>
   </section>
   <section>
     <title>Editing and Context Hints</title>
+      <section>
+        <title>Non-deletable Inline Codes</title>
+        <para />
+      </section>
+      <section>
+        <title> Preserving Order of Codes</title>
+        <para />
+      </section>
+      <section>
+        <title> Controlling Segmentation Modification</title>
+        <para />
+      </section>
+      <section>
+        <title>Providing Context</title>
+        <para><glossterm>Context hints</glossterm></para>
+      </section>
+      <section>
+        <title>Considerations for Using Spanning Codes</title>
+        <para />
+      </section>
   </section>
   <section>
     <title>XLIFF Structure</title>
+      <section>
+        <title>File Structure</title>
+        <para />
+      </section>
+      <section>
+        <title>Role of &lt;unit></title>
+        <para />
+      </section>
   </section>
   <section>
     <title>Miscellaneous</title>
+      <section>
+        <title>Value of @</title>
+        <para />
+      </section>
+      <section>
+        <title>Whitespace Handling</title>
+        <para />
+      </section>
+      <section>
+        <title>Protecting Non-localizable Content</title>
+        <para />
+      </section>
+      <section>
+        <title>Merging Translated Content</title>
+        <para />
+      </section>
+      <section>
+        <title>Selecting Language Tags</title>
+        <para />
+      </section>
+      <section>
+        <title>Validation of Extracted Content</title>
+        <para />
+      </section>
   </section>
   <section>
     <title>XLIFF Validations</title>
