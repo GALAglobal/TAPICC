@@ -63,7 +63,7 @@
       <itemizedlist>
         <listitem>
           <para>Extraction and merging examples from
-            https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples</para>
+            &this-loc;/extraction_examples/readme.md</para>
         </listitem>
       </itemizedlist>
     </legalnotice>
@@ -145,10 +145,10 @@
       <glossdef>
         <para>XLIFF attributes on structural or inline elements providing additional contexts, such
           as <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
-              xmlns:xlink="http://www.w3.org/1999/xlink">disp</link></code> or <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
-              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code>.</para>
+              xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
+              >disp</link></code> or <code><link
+              xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
+              >equiv</link></code>.</para>
       </glossdef>
     </glossentry>
     <glossentry>
