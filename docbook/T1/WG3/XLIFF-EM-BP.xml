@@ -85,19 +85,21 @@
     </legalnotice>
 
     <abstract>
-      <para>This &releaseinfo; specification targets designers of XLIFF <firstterm></firstterm>Extracting and Merging Tools for content
-        owners. It gathers common problems that are prone to
-        appear when <firstterm>Extracting</firstterm> <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This specification
-        shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF Roundtrip</firstterm>. This best practice guidance provides better thought
-        through alternatives and shows how to use many of advanced XLIFF features for lossless
-        Localization roundtrip of HTML and XML based content.</para>
-      
+      <para>This &releaseinfo; specification targets designers of XLIFF <firstterm />Extracting and
+        Merging Tools for content owners. It gathers common problems that are prone to appear when
+          <firstterm>Extracting</firstterm>
+        <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This
+        specification shows why some <firstterm>Extraction</firstterm> approaches will cause issues
+        during an <firstterm>XLIFF Roundtrip</firstterm>. This best practice guidance provides
+        better thought through alternatives and shows how to use many of advanced XLIFF features for
+        lossless Localization roundtrip of HTML and XML based content.</para>
+
     </abstract>
     <legalnotice role="status">
       <title>Status</title>
-      <para>This &releaseinfo; was last revised by TAPICC &track;/&wg; or the TAPICC Steering Committee on the
-        above date. The level of approval is also listed above. Check the “Latest version” location
-        noted above for possible later revisions of this document.</para>
+      <para>This &releaseinfo; was last revised by TAPICC &track;/&wg; or the TAPICC Steering
+        Committee on the above date. The level of approval is also listed above. Check the “Latest
+        version” location noted above for possible later revisions of this document.</para>
       <para>Contributions to this deliverable or subsequent versions of this deliverable can be made
         via the <link xl:href="https://github.com/GALAglobal/TAPICC">GALA TAPICC GitHub
           Repository</link> subject to signing the <link
@@ -172,24 +174,27 @@
     <para>Extraction and merging behavior is out of the normative scope of OASIS XLIFF
       Specifications. Although those specifications do provide some guidance for Extractor and
       Merger Agents, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent
-native content. This is mostly because XLIFF is a native format agnostic Localization interchange Format.</para>
-    <para>This &releaseinfo; targets designers of XLIFF <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> Tools for content
-      owners. <firstterm>XLIFF Roundtrip</firstterm> designers of all kinds will benefit, no matter if they design their
-      <firstterm>XLIFF Extractor/Merger</firstterm> for corporate or blog use.</para>
-    <para><firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> behavior is out of the normative scope of OASIS XLIFF
-      Specifications. Although those specifications do provide some guidance for <firstterm>Extractor</firstterm> and
-      <firstterm>Merger Agents</firstterm>, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent
       native content. This is mostly because XLIFF is a native format agnostic Localization
-      Interchange Format.</para>
-    <para>This specification gathers common problems that are prone to
-      appear when Extracting XLIFF Documents from HTML, generic XML, or MarkDown. This specification
-      shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF Roundtrip</firstterm>, issues often
-      so severe that <firstterm>Merging</firstterm> back of target content will not be possible without costly
-      postprocessing or could fail utterly. This best practice guidance provides better thought
-      through alternatives and shows how to use many of advanced XLIFF features for lossless
-      Localization roundtrip of HTML and XML based content. Most of the times there are no ultimate
-      prescribed solutions, rather possible design goals are described and best methods how to
-      achieve them proposed.</para>
+      interchange Format.</para>
+    <para>This &releaseinfo; targets designers of XLIFF <firstterm>Extracting</firstterm> and
+        <firstterm>Merging</firstterm> Tools for content owners. <firstterm>XLIFF
+        Roundtrip</firstterm> designers of all kinds will benefit, no matter if they design their
+        <firstterm>XLIFF Extractor/Merger</firstterm> for corporate or blog use.</para>
+    <para><firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> behavior is out of
+      the normative scope of OASIS XLIFF Specifications. Although those specifications do provide
+      some guidance for <firstterm>Extractor</firstterm> and <firstterm>Merger Agents</firstterm>,
+      XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content.
+      This is mostly because XLIFF is a native format agnostic Localization Interchange
+      Format.</para>
+    <para>This specification gathers common problems that are prone to appear when Extracting XLIFF
+      Documents from HTML, generic XML, or MarkDown. This specification shows why some
+        <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF
+        Roundtrip</firstterm>, issues often so severe that <firstterm>Merging</firstterm> back of
+      target content will not be possible without costly postprocessing or could fail utterly. This
+      best practice guidance provides better thought through alternatives and shows how to use many
+      of advanced XLIFF features for lossless Localization roundtrip of HTML and XML based content.
+      Most of the times there are no ultimate prescribed solutions, rather possible design goals are
+      described and best methods how to achieve them proposed.</para>
 
   </section>
 
@@ -206,17 +211,25 @@ native content. This is mostly because XLIFF is a native format agnostic Localiz
         <para>Spanning codes in the original format are created by opening code, content and closing
           code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
             \b0</code>.</para>
-        <para>In XLIFF2 such code can be represented using <code>&lt;sc /></code>,
-            <code>&lt;ec/></code> pair universally, or by <code>&lt;pc>&lt;/pc></code> in case of
+        <para>In XLIFF2 such code can be represented using <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc /></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> pair universally,
+          or by <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;pc>&lt;/pc></link></code> in case of
           well formed spanning code.</para>
         <para>Ideally the original format is documented enough to instruct Extractor about role of
           each inline code. For example XML schema allows to declare elements using keyword EMPTY.
           This way all elements, which are not declared EMPTY, can be represented as described
           above. To further help the extraction process the following recommendation could be
-          implemented in original XML format: <citation><biblioref />For interoperability, the
-            empty-element tag SHOULD be used, and SHOULD only be used, for elements which are
-            declared EMPTY.</citation></para>
-        <para />
+          implemented in original XML format: <quote>For interoperability, the empty-element tag
+            SHOULD be used, and SHOULD only be used, for elements which are declared
+            EMPTY.</quote><citation>[XML]</citation></para>
+        <para>This concept is illustrated by <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><code>spanning_as_ph</code></link></para>
         <para>•[spanning_as_ph]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
           •Extractor could use knowledge of schema and only use does not use &lt;ph> for codes that
@@ -346,70 +359,48 @@ native content. This is mostly because XLIFF is a native format agnostic Localiz
   <section xml:id="Summary">
     <title>Summary</title>
     <para />
-    <!--   <para>You can use not only paragraphs, but also programlistings:</para>
-    <programlisting><![CDATA[<article xmlns="http://docbook.org/ns/docbook" …>
-  <title>Sample article</title>
-  <para>This is a really short article.</para>
-</article>]]></programlisting>
-    <para>DocBook offers plenty of elements for inline markup, for example <tag>code</tag> for
-      arbitrary code, e.g. <code>print 2+3;</code>.</para>
-    <para>You can give titles to your programlistings using <tag>example</tag>:</para>
-    <example>
-      <title>DocBook V4.5 document</title>
-      <programlisting><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE article PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
-                         'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'>
-<article lang="en">
-  <title>Sample article</title>
-  <para>This is a very short article.</para>
-</article>]]></programlisting>
-    </example>
-    <para>Lists can be created using <tag>itemizedlist</tag> or <tag>orderedlist</tag>
-      elements:</para>
-    <section>
-      <title>Nested section</title>
-      <para>some text</para>
-      <section>
-        <title>Nested nested section</title>
-        <para>some text</para>
-      </section>
-    </section>-->
   </section>
 
   <bibliography xml:id="references">
     <title>References</title>
     <bibliodiv>
       <title>Normative references</title>
-
-      <biblioentry>
-        <abbrev />
-        <title />
-        <copyright>
-          <year />
-          <holder />
-        </copyright>
-        <editor>
-          <personname>
-            <firstname />
-            <surname /></personname>
-        </editor>
-      </biblioentry>
+      <bibliomixed><abbrev>XML</abbrev>W3C: <title>Extensible Markup Language (XML)
+          1.0</title><date>26 November 2008</date><bibliomisc><link
+            xlink:href="https://www.w3.org/TR/xml/" xmlns:xlink="http://www.w3.org/1999/xlink"
+           /></bibliomisc></bibliomixed>
+      <bibliomixed>
+        <abbrev>XLIFF-2.1</abbrev>Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
+        Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>12 October 2017</date>
+        <bibliomisc><link version="Candidate OASIS Standard 01"
+            xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cos01/xliff-core-v2.1-cos01.html"
+             /><link version="latest"
+            xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
+           /></bibliomisc>
+      </bibliomixed>
+      <bibliomixed>
+        <abbrev>XLIFF-2.0</abbrev>Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+        Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
+        <bibliomisc><link version="OASIS Standard"
+            xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
+             /><link version="latest"
+            xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
+           /></bibliomisc>
+      </bibliomixed>
+      <bibliomixed>
+        <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+        Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file
+          format)</title><date>November 2017</date>
+        <bibliomisc><link version="International Standard"
+            xl:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
+      </bibliomixed>
     </bibliodiv>
     <bibliodiv>
       <title>Non-Normative References</title>
-      <biblioentry>
-        <abbrev />
-        <title />
-        <copyright>
-          <year />
-          <holder />
-        </copyright>
-        <editor>
-          <personname>
-            <firstname />
-            <surname /></personname>
-        </editor>
-      </biblioentry>
+      <bibliomixed><abbrev><!--XML--></abbrev><!--W3C: --><title><!--Extensible Markup Language (XML) 1.0--></title><date><!--26
+        November 2008--></date><bibliomisc><link
+            xlink:href="https://www.w3.org/TR/xml/" xmlns:xlink="http://www.w3.org/1999/xlink"
+           /></bibliomisc></bibliomixed>
     </bibliodiv>
   </bibliography>
 
