@@ -3,13 +3,13 @@
 <!ENTITY % dbgenent SYSTEM "dbgenent.mod">
 %dbgenent;
 ]>
-<article version="5.1" xml:lang="en-us" xmlns="http://docbook.org/ns/docbook"
+<article version="5.1" xml:lang="en-US" xmlns="http://docbook.org/ns/docbook"
   xmlns:xl="http://www.w3.org/1999/xlink">
   <info>
     <title>XLIFF 2 Extraction and Merging Best Practice, Version &version;</title>
     <authorgroup>
-      
-<!-- Editors appear in alphabetical order unless there is a lead editor among a group of editors -->
+
+      <!-- Editors appear in alphabetical order unless there is a lead editor among a group of editors -->
       <editor>
         <personname>David Filip</personname>
         <email>david.filip@adaptcentre.ie</email>
@@ -17,7 +17,7 @@
           <orgname>ADAPT Centre</orgname>
         </affiliation>
       </editor>
-      
+
       <editor>
         <personname>Ján Husarčík</personname>
         <email>jhusarcik@moravia.com</email>
@@ -26,7 +26,7 @@
         </affiliation>
       </editor>
 
-<!-- WG Chairs should be given credit -->
+      <!-- WG Chairs should be given credit -->
       <othercredit role="chair">
         <personname>Rodolfo M. Raya</personname>
       </othercredit>
@@ -89,70 +89,123 @@
     </abstract>
     <legalnotice role="status">
       <title>Status</title>
-      <para>This document was last revised by TAPICC T1/WG3 or the TAPICC Steering Committee on the above date. The level of approval
-        is also listed above. Check the “Latest version” location noted above for possible later
-        revisions of this document.</para>
-      <para>Contributions to this deliverable or subsequent versions of this deliverable can be made via the <link xl:href="https://github.com/GALAglobal/TAPICC">GALA TAPICC GitHub Repository</link> subject to signing the <link xl:href="https://www.gala-global.org/tapicc-legal-agreement">TAPICC Legal Agreement</link>.</para>
+      <para>This document was last revised by TAPICC T1/WG3 or the TAPICC Steering Committee on the
+        above date. The level of approval is also listed above. Check the “Latest version” location
+        noted above for possible later revisions of this document.</para>
+      <para>Contributions to this deliverable or subsequent versions of this deliverable can be made
+        via the <link xl:href="https://github.com/GALAglobal/TAPICC">GALA TAPICC GitHub
+          Repository</link> subject to signing the <link
+          xl:href="https://www.gala-global.org/tapicc-legal-agreement">TAPICC Legal
+        Agreement</link>.</para>
     </legalnotice>
     <legalnotice role="citation">
       <title>Citation format</title>
       <para>When referencing this specification the following citation format should be used:</para>
       <para><citation>XLIFF-EM-BP</citation></para>
-      <para><emphasis>XLIFF 2 Extraction and Merging Best Practice, Version &version;</emphasis> Edited by David Filip
-        and Ján Husarčík. &pubdate;. &stage; &substage;. &this-loc;.html. Latest version: &latest;.html.</para>
+      <para><emphasis>XLIFF 2 Extraction and Merging Best Practice, Version &version;</emphasis>
+        Edited by David Filip and Ján Husarčík. &pubdate;. &stage; &substage;. &this-loc;.html.
+        Latest version: &latest;.html.</para>
     </legalnotice>
     <legalnotice role="notices">
       <title>Notices</title>
       <para>Copyright © GALA TAPICC &pubyear;. All rights reserved.</para>
-      <para>
-        The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.</para>
-      
+      <para> The Translation API Class and Cases (TAPICC) initiative is a collaborative,
+        community-driven, open-source project to advance API standards in the localization industry.
+        The overall purpose of this project is to provide a metadata and API framework on which
+        users can base their integration, automation and interoperability efforts.</para>
+
       <para>The usage of all deliverables of this initiative - including this specification - is
         subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0
         License, the declared applicable licenses when the project was chartered. <itemizedlist>
           <listitem>
             <para>The 3-Clause BSD License (BSD-3 Clause): <link
-              xl:href="https://opensource.org/licenses/BSD-3-Clause"
-              >https://opensource.org/licenses/BSD-3-Clause</link></para>
+                xl:href="https://opensource.org/licenses/BSD-3-Clause"
+                >https://opensource.org/licenses/BSD-3-Clause</link></para>
           </listitem>
           <listitem>
             <para>Creative Commons Legal Code (CC-BY 2.0): <link
-              xl:href="https://creativecommons.org/licenses/by/2.0/legalcode"
-              >https://creativecommons.org/licenses/by/2.0/legalcode</link></para>
+                xl:href="https://creativecommons.org/licenses/by/2.0/legalcode"
+                >https://creativecommons.org/licenses/by/2.0/legalcode</link></para>
           </listitem>
         </itemizedlist></para>
     </legalnotice>
   </info>
 
-  <!-- Terms and concepts defined in this section need to be highlighted throughou the specification using the glossterm element -->
+  <!-- Terms and concepts defined in this section need to be highlighted thorough the specification using the glossterm element -->
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
     <glossentry>
       <glossterm>Context hints</glossterm>
-      <glossdef><para>XLIFF attributes on structural or inline elements providing additional contexts, such as
-              <code><link
+      <glossdef>
+        <para>XLIFF attributes on structural or inline elements providing additional contexts, such
+          as <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               xmlns:xlink="http://www.w3.org/1999/xlink">disp</link></code> or <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
-              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code>.</para></glossdef>
+              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code>.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm>Inline codes</glossterm>
+      <glossdef>
+        <para />
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm />
+      <glossdef>
+        <para />
+      </glossdef>
     </glossentry>
   </glossary>
   <section xml:id="Intro">
     <title>Introduction</title>
 
-    <para>This specification targets designers of XLIFF Extracting and Merging Tools for content owners. XLIFF Roundtrip designers of all kinds will benefit, no matter if they design their XLIFF Extractor/Merger for corporate or blog use. Extraction and merging behavior is out of the normative scope of OASIS XLIFF Specifications. Although those specifications do provide some guidance for Extractor and Merger Agents, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content. This is mostly because XLIFF is a native format agnostic Localization Interchange Format. This informative best practice specification gathers common problems that are prone to appear when Extracting XLIFF Documents from HTML, generic XML, or MarkDown. This specification shows why some Extraction approaches will cause issues during an XLIFF Roundtrip, issues often so severe that Merging back of target content will not be possible without costly postprocessing or could fail utterly. This best practice guidance provides better thought through alternatives and shows how to use many of advanced XLIFF features for lossless Localization roundtrip of HTML and XML based content. Most of the times there are no ultimate prescribed solutions, rather possible design goals are described and best methods how to achieve them proposed.</para>
+    <para>This specification targets designers of XLIFF Extracting and Merging Tools for content
+      owners. XLIFF Roundtrip designers of all kinds will benefit, no matter if they design their
+      XLIFF Extractor/Merger for corporate or blog use.</para>
+    <para>Extraction and merging behavior is out of the normative scope of OASIS XLIFF
+      Specifications. Although those specifications do provide some guidance for Extractor and
+      Merger Agents, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent
+      native content. This is mostly because XLIFF is a native format agnostic Localization
+      Interchange Format.</para>
+    <para>This informative best practice specification gathers common problems that are prone to
+      appear when Extracting XLIFF Documents from HTML, generic XML, or MarkDown. This specification
+      shows why some Extraction approaches will cause issues during an XLIFF Roundtrip, issues often
+      so severe that Merging back of target content will not be possible without costly
+      postprocessing or could fail utterly. This best practice guidance provides better thought
+      through alternatives and shows how to use many of advanced XLIFF features for lossless
+      Localization roundtrip of HTML and XML based content. Most of the times there are no ultimate
+      prescribed solutions, rather possible design goals are described and best methods how to
+      achieve them proposed.</para>
 
   </section>
-  
+
 
   <section xml:id="Spec">
     <title>Specification</title>
-  
-  <section>
-    <title>Inline Codes</title>
+    <para />
+
+    <section>
+      <title>Inline Codes</title>
+      <para />
       <section>
-        <title>Representing spanning codes</title>
-        <para> •[spanning_as_ph]
+        <title>Representing Spanning Codes</title>
+        <para>Spanning codes in the original format are created by opening marker, content and
+          closing marker. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b
+            text \b0</code>.</para>
+        <para>In XLIFF2 such code can be represented using <code>&lt;sc /></code>,
+            <code>&lt;ec/></code> pair universally, or by  <code>&lt;pc>&lt;/pc></code> in case of
+          well formed spanning code.</para>
+        <para>Ideally the original format is documented enough to instruct Extractor about role of
+          each inline marker. For example XML schema allows to declare elements using keyword EMPTY.
+          This way all elements, which are not declared EMPTY, can be represented as described
+          above. To further help the extraction process the following recommendation could be
+          implemented in original XML format: <citation><biblioref />For interoperability, the empty-element tag
+            SHOULD be used, and SHOULD only be used, for elements which are declared
+            EMPTY.</citation></para>
+        <para />
+        <para>•[spanning_as_ph]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
           •Extractor could use knowledge of schema and only use does not use &lt;ph> for codes that
           are declared as EMPTY. To further help the extraction process, following W3C
@@ -164,7 +217,7 @@
           http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph</para>
       </section>
       <section>
-        <title>Outermost tag pairs</title>
+        <title>Outermost Tag Pairs</title>
         <para> •[outermost_inline_excluded]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded
           •Both functional and formatting inline codes provide additional context for translator and
@@ -172,7 +225,7 @@
           they should be present in extracted content. </para>
       </section>
       <section>
-        <title> •<emphasis role="bold">Incomplete extraction of inline codes</emphasis></title>
+        <title> Incomplete Extraction of Inline Codes</title>
         <para> •[CDATA] https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata
           •[inline_codes_plain_text]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text
@@ -181,7 +234,7 @@
           leaves inline codes unprotected and increases risk of roundtrip corrupting them. </para>
       </section>
       <section>
-        <title> •Using single inline element to represent multiple subsequent codes</title>
+        <title> Representing Multiple Subsequent Codes</title>
         <para> •[multiple_codes_represented_as_single]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single
           •Grouping several independent inline codes into single representation could prove
@@ -190,25 +243,27 @@
           reordered. •If any of the above actions is to be prevented, it can be controlled using
           editing hints with finer granularity. </para>
       </section>
-  </section>
-  <section>
-    <title>Target Content</title>
-  
-    <section>
-      <title>Inserting unmodified source content into &lt;target></title>
-      <para />
     </section>
+    <section>
+      <title>Target Content in Extracted XLIFF</title>
+      <para />
+
       <section>
-        <title> Inserting possible translation into &lt;target></title>
+        <title>Inserting unmodified source content into <code>&lt;target></code></title>
+        <para />
+      </section>
+      <section>
+        <title> Inserting possible translation into <code>&lt;target></code></title>
         <para />
       </section>
       <section>
         <title> State Machine</title>
         <para />
       </section>
-  </section>
-  <section>
-    <title>Editing and Context Hints</title>
+    </section>
+    <section>
+      <title>Editing and Context Hints</title>
+      <para />
       <section>
         <title>Non-deletable Inline Codes</title>
         <para />
@@ -218,7 +273,7 @@
         <para />
       </section>
       <section>
-        <title> Controlling Segmentation Modification</title>
+        <title> Controlling Segmentation</title>
         <para />
       </section>
       <section>
@@ -229,9 +284,10 @@
         <title>Considerations for Using Spanning Codes</title>
         <para />
       </section>
-  </section>
-  <section>
-    <title>XLIFF Structure</title>
+    </section>
+    <section>
+      <title>XLIFF Structure</title>
+      <para />
       <section>
         <title>File Structure</title>
         <para />
@@ -240,11 +296,12 @@
         <title>Role of &lt;unit></title>
         <para />
       </section>
-  </section>
-  <section>
-    <title>Miscellaneous</title>
+    </section>
+    <section>
+      <title>Miscellaneous</title>
+      <para />
       <section>
-        <title>Value of @</title>
+        <title>Value of attribute <code>id</code></title>
         <para />
       </section>
       <section>
@@ -267,15 +324,17 @@
         <title>Validation of Extracted Content</title>
         <para />
       </section>
+    </section>
+    <section>
+      <title>XLIFF Validations</title>
+      <para />
+    </section>
   </section>
-  <section>
-    <title>XLIFF Validations</title>
-  </section>
-  </section>
-  
-  <section>
+
+  <section xml:id="Summary">
     <title>Summary</title>
- <!--   <para>You can use not only paragraphs, but also programlistings:</para>
+    <para />
+    <!--   <para>You can use not only paragraphs, but also programlistings:</para>
     <programlisting><![CDATA[<article xmlns="http://docbook.org/ns/docbook" …>
   <title>Sample article</title>
   <para>This is a really short article.</para>
@@ -317,20 +376,25 @@
          /></bibliomisc>
     </bibliomixed>
     <bibliomixed>
-      <abbrev>XLIFF-2.0</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
+      <abbrev>XLIFF-2.0</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+      Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
       <bibliomisc><link version="OASIS Standard"
-        xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
-      /><link version="latest"
-        xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
-      /></bibliomisc>
+          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
+           /><link version="latest"
+          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
+         /></bibliomisc>
     </bibliomixed>
 
     <bibliomixed>
-      <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file format)</title><date>November 2017</date>
+      <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+      Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file
+        format)</title><date>November 2017</date>
       <bibliomisc><link version="International Standard"
-        xl:href="https://www.iso.org/standard/71490.html"
-      /></bibliomisc>
+          xl:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
     </bibliomixed>
+    <bibliomixed><abbrev>XML</abbrev>W3C:<title>Extensible Markup Language (XML) 1.0</title><date>26
+        November 2008</date><bibliomisc><link xlink:href="https://www.w3.org/TR/xml/"
+          xmlns:xlink="http://www.w3.org/1999/xlink" /></bibliomisc></bibliomixed>
 
   </bibliography>
 
