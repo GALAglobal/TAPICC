@@ -203,7 +203,7 @@ native content. This is mostly because XLIFF is a native format agnostic Localiz
       <para />
       <section>
         <title>Representing Spanning Codes</title>
-        <para>Spanning codes in the original format are created by opening code, content and closing
+        <para>Spanning codes in the original format are created by oxpening code, content and closing
           code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
             \b0</code>.</para>
         <para>In XLIFF2 such code can be represented using <code>&lt;sc /></code>,
@@ -346,34 +346,6 @@ native content. This is mostly because XLIFF is a native format agnostic Localiz
   <section xml:id="Summary">
     <title>Summary</title>
     <para />
-    <!--   <para>You can use not only paragraphs, but also programlistings:</para>
-    <programlisting><![CDATA[<article xmlns="http://docbook.org/ns/docbook" …>
-  <title>Sample article</title>
-  <para>This is a really short article.</para>
-</article>]]></programlisting>
-    <para>DocBook offers plenty of elements for inline markup, for example <tag>code</tag> for
-      arbitrary code, e.g. <code>print 2+3;</code>.</para>
-    <para>You can give titles to your programlistings using <tag>example</tag>:</para>
-    <example>
-      <title>DocBook V4.5 document</title>
-      <programlisting><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE article PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
-                         'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'>
-<article lang="en">
-  <title>Sample article</title>
-  <para>This is a very short article.</para>
-</article>]]></programlisting>
-    </example>
-    <para>Lists can be created using <tag>itemizedlist</tag> or <tag>orderedlist</tag>
-      elements:</para>
-    <section>
-      <title>Nested section</title>
-      <para>some text</para>
-      <section>
-        <title>Nested nested section</title>
-        <para>some text</para>
-      </section>
-    </section>-->
   </section>
 
   <bibliography xml:id="references">
