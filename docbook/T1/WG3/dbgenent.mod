@@ -28,6 +28,8 @@
 <!ENTITY pubdate "16 January &pubyear;">
 <!ENTITY pubyear "2018">
 
+<!ENTITY track "T1" >
+<!ENTITY wg "WG3" >
 
 <!ENTITY name "XLIFF-EM-BP">
 <!ENTITY pversion "N/A">
@@ -64,8 +66,6 @@
 <!ENTITY psubstage "N/A" >
 <!ENTITY verbousstage "&releaseinfo; &stage; &substage;">
 
-<!ENTITY track "T1" >
-<!ENTITY wg "WG3" >
 
 <!ENTITY editorsdraft "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-ED">
 <!ENTITY this-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/&name;-V&version;-&stg;&substage;">
