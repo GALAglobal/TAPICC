@@ -85,11 +85,17 @@
     </legalnotice>
 
     <abstract>
-      <para>First paragraph of your abstract.</para>
+      <para>This &releaseinfo; specification targets designers of XLIFF <firstterm></firstterm>Extracting and Merging Tools for content
+        owners. It gathers common problems that are prone to
+        appear when <firstterm>Extracting</firstterm> <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This specification
+        shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF Roundtrip</firstterm>. This best practice guidance provides better thought
+        through alternatives and shows how to use many of advanced XLIFF features for lossless
+        Localization roundtrip of HTML and XML based content.</para>
+      
     </abstract>
     <legalnotice role="status">
       <title>Status</title>
-      <para>This document was last revised by TAPICC T1/WG3 or the TAPICC Steering Committee on the
+      <para>This &releaseinfo; was last revised by TAPICC &track;/&wg; or the TAPICC Steering Committee on the
         above date. The level of approval is also listed above. Check the “Latest version” location
         noted above for possible later revisions of this document.</para>
       <para>Contributions to this deliverable or subsequent versions of this deliverable can be made
@@ -131,7 +137,7 @@
     </legalnotice>
   </info>
 
-  <!-- Terms and concepts defined in this section need to be highlighted thorough the specification using the glossterm element -->
+  <!-- Terms and concepts defined in this section need to be highlighted thorough the specification using the firstterm element -->
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
     <glossentry>
@@ -161,18 +167,18 @@
   <section xml:id="Intro">
     <title>Introduction</title>
 
-    <para>This specification targets designers of XLIFF Extracting and Merging Tools for content
-      owners. XLIFF Roundtrip designers of all kinds will benefit, no matter if they design their
-      XLIFF Extractor/Merger for corporate or blog use.</para>
-    <para>Extraction and merging behavior is out of the normative scope of OASIS XLIFF
-      Specifications. Although those specifications do provide some guidance for Extractor and
-      Merger Agents, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent
+    <para>This &releaseinfo; targets designers of XLIFF <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> Tools for content
+      owners. <firstterm>XLIFF Roundtrip</firstterm> designers of all kinds will benefit, no matter if they design their
+      <firstterm>XLIFF Extractor/Merger</firstterm> for corporate or blog use.</para>
+    <para><firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> behavior is out of the normative scope of OASIS XLIFF
+      Specifications. Although those specifications do provide some guidance for <firstterm>Extractor</firstterm> and
+      <firstterm>Merger Agents</firstterm>, XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent
       native content. This is mostly because XLIFF is a native format agnostic Localization
       Interchange Format.</para>
-    <para>This informative best practice specification gathers common problems that are prone to
+    <para>This specification gathers common problems that are prone to
       appear when Extracting XLIFF Documents from HTML, generic XML, or MarkDown. This specification
-      shows why some Extraction approaches will cause issues during an XLIFF Roundtrip, issues often
-      so severe that Merging back of target content will not be possible without costly
+      shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF Roundtrip</firstterm>, issues often
+      so severe that <firstterm>Merging</firstterm> back of target content will not be possible without costly
       postprocessing or could fail utterly. This best practice guidance provides better thought
       through alternatives and shows how to use many of advanced XLIFF features for lossless
       Localization roundtrip of HTML and XML based content. Most of the times there are no ultimate

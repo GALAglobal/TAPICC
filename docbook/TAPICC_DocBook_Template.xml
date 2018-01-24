@@ -77,7 +77,7 @@
       </itemizedlist>
     </legalnotice>
 
-<!-- Specify to which other specifcations is this work product related, e.g. other TAPICC, OASIS or other SDO specifications.. Only published specifcations should be referenced in this section, possibly other parts of the same work product at a comparbale level of stability -->
+<!-- Specify to which other specifcations is this work product related, e.g. other TAPICC, OASIS or other SDO specifications.. Only published specifcations should be referenced in this section, possibly other parts of the same work product at a comparable level of stability -->
     <legalnotice role="related">
       <title>Related work</title>
       <para>This note provides informative best practice for XLIFF 2 Specifications:</para>
@@ -95,13 +95,13 @@
     </legalnotice>
 
     <abstract>
-      <para>First paragraph of your abstract.</para>
+      <para>First paragraph of your abstract should start with: This &releaseinfo; specification... </para>
     </abstract>
     <legalnotice role="status">
       <title>Status</title>
-      <para>This document was last revised by TAPICC T1/WG3 or the TAPICC Steering Committee on the above date. The level of approval
-        is also listed above. Check the “Latest version” location noted above for possible later
-        revisions of this document.</para>
+      <para>This &releaseinfo; was last revised by TAPICC &track;/&wg; or the TAPICC Steering Committee on the
+        above date. The level of approval is also listed above. Check the “Latest version” location
+        noted above for possible later revisions of this document.</para>
       <para>Contributions to this deliverable or subsequent versions of this deliverable can be made via the <link xl:href="https://github.com/GALAglobal/TAPICC">GALA TAPICC GitHub Repository</link> subject to signing the <link xl:href="https://www.gala-global.org/tapicc-legal-agreement">TAPICC Legal Agreement</link>.</para>
     </legalnotice>
     <legalnotice role="citation">
@@ -135,17 +135,15 @@
   </info>
 
 
-<!-- Terms and concepts defined in this section need to be highlighted throughou the specification using the glossterm element -->
+<!-- Terms and concepts defined in this section need to be highlighted throughou the specification using the firstterm element, please note that glossterm is reserved for normative keywords -->
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
     <glossentry>
-      <glossterm>Context hints</glossterm>
-      <glossdef><para>XLIFF attributes on structural or inline elements providing additional contexts, such as
-              <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
-              xmlns:xlink="http://www.w3.org/1999/xlink">disp</link></code> or <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
-              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code>.</para></glossdef>
+      <glossterm>The term to be defined</glossterm>
+      <glossdef><para>
+      Definition of the term preferably with authoritative links or bibliographical references.
+        </para>
+      </glossdef>
     </glossentry>
   </glossary>
   <section xml:id="Intro">
@@ -154,7 +152,7 @@
     <section>
       
       <title>Nested Section of Introduction</title>
-      <para>Don't use more than one nested level in the Summary section.</para>
+      <para>Don't use more than one nested level in the Intro section.</para>
     </section>
     
     

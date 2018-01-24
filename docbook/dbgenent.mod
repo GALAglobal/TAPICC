@@ -28,8 +28,13 @@
 <!ENTITY pubdate "16 February &pubyear;">
 <!ENTITY pubyear "2018">
 
-<!-- Get you entity name from TAPICC SC -->
-<!ENTITY name "XLIFF-EM-BP">
+<!-- Specify TAPICC Track "T1", "T2", "T3", or "T4" and WG#  -->
+<!ENTITY track "Enter T# in dbgenent.mod" >
+<!ENTITY wg "Enter WG# in dbgenent.mod" >
+
+
+<!-- Get your entity name from TAPICC SC -->
+<!ENTITY name "official short name in prescribed format obtained from the SC">
 <!ENTITY pversion "N/A">
 <!-- TAPICC Deliverbale Version String // 1.0.1 i.e. sub dot releases expected -->
 <!ENTITY version "1.0">
@@ -64,9 +69,6 @@
 <!ENTITY psubstage "N/A" >
 <!ENTITY verbousstage "&releaseinfo; &stage; &substage;">
 
-<!-- Specify TAPICC Track "T1", "T2", "T3", or "T4" and WG#  -->
-<!ENTITY track "T1" >
-<!ENTITY wg "WG3" >
 
 <!ENTITY editorsdraft "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-ED">
 <!ENTITY this-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/&name;-V&version;-&stg;&substage;">
