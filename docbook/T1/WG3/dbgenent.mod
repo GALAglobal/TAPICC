@@ -76,6 +76,18 @@
 <!-- <!ENTITY latest "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-LP">
 -->
 
+<!-- Entities for Artefact publication -->
+
+<!ENTITY EDArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/">
+<!ENTITY this-locArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/">
+<!ENTITY previous-locArts "N/A">
+<!-- <!ENTITY previous-locArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/">
+-->
+<!ENTITY latestArts "N/A">
+<!-- <!ENTITY latestArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/">
+-->
+
+
 
 <!-- End of GALA TAPICC publishing entities -->
 

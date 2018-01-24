@@ -62,8 +62,9 @@
       <para>This prose specification is one component of a Work Product that also includes:</para>
       <itemizedlist>
         <listitem>
-          <para>Extraction and merging examples from
-            &this-loc;/extraction_examples/readme.md</para>
+          <para>Extraction and merging examples from <link xl:href="&this-locArts;extraction_examples/">&this-locArts;extraction_examples/</link>
+            </para>
+          <para>An unstable editorial version of the examples might exist at <link xl:href="&EDArts;extraction_examples/">&EDArts;extraction_examples/</link></para> 
         </listitem>
       </itemizedlist>
     </legalnotice>
