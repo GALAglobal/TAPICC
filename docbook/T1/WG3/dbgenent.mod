@@ -25,7 +25,7 @@
 
 <!-- Entities for GALA TAPICC publishing.................................... -->
 
-<!ENTITY pubdate "16 January &pubyear;">
+<!ENTITY pubdate "24 January &pubyear;">
 <!ENTITY pubyear "2018">
 
 <!ENTITY track "T1" >
