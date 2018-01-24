@@ -1,0 +1,35 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US">
+    <file id="f1">
+        <group id="g1">
+        <unit id="u1">
+            <segment>
+                <source><pc id="1">bold</pc> and *italic*</source>
+            </segment>
+        </unit>
+        </group>
+        <group id="g2">
+            <unit id="u2" canResegment="no">
+                <segment>
+                    <source>valid</source>
+                </segment>
+                <segment>
+                    <source>table</source>
+                </segment>
+                <segment>
+                    <source>header</source>
+                </segment>
+            </unit>
+            <unit id="u3" canResegment="no">
+                <segment>
+                    <source>|invalid|row|</source>
+                </segment>
+            </unit>
+        </group>
+        <!-- It's a good practice to check whether extracted text
+            does not contain reserved characters. If that happens,
+            extraction should gracefully fail and provide details
+            for investigation of issue and adjustment of extraction
+            rules
+        -->
+    </file>
+</xliff>

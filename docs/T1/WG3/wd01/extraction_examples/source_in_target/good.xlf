@@ -1,0 +1,17 @@
+<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>source text</source>
+                <!-- Only <source> is defined, which is valid for default state.
+                    -->
+                <!-- Omission of <target> allows to leave out also the trgLang.
+                    Extractor thus needs to create only single file and leave creation
+                    of language variants (and knowledge of the languages)to other 
+                    agents in the round-trip.
+                -->
+                <!-- Omission of trgLang can prevent conflict with business metadata -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

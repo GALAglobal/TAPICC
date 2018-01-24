@@ -1,0 +1,26 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <!-- not segmented for simplicity -->
+                <source>Sentence 1. Abbr. in Sentence 2.</source>
+            </segment>
+            <segment>
+                <source>A</source>
+            </segment>
+            <segment>
+                <source>B</source>
+            </segment>
+            <segment>
+                <source>C</source>
+            </segment>
+            <!-- whole document in single unit does not allow to properly scope
+                various metadata and can cause issues if segmentation changes
+                during the round-trip, for example the list could be re-segmented
+                to <source>A B C</source> without breaking any constraints or PRs,
+                unless canResegment is set to "no", which however should be set on 
+                <segment> rather than <unit> or higher structural element.
+            -->
+        </unit>
+    </file>
+</xliff>

@@ -1,0 +1,30 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" srcLang="en-US" >
+    <file id="f1">
+        <unit id="u1" name="OK_button">
+            <segment>
+                <source>OK</source>
+            </segment>
+        </unit>
+        <unit id="u2" name="Cancel_button">
+            <segment>
+                <source>Cancel</source>
+            </segment>
+        </unit>
+        <unit id="u3" name="0AD7C1F1-CF51-47FC-A560-74B999AC4811">
+            <segment>
+                <source>Complex dialog. Multiple sentences. Maybe a question?</source>
+            </segment>
+        </unit>
+        <unit id="u4" name="?">
+            <segment>
+                <source>Help</source>
+            </segment>
+            <!-- Value of ID from source JSON is not a valid NMTOKEN -->
+        </unit>
+        <!-- Attribute "name" on unit and group is designed to hold  the original identifier of the resource.
+            Attribute type is "string", which is far less restrictive than NMTOKEN. Value could be used for
+            resource id based recycling.
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name
+        -->
+    </file>
+</xliff>

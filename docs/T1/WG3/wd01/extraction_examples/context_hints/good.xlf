@@ -1,0 +1,29 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>a link</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <segment>
+                <!-- newlines added for readability -->
+                <source>A text with 
+                    <sc id="1"
+                        disp="&lt;a>" 
+                        equiv="[www.example.com]"
+                        type="link" subFlows="u1" />
+                            hyperlink
+                    <ec disp="&lt;/a>" startRef="1"/>, 
+                    <sc id="2"
+                        disp="&lt;i>" 
+                        type="fmt" subType="xlf:i" />
+                            italics
+                    <ec disp="&lt;/i>" startRef="2"/>
+                    and some
+                    <ph id="3" disp="{placeholder}" equiv="[user name]" type="ui" subType="xlf:var"/></source>
+                <!-- plethora of context hints helps translator to make accurate judgement -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

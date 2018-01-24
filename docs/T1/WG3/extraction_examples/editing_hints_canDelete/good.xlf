@@ -1,0 +1,14 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>irrelevant <pc canCopy="no" canDelete="yes" id="1">bold</pc> text and
+                    important <pc canCopy="no" canDelete="no" id="2">hyperlink</pc>, also a critical
+                        <ph canCopy="no" canDelete="no" id="3"/></source>
+                <target>nepodstatný tučný text a dôležity <pc canCopy="no" canDelete="no" id="2"
+                        >hyperlink</pc>, tiež <ph canCopy="no" canDelete="no" id="3"/></target>
+                <!-- canDelete is "yes" by default, thus can be committed. for pc id=1 included for clarity -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

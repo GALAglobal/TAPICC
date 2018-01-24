@@ -1,0 +1,37 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" >
+    <!-- xml:space behavior is set to default, when not define (with exception of originalData) -->
+    <file id="f1">
+        <unit id="u1">
+            <segment id="1">
+                <source>A 
+        
+        
+        paragraph               						       with unsignificant
+    
+    random 			 whitespaces</source>
+            </segment>
+            <!-- White-spaces are generally insignificant in text nodes of source html/xml documents used in CMSes
+                and have negative impact on TM leveraging (recycling).
+                Extractor cannot rely on Modifier's capability to normalize whitespace.
+                https://www.w3.org/TR/2004/REC-xml11-20040204/#sec-white-space
+                https://www.w3.org/TR/2000/REC-xml-20001006#sec-common-syn
+            -->
+            <segment id="2">
+                <source>A paragraph with unsignificant random whitespaces</source>
+            </segment>
+            <!-- Semantically identical version of previous sentence without redundant whitespace.
+                Would be recycled as repetition in CAT tool if segment 1 is normalized too. 
+            -->
+        </unit>
+        <unit id="2">
+            <segment>
+                <source>Script 
+            sample 
+        where 
+            spaces 
+        matter</source>
+            </segment>
+            <!-- significant whitespaces from <pre> node could be normalized, when not protected -->
+        </unit>
+    </file>
+</xliff>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <link>
+        <title>this is linktext</title>
+        <uri>http://example.com</uri>
+    </link>
+    <!-- <title> and <uri> are children of <link> with specified order -->
+</root>

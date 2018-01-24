@@ -1,0 +1,51 @@
+<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+    <file id="f1">
+        <group id="g1" name="main">
+            <!-- This group corresponds to div in the source doc. 
+                Units map to paragraphs. -->
+            <unit id="u1">
+                <segment>
+                    <source>First paragraph</source>
+                </segment>
+            </unit>
+            <unit id="u2">
+                <segment>
+                    <source>Second paragraph</source>
+                </segment>
+            </unit>
+        </group>
+        <group id="g2" name="table1">
+            <!-- Group corresponds to whole table -->
+            <group id="g2_1">
+                <!-- Nested group corresponds to table header.
+                    Value of @id is arbitrary NMTOKEN and depends on Extractor. 
+                    Units are table cells. Suitable approach if cells need additional
+                    segmentation
+                -->
+                <unit id="u4">
+                    <segment>
+                        <source>Firstname</source>
+                    </segment>
+                </unit>
+                <unit id="u5">
+                    <segment>
+                        <source>Lastname</source>
+                    </segment>
+                </unit>
+                <unit id="u6">
+                    <segment>
+                        <source>Age</source>
+                    </segment>
+                </unit>
+            </group>
+            <!-- Each additional table row would create new group -->
+            <!-- Comparable approach would be to use <unit> for table row 
+                with canResegment="no", where each segment would represent
+                a cell. This approach is suitable for short cell text.
+            -->
+        </group>
+        <!-- Focus is on XLIFF core features. In this case it would be particularly suitable to use
+            Format Style Module for additional context and to help render the preview. 
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod -->
+    </file>
+</xliff>

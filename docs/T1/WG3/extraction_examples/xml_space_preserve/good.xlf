@@ -1,0 +1,26 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" xml:space="preserve">
+    <!-- if not defined, xml:space value is set to "default" -->
+    <file id="f1">
+        <unit id="u1">
+            <segment id="1">
+                <source>A paragraph with unsignificant random whitespaces</source>
+            </segment>
+            <!-- content normalized by Extractor -->
+            <segment id="2">
+                <source>A paragraph with unsignificant random whitespaces</source>
+            </segment>
+            <!-- Second segment will be recycled as repetition -->
+        </unit>
+        <unit id="2">
+            <!-- whitespaces will be preserved as specified on root-->
+            <segment>
+                <source>Script 
+            sample 
+        where 
+            spaces 
+        matter</source>
+            </segment>
+        </unit>
+        <!-- Extraction based on guidelines from http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#Preserve_Space -->
+    </file>
+</xliff>

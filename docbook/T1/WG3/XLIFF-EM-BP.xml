@@ -212,13 +212,13 @@
           code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
             \b0</code>.</para>
         <para>In XLIFF2 such code can be represented using <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc /></link></code>/<code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> pair universally,
+              xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              >&lt;sc /></link></code>/<code><link
+              xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              >&lt;ec /></link></code> pair universally,
           or by <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;pc>&lt;/pc></link></code> in case of
+              xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc>&lt;/pc></link></code> in case of
           well formed spanning code.</para>
         <para>Ideally the original format is documented enough to instruct Extractor about role of
           each inline code. For example XML schema allows to declare elements using keyword EMPTY.

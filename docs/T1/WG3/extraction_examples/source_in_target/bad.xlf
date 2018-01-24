@@ -1,0 +1,15 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment state="initial">
+                <source>source text</source>
+                <target>source text</target>
+                <!-- Target is pre-populated with source string and state is
+                    set to default value, which does not provide any added 
+                    benefit.
+                -->
+                <!-- A legacy practice from before xliff was created -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

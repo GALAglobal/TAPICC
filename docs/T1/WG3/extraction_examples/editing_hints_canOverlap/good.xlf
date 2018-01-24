@@ -1,0 +1,26 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <!-- whitespace added for readability -->
+            <segment>
+                <source xml:space="preserve"><sc id="1" equiv="b" canOverlap="no"/>
+                    bold
+                    <ec startRef="1" equiv="/b" canOverlap="no"/> 
+                    and 
+                    <sc id="2" equiv="i" canOverlap="no" />
+                    italic
+                    <ec startRef="2" equiv="/i" canOverlap="no" /></source>
+                <target><sc id="1" equiv="b"/>
+                    tučné
+                    <ec startRef="1" equiv="/b" />
+                    a
+                    <sc id="2" equiv="i" />
+                    kurzíva
+                    <ec startRef="2" equiv="/i" /></target>
+                <!-- native XLIFF validation can detect overlapping
+                    with canOverlap="yes"
+                -->
+            </segment>
+        </unit>
+    </file>
+</xliff>
