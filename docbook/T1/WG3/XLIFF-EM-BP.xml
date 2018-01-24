@@ -152,7 +152,7 @@
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm />
+      <glossterm>marker</glossterm>
       <glossdef>
         <para />
       </glossdef>
@@ -160,7 +160,6 @@
   </glossary>
   <section xml:id="Intro">
     <title>Introduction</title>
-
     <para>This specification targets designers of XLIFF Extracting and Merging Tools for content
       owners. XLIFF Roundtrip designers of all kinds will benefit, no matter if they design their
       XLIFF Extractor/Merger for corporate or blog use.</para>
@@ -191,19 +190,19 @@
       <para />
       <section>
         <title>Representing Spanning Codes</title>
-        <para>Spanning codes in the original format are created by opening marker, content and
-          closing marker. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b
-            text \b0</code>.</para>
+        <para>Spanning codes in the original format are created by opening code, content and closing
+          code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
+            \b0</code>.</para>
         <para>In XLIFF2 such code can be represented using <code>&lt;sc /></code>,
-            <code>&lt;ec/></code> pair universally, or by  <code>&lt;pc>&lt;/pc></code> in case of
+            <code>&lt;ec/></code> pair universally, or by <code>&lt;pc>&lt;/pc></code> in case of
           well formed spanning code.</para>
         <para>Ideally the original format is documented enough to instruct Extractor about role of
-          each inline marker. For example XML schema allows to declare elements using keyword EMPTY.
+          each inline code. For example XML schema allows to declare elements using keyword EMPTY.
           This way all elements, which are not declared EMPTY, can be represented as described
           above. To further help the extraction process the following recommendation could be
-          implemented in original XML format: <citation><biblioref />For interoperability, the empty-element tag
-            SHOULD be used, and SHOULD only be used, for elements which are declared
-            EMPTY.</citation></para>
+          implemented in original XML format: <citation><biblioref />For interoperability, the
+            empty-element tag SHOULD be used, and SHOULD only be used, for elements which are
+            declared EMPTY.</citation></para>
         <para />
         <para>•[spanning_as_ph]
           https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
@@ -365,37 +364,40 @@
   </section>
 
   <bibliography xml:id="references">
+    <title>References</title>
+    <bibliodiv>
+      <title>Normative references</title>
 
-    <bibliomixed>
-      <abbrev>XLIFF-2.1</abbrev> Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
-      Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>12 October 2017</date>
-      <bibliomisc><link version="Candidate OASIS Standard 01"
-          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cos01/xliff-core-v2.1-cos01.html"
-           /><link version="latest"
-          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
-         /></bibliomisc>
-    </bibliomixed>
-    <bibliomixed>
-      <abbrev>XLIFF-2.0</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
-      Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
-      <bibliomisc><link version="OASIS Standard"
-          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
-           /><link version="latest"
-          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
-         /></bibliomisc>
-    </bibliomixed>
-
-    <bibliomixed>
-      <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
-      Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file
-        format)</title><date>November 2017</date>
-      <bibliomisc><link version="International Standard"
-          xl:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
-    </bibliomixed>
-    <bibliomixed><abbrev>XML</abbrev>W3C:<title>Extensible Markup Language (XML) 1.0</title><date>26
-        November 2008</date><bibliomisc><link xlink:href="https://www.w3.org/TR/xml/"
-          xmlns:xlink="http://www.w3.org/1999/xlink" /></bibliomisc></bibliomixed>
-
+      <biblioentry>
+        <abbrev />
+        <title />
+        <copyright>
+          <year />
+          <holder />
+        </copyright>
+        <editor>
+          <personname>
+            <firstname />
+            <surname /></personname>
+        </editor>
+      </biblioentry>
+    </bibliodiv>
+    <bibliodiv>
+      <title>Non-Normative References</title>
+      <biblioentry>
+        <abbrev />
+        <title />
+        <copyright>
+          <year />
+          <holder />
+        </copyright>
+        <editor>
+          <personname>
+            <firstname />
+            <surname /></personname>
+        </editor>
+      </biblioentry>
+    </bibliodiv>
   </bibliography>
 
 </article>
