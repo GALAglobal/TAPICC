@@ -1,0 +1,19 @@
+language: java
+
+addons:
+  apt:
+    packages:
+    - xsltproc
+
+script:
+  - xsltproc --encoding utf-8 -o ./docs/T1/WG3/XLIFF-EM-BP-ED.html ./docbook/xsl/html/docbook_custom.xsl ./docbook/T1/WG3/XLIFF-EM-BP.xml
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token:
+    secure: "YSV2KS/GYrxHgFh69zQxFEXTg3mFi/rOaRpwkK/UGf2rGM4B5NyUQcvQAsGlna3KY+8HcUDmUnGFxzxJ2bEr1eko3ebxCrPsT7UY0SJGg6DukEKmRS8gSGxgm9TGfbylXTqsbOrUQoNtc10Uv0LFND80I8WlyrdbpWqUyt1axoA/+6IJ30WHgAOj1RKBV0owfb5qzKsGdRXXnI1eMQZ+djIqBgtFo4yab/ZStc9oSCV2049VE1vFEMKcN5zq36mSrodp7nMoN8aJgAEuhggUwm7LM3ecdilap0nrJ3UmAD8hhVXlP+/Eghcyk6jncHc/2OxWgSEBQuxMUjojn/1N7lQng1VPMZeEW8TZMjmywabggZ8L83cplrrAj9XZNUyKCAE3k8kIY4VB7eXPCL107SiJxuthg7ZLJpcfIOeO85IS4BOLyW8cEE1Pm3vKG1f3TheXJC+AkKbobslIPAoPpZ9jkG+6H/MIV8f3ByjJYAWBq6jSMLptpZOAj3BPl4M2fLKicxaOsi0hFyDBRCrO2c56GdGWfh52UwsMOTVz1YmJVPmZGZaUaYsK4mxxyAaOueYkC8fPESWdpYalp1FjIRA7wW3MFKlPK8xGvnKP2vDlA2NwVZQ8otdci0JIr5ro39YUd0BXOtMJ0yX4wKJpwKkckdE95S3zR0x22ILD5+0="
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master
