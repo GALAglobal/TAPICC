@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="US-ASCII"?><!--This file was created automatically by xsl2profile--><!--from the DocBook XSL stylesheets.--><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:d="http://docbook.org/ns/docbook" xmlns:exsl="http://exslt.org/common" xmlns:exslt="http://exslt.org/common" xmlns:ng="http://docbook.org/docbook-ng" xmlns:db="http://docbook.org/ns/docbook" exslt:dummy="dummy" ng:dummy="dummy" db:dummy="dummy" extension-element-prefixes="exslt" exclude-result-prefixes="exsl d exslt" version="1.0">
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="html" encoding="UTF-8" indent="no"/>
 
 <!-- ********************************************************************
 
