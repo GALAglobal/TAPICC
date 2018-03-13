@@ -227,28 +227,36 @@
           above. To further help the extraction process the following recommendation could be
           implemented in original XML format: <quote>For interoperability, the empty-element tag
             SHOULD be used, and SHOULD only be used, for elements which are declared
-            EMPTY.</quote><citation>[XML]</citation></para>
+            EMPTY.</quote><citation>[XML]</citation>.</para>
+        <para>Following this recommendation an empty <code>&lt;span></code> would be encoded as
+            <code>&lt;span>&lt;/span></code> and represented as <code>&lt;sc /></code>/<code>&lt;ec
+            /></code> pair, as compared to always empty <code>&lt;br /></code>, which would be
+          represented by <code>&lt;ph /></code>.</para>
         <para>This concept is illustrated by <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
-            xmlns:xlink="http://www.w3.org/1999/xlink"><code>spanning_as_ph</code></link></para>
-        <para>•[spanning_as_ph]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph
-          •Extractor could use knowledge of schema and only use does not use &lt;ph> for codes that
-          are declared as EMPTY. To further help the extraction process, following W3C
-          recommendation could be followed: „The empty-element tag <emphasis role="italic"
-            >SHOULD</emphasis> be used, and <emphasis role="italic">SHOULD</emphasis> only be used,
-          for elements which are declared EMPTY.“ (https://www.w3.org/TR/REC-xml/#sec-starttags),
-          e.g. even &lt;span> without content would use &lt;span>&lt;/span> as compared to &lt;br
-          />. •https://issues.oasis-open.org/browse/XLIFF-14
-          http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph</para>
+            xmlns:xlink="http://www.w3.org/1999/xlink"><code>spanning_as_ph</code></link>.</para>
       </section>
       <section>
         <title>Outermost Tag Pairs</title>
-        <para> •[outermost_inline_excluded]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded
-          •Both functional and formatting inline codes provide additional context for translator and
-          could be linguistically significant. •If they are important enough to be in native format,
-          they should be present in extracted content. </para>
+        <para>In some cases the inline codes might enclose the localizable string in a way, which
+          would make leaving them out of extracted text a convenient action. For example paragraph
+          containing only a link text, could be extracted as the link text only, without the
+            <code>&lt;a>&lt;/a></code> being represented. This relates to previous
+            <emphasis>bad</emphasis>
+          <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/blob/master/extraction_examples/spanning_as_ph/bad_opening_excluded.xlf"
+            xmlns:xlink="http://www.w3.org/1999/xlink">example</link> with spanning tag represented
+          as two <code>&lt;ph /></code>s and leaving the opening one out.</para>
+        <para>This approach could, however, cause issues in cases where the inline codes needs to be
+          manipulated during the roundtrip (deleted, or their order changed), or if they would
+          provide additional context to the agent. In case of above hyperlink, translator could want
+          to check the hyperlink target for reference or need to add text outside of hyperlink
+          text.</para>
+        <para>Ideally a consistent approach to all inline codes should be used during the
+          extraction.</para>
+        <para>Example can be found in <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded"
+            xmlns:xlink="http://www.w3.org/1999/xlink">outermost_inline_excluded</link>.</para>
       </section>
       <section>
         <title> Incomplete Extraction of Inline Codes</title>
