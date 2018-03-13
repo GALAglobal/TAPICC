@@ -284,7 +284,8 @@
       </section>
       <section>
         <title> State Machine</title>
-        <para />
+        <para>The XLIFF specification contains attributes for managing a segment state machine. The
+          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. </para>
       </section>
     </section>
     <section>
