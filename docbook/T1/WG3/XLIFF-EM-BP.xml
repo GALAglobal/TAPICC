@@ -285,7 +285,7 @@
       <section>
         <title> State Machine</title>
         <para>The XLIFF specification contains attributes for managing a segment state machine. The
-          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. </para>
+          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. The <code>&lt;subState></code> attribute can only be used as long as the <code>&lt;state></code> attribute is used. The <code>&lt;state></code> attribute is for high level interoperability. The <code>&lt;subState></code> attribute allows implementers to define private sub-state machines that can give more fine-grained sub-states based on their private workflow needs.   </para>
       </section>
     </section>
     <section>
