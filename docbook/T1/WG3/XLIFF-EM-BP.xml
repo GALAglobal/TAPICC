@@ -398,14 +398,14 @@
           and <code>reviewed</code> will trigger validation of the inline data model within
             <code>&lt;target></code> elements, which is not being validated in the
             <code>initial</code> state where even the existence of <code>&lt;target></code> is not
-          assumed. Violations of the inline data model including Editing hints are being tested in
+          assumed. Violations of the inline data model including <link linkend="Hints">Editing Hints</link> are being tested in
           all states more advanced than <code>initial</code>. Those violations are considered
           "Warnings" at <code>translated</code> and <code>reviewed</code> states. Only in the
             <code>final</code> state, those violations will become actual "Errors" that make the
             <firstterm>XLIFF Document</firstterm> invalid.</para>
       </section>
     </section>
-    <section>
+    <section xml:id="Hints">
       <title>Editing and Context Hints</title>
       <para />
       <section>
@@ -471,7 +471,27 @@
     </section>
     <section>
       <title>XLIFF Validations</title>
-      <para />
+      <para>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
+        workflows bringing together best of breed specialized agents, it makes big business sense to
+        validate. In fact successful validation on every input and output step is the critical
+        factor for successful "blind", plug-and-play, or unsupervised interoperability. If you are
+        designing a service architecture facilitated by XLIFF as the canonical data model, or if you
+        are otherwise integrating many services that are consuming and outputting XLIFF, it makes
+        sense to expose XLIFF validation as a reusable microservice that is freely available and
+        even mandated in your ecosystem, service layer, or service bus. When your tool is supposed
+        to receive XLIFF, check first if the XLIFF you are trying to consume is indeed valid. Also
+        if you are outputting XLIFF that other agents or service providers are supposed to consume,
+        do check that you are outputting valid XLIFF.</para>
+      <para>XLIFF is a format that has been blessed with multiple low level implementations,
+        therefore you have also multiple options for XLIFF validation. Since XLIFF Version 2.1 most
+        of the advanced validation checks that required custom code in XLIFF 2.0 can be validated
+        using XLIFF TC provided Schematron schemas that are in fact an integral normative part of
+        the OASIS Standard. XLIFF TC provided artifacts (xsd, sch, and NVDL) can be used for
+        validation in any XML editor. However, if you are trying to design an automated workflow
+        you'd not typically rely on manual or semi-automated validation in XML editors,  you ought
+        rather try and build a service that is for instance using the xslt rendering of the
+        Schematron schemas or create a service out of the command line Lynx service that is part of
+        the OAKAPI XLIFF Toolkit.      </para>
     </section>
   </section>
 
