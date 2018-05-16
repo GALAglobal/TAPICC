@@ -295,7 +295,18 @@
         <para>
           The <code>&lt;state></code> attribute defines just a high level four states state engine. The values are <code>initial</code>, <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this attribute is <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it is assumed as having the default value <code>initial</code> whenever not used explicitly. There are some important advantages to using the state machine explicitly. Importantly, <code>&lt;target></code> elements are optional in the <code>initial</code> state. So if you want to even enforce <code>&lt;target></code> existence in your deliverables you should be using at least the high level four states state engine provided by the attribute <code>state</code>. Setting the <code>state</code> attribute to <code>translated</code> or later does enforce <code>&lt;target></code> existence within segments. 
         </para>
-        <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you even more control over the progressive validation of the <firstterm>XLIFF Documents</firstterm> you're roundtripping. Both states <code>translated</code> and <code>reviewed</code> will trigger validation of the inline data model within <code>&lt;target></code> elements, which is not being validated in the initial where even the existence of <code>&lt;target></code> is not assumed. Violations of the inline data model including <link linkend="Editing_Hints">Editing hints</link> are being tested in all states more advanced than <code>initial</code>. Those violations are considered "Warnings" at <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code> state, those violations will become actual "Errors" that make the <firstterm>XLIFF Document</firstterm> invalid.</para>
+        <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
+          even more control over the progressive validation of the <firstterm>XLIFF
+            Documents</firstterm> you're roundtripping. Both of the states <code>translated</code>
+          and <code>reviewed</code> will trigger validation of the inline data model within
+            <code>&lt;target></code> elements, which is not being validated in the
+            <code>initial</code> state where even the existence of <code>&lt;target></code> is not
+          assumed. Violations of the inline data model including <link linkend="Editing_Hints"
+            >Editing hints</link> are being tested in all states more advanced than
+            <code>initial</code>. Those violations are considered "Warnings" at
+            <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code>
+          state, those violations will become actual "Errors" that make the <firstterm>XLIFF
+            Document</firstterm> invalid.</para>
       </section>
     </section>
     <section>
