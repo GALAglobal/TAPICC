@@ -204,21 +204,27 @@
             <para>Perform complete extraction</para>
           </listitem>
           <listitem>
-            <para>Represent spanning code using <code>&lt;sc /></code> and <code>&lt;ec /></code>
-              (or <code>&lt;pc>&lt;/pc></code> where possible)</para>
+            <para>Represent spanning code using <code><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc /></link></code> and <code><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> (or <code><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">&lt;pc>&lt;/pc></link></code> where
+              possible)</para>
           </listitem>
           <listitem>
-            <para>Represent standalone code using <code>&lt;ph></code></para>
+            <para>Represent standalone code using <code><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph></link></code></para>
           </listitem>
           <listitem>
             <para>Include inlines in extracted content</para>
           </listitem>
           <listitem>
-            <para>XLIFF2 <link
-                xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html"
-                xmlns:xlink="http://www.w3.org/1999/xlink"><link
-                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#representingcodes"
-                  >prose</link></link>.</para>
+            <para><link
+                xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
+                xmlns:xlink="http://www.w3.org/1999/xlink">XLIFF2 prose</link>.</para>
           </listitem>
         </itemizedlist></para>
       <section xml:id="Spanning">
@@ -241,9 +247,14 @@
             SHOULD be used, and SHOULD only be used, for elements which are declared
             EMPTY.</quote><citation>[XML]</citation>.</para>
         <para>Following this recommendation an empty <code>&lt;span></code> would be encoded as
-            <code>&lt;span>&lt;/span></code> and represented as <code>&lt;sc /></code>/<code>&lt;ec
-            /></code> pair, as compared to always empty <code>&lt;br /></code>, which would be
-          represented by <code>&lt;ph /></code>.</para>
+            <code>&lt;span>&lt;/span></code> and represented as <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc /></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> pair, as compared
+          to always empty <code>&lt;br /></code>, which would be represented by <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph /></link></code>.</para>
         <para>This concept is illustrated by <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
             xmlns:xlink="http://www.w3.org/1999/xlink"><code>spanning_as_ph</code></link>.</para>
@@ -258,7 +269,10 @@
           <link
             xlink:href="https://github.com/GALAglobal/TAPICC/blob/master/extraction_examples/spanning_as_ph/bad_opening_excluded.xlf"
             xmlns:xlink="http://www.w3.org/1999/xlink">example</link> with spanning tag represented
-          as two <code>&lt;ph /></code>s and leaving the opening one out.</para>
+          as two <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph /></link></code>s and leaving the
+          opening one out.</para>
         <para>This approach could, however, cause issues in cases where the inline codes needs to be
           manipulated during the roundtrip (deleted, or their order changed), or if they would
           provide additional context to the agent. In case of above hyperlink, translator could want
@@ -276,10 +290,10 @@
           use one of the following approaches:<itemizedlist>
             <listitem>
               <para>Use CDATA blocks as content of <code><link
-                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#source"
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source"
                     xmlns:xlink="http://www.w3.org/1999/xlink">&lt;source></link></code> and
                     <code><link
-                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
                     xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements
                   (<link
                   xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata"
@@ -303,7 +317,7 @@
             xmlns:xlink="http://www.w3.org/1999/xlink">text can be converted into inline
             codes</link>.</para>
         <para>Merges <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ApplicationConformance"
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ApplicationConformance"
             xmlns:xlink="http://www.w3.org/1999/xlink">have to accept XLIFF files with valid
             modifications</link>, even though <link
             xlink:href="addingcodeshttp://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#addingcodes"
@@ -339,11 +353,11 @@
     <section xml:id="Target_content">
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element during the
         Extraction or Enriching and when to do so if at all.</para>
       <para>Generally, one should omit the <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element, unless
         there is an added value. or if the specification offers a better approach. Correct support
         of the state machine during the whole roundtrip helps the agents to handle and validate the
@@ -355,10 +369,10 @@
       <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic
           <firstterm>XLIFF Document</firstterm> with source content only, possibly with additional
         modules/extensions which could not be generated after extraction, for example <link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#size_restriction_module"
+          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module"
           xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction Module</link>or
           <link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#fs-mod"
+          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod"
           xmlns:xlink="http://www.w3.org/1999/xlink">Format Style Module</link>.</para>
       <para>Unless the customer has a need to create <emphasis>target language</emphasis> specific
         instance of the extracted <firstterm>XLIFF Document</firstterm>, e.g. by enriching with
@@ -368,12 +382,12 @@
       <section xml:id="Source_copy_in_target">
         <title>Inserting source content into <code>&lt;target></code></title>
         <para>The copy of the source content in <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element generally
           does not provide any advantage during the roundtrip. On the other hand it needlessly
           increases the size of the <firstterm>XLIFF Document</firstterm>; presupposes existence of
             <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#trgLang"
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
             xmlns:xlink="http://www.w3.org/1999/xlink"><code>trgLang</code></link> attribute with
           defined value; and could prevent segmentation modification, unless the target content is
           intentionally removed.</para>
@@ -388,15 +402,16 @@
           suggestions for translators to achieve better leverage or to get higher consistency with
           previous translations.</para>
         <para>Using <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> for storage
           limits the number of translation candidates to a single one, moreover it's not possible to
           pass metadata such as suggestion origin or its quality during the roundtrip, causing
           interoperability issues with agents without prior knowledge of the workflow.</para>
-        <para>Recommended way is to use <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates"
+        <para>Additionally, this implementation can be considered as overloading the core element
+          with clearly defined purpose, while a better solution in a form of <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candidates"
             xmlns:xlink="http://www.w3.org/1999/xlink">Translation Candidates Module</link>, which
-          provides mechanisms to handle the required use case.</para>
+          provides mechanisms to handle the required use case, already exists.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/pre-populated_target"
             xmlns:xlink="http://www.w3.org/1999/xlink">pre-populated_target</link>.</para>
@@ -405,26 +420,26 @@
         <title> State Machine</title>
         <para>The XLIFF specification contains attributes for managing a segment state machine. The
           attributes used are <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> and <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;subState></link></code>. The
               <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;subState></link></code> attribute can
           only be used as long as the <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute is used.
           The <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute is for
           high level interoperability. The <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate"
             xmlns:xlink="http://www.w3.org/1999/xlink"><code>&lt;subState></code></link> attribute
           allows implementers to define private sub-state machines that can give more fine-grained
           sub-states based on their private workflow needs. </para>
         <para> The <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute defines
           just a high level four states state engine. The values are <code>initial</code>,
             <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this
@@ -432,20 +447,20 @@
           is assumed as having the default value <code>initial</code> whenever not used explicitly.
           There are some important advantages to using the state machine explicitly. Importantly,
               <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements are
           optional in the <code>initial</code> state. So if you want to even enforce <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> existence in your
           deliverables you should be using at least the high level four states state engine provided
           by the attribute <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">state</link></code>. Setting the
               <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               xmlns:xlink="http://www.w3.org/1999/xlink">state</link></code> attribute to
             <code>translated</code> or later does enforce <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> existence within
           segments. </para>
         <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
@@ -453,11 +468,11 @@
             Documents</firstterm> you're roundtripping. Both of the states <code>translated</code>
           and <code>reviewed</code> will trigger validation of the inline data model within
               <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements, which
           is not being validated in the <code>initial</code> state where even the existence of
               <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> is not assumed.
           Violations of the inline data model including Editing hints are being tested in all states
           more advanced than <code>initial</code>. Those violations are considered "Warnings" at
