@@ -62,9 +62,11 @@
       <para>This prose specification is one component of a Work Product that also includes:</para>
       <itemizedlist>
         <listitem>
-          <para>Extraction and merging examples from <link xl:href="&this-locArts;extraction_examples/">&this-locArts;extraction_examples/</link>
-            </para>
-          <para>An unstable editorial version of the examples might exist at <link xl:href="&EDArts;extraction_examples/">&EDArts;extraction_examples/</link></para> 
+          <para>Extraction and merging examples from <link
+              xl:href="&this-locArts;extraction_examples/">&this-locArts;extraction_examples/</link>
+          </para>
+          <para>An unstable editorial version of the examples might exist at <link
+              xl:href="&EDArts;extraction_examples/">&EDArts;extraction_examples/</link></para>
         </listitem>
       </itemizedlist>
     </legalnotice>
@@ -194,7 +196,6 @@
 
   <section xml:id="Spec">
     <title>Specification</title>
-
     <section xml:id="Inlines">
       <title>Inline Codes</title>
       <para>Recommendations for processing standalone and spanning inline functional and formatting
@@ -229,11 +230,9 @@
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc /></link></code>/<code><link
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec /></link></code> pair universally,
-          or by <code><link
+              >&lt;ec /></link></code> pair universally, or by <code><link
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              >&lt;pc>&lt;/pc></link></code> in case of
-          well formed spanning code.</para>
+              >&lt;pc>&lt;/pc></link></code> in case of well formed spanning code.</para>
         <para>Ideally the original format is documented enough to instruct Extractor about role of
           each inline code. For example XML schema allows to declare elements using keyword EMPTY.
           This way all elements, which are not declared EMPTY, can be represented as described
@@ -329,8 +328,9 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >multiple_codes_represented_as_single</link></para>
       </section>
-      </section>
+
     </section>
+
     <section xml:id="Target">
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code>&lt;target></code>
@@ -375,22 +375,34 @@
       <section xml:id="State_Machine">
         <title> State Machine</title>
         <para>The XLIFF specification contains attributes for managing a segment state machine. The
-          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. The <code>&lt;subState></code> attribute can only be used as long as the <code>&lt;state></code> attribute is used. The <code>&lt;state></code> attribute is for high level interoperability. The <code>&lt;subState></code> attribute allows implementers to define private sub-state machines that can give more fine-grained sub-states based on their private workflow needs.   </para>
-        <para>
-          The <code>&lt;state></code> attribute defines just a high level four states state engine. The values are <code>initial</code>, <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this attribute is <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it is assumed as having the default value <code>initial</code> whenever not used explicitly. There are some important advantages to using the state machine explicitly. Importantly, <code>&lt;target></code> elements are optional in the <code>initial</code> state. So if you want to even enforce <code>&lt;target></code> existence in your deliverables you should be using at least the high level four states state engine provided by the attribute <code>state</code>. Setting the <code>state</code> attribute to <code>translated</code> or later does enforce <code>&lt;target></code> existence within segments. 
-        </para>
+          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. The
+            <code>&lt;subState></code> attribute can only be used as long as the
+            <code>&lt;state></code> attribute is used. The <code>&lt;state></code> attribute is for
+          high level interoperability. The <code>&lt;subState></code> attribute allows implementers
+          to define private sub-state machines that can give more fine-grained sub-states based on
+          their private workflow needs. </para>
+        <para> The <code>&lt;state></code> attribute defines just a high level four states state
+          engine. The values are <code>initial</code>, <code>translated</code>,
+            <code>reviewed</code>, and <code>final</code>. Although this attribute is
+            <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it is assumed
+          as having the default value <code>initial</code> whenever not used explicitly. There are
+          some important advantages to using the state machine explicitly. Importantly,
+            <code>&lt;target></code> elements are optional in the <code>initial</code> state. So if
+          you want to even enforce <code>&lt;target></code> existence in your deliverables you
+          should be using at least the high level four states state engine provided by the attribute
+            <code>state</code>. Setting the <code>state</code> attribute to <code>translated</code>
+          or later does enforce <code>&lt;target></code> existence within segments. </para>
         <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
           even more control over the progressive validation of the <firstterm>XLIFF
             Documents</firstterm> you're roundtripping. Both of the states <code>translated</code>
           and <code>reviewed</code> will trigger validation of the inline data model within
             <code>&lt;target></code> elements, which is not being validated in the
             <code>initial</code> state where even the existence of <code>&lt;target></code> is not
-          assumed. Violations of the inline data model including <link linkend="Editing_Hints"
-            >Editing hints</link> are being tested in all states more advanced than
-            <code>initial</code>. Those violations are considered "Warnings" at
-            <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code>
-          state, those violations will become actual "Errors" that make the <firstterm>XLIFF
-            Document</firstterm> invalid.</para>
+          assumed. Violations of the inline data model including Editing hints are being tested in
+          all states more advanced than <code>initial</code>. Those violations are considered
+          "Warnings" at <code>translated</code> and <code>reviewed</code> states. Only in the
+            <code>final</code> state, those violations will become actual "Errors" that make the
+            <firstterm>XLIFF Document</firstterm> invalid.</para>
       </section>
     </section>
     <section>
@@ -510,5 +522,4 @@
            /></bibliomisc></bibliomixed>
     </bibliodiv>
   </bibliography>
-
 </article>
