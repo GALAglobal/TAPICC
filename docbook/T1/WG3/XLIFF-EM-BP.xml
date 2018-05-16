@@ -355,7 +355,7 @@
       <para>This section focuses on reasons whether or not to populate the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element during the
-        Extraction or Enriching and when to do so if at all.</para>
+        Extraction or Enriching and when to do so, if at all.</para>
       <para>Generally, one should omit the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element, unless
@@ -370,7 +370,7 @@
           <firstterm>XLIFF Document</firstterm> with source content only, possibly with additional
         modules/extensions which could not be generated after extraction, for example <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module"
-          xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction Module</link>or
+          xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction Module</link> or
           <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod"
           xmlns:xlink="http://www.w3.org/1999/xlink">Format Style Module</link>.</para>
@@ -380,7 +380,7 @@
         downstream as-is.</para>
 
       <section xml:id="Source_copy_in_target">
-        <title>Inserting source content into <code>&lt;target></code></title>
+        <title>Inserting Source Content into <code>&lt;target></code></title>
         <para>The copy of the source content in <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element generally
@@ -396,7 +396,7 @@
             xmlns:xlink="http://www.w3.org/1999/xlink">source_in_target</link>.</para>
       </section>
       <section xml:id="Candidates_in_target">
-        <title>Inserting possible translation into <code>&lt;target></code></title>
+        <title>Inserting Possible Translation into <code>&lt;target></code></title>
         <para>Enriching agent can use a translation memory, machine translation engine or other
           means to obtain suitable target strings to be used later in the roundtrip, for example as
           suggestions for translators to achieve better leverage or to get higher consistency with
@@ -443,7 +443,9 @@
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute defines
           just a high level four states state engine. The values are <code>initial</code>,
             <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this
-          attribute is <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it
+          attribute is <glossterm>optional</glossterm> on the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><code>&lt;segment></code></link> element, it
           is assumed as having the default value <code>initial</code> whenever not used explicitly.
           There are some important advantages to using the state machine explicitly. Importantly,
               <code><link
@@ -483,10 +485,26 @@
     </section>
     <section>
       <title>Editing and Context Hints</title>
-      <para />
+      <para>XLIFF specification provides a plethora of attributes that allow to manage the behavior
+        and validation of structural and inline elements; such as controlling the localizability of
+        text, protecting non-deletable inline codes, or preserving their order, controlling the
+        segmentation modification; or providing additional context to other agents
+        downstream.</para>
+      <para>The default values of the editing hits should be considered when creating extraction
+        rules, to prevent issues, which cannot be identified by automated validation.</para>
       <section>
         <title>Non-deletable Inline Codes</title>
-        <para />
+        <para>Original source text can contain also functional inline codes, not only formatting
+          ones, such as software placeholder replaced during runtime. Removal of these placeholders,
+          either intentional or accidental, during translation roundtrip can produce
+            <firstterm>XLIFF document</firstterm>, which cannot be merged to create target document,
+          or create functional issues in the translated product.</para>
+        <para>XLIFF specification provides attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
+              xmlns:xlink="http://www.w3.org/1999/xlink">canDelete</link></code> with default value
+            <code>yes</code>, which can be used on any inline code, and allow for fine grained
+          control over importance of the inline codes, rather than setting a global rule to prevent
+          their removal.</para>
       </section>
       <section>
         <title> Preserving Order of Codes</title>
@@ -513,7 +531,7 @@
         <para />
       </section>
       <section>
-        <title>Role of &lt;unit></title>
+        <title>Role of <code>&lt;unit></code></title>
         <para />
       </section>
     </section>
