@@ -340,10 +340,30 @@
     </section>
     <section xml:id="Target">
       <title>Target Content in Extracted XLIFF</title>
-      <para />
+      <para>This section focuses on reasons whether or not to populate the <code>&lt;target></code>
+        element during the Extraction or Enriching and when to do so if at all.</para>
+      <para>Generally, one should omit the <code>&lt;target></code> element, unless there is an
+        added value. or if the specification offers a better approach. Correct support of the state
+        machine during the whole roundtrip helps the agents to handle and validate the files in the
+        proper way.</para>
+      <para>When looking at the situation from the <emphasis>microservices</emphasis> point of view,
+        the Extractor/Merger could be implemented as just that — single purpose extraction/merging
+        service, which would delegate other operations, such as segmentation or enriching to other
+        specialized services.</para>
+      <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic XLIFF
+        file with source content only, possibly with additional modules/extensions which could not
+        be generated after extraction, for example <link
+          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#size_restriction_module"
+          xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction Module</link>or
+          <link
+          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#fs-mod"
+          xmlns:xlink="http://www.w3.org/1999/xlink">Format Style Module</link>.</para>
+      <para>Unless the customer has a need to create <emphasis>target language</emphasis> specific
+        instance of the extracted XLIFF file, e.g. by enriching with translation candidates, the
+        original XLIFF file could be sent downstream as-is.</para>
 
       <section>
-        <title>Inserting unmodified source content into <code>&lt;target></code></title>
+        <title>Inserting source content into <code>&lt;target></code></title>
         <para />
       </section>
       <section>
