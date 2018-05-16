@@ -370,7 +370,21 @@
       </section>
       <section>
         <title> Inserting possible translation into <code>&lt;target></code></title>
-        <para />
+        <para>Enriching agent can use a translation memory, machine translation engine or other
+          means to obtain suitable target strings to be used later in the roundtrip, for example as
+          suggestions for translators to achieve better leverage or to get higher consistency with
+          previous translations.</para>
+        <para>Using <code>&lt;target></code> for storage limits the number of translation candidates
+          to a single one, moreover it's not possible to pass metadata such as suggestion origin or
+          its quality during the roundtrip, causing interoperability issues with agents without
+          prior knowledge of the workflow.</para>
+        <para>Recommended way is to use <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates"
+            xmlns:xlink="http://www.w3.org/1999/xlink">Translation Candidates Module</link>, which
+          provides mechanisms to handle the required use case.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/pre-populated_target"
+            xmlns:xlink="http://www.w3.org/1999/xlink">pre-populated_target</link>.</para>
       </section>
       <section xml:id="State_Machine">
         <title> State Machine</title>
