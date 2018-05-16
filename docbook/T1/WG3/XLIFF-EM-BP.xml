@@ -275,8 +275,13 @@
         <para>Implementers might choose not to process inline codes at all during the extraction and
           use one of the following approaches:<itemizedlist>
             <listitem>
-              <para>Use CDATA blocks as content of <code>&lt;source></code> and
-                  <code>&lt;target></code> elements (<link
+              <para>Use CDATA blocks as content of <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#source"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">&lt;source></link></code> and
+                    <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements
+                  (<link
                   xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata"
                   xmlns:xlink="http://www.w3.org/1999/xlink">cdata</link>)</para>
             </listitem>
@@ -331,35 +336,43 @@
 
     </section>
 
-    <section xml:id="Target">
+    <section xml:id="Target_content">
       <title>Target Content in Extracted XLIFF</title>
-      <para>This section focuses on reasons whether or not to populate the <code>&lt;target></code>
-        element during the Extraction or Enriching and when to do so if at all.</para>
-      <para>Generally, one should omit the <code>&lt;target></code> element, unless there is an
-        added value. or if the specification offers a better approach. Correct support of the state
-        machine during the whole roundtrip helps the agents to handle and validate the files in the
-        proper way.</para>
+      <para>This section focuses on reasons whether or not to populate the <code><link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+            xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element during the
+        Extraction or Enriching and when to do so if at all.</para>
+      <para>Generally, one should omit the <code><link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+            xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element, unless
+        there is an added value. or if the specification offers a better approach. Correct support
+        of the state machine during the whole roundtrip helps the agents to handle and validate the
+          <firstterm>XLIFF Documents</firstterm> in the proper way.</para>
       <para>When looking at the situation from the <emphasis>microservices</emphasis> point of view,
         the Extractor/Merger could be implemented as just that — single purpose extraction/merging
         service, which would delegate other operations, such as segmentation or enriching to other
         specialized services.</para>
-      <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic XLIFF
-        file with source content only, possibly with additional modules/extensions which could not
-        be generated after extraction, for example <link
+      <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic
+          <firstterm>XLIFF Document</firstterm> with source content only, possibly with additional
+        modules/extensions which could not be generated after extraction, for example <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#size_restriction_module"
           xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction Module</link>or
           <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#fs-mod"
           xmlns:xlink="http://www.w3.org/1999/xlink">Format Style Module</link>.</para>
       <para>Unless the customer has a need to create <emphasis>target language</emphasis> specific
-        instance of the extracted XLIFF file, e.g. by enriching with translation candidates, the
-        original XLIFF file could be sent downstream as-is.</para>
+        instance of the extracted <firstterm>XLIFF Document</firstterm>, e.g. by enriching with
+        translation candidates, the original <firstterm>XLIFF Document</firstterm> could be sent
+        downstream as-is.</para>
 
-      <section>
+      <section xml:id="Source_copy_in_target">
         <title>Inserting source content into <code>&lt;target></code></title>
-        <para>The copy of the source content in <code>&lt;target></code> element generally does not
-          provide any advantage during the roundtrip. On the other hand it needlessly increases the
-          size of the XLIFF file; presupposes existence of <link
+        <para>The copy of the source content in <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> element generally
+          does not provide any advantage during the roundtrip. On the other hand it needlessly
+          increases the size of the <firstterm>XLIFF Document</firstterm>; presupposes existence of
+            <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#trgLang"
             xmlns:xlink="http://www.w3.org/1999/xlink"><code>trgLang</code></link> attribute with
           defined value; and could prevent segmentation modification, unless the target content is
@@ -368,41 +381,90 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target"
             xmlns:xlink="http://www.w3.org/1999/xlink">source_in_target</link>.</para>
       </section>
-      <section>
-        <title> Inserting possible translation into <code>&lt;target></code></title>
-        <para />
+      <section xml:id="Candidates_in_target">
+        <title>Inserting possible translation into <code>&lt;target></code></title>
+        <para>Enriching agent can use a translation memory, machine translation engine or other
+          means to obtain suitable target strings to be used later in the roundtrip, for example as
+          suggestions for translators to achieve better leverage or to get higher consistency with
+          previous translations.</para>
+        <para>Using <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> for storage
+          limits the number of translation candidates to a single one, moreover it's not possible to
+          pass metadata such as suggestion origin or its quality during the roundtrip, causing
+          interoperability issues with agents without prior knowledge of the workflow.</para>
+        <para>Recommended way is to use <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates"
+            xmlns:xlink="http://www.w3.org/1999/xlink">Translation Candidates Module</link>, which
+          provides mechanisms to handle the required use case.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/pre-populated_target"
+            xmlns:xlink="http://www.w3.org/1999/xlink">pre-populated_target</link>.</para>
       </section>
       <section xml:id="State_Machine">
         <title> State Machine</title>
         <para>The XLIFF specification contains attributes for managing a segment state machine. The
-          attributes used are <code>&lt;state></code> and <code>&lt;subState></code>. The
-            <code>&lt;subState></code> attribute can only be used as long as the
-            <code>&lt;state></code> attribute is used. The <code>&lt;state></code> attribute is for
-          high level interoperability. The <code>&lt;subState></code> attribute allows implementers
-          to define private sub-state machines that can give more fine-grained sub-states based on
-          their private workflow needs. </para>
-        <para> The <code>&lt;state></code> attribute defines just a high level four states state
-          engine. The values are <code>initial</code>, <code>translated</code>,
-            <code>reviewed</code>, and <code>final</code>. Although this attribute is
-            <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it is assumed
-          as having the default value <code>initial</code> whenever not used explicitly. There are
-          some important advantages to using the state machine explicitly. Importantly,
-            <code>&lt;target></code> elements are optional in the <code>initial</code> state. So if
-          you want to even enforce <code>&lt;target></code> existence in your deliverables you
-          should be using at least the high level four states state engine provided by the attribute
-            <code>state</code>. Setting the <code>state</code> attribute to <code>translated</code>
-          or later does enforce <code>&lt;target></code> existence within segments. </para>
+          attributes used are <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;subState></link></code>. The
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;subState></link></code> attribute can
+          only be used as long as the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute is used.
+          The <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute is for
+          high level interoperability. The <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#substate"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><code>&lt;subState></code></link> attribute
+          allows implementers to define private sub-state machines that can give more fine-grained
+          sub-states based on their private workflow needs. </para>
+        <para> The <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;state></link></code> attribute defines
+          just a high level four states state engine. The values are <code>initial</code>,
+            <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this
+          attribute is <glossterm>optional</glossterm> on the <code>&lt;segment></code> element, it
+          is assumed as having the default value <code>initial</code> whenever not used explicitly.
+          There are some important advantages to using the state machine explicitly. Importantly,
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements are
+          optional in the <code>initial</code> state. So if you want to even enforce <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> existence in your
+          deliverables you should be using at least the high level four states state engine provided
+          by the attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">state</link></code>. Setting the
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#state"
+              xmlns:xlink="http://www.w3.org/1999/xlink">state</link></code> attribute to
+            <code>translated</code> or later does enforce <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> existence within
+          segments. </para>
         <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
           even more control over the progressive validation of the <firstterm>XLIFF
             Documents</firstterm> you're roundtripping. Both of the states <code>translated</code>
           and <code>reviewed</code> will trigger validation of the inline data model within
-            <code>&lt;target></code> elements, which is not being validated in the
-            <code>initial</code> state where even the existence of <code>&lt;target></code> is not
-          assumed. Violations of the inline data model including <link linkend="Hints">Editing Hints</link> are being tested in
-          all states more advanced than <code>initial</code>. Those violations are considered
-          "Warnings" at <code>translated</code> and <code>reviewed</code> states. Only in the
-            <code>final</code> state, those violations will become actual "Errors" that make the
-            <firstterm>XLIFF Document</firstterm> invalid.</para>
+<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> elements, which
+          is not being validated in the <code>initial</code> state where even the existence of
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;target></link></code> is not assumed.
+          Violations of the inline data model including Editing hints are being tested in all states
+          more advanced than <code>initial</code>. Those violations are considered "Warnings" at
+            <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code>
+          state, those violations will become actual "Errors" that make the <firstterm>XLIFF
+            Document</firstterm> invalid.</para>
+
       </section>
     </section>
     <section xml:id="Hints">
