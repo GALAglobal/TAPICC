@@ -364,7 +364,16 @@
 
       <section>
         <title>Inserting source content into <code>&lt;target></code></title>
-        <para />
+        <para>The copy of the source content in <code>&lt;target></code> element generally does not
+          provide any advantage during the roundtrip. On the other hand it needlessly increases the
+          size of the XLIFF file; presupposes existence of <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#trgLang"
+            xmlns:xlink="http://www.w3.org/1999/xlink"><code>trgLang</code></link> attribute with
+          defined value; and could prevent segmentation modification, unless the target content is
+          intentionally removed.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target"
+            xmlns:xlink="http://www.w3.org/1999/xlink">source_in_target</link>.</para>
       </section>
       <section>
         <title> Inserting possible translation into <code>&lt;target></code></title>
