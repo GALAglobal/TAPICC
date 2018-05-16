@@ -220,12 +220,14 @@
           <listitem>
             <para>Include inlines in extracted content</para>
           </listitem>
+          <listitem>
+            <para>XLIFF2 <link
+                xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html"
+                xmlns:xlink="http://www.w3.org/1999/xlink"><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#representingcodes"
+                  >prose</link></link>.</para>
+          </listitem>
         </itemizedlist></para>
-      <para>XLIFF2 <link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html"
-          xmlns:xlink="http://www.w3.org/1999/xlink"><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cs01/xliff-core-v2.1-cs01.html#representingcodes"
-            >prose</link></link>.</para>
       <section xml:id="Spanning">
         <title>Representing Spanning Codes</title>
         <para>Spanning codes in the original format are created by opening code, content and closing
@@ -280,34 +282,60 @@
       <section xml:id="CDATA">
         <title>Incomplete Extraction of Inline Codes</title>
         <para>Implementers might choose not to process inline codes at all during the extraction and
-          us one of the following approaches:<itemizedlist>
+          use one of the following approaches:<itemizedlist>
             <listitem>
-              <para>Using CDATA blocks as content of <code>&lt;source></code> and
+              <para>Use CDATA blocks as content of <code>&lt;source></code> and
                   <code>&lt;target></code> elements (<link
                   xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata"
                   xmlns:xlink="http://www.w3.org/1999/xlink">cdata</link>)</para>
             </listitem>
             <listitem>
-              <para>Escaping native codes using XML entities</para>
+              <para>Escape native codes using XML entities (<link
+                  xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">inline_codes_plain_text</link>)</para>
             </listitem>
           </itemizedlist></para>
-        <para />
-        <para> •[CDATA] https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata
-          •[inline_codes_plain_text]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text
-          •http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112
-          •https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA •Not using native XLIFF representation
-          leaves inline codes unprotected and increases risk of roundtrip corrupting them. </para>
+        <para>Such incomplete extraction leaves inline codes unprotected and increases risk of their
+          corruption during the roundtrip, thus pushing the problem of inline code handling
+          downstream.</para>
+        <para>Modifiers could perform secondary extraction and still take advantages of native
+          representation and according to specification, <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
+            xmlns:xlink="http://www.w3.org/1999/xlink">Writers <emphasis>may</emphasis> preserve
+            original CDATA sections</link> and <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8993"
+            xmlns:xlink="http://www.w3.org/1999/xlink">text can be converted into inline
+            codes</link>.</para>
+        <para>Merges <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ApplicationConformance"
+            xmlns:xlink="http://www.w3.org/1999/xlink">have to accept XLIFF files with valid
+            modifications</link>, even though <link
+            xlink:href="addingcodeshttp://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#addingcodes"
+            xmlns:xlink="http://www.w3.org/1999/xlink">they may ignore the added
+          codes</link>.</para>
+        <para>It's considered an <link xlink:href="https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA"
+            xmlns:xlink="http://www.w3.org/1999/xlink">XML internationalization best practice</link>
+          to avoid CDATA in localizable content.</para>
       </section>
       <section xml:id="Multiples">
-        <title> Representing Multiple Subsequent Codes</title>
-        <para> •[multiple_codes_represented_as_single]
-          https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single
-          •Grouping several independent inline codes into single representation could prove
-          challenging with negative impact on •Translation quality •Fluency •Functionality
-          •Automated actions •Validation •Some codes needs to be removed, copied, added or
-          reordered. •If any of the above actions is to be prevented, it can be controlled using
-          editing hints with finer granularity. </para>
+        <title>Representing Multiple Subsequent Codes</title>
+        <para>As original inline codes can occur in clusters, typically nested formatting,
+          implementer could be tempted to merge them and represent them as a single inline
+          element.</para>
+        <para>Such extraction could prevent desirable modification of the inline codes, affecting
+          quality of the translation; taking advantage of fine grained code metadata; or the
+          automated actions, e.g. validation.</para>
+        <para>There is, however, a potential benefit of reducing markup inside segment content,
+          which can be useful when using CAT tool that cannot properly render the inline codes,
+          reducing the visual clutter and making the translatable text more readable. This can be
+          solved by proper choice of CAT tool or by requiring the tool vendors to support proper
+          rendering.</para>
+        <para>Implementers should weight the pros and cons of both approaches and use the most
+          suitable one.</para>
+        <para>Examples can be found in <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >multiple_codes_represented_as_single</link></para>
       </section>
     </section>
     <section xml:id="Target">
