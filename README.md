@@ -1,5 +1,5 @@
-# Translation API Class and Cases Initiative (TAPICC)
-The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry.   The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
+# Translation API Cases and Classes Initiative (TAPICC)
+The Translation API Cases and Classes (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
 
 ## Governance
  

@@ -1,0 +1,2205 @@
+swagger: '2.0'
+info:
+  title: TAPICC
+  description: a Sails application
+  version: 0.0.0
+  contact:
+    name: alino
+  license:
+    name: ''
+tags:
+  - name: Swagger
+  - name: Asset
+  - name: Job
+  - name: Task
+  - name: User
+  - name: Webhook
+definitions:
+  contact:
+    properties:
+      group:
+        type: integer
+        format: int32
+      id:
+        type: integer
+        format: int32
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  group:
+    properties:
+      id:
+        type: integer
+        format: int32
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  asset:
+    properties:
+      id:
+        type: integer
+        format: int32
+      file:
+        type: string
+        format: binary
+      isReference:
+        type: boolean
+      sourceLanguage:
+        type: string
+        format: string
+      encoding:
+        type: string
+        format: string
+      jobId:
+        type: integer
+        format: int32
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  job:
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+        format: string
+      description:
+        type: string
+        format: string
+      submitDate:
+        type: string
+        format: date-time
+      dueDate:
+        type: string
+        format: date-time
+      closedDate:
+        type: string
+        format: date-time
+      submitter:
+        type: string
+        format: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  task:
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: string
+        format: string
+      targetLanguage:
+        type: string
+        format: string
+      assetId:
+        type: integer
+        format: int32
+      progress:
+        type: string
+        format: string
+      assignedTo:
+        type: integer
+        format: int32
+      file:
+        type: string
+        format: binary
+      jobId:
+        type: integer
+        format: int32
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  user:
+    properties:
+      id:
+        type: integer
+        format: int32
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  webhook:
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+        format: string
+      description:
+        type: string
+        format: string
+      url:
+        type: string
+        format: string
+      eventType:
+        type: string
+        format: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  contact_contacts_contact__group_contacts:
+    properties:
+      id:
+        type: integer
+        format: int32
+      group_contacts:
+        type: integer
+        format: int32
+      contact_contacts_contact:
+        type: integer
+        format: int32
+paths:
+  /swagger/doc:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    options:
+      summary: Get Resource Options
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+  /:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags: []
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags: []
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags: []
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags: []
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags: []
+  '/swagger/doc/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+  '/swagger/ui/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Swagger
+  '/asset/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+  '/job/hi/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/asset/uploadfile/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/asset/downloadfile/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/asset//{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/asset/{assetid}/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: assetid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/task/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{jobid}/task/{taskid}/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: taskid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: taskid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: taskid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    patch:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: taskid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: jobid
+          in: path
+          required: true
+          type: string
+        - name: taskid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  '/job/{parentid}/assets/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+        - Job
+  '/job/{parentid}/tasks/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+        - Job
+    delete:
+      summary: Destroy Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+        - Job
+  '/task/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+  '/user/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/user'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - User
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/user'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - User
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/user'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - User
+  '/webhook/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/webhook'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Webhook
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/webhook'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Webhook
+    put:
+      summary: Update Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/webhook'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Webhook
+  /asset:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/asset'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Asset
+  '/asset/{parentid}/jobId/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+        - Asset
+  /job:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+  /task:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/task'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Task
+  '/task/{parentid}/jobId/{id}':
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: parentid
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/job'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Job
+        - Task
+  /user:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/user'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - User
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/user'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - User
+  /webhook:
+    get:
+      summary: Read Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/webhook'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Webhook
+    post:
+      summary: Create Object(s)
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: The requested resource
+          schema:
+            $ref: '#/definitions/webhook'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+      tags:
+        - Webhook
