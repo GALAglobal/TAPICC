@@ -331,7 +331,7 @@
 
     </section>
 
-    <section xml:id="Target">
+    <section xml:id="Target_content">
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code>&lt;target></code>
         element during the Extraction or Enriching and when to do so if at all.</para>
@@ -355,7 +355,7 @@
         instance of the extracted XLIFF file, e.g. by enriching with translation candidates, the
         original XLIFF file could be sent downstream as-is.</para>
 
-      <section>
+      <section xml:id="Source_copy_in_target">
         <title>Inserting source content into <code>&lt;target></code></title>
         <para>The copy of the source content in <code>&lt;target></code> element generally does not
           provide any advantage during the roundtrip. On the other hand it needlessly increases the
@@ -368,8 +368,8 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target"
             xmlns:xlink="http://www.w3.org/1999/xlink">source_in_target</link>.</para>
       </section>
-      <section>
-        <title> Inserting possible translation into <code>&lt;target></code></title>
+      <section xml:id="Candidates_in_target">
+        <title>Inserting possible translation into <code>&lt;target></code></title>
         <para>Enriching agent can use a translation memory, machine translation engine or other
           means to obtain suitable target strings to be used later in the roundtrip, for example as
           suggestions for translators to achieve better leverage or to get higher consistency with
