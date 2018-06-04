@@ -520,14 +520,38 @@
               xmlns:xlink="http://www.w3.org/1999/xlink">canReorder</link></code> (default value
             <code>yes</code>) on the inline code determines, whether the code can be moved before,
           or after another code. This attribute can also be used to create non-reorderable sequence
-          of inline codes.</para>
+          of inline codes. This attribute is supported by native XLIFF validation artifacts.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
-            xmlns:xlink="http://www.w3.org/1999/xlink">editing_hints_canReorder</link></para>
+            xmlns:xlink="http://www.w3.org/1999/xlink">editing_hints_canReorder</link>.</para>
       </section>
       <section>
         <title> Controlling Segmentation</title>
-        <para />
+        <para>Depending <firstterm>Extractor</firstterm>'s rules for mapping original document's
+          structure into XLIFF units, items of a list; rows, or cells of a table; or items in a
+          dialog windows might be extracted as segments of a single unit.</para>
+        <para>While it's generally desirable to be able to modify segmentation within a unit during
+          the roundtrip, doing so in above cases will most likely prevent merging, cause build
+          issues, or have negative impact on user experience.</para>
+        <para>Attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              xmlns:xlink="http://www.w3.org/1999/xlink">canResegment</link></code> on XLIFF core
+          structural elements can be used with care to control <firstterm>Modifier</firstterm>’s
+          behavior. It’s value can be controlled by rules devised from logic based on role of
+          structural and inline codes of native format, e.g. set to <code>no</code> for:<itemizedlist>
+            <listitem>
+              <para>lists</para>
+            </listitem>
+            <listitem>
+              <para>tables or table rows</para>
+            </listitem>
+            <listitem>
+              <para>UI elements</para>
+            </listitem>
+          </itemizedlist></para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
+            xmlns:xlink="http://www.w3.org/1999/xlink">mapping_to_unit</link>.</para>
       </section>
       <section>
         <title>Providing Context</title>
