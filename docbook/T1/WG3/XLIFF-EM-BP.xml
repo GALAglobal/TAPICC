@@ -508,11 +508,22 @@
               xmlns:xlink="http://www.w3.org/1999/xlink">canDelete</link></code> with default value
             <code>yes</code>, which can be used on any inline code, and allow for fine grained
           control over importance of the inline codes, rather than setting a global rule to prevent
-          their removal.</para>
+          removal of any code at all.</para>
       </section>
       <section>
         <title> Preserving Order of Codes</title>
-        <para />
+        <para>In case the order/nesting of the inline codes in the original document is prescribed
+          (e. g. by a schema), it has to be preserved in the target content during the localization
+          roundtrip to prevent merge issues, or validation fails after the merging.</para>
+        <para>Using attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
+              xmlns:xlink="http://www.w3.org/1999/xlink">canReorder</link></code> (default value
+            <code>yes</code>) on the inline code determines, whether the code can be moved before,
+          or after another code. This attribute can also be used to create non-reorderable sequence
+          of inline codes.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
+            xmlns:xlink="http://www.w3.org/1999/xlink">editing_hints_canReorder</link></para>
       </section>
       <section>
         <title> Controlling Segmentation</title>
