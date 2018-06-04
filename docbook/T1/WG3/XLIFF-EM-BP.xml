@@ -232,47 +232,51 @@
         <para>Spanning codes in the original format are created by opening code, content and closing
           code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
             \b0</code>.</para>
-        <para>In XLIFF2 such code can be represented using <code><link
+        <para>In XLIFF, such code can be represented using <code><link
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc /></link></code>/<code><link
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
               >&lt;ec /></link></code> pair universally, or by <code><link
               xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              >&lt;pc>&lt;/pc></link></code> in case of well formed spanning code.</para>
-        <para>Ideally the original format is documented enough to instruct Extractor about role of
-          each inline code. For example XML schema allows to declare elements using keyword EMPTY.
-          This way all elements, which are not declared EMPTY, can be represented as described
-          above. To further help the extraction process the following recommendation could be
-          implemented in original XML format: <quote>For interoperability, the empty-element tag
+              >&lt;pc>&lt;/pc></link></code>, only for well formed spanning codes.</para>
+        <para>Ideally the original format is documented enough to instruct
+            <firstterm>Extractors</firstterm> about the role of each inline code. For example,
+          XML Schema allows to declare elements using the keyword EMPTY. This way, all elements that
+          are not declared EMPTY, can be represented as described above. To further help the
+            <firstterm>Extraction</firstterm> process, the following recommendation could be
+          implemented in the original XML format: <quote>For interoperability, the empty-element tag
             SHOULD be used, and SHOULD only be used, for elements which are declared
             EMPTY.</quote><citation>[XML]</citation>.</para>
-        <para>Following this recommendation an empty <code>&lt;span></code> would be encoded as
-            <code>&lt;span>&lt;/span></code> and represented as <code><link
+        <para>Following this recommendation of the XML specification, an empty
+            <code>&lt;span></code> ought to be encoded as <code>&lt;span>&lt;/span></code> and
+          therefore represented as an <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc /></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> pair, as compared
-          to always empty <code>&lt;br /></code>, which would be represented by <code><link
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec /></link></code> pair in XLIFF,
+          unlike the always empty <code>&lt;br /></code> that has to be represented as a standalone
+          placeholder code <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
               xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph /></link></code>.</para>
-        <para>This concept is illustrated by <link
+        <para>This concept is illustrated by the <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
             xmlns:xlink="http://www.w3.org/1999/xlink"><code>spanning_as_ph</code></link>.</para>
       </section>
       <section xml:id="Outermost">
         <title>Outermost Tag Pairs</title>
-        <para>In some cases the inline codes might enclose the localizable string in a way, which
-          would make leaving them out of extracted text a convenient action. For example paragraph
-          containing only a link text, could be extracted as the link text only, without the
-            <code>&lt;a>&lt;/a></code> being represented. This relates to previous
-            <emphasis>bad</emphasis>
+        <para>In some cases, the inline codes can enclose the localizable string in a way that could
+          suggest omitting them in the extracted text. For example, a paragraph containing only a
+          link text, could be extracted as the link text only, without the
+            <code>&lt;a>&lt;/a></code> decoration being represented. This relates to previous
+            <emphasis>bad practice</emphasis>
           <link
             xlink:href="https://github.com/GALAglobal/TAPICC/blob/master/extraction_examples/spanning_as_ph/bad_opening_excluded.xlf"
-            xmlns:xlink="http://www.w3.org/1999/xlink">example</link> with spanning tag represented
-          as two <code><link
+            xmlns:xlink="http://www.w3.org/1999/xlink">example</link> with the spanning tag
+          represented as two empty <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph /></link></code>s and leaving the
-          opening one out.</para>
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ph /></link></code> elements and
+          possibly omitting the opening one.</para>
+        <!-- dF: Copy edited up to here.. -->
         <para>This approach could, however, cause issues in cases where the inline codes needs to be
           manipulated during the roundtrip (deleted, or their order changed), or if they would
           provide additional context to the agent. In case of above hyperlink, translator could want
