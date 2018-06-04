@@ -555,11 +555,65 @@
       </section>
       <section>
         <title>Providing Context</title>
-        <para><glossterm>Context hints</glossterm></para>
+        <para>The actors in the roundtrip, be it humans or machines, need enough information to make
+          appropriate decision regarding operations on inline codes, and how the codes impact the
+          adequacy and fluency of target text, i. e. the context.</para>
+        <para>These additional metadata can be provided using <firstterm>context hints</firstterm>
+          attributes: <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
+              xmlns:xlink="http://www.w3.org/1999/xlink">disp</link></code> (<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispstart"
+              xmlns:xlink="http://www.w3.org/1999/xlink">dispStart</link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispend"
+              xmlns:xlink="http://www.w3.org/1999/xlink">dispEnd</link></code>), <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
+              xmlns:xlink="http://www.w3.org/1999/xlink">equiv</link></code> (<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equivstart"
+              xmlns:xlink="http://www.w3.org/1999/xlink">equivStart</link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equivend"
+              xmlns:xlink="http://www.w3.org/1999/xlink">equivEnd</link></code>), <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#type"
+              xmlns:xlink="http://www.w3.org/1999/xlink">type</link></code>, and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#subtype"
+              xmlns:xlink="http://www.w3.org/1999/xlink">subType</link></code>.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
+            xmlns:xlink="http://www.w3.org/1999/xlink">context_hints</link>.</para>
       </section>
       <section>
         <title>Considerations for Using Spanning Codes</title>
-        <para />
+        <para>Compared to <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;pc></link></code> pair, which can be
+          used to represent only well-formed spanning codes within single <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;segment></link></code>, the more
+          universal <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec></link></code> can handle
+          segmentation changes; span across units; and even represent orphaned, or overlapping
+          codes.</para>
+        <para>The support for overlapping codes can, however, pose a problem in a situation, where
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;sc></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;ec></link></code> are used to represent
+          multiple well-formed spanning codes within a unit and their <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap"
+              xmlns:xlink="http://www.w3.org/1999/xlink">canOverlap</link></code> attribute is not
+          specified, thus the default value <code>yes</code> is used. In such case the
+          well-formedness can be corrupted during the roundtrip without possibility to validate
+          using native XLIFF capabilities.</para>
+        <para>It's thus recommended to set <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap"
+              xmlns:xlink="http://www.w3.org/1999/xlink">canOverlap</link></code> to <code>no</code>
+          when representing well-formed spanning codes.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canOverlap"
+            xmlns:xlink="http://www.w3.org/1999/xlink">editing_hints_canOverlap</link>.</para>
       </section>
     </section>
     <section>
