@@ -1,7 +1,8 @@
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" xml:space="preserve">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" >
     <!-- if not defined, xml:space value is set to "default" -->
     <file id="f1">
         <unit id="u1">
+            <!--xml:space inherited from xliff level-->
             <segment id="1">
                 <source>A paragraph with unsignificant random whitespaces</source>
             </segment>
@@ -11,8 +12,8 @@
             </segment>
             <!-- Second segment will be recycled as repetition -->
         </unit>
-        <unit id="2">
-            <!-- whitespaces will be preserved as specified on root-->
+        <unit id="2" xml:space="preserve">
+            <!-- whitespaces will be preserved as specified -->
             <segment>
                 <source>Script 
             sample 
