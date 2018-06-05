@@ -38,11 +38,10 @@
                     <!-- Nested group corresponds to table header.
                     Value of @id is arbitrary NMTOKEN and depends on Extractor. 
                     Units are table cells. Suitable approach if cells need additional
-                    segmentation
-                -->
-                    <!--Let's make sure the target text in header cells are not longer 
+                    segmentation -->
+                    <!-- Let's make sure the target text in header cells are not longer 
                         than 20 chars each, but the whole header should not be longer 
-                        than 50 chars in total-->
+                        than 50 chars in total -->
                     <unit fs:fs="th" id="u4" slr:sizeRestriction="20">
                         <segment>
                             <source>Firstname</source>
@@ -59,7 +58,7 @@
                         </segment>
                     </unit>
                 </group>
-                <group fs:fs="tr" id="g4_1">
+                <group fs:fs="tr" id="g2_2_2">
                     <!--Value of translate attribute is inherited from parent-->
                     <unit fs:fs="td" id="u7">
                         <segment>
