@@ -618,10 +618,67 @@
     </section>
     <section>
       <title>XLIFF Structure</title>
-      <para />
+      <para>TBD</para>
       <section>
         <title>File Structure</title>
-        <para />
+        <para>Native file format can contain structural elements dividing its content into parts,
+          such as title, body, header and footer, or tables, lists and divs for markup languages; or
+          windows, dialogs, and menus for software resources. </para>
+        <para>Representing native structural elements in XLIFF using nested <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;group></link></code> elements can be
+          useful for providing, and correctly scoping: <itemizedlist>
+            <listitem>
+              <para>additional context (<code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">name</link></code>, <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#type"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">type</link></code>, <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#subtype"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">subType</link></code>, attributes
+                from <link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">Format Style Module</link>)</para>
+            </listitem>
+            <listitem>
+              <para>restrictions (<code>canResegment</code>, <code>translate</code>, attributes from
+                  <link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">Size and Length Restriction
+                  Module</link>)</para>
+            </listitem>
+            <listitem>
+              <para>whitespaces handling (<code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">xml:space</link></code>)</para>
+            </listitem>
+            <listitem>
+              <para>information from modules:<itemizedlist>
+                  <listitem>
+                    <para><link
+                        xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#metadata_module"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">Metadata</link></para>
+                  </listitem>
+                  <listitem>
+                    <para><link
+                        xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#validation_module"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">Validation</link></para>
+                  </listitem>
+                  <listitem>
+                    <para><link
+                        xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ITS-module"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">ITS</link></para>
+                  </listitem>
+                </itemizedlist></para>
+            </listitem>
+          </itemizedlist></para>
+        <para>Most of the above can still be achieved without the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;group></link></code>s at the cost of
+          high redundancy and overloading some of the XLIFF features. </para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
+            xmlns:xlink="http://www.w3.org/1999/xlink">group</link>.</para>
       </section>
       <section>
         <title>Role of <code>&lt;unit></code></title>
