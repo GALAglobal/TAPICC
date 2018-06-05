@@ -618,7 +618,10 @@
     </section>
     <section>
       <title>XLIFF Structure</title>
-      <para>TBD</para>
+      <para>Taking time to consider not only what to extract, but how to extract it, and how to
+        structure the <firstterm>XLIFF document</firstterm> can significantly reduce number of
+        issues during the roundtrip and enable usage of additional features offered by XLIFF
+        spec.</para>
       <section>
         <title>File Structure</title>
         <para>Native file format can contain structural elements dividing its content into parts,
