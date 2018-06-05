@@ -701,30 +701,43 @@
     </section>
     <section>
       <title>Miscellaneous</title>
-      <para />
+      <para>There are many other concepts, which does not belong to a particular category with some
+        of them listed here.</para>
       <section>
         <title>Value of attribute <code>id</code></title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name"
+            xmlns:xlink="http://www.w3.org/1999/xlink">id_and_name</link>.</para>
       </section>
       <section>
         <title>Whitespace Handling</title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/xml_space_preserve"
+            xmlns:xlink="http://www.w3.org/1999/xlink">xml_space_preserve</link>.</para>
       </section>
       <section>
         <title>Protecting Non-localizable Content</title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk"
+            xmlns:xlink="http://www.w3.org/1999/xlink">ph_and_mrk</link>.</para>
       </section>
       <section>
         <title>Merging Translated Content</title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
+            xmlns:xlink="http://www.w3.org/1999/xlink">merging</link>.</para>
       </section>
       <section>
         <title>Selecting Language Tags</title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/language_tags"
+            xmlns:xlink="http://www.w3.org/1999/xlink">language_tags</link>.</para>
       </section>
       <section>
         <title>Validation of Extracted Content</title>
-        <para />
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
+            xmlns:xlink="http://www.w3.org/1999/xlink">sanity_check</link>.</para>
       </section>
     </section>
     <section>
