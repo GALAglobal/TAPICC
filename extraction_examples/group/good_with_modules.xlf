@@ -1,0 +1,87 @@
+<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0"
+    xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+    xmlns:slr="urn:oasis:names:tc:xliff:sizerestriction:2.0">
+    <file fs:fs="html" id="f1">
+        <slr:profiles generalProfile="xliff:codepoints" />
+        <group fs:fs="title" id="g1" name="title">
+            <!-- This group corresponds to document title -->
+            <unit id="u1">
+                <segment>
+                    <source>Page title</source>
+                </segment>
+            </unit>
+        </group>
+        <group fs:fs="body" id="g2">
+            <!-- additional group at top level to represent <body> -->
+            <group fs:fs="body" id="g2_1" name="main">
+                <!-- This group corresponds to div in the source doc. 
+                Units map to paragraphs. -->
+                <notes>
+                    <note>Preserve consistency of translation with the table below.</note>
+                    <!-- Instructions for translators applicable for the whole group -->
+                </notes>
+                <unit fs:fs="p" id="u2">
+                    <segment>
+                        <source>First paragraph</source>
+                    </segment>
+                </unit>
+                <unit fs:fs="p" id="u3">
+                    <segment>
+                        <source>Second paragraph</source>
+                    </segment>
+                </unit>
+            </group>
+            <group fs:fs="table" id="g2_2" name="table1" translate="no" xml:space="preserve">
+                <!-- Group corresponds to whole table -->
+                <!-- Spaces are preserved in the whole table except for table header -->
+                <group fs:fs="tr" id="g2_2_1" slr:sizeRestriction="50" translate="yes" xml:space="default">
+                    <!-- Nested group corresponds to table header.
+                    Value of @id is arbitrary NMTOKEN and depends on Extractor. 
+                    Units are table cells. Suitable approach if cells need additional
+                    segmentation
+                -->
+                    <!--Let's make sure the target text in header cells are not longer 
+                        than 20 chars each, but the whole header should not be longer 
+                        than 50 chars in total-->
+                    <unit fs:fs="th" id="u4" slr:sizeRestriction="20">
+                        <segment>
+                            <source>Firstname</source>
+                        </segment>
+                    </unit>
+                    <unit fs:fs="th" id="u5" slr:sizeRestriction="20">
+                        <segment>
+                            <source>Lastname</source>
+                        </segment>
+                    </unit>
+                    <unit fs:fs="th" id="u6" slr:sizeRestriction="20">
+                        <segment>
+                            <source>Age</source>
+                        </segment>
+                    </unit>
+                </group>
+                <group fs:fs="tr" id="g4_1">
+                    <!--Value of translate attribute is inherited from parent-->
+                    <unit fs:fs="td" id="u7">
+                        <segment>
+                            <source>John</source>
+                        </segment>
+                    </unit>
+                    <unit fs:fs="td" id="u8">
+                        <segment>
+                            <source>Smith</source>
+                        </segment>
+                    </unit>
+                    <unit fs:fs="td" id="u9">
+                        <segment>
+                            <source>30</source>
+                        </segment>
+                    </unit>
+                </group>
+                <!-- Each additional table row would create new group -->
+            </group>
+        </group>
+        <!-- Using Format Style Module for additional context and to help render the preview would
+            not be possible with flat XLIFF structure.
+            http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod -->
+    </file>
+</xliff>
