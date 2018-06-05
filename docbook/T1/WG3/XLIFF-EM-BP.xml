@@ -713,8 +713,8 @@
           restrictions. Invalid characters in <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
               xmlns:xlink="http://www.w3.org/1999/xlink">id</link></code> would be discovered as
-          soon as the first validation occurs, though it can still be costly to fix in long running
-          projects.</para>
+          soon as the first validation occurs, though it can still be costly to fix in the long
+          running projects.</para>
         <para>Instead, XLIFF’s <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name"
               xmlns:xlink="http://www.w3.org/1999/xlink">name</link></code> is designed to store the
@@ -732,6 +732,23 @@
       </section>
       <section>
         <title>Whitespace Handling</title>
+        <para>Whitespaces can be important inside nodes like <code>&lt;pre></code>, containing e.g.
+          code samples, and modifying them during roundtrip is not desirable.</para>
+        <para>They are, however, often insignificant in the text nodes of markup format, such as XML
+          or HTML, and can be modified by, for example, reformatting and indentation (i. e.
+          pretty-print) without affecting the layout or rendered document.</para>
+        <para>Thus one cannot indiscriminately either preserve, or normalize; as in the former case,
+          with most TMS and CAT tools penalizing whitespace discrepancies, the leverage would be
+          negatively affected; and in the latter, the target layout could be corrupted.</para>
+        <para>Generally, the <firstterm>Extractor</firstterm> itself should normalize native content
+          where possible, not relying on other agents in the roundtrip to do that, thus ensuring
+          consistent approach; and protect XLIFF structural elements with <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
+              xmlns:xlink="http://www.w3.org/1999/xlink">xml:space</link></code> set to
+            <code>preserve</code> where necessary.</para>
+        <para>Additional details in the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#preserve_space"
+            xmlns:xlink="http://www.w3.org/1999/xlink">XLIFF spec</link>. </para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/xml_space_preserve"
             xmlns:xlink="http://www.w3.org/1999/xlink">xml_space_preserve</link>.</para>
