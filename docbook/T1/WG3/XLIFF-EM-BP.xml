@@ -685,7 +685,18 @@
       </section>
       <section>
         <title>Role of <code>&lt;unit></code></title>
-        <para />
+        <para>Extractor sets the XLIFF structure, which cannot be modified during the roundtrip
+          above the &lt;unit> level. Appropriate relationship between structures of native format
+          and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;unit></link></code> can make all the
+          difference between hindering the roundtrip and making the most of XLIFF.</para>
+        <para>Problems can be caused by both extremes: too many and not enough <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;unit></link></code>s.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
+            xmlns:xlink="http://www.w3.org/1999/xlink">mapping_to_unit</link>.</para>
       </section>
     </section>
     <section>
