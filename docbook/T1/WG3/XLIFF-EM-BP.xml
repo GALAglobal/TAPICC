@@ -705,6 +705,27 @@
         of them listed here.</para>
       <section>
         <title>Value of attribute <code>id</code></title>
+        <para>Implementers could be tempted to store values of resource Ids in the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
+              xmlns:xlink="http://www.w3.org/1999/xlink">id</link></code> attribute of XLIFF
+          structural elements. While the attribute value is restricted to
+            <firstterm>NMTOKEN</firstterm> by schema, the native format may not have such
+          restrictions. Invalid characters in <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
+              xmlns:xlink="http://www.w3.org/1999/xlink">id</link></code> would be discovered as
+          soon as the first validation occurs, though it can still be costly to fix in long running
+          projects.</para>
+        <para>Instead, XLIFF’s <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name"
+              xmlns:xlink="http://www.w3.org/1999/xlink">name</link></code> is designed to store the
+          original identifier of the resource, without the risk of possible conflicts due to
+            <firstterm>NMTOKEN</firstterm> restrictions. Alternatively, <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#original"
+              xmlns:xlink="http://www.w3.org/1999/xlink">original</link></code> can be used on
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#file"
+              xmlns:xlink="http://www.w3.org/1999/xlink">&lt;file></link></code> for the same
+          purpose.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name"
             xmlns:xlink="http://www.w3.org/1999/xlink">id_and_name</link>.</para>
