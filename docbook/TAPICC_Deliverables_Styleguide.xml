@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article [
+<!ENTITY % dbgenent SYSTEM "SGdbgenent.mod">
+%dbgenent;
+]>
+<article version="5.1" xml:lang="en-us" xmlns="http://docbook.org/ns/docbook"
+  xmlns:xl="http://www.w3.org/1999/xlink">
+  <info>
+    <title>TAPICC Deliverables Style Guide, Version &version;</title>
+    <authorgroup>
+      
+<!-- Editors appear in alphabetical order unless there is a lead editor among a group of editors -->
+      <editor>
+        <personname>David Filip</personname>
+        <email>david.filip@adaptcentre.ie</email>
+        <affiliation>
+          <orgname>ADAPT Centre at Trinity College Dublin (TCD)</orgname>
+        </affiliation>
+      </editor>
+<!--       
+      <editor>
+        <personname>Editor2 Editor2</personname>
+        <email>editor2@example.org</email>
+        <affiliation>
+          <orgname>Editor2's employer</orgname>
+        </affiliation>
+      </editor>
+-->
+<!-- WG Chairs should be given credit -->
+      <othercredit role="chair">
+        <personname>TAPICC Steering Committee</personname>
+      </othercredit>
+
+    </authorgroup>
+
+<!-- Define at least three content related keywords -->
+    <keywordset>
+      <keyword>Style</keyword>
+      <keyword>Content keyword or phrase 2</keyword>
+      <keyword>Content keyword or phrase 3</keyword>
+<!--  other liekely keywords-->      
+      
+<!--  compulsory key phrase-->      
+      <keyword>TAPICC Policy</keyword>
+    </keywordset>
+
+<!-- This block is defined in the transformations and uses entities from the related dbgent.mod -->
+    <releaseinfo role="this-location-authoritative" />
+    <releaseinfo role="this-location-pdf" />
+
+    <releaseinfo role="previous-location-authoritative" />
+    <releaseinfo role="previous-location-pdf" />
+
+    <releaseinfo role="latest-location-authoritative" />
+    <releaseinfo role="latest-location-pdf" />
+
+<!-- Which TAPPIC Track / WG developed the deliverable in the format "TAPICC T#/WG#" --> 
+    <releaseinfo role="committee">TAPICC SC</releaseinfo>
+    <pubdate>&pubdate;</pubdate>
+    <copyright>
+      <year>&pubyear;</year>
+      <holder>GALA TAPICC. All rights reserved.</holder>
+    </copyright>
+    
+<!-- Specify relationship to aditional artifacts if any, for example schemas, example code, example files, test suites, reference implementations etc. -->    
+    <legalnotice role="additional">
+      <title>Additional artifacts</title>
+      <para>This prose specification is one component of a Work Product that also includes:</para>
+      <itemizedlist>
+        <listitem>
+          <para>Extraction and merging examples from
+            https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples</para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+<!-- Specify to which other specifcations is this work product related, e.g. other TAPICC, OASIS or other SDO specifications.. Only published specifcations should be referenced in this section, possibly other parts of the same work product at a comparable level of stability -->
+    <legalnotice role="related">
+      <title>Related work</title>
+      <para>This note provides informative best practice for XLIFF 2 Specifications:</para>
+      <itemizedlist>
+        <listitem>
+          <para>XLIFF Version 2.1 <citation>[XLIFF-2.1]</citation></para>
+        </listitem>
+        <listitem>
+          <para>XLIFF Version 2.0 <citation>[XLIFF-2.0]</citation></para>
+        </listitem>
+        <listitem>
+          <para>ISO 21720:2017 <citation>[ISO XLIFF]</citation></para>
+        </listitem>
+      </itemizedlist>
+    </legalnotice>
+
+    <abstract>
+      <para>This &releaseinfo; specifies the style requirements for the TAPICC deliverables, prose
+        and code alike. </para>
+    </abstract>
+    <legalnotice role="status">
+      <title>Status</title>
+      <para>This &releaseinfo; was last revised by TAPICC &track;/&wg; or the TAPICC Steering Committee on the
+        above date. The level of approval is also listed above. Check the “Latest version” location
+        noted above for possible later revisions of this document.</para>
+      <para>Contributions to this deliverable or subsequent versions of this deliverable can be made via the <link xl:href="https://github.com/GALAglobal/TAPICC">GALA TAPICC GitHub Repository</link> subject to signing the <link xl:href="https://www.gala-global.org/tapicc-legal-agreement">TAPICC Legal Agreement</link>.</para>
+    </legalnotice>
+    <legalnotice role="citation">
+      <title>Citation format</title>
+      <para>When referencing this specification the following citation format should be used:</para>
+      <para><citation>XLIFF-EM-BP</citation></para>
+      <para><emphasis>TAPICC Style Guide, Version &version;</emphasis> Edited by David Filip. &pubdate;. &stage; &substage;. &this-loc;.html. Latest version: &latest;.html.</para>
+    </legalnotice>
+    <legalnotice role="notices">
+      <title>Notices</title>
+      <para>Copyright © GALA TAPICC &pubyear;. All rights reserved.</para>
+      <para>
+        The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.</para>
+        
+        <para>The usage of all deliverables of this initiative - including this specification - is
+        subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0
+        License, the declared applicable licenses when the project was chartered. <itemizedlist>
+          <listitem>
+            <para>The 3-Clause BSD License (BSD-3 Clause): <link
+                xl:href="https://opensource.org/licenses/BSD-3-Clause"
+                >https://opensource.org/licenses/BSD-3-Clause</link></para>
+          </listitem>
+          <listitem>
+            <para>Creative Commons Legal Code (CC-BY 2.0): <link
+                xl:href="https://creativecommons.org/licenses/by/2.0/legalcode"
+                >https://creativecommons.org/licenses/by/2.0/legalcode</link></para>
+          </listitem>
+        </itemizedlist></para>
+    </legalnotice>
+  </info>
+
+
+<!-- Terms and concepts defined in this section need to be highlighted throughout the specification using the firstterm element, please note that glossterm is reserved for normative keywords -->
+  <glossary xml:id="Glossary">
+    <title>Terminology and Concepts</title>
+    <glossentry>
+      <glossterm>The term to be defined</glossterm>
+      <glossdef><para>
+      Definition of the term preferably with authoritative links or bibliographical references.
+        </para>
+      </glossdef>
+    </glossentry>
+  </glossary>
+  <section xml:id="Intro">
+    <title>Introduction</title>
+    <para>Introduction content.</para>
+    <section>
+      
+      <title>Nested Section of Introduction</title>
+      <para>Don't use more than one nested level in the Intro section.</para>
+    </section>
+    
+    
+  </section>
+  
+
+  <section xml:id="Spec">
+    <title>Specification</title>
+    <para>You can use not only paragraphs, but also programlistings:</para>
+    <programlisting><![CDATA[<article xmlns="http://docbook.org/ns/docbook" …>
+  <title>Sample article</title>
+  <para>This is a really short article.</para>
+</article>]]></programlisting>
+    <para>DocBook offers plenty of elements for inline markup, for example <tag>code</tag> for
+      arbitrary code, e.g. <code>print 2+3;</code>.</para>
+    <para>You can give titles to your programlistings using <tag>example</tag>:</para>
+    <example>
+      <title>DocBook V5.1 document</title>
+      <programlisting><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                         'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'>
+<article lang="en">
+  <title>Sample article</title>
+  <para>This is a very short article.</para>
+</article>]]></programlisting>
+    </example>
+    <para>Lists can be created using <tag>itemizedlist</tag> or <tag>orderedlist</tag>
+      elements:</para>
+    
+    <section>
+      <title>Technical Specification Subsection Title</title>
+      <para>Specification content.</para>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+      </section>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+        <section>
+          <title>Technical Specification Nested Nested Subsection Title</title>
+          <para>Specification content.</para>
+        </section>
+      </section>
+    </section>
+    <section>
+      <title>Technical Specification Subsection Title</title>
+      <para>Specification content.</para>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+      </section>
+      <section>
+        <title>Technical Specification Nested Subsection Title</title>
+        <para> Specification content.</para>
+      </section>
+    </section>
+  </section>
+  
+  <section>
+    <title>Summary</title>
+    <para> Summary content.</para> 
+    
+    <section>
+       
+      <title>Nested Section of Summary</title>
+      <para>Don't use more than one nested level in the Summary section.</para>
+    </section>
+  </section>
+
+  <bibliography xml:id="references">
+
+    <bibliomixed>
+      <abbrev>XLIFF-2.1</abbrev> Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
+      Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>12 October 2017</date>
+      <bibliomisc><link version="Candidate OASIS Standard 01"
+          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cos01/xliff-core-v2.1-cos01.html"
+           /> <link version="latest"
+          xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
+         /></bibliomisc>
+    </bibliomixed>
+    <bibliomixed>
+      <abbrev>XLIFF-2.0</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
+      <bibliomisc><link version="OASIS Standard"
+        xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
+      /> <link version="latest"
+        xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
+      /></bibliomisc>
+    </bibliomixed>
+    
+    <bibliomixed>
+      <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file format)</title><date>November 2017</date>
+    <bibliomisc><link version="International Standard"
+      xl:href="https://www.iso.org/standard/71490.html"
+    /></bibliomisc>
+    </bibliomixed>
+
+  </bibliography>
+
+</article>
