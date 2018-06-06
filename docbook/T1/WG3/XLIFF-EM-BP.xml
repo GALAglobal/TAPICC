@@ -471,21 +471,28 @@
       </section>
       <section xml:id="Candidates_in_target">
         <title>Inserting Possible Translations into <code>&lt;target></code> elements</title>
-        <para>Enriching agent can use a translation memory, machine translation engine or other
-          means to obtain suitable target strings to be used later in the roundtrip, for example as
-          suggestions for translators to achieve better leverage or to get higher consistency with
-          previous translations.</para>
-        <para>Using <code><link
+        <para><firstterm>Enriching Agents</firstterm> can use translation memories, machine
+          translation engines, or other means to obtain suitable translation candidate strings in
+          the target language to be used later in the roundtrip, for example as suggestions for
+          translators, to achieve better leverage, or to get higher consistency with previous
+          translations.</para>
+        <para>Using the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> for storage
-          limits the number of translation candidates to a single one, moreover it's not possible to
-          pass metadata such as suggestion origin or its quality during the roundtrip, causing
-          interoperability issues with agents without prior knowledge of the workflow.</para>
-        <para>Additionally, this implementation can be considered as overloading the core element
-          with clearly defined purpose, while a better solution in a form of <link
+              >&lt;target></link></code> element for storing such translation candidates limits the
+          number of the possible proposed translations to a single one per segment. Moreover, this
+          way it's not possible to pass critical metadata about the translation candidate, such as
+          its origin, similarity, or quality (all those are available in a dedicated module),
+          causing interoperability issues for <firstterm>Agents</firstterm> without prior knowledge
+          of the workflow.</para>
+        <para>Inserting translation candidates into <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              >&lt;target></link></code> elements during <firstterm>Extraction</firstterm> or
+            <firstterm>Enriching</firstterm> constitutes an illegal overload of the core element
+          with a clearly set purpose. The <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candidates"
-           >Translation Candidates Module</link>, which
-          provides mechanisms to handle the required use case, already exists.</para>
+            >Translation Candidates Module</link> was designed exactly to provide translators with
+          multiple translation candidates along with metadata that facilitate decision making and
+          effective reuse.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/pre-populated_target"
            >pre-populated_target</link>.</para>
