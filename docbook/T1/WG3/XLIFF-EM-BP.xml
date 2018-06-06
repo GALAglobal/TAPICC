@@ -356,14 +356,31 @@
             >they may ignore the added codes</link>.</para>
         <para>Finally, it is considered an <link
             xlink:href="https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA">XML internationalization best
-            practice</link> to avoid CDATA sections in localizable content.</para>
+            practice</link> to avoid CDATA sections in localizable content. This best practice is of
+          course also valid for XLIFF <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source"
+              >&lt;source></link></code> elements.</para>
         <para>Strictly speaking, it is not illegal to create <firstterm>XLIFF Documents</firstterm>
-          that contain CDATA section or unparsed entities instead of fully parsed XLIFF inline
+          that contain CDATA sections or unparsed entities instead of fully parsed XLIFF inline
           content. However, considering all of the above, it is clear that unparsed inline content
-          makes XLIFF Documents unfit for roundtrip. Again, strictly speaking, <firstterm>XLIFF
-            Documents</firstterm> with unparsed inline content are capable of roundtrip but all the
-          effort that is saved on <firstterm>Extraction</firstterm> will cause unpredictable issues
-          and hence even more effort on <firstterm>Merging</firstterm> back.  </para>
+          makes XLIFF Documents unfit for a fully interoperable roundtrip. Again, strictly speaking,
+            <firstterm>XLIFF Documents</firstterm> with unparsed inline content are
+            <emphasis>capable</emphasis> of roundtrip but all the effort that is saved on
+            <firstterm>Extraction</firstterm> will cause unpredictable issues and hence even more
+          effort when <firstterm>Merging</firstterm> back. </para>
+        <para>Implementers need to consider that <firstterm>XLIFF Documents</firstterm> with
+          unparsed inline content are very likely to return with critical inline syntax corruptions
+          that cannot be prevented on CDATA sections or entities that are both opaque to
+            <firstterm>XLIFF Modifiers</firstterm>. Such corruptions are likely to prevent proper
+          functionality of target content in the native environment.  In case <firstterm>XLIFF
+            Modifiers</firstterm> do perform the secondary parsing of content unparsed on
+            <firstterm>Extraction</firstterm>, which is allowed by the standard, corruption will be
+          prevented, however, <firstterm>Mergers</firstterm> will need to perform
+            <emphasis>unparsing</emphasis> to facilitate merging back into the native environment,
+          because XLIFF Modifiers are not and cannot be obliged to <emphasis>unparse</emphasis> back
+          to CDATA sections or entities not knowing the <firstterm>Extraction</firstterm> and
+            <firstterm>Merging</firstterm> logic of the <firstterm>XLIFF Document</firstterm>
+          originator.  </para>
       </section>
       <section xml:id="Multiples">
         <title>Representing Multiple Subsequent Codes</title>
