@@ -88,8 +88,8 @@
     </legalnotice>
 
     <abstract>
-      <para>This &releaseinfo; specification targets designers of XLIFF <firstterm />Extracting and
-        Merging Tools for content owners. It gathers common problems that are prone to appear when
+      <para>This &releaseinfo; specification targets designers of XLIFF <firstterm>Extracting</firstterm> and
+        <firstterm>Merging</firstterm> Tools for content owners. It gathers common problems that are prone to appear when
           <firstterm>Extracting</firstterm>
         <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This
         specification shows why some <firstterm>Extraction</firstterm> approaches will cause issues
@@ -145,27 +145,41 @@
   <!-- Terms and concepts defined in this section need to be highlighted thorough the specification using the firstterm element -->
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
+    <para>Apart form terminology and concepts defined here, this specification makes heavy use of
+      terms defined in the XLIFF Standards <citation>[XLIFF-2.1]</citation> such as:
+        <firstterm>Extractor</firstterm>, <firstterm>Merger</firstterm>, <firstterm>XLIFF
+        Document</firstterm>, <firstterm>XLIFF defined</firstterm>, etc.</para>
     <glossentry>
-      <glossterm>Context hints</glossterm>
+      <glossterm>context hints</glossterm>
       <glossdef>
-        <para>XLIFF attributes on structural or inline elements providing additional contexts, such
-          as <code><link
+        <para><firstterm>XLIFF defined</firstterm> attributes on structural or inline elements
+          providing additional contexts, such as <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> or <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
-              >equiv</link></code>.</para>
+              >equiv</link></code>. Attributes <code>fs</code> and <code>subFs</code> defined in the
+          XLIFF Format Style Module are also considered <firstterm>context hints</firstterm>.</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>Inline codes</glossterm>
+      <glossterm>inline codes</glossterm>
       <glossdef>
-        <para />
+        <para><code>&lt;sc/></code>/<code>&lt;ec></code> pairs, orphaned <code>&lt;sc/></code> or
+            <code>&lt;ec/></code>, well formed <code>&lt;pc></code>, standalone
+            <code>&lt;ph/></code> and <code>&lt;cp></code> are inline codes used to represent native
+          format inline markup in <firstterm>XLIFF Documents</firstterm>.</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>marker</glossterm>
+      <glossterm>markers</glossterm>
       <glossdef>
-        <para />
+        <para><code>&lt;sm/></code>/<code>&lt;em/></code> pairs and well formed
+            <code>&lt;mrk></code> are <firstterm>XLIFF defined</firstterm> inline
+          marker elements designed for inline annotations of content with metadata. <note>
+            <para>Markers are distinct from <firstterm>inline codes</firstterm> (see). Markers can
+              be combined with standoff elements for rich metadata that would be complicated or
+              impossible to display inline.</para>
+          </note></para>
       </glossdef>
     </glossentry>
   </glossary>
