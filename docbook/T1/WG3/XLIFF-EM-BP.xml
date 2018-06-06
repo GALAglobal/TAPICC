@@ -369,13 +369,13 @@
             <firstterm>Extraction</firstterm> will cause unpredictable issues and hence even more
           effort when <firstterm>Merging</firstterm> back. </para>
         <para>Implementers need to consider that <firstterm>XLIFF Documents</firstterm> with
-          unparsed inline content are very likely to return with critical inline syntax corruptions
-          that cannot be prevented on CDATA sections or entities that are both opaque to
-            <firstterm>XLIFF Modifiers</firstterm>. Such corruptions are likely to prevent proper
-          functionality of target content in the native environment.  In case <firstterm>XLIFF
-            Modifiers</firstterm> do perform the secondary parsing of content unparsed on
-            <firstterm>Extraction</firstterm>, which is allowed by the standard, corruption will be
-          prevented, however, <firstterm>Mergers</firstterm> will need to perform
+          unparsed inline content are very likely to return with critical inline syntax or
+          formatting corruptions that cannot be prevented on CDATA sections or entities that are
+          both opaque to <firstterm>XLIFF Modifiers</firstterm>. Such corruptions are likely to
+          prevent proper functionality of target content in the native environment.  In case
+            <firstterm>XLIFF Modifiers</firstterm> do perform the secondary parsing of content
+          unparsed on <firstterm>Extraction</firstterm>, which is allowed by the standard,
+          corruption will be prevented, however, <firstterm>Mergers</firstterm> will need to perform
             <emphasis>unparsing</emphasis> to facilitate merging back into the native environment,
           because XLIFF Modifiers are not and cannot be obliged to <emphasis>unparse</emphasis> back
           to CDATA sections or entities not knowing the <firstterm>Extraction</firstterm> and
@@ -384,23 +384,26 @@
       </section>
       <section xml:id="Multiples">
         <title>Representing Multiple Subsequent Codes</title>
-        <para>As original inline codes can occur in clusters, typically nested formatting,
-          implementer could be tempted to merge them and represent them as a single inline
-          element.</para>
-        <para>Such extraction could prevent desirable modification of the inline codes, affecting
-          quality of the translation; taking advantage of fine grained code metadata; or the
-          automated actions, e.g. validation.</para>
-        <para>There is, however, a potential benefit of reducing markup inside segment content,
-          which can be useful when using CAT tool that cannot properly render the inline codes,
-          reducing the visual clutter and making the translatable text more readable. This can be
-          solved by proper choice of CAT tool or by requiring the tool vendors to support proper
-          rendering.</para>
-        <para>Implementers should weight the pros and cons of both approaches and use the most
-          suitable one.</para>
-        <para>Examples can be found in <link
+        <para>As original <firstterm>inline codes</firstterm> can occur in clusters, for instance as
+          nested formatting, implementers could be tempted to combine such markup on
+            <firstterm>Extraction</firstterm> and represent it as a single inline element.</para>
+        <para>This kind of <firstterm>Extraction</firstterm> is likely to prevent potentially
+          desirable <firstterm>Modification</firstterm> of <emphasis>inline codes</emphasis>,
+          affecting <firstterm>Translation</firstterm> quality. It will also prevent usage of fine
+          grained code metadata (for instance context, display, and editing hints) or automated
+          format validation during the roundtrip.</para>
+        <para>On the other hand, some potential benefit can be perceived in reducing markup inside
+          segment content, which is useful in CAT tools that cannot properly display the inline
+          codes (reneder information available through original data or context hints). In such
+          tolls, less markup reduces the visual clutter and makes the translatable text more
+          readable. This can be solved by proper choice of CAT tools (short term) or by large buyers
+          requesting that offending tool vendors do support proper rendering of <firstterm>inline
+            code</firstterm> data and metadata (mid and long term).</para>
+        <para>Implementers need to consider the pros and cons of both approaches and use the one
+          that best matches their business need.</para>
+        <para>For examples see <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single"
-           
-          >multiple_codes_represented_as_single</link></para>
+            >multiple_codes_represented_as_single</link>.</para>
       </section>
 
     </section>
@@ -409,17 +412,20 @@
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-           >&lt;target></link></code> element during the
-        Extraction or Enriching and when to do so, if at all.</para>
+            >&lt;target></link></code> element during <firstterm>Extraction</firstterm> or
+          <firstterm>Enriching</firstterm> and when to do so, if at all.</para>
       <para>Generally, one should omit the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-           >&lt;target></link></code> element, unless
-        there is an added value. or if the specification offers a better approach. Correct support
-        of the state machine during the whole roundtrip helps the agents to handle and validate the
-          <firstterm>XLIFF Documents</firstterm> in the proper way.</para>
+            >&lt;target></link></code> element, unless there is an added value and also in cases
+        where the specification offers another dedicated solution. Proper support of the state
+        machine<!-- add internal reference --> during the whole roundtrip helps
+          <firstterm>Agents</firstterm> to process and validate the <firstterm>XLIFF
+          Documents</firstterm> as intended.</para>
       <para>When looking at the situation from the <emphasis>microservices</emphasis> point of view,
-        the Extractor/Merger could be implemented as just that — single purpose extraction/merging
-        service, which would delegate other operations, such as segmentation or enriching to other
+        the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> ought to be implemented
+        as just that — a single purpose
+          <firstterm>Extraction</firstterm>/<firstterm>Merging</firstterm> service that delegates
+        any other operations, such as segmentation or <firstterm>Enriching</firstterm> to other
         specialized services.</para>
       <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic
           <firstterm>XLIFF Document</firstterm> with source content only, possibly with additional
@@ -429,29 +435,42 @@
           <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod"
          >Format Style Module</link>.</para>
-      <para>Unless the customer has a need to create <emphasis>target language</emphasis> specific
-        instance of the extracted <firstterm>XLIFF Document</firstterm>, e.g. by enriching with
-        translation candidates, the original <firstterm>XLIFF Document</firstterm> could be sent
-        downstream as-is.</para>
+      <para>Unless the implementer has a specific need to create <emphasis>target
+          language</emphasis> specific instances of the extracted <firstterm>XLIFF
+          Document</firstterm>, for instance by <firstterm>Enriching</firstterm> with translation
+        candidates, <!-- insert module reference --> the <firstterm>Extracted</firstterm>
+        <firstterm>XLIFF Document</firstterm> could and ought to be sent downstream for the
+        Localization roundtrip as-is.</para>
 
       <section xml:id="Source_copy_in_target">
         <title>Inserting Source Content into <code>&lt;target></code></title>
         <para>The copy of the source content in <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> element generally
-          does not provide any advantage during the roundtrip. On the other hand it needlessly
-          increases the size of the <firstterm>XLIFF Document</firstterm>; presupposes existence of
-            <link
+              >&lt;target></link></code> elements generally does not provide any advantage during
+          the XLIFF roundtrip. On the contrary, it brings disadvantages such as needlessly
+          increasing the size of the <firstterm>XLIFF Document</firstterm> or enforcing existence of
+          the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
-           ><code>trgLang</code></link> attribute with
-          defined value; and could prevent segmentation modification, unless the target content is
-          intentionally removed.</para>
-        <para>Example: <link
+              ><code>trgLang</code></link> attribute with a specific BCP 47 compliant value.
+          Populated <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              >&lt;target></link></code> elements are also likely to prevent segmentation
+          modification, unless the target content is intentionally removed (which service providers
+          are understandably hesitant to do). Not the least issue is that the source content copied
+          to the target actually is <emphasis>not</emphasis> in the target language indicated by the
+          BCP 47 tag on the XLIFF root element, which can cause a host of other processing issues.
+          The <emphasis>bad practice</emphasis> of populating <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              >&lt;target></link></code> elements with source content used to facilitate parsing and
+          editing of XLIFF in <emphasis>Translation</emphasis> editors or generic XML editors that
+          didn't have XLIFF support and could only open for translation certain elements in generic
+          XML formats. As such, this practice is strongly discouraged.</para>
+        <para><emphasis>Bad practice</emphasis> example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target"
-           >source_in_target</link>.</para>
+            >source_in_target</link>.</para>
       </section>
       <section xml:id="Candidates_in_target">
-        <title>Inserting Possible Translation into <code>&lt;target></code></title>
+        <title>Inserting Possible Translations into <code>&lt;target></code> elements</title>
         <para>Enriching agent can use a translation memory, machine translation engine or other
           means to obtain suitable target strings to be used later in the roundtrip, for example as
           suggestions for translators to achieve better leverage or to get higher consistency with
