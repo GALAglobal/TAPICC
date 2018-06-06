@@ -212,7 +212,7 @@
     <title>Specification</title>
     <section xml:id="Inlines">
       <title>Inline Codes</title>
-      <para>Recommendations for processing standalone and spanning inline functional and formatting
+      <para>Guidance for processing standalone and spanning inline functional and formatting
         elements of localizable content.<itemizedlist>
           <listitem>
             <para>Perform complete extraction</para>
@@ -220,130 +220,150 @@
           <listitem>
             <para>Represent spanning code using <code><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-                 >&lt;sc /></link></code> and <code><link
+                  >&lt;sc/></link></code> and <code><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-                 >&lt;ec /></link></code> (or <code><link
+                  >&lt;ec/></link></code> (or <code><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-                 >&lt;pc>&lt;/pc></link></code> where
-              possible)</para>
+                  >&lt;pc>&lt;/pc></link></code> where possible)</para>
           </listitem>
           <listitem>
             <para>Represent standalone code using <code><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-                 >&lt;ph></link></code></para>
+                  >&lt;ph></link></code></para>
           </listitem>
           <listitem>
-            <para>Include inlines in extracted content</para>
+            <para>Include <firstterm>inline codes</firstterm> in <firstterm>Extracted</firstterm>
+              content</para>
           </listitem>
           <listitem>
             <para><link
                 xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
-               >XLIFF2 prose</link>.</para>
+                >XLIFF2 prose</link>.</para>
           </listitem>
         </itemizedlist></para>
       <section xml:id="Spanning">
         <title>Representing Spanning Codes</title>
-        <para>Spanning codes in the original format are created by opening code, content and closing
-          code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text
-            \b0</code>.</para>
-        <para>In XLIFF, such code can be represented using <code><link
+        <para><firstterm>Spanning codes</firstterm> in the original format are created by opening
+          code, content and closing code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>,
+          in RTF <code>\b text \b0</code>.</para>
+        <para>In XLIFF, such code can be always represented with an <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-              >&lt;sc /></link></code>/<code><link
+              >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec /></link></code> pair universally, or by <code><link
+              >&lt;ec/></link></code> pair, or with spanning <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              >&lt;pc>&lt;/pc></link></code>, only for well formed spanning codes.</para>
-        <para>Ideally the original format is documented enough to instruct
-            <firstterm>Extractors</firstterm> about the role of each inline code. For example,
-          XML Schema allows to declare elements using the keyword EMPTY. This way, all elements that
-          are not declared EMPTY, can be represented as described above. To further help the
-            <firstterm>Extraction</firstterm> process, the following recommendation could be
-          implemented in the original XML format: <quote>For interoperability, the empty-element tag
-            SHOULD be used, and SHOULD only be used, for elements which are declared
-            EMPTY.</quote><citation>[XML]</citation>.</para>
+              >&lt;pc>&lt;/pc></link></code>, only for well formed markup.</para>
+        <para>Ideally, the original format is documented well enough to instruct
+            <firstterm>Extractors</firstterm> about the role of each <firstterm>inline
+            code</firstterm>. For example, XML Schema allows to declare elements using the keyword
+          EMPTY. This way, all elements that are not declared EMPTY, can be represented as described
+          above. To further help the <firstterm>Extraction</firstterm> process, the following
+          recommendation could be implemented in the original XML format: <quote>For
+            interoperability, the empty-element tag SHOULD be used, and SHOULD only be used, for
+            elements which are declared EMPTY.</quote><citation>[XML]</citation>.</para>
         <para>Following this recommendation of the XML specification, an empty
             <code>&lt;span></code> ought to be encoded as <code>&lt;span>&lt;/span></code> and
           therefore represented as an <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-             >&lt;sc /></link></code>/<code><link
+              >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-             >&lt;ec /></link></code> pair in XLIFF,
-          unlike the always empty <code>&lt;br /></code> that has to be represented as a standalone
-          placeholder code <code><link
+              >&lt;ec/></link></code> pair in <firstterm>XLIFF Documents</firstterm>, unlike the
+          always empty <code>&lt;br/></code> that has to be represented as a standalone placeholder
+          code <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-             >&lt;ph /></link></code>.</para>
+              >&lt;ph/></link></code>.</para>
         <para>This concept is illustrated by the <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
            ><code>spanning_as_ph</code></link>.</para>
+        <para>This kind of encoding doesn't inform the <firstterm>Translating</firstterm>
+          <firstterm>Agent</firstterm> (human or machine <firstterm>Modifier</firstterm>) that the
+          original code formed a span and effectively the original spanning code is not protected
+          during the roundtrip. The standalone <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph/></link></code> codes can be switched, one of them omitted, the span is likely
+          to end up misplaced, malformed, or empty simply because the
+            <firstterm>Translation</firstterm> editor cannot convey to the translator that the codes
+          enclose a certain portion of the original content and what is the semantics of the
+          original code span.</para>
       </section>
       <section xml:id="Outermost">
         <title>Outermost Tag Pairs</title>
-        <para>In some cases, the inline codes can enclose the localizable string in a way that could
-          suggest omitting them in the extracted text. For example, a paragraph containing only a
-          link text, could be extracted as the link text only, without the
-            <code>&lt;a>&lt;/a></code> decoration being represented. This relates to previous
+        <para>In some cases, the <firstterm>inline codes</firstterm> can enclose the localizable
+          string in a way that could suggest omitting them in the <firstterm>Extracted</firstterm>
+          text. For example, a paragraph containing only a link text, could be
+            <firstterm>Extracted</firstterm> as the link text only, without the
+            <code>&lt;a>&lt;/a></code> decoration being represented. This relates to the previous
             <emphasis>bad practice</emphasis>
           <link
             xlink:href="https://github.com/GALAglobal/TAPICC/blob/master/extraction_examples/spanning_as_ph/bad_opening_excluded.xlf"
-           >example</link> with the spanning tag
-          represented as two empty <code><link
+            >example</link> with the spanning tag represented as two empty <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-             >&lt;ph /></link></code> elements and
-          possibly omitting the opening one.</para>
-        <!-- dF: Copy edited up to here.. -->
-        <para>This approach could, however, cause issues in cases where the inline codes needs to be
-          manipulated during the roundtrip (deleted, or their order changed), or if they would
-          provide additional context to the agent. In case of above hyperlink, translator could want
-          to check the hyperlink target for reference or need to add text outside of hyperlink
-          text.</para>
-        <para>Ideally a consistent approach to all inline codes should be used during the
-          extraction.</para>
-        <para>Example can be found in <link
+              >&lt;ph/></link></code> elements.</para>
+        <para>In case the <code>&lt;a>&lt;/a></code> decoration is not represented, the translator
+          loses valuable context (they cannot check the link), more importantly they don't know that
+          the text is a link text, and moreover are unable to add any text outside of the link span,
+          which might be advisable or even mandatory in certain locales.</para>
+        <para>Ideally, a consistent approach to all <firstterm>inline codes</firstterm> ought to be
+          used during <firstterm>Extraction</firstterm>.</para>
+        <para>See the relevant <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded"
-           >outermost_inline_excluded</link>.</para>
+            >outermost_inline_excluded</link>.</para>
       </section>
       <section xml:id="CDATA">
         <title>Incomplete Extraction of Inline Codes</title>
-        <para>Implementers might choose not to process inline codes at all during the extraction and
-          use one of the following approaches:<itemizedlist>
+        <para>Some implementers choose not to <firstterm>Extract</firstterm>
+          <firstterm>inline codes</firstterm> at all and use instead one of the following approaches:<itemizedlist>
             <listitem>
-              <para>Use CDATA blocks as content of <code><link
+              <para>CDATA sections as content of <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source"
-                   >&lt;source></link></code> and
-                    <code><link
+                    >&lt;source></link></code> and <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-                   >&lt;target></link></code> elements
-                  (<link
+                    >&lt;target></link></code> elements (<link
                   xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata"
-                 >cdata</link>)</para>
+                  >cdata</link>)</para>
             </listitem>
             <listitem>
-              <para>Escape native codes using XML entities (<link
+              <para>Escaping of native codes using XML entities (<link
                   xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text"
-                 >inline_codes_plain_text</link>)</para>
+                  >inline_codes_plain_text</link>)</para>
             </listitem>
           </itemizedlist></para>
-        <para>Such incomplete extraction leaves inline codes unprotected and increases risk of their
-          corruption during the roundtrip, thus pushing the problem of inline code handling
+        <para>Doing one of the above can be used as a useful interim
+            <firstterm>Extraction</firstterm> step when producing <firstterm>XLIFF
+            Documents</firstterm> that are fit for roundtrip. However, it is strongly discouraged to
+          send <firstterm>XLIFF Documents</firstterm> with the inline content not fully parsed for
+          Localization roundtrip.</para>
+        <para>Such incomplete <firstterm>Extraction</firstterm> leaves <firstterm>inline
+            codes</firstterm> unprotected and increases the risk of their corruption during the
+          roundtrip, simply pushing the problem of <firstterm>inline code</firstterm> handling
           downstream.</para>
-        <para>Modifiers could perform secondary extraction and still take advantages of native
-          representation and according to specification, <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
-           >Writers <emphasis>may</emphasis> preserve
-            original CDATA sections</link> and <link
+        <para>According to the XLIFF <citation>[XLIFF-2.1]</citation> Standards,
+            <firstterm>Modifiers</firstterm> can perform secondary parsing:</para>
+        <para><quote><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
+              >Writers <emphasis>may</emphasis> preserve original CDATA sections</link></quote>
+          (meaning that it is entirely optional to preserve CDATA sections and that <firstterm>XLIFF
+            Writers</firstterm> are not obliged to preserve CDATA sections) and</para>
+        <para>
+          <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8993"
-           >text can be converted into inline
-            codes</link>.</para>
-        <para>Merges <link
+            >text can be converted into inline codes</link>.</para>
+        <para><firstterm>Mergers</firstterm>
+          <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ApplicationConformance"
-           >have to accept XLIFF files with valid
-            modifications</link>, even though <link
+            >have to accept XLIFF files with valid modifications</link>, even though <link
             xlink:href="addingcodeshttp://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#addingcodes"
-           >they may ignore the added
-          codes</link>.</para>
-        <para>It's considered an <link xlink:href="https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA"
-           >XML internationalization best practice</link>
-          to avoid CDATA in localizable content.</para>
+            >they may ignore the added codes</link>.</para>
+        <para>Finally, it is considered an <link
+            xlink:href="https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA">XML internationalization best
+            practice</link> to avoid CDATA sections in localizable content.</para>
+        <para>Strictly speaking, it is not illegal to create <firstterm>XLIFF Documents</firstterm>
+          that contain CDATA section or unparsed entities instead of fully parsed XLIFF inline
+          content. However, considering all of the above, it is clear that unparsed inline content
+          makes XLIFF Documents unfit for roundtrip. Again, strictly speaking, <firstterm>XLIFF
+            Documents</firstterm> with unparsed inline content are capable of roundtrip but all the
+          effort that is saved on <firstterm>Extraction</firstterm> will cause unpredictable issues
+          and hence even more effort on <firstterm>Merging</firstterm> back.  </para>
       </section>
       <section xml:id="Multiples">
         <title>Representing Multiple Subsequent Codes</title>
