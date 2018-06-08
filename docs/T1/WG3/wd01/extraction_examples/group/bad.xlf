@@ -1,28 +1,48 @@
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US" >
+<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
     <file id="f1">
         <unit id="u1">
             <segment>
-                <source>First paragraph</source>
+                <source>Page title</source>
             </segment>
         </unit>
         <unit id="u2">
             <segment>
+                <source>First paragraph</source>
+            </segment>
+        </unit>
+        <unit id="u3">
+            <segment>
                 <source>Second paragraph</source>
             </segment>
         </unit>
-        <unit id="u4">
+        <unit id="u4" translate="yes">
             <segment>
                 <source>Firstname</source>
             </segment>
         </unit>
-        <unit id="u5">
+        <unit id="u5" translate="yes">
             <segment>
                 <source>Lastname</source>
             </segment>
         </unit>
-        <unit id="u6">
+        <unit id="u6" translate="yes">
             <segment>
                 <source>Age</source>
+            </segment>
+        </unit>
+        <unit id="u7" translate="no">
+            <segment>
+                <source>John</source>
+            </segment>
+        </unit>
+        <unit id="u8" translate="no">
+            <segment>
+                <source>Smith</source>
+            </segment>
+        </unit>
+        <unit id="u9" translate="no">
+            <segment>
+                <source>30</source>
             </segment>
         </unit>
         <!-- Flat XLIFF structure does not provide additional context information
@@ -30,6 +50,7 @@
             and has an extension point for elements from MDA, SLR, VAL and ITS modules
             and FS module attributes, thus narrowing the scope of the information
             contained in them.
+            Note the redundancy of translate attribute specified for every unit separately
         -->
     </file>
 </xliff>

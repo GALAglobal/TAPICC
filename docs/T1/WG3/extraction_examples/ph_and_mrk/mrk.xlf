@@ -15,7 +15,7 @@
                 <target>, ktorý nemusí byť nutne v preklade.</target>
             </segment>
             <!-- custom validation is needed to verify:
-                        1. annotation is present in target (based on @id
+                        1. annotation is present in target (based on @id)
                         2. text in annotation matches source
                     as it's not implemented in native validation artifacts
                 -->

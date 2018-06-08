@@ -4,8 +4,13 @@
         I.e. which English variant is the source language? Based on the origin,
         it could be "en-UK" or the generic "en". Same for target language: 
         is it sr-Latn-BA or sr-Cyrl-RS.
+        Specific enough tag should be used in both cases. At the same time, there should be no redundancy.
+        https://www.iana.org/assignments/language-subtag-registry
+        https://www.w3.org/International/questions/qa-choosing-language-tags
+        https://www.w3.org/International/articles/language-tags/
         https://tools.ietf.org/html/rfc6497
         http://www.unicode.org/cldr/charts/latest/supplemental/likely_subtags.html#sr
+        http://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code
     -->
     <file id="f1">
         <unit id="u1">
