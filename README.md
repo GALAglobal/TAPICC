@@ -19,8 +19,9 @@ Open Repository Maintainers are responsible for oversight of this project's comm
 Initially, the TAPICC  Steering Committee members have designated one or more persons to serve as Maintainer(s); subsequently, participating community members may select additional or substitute Maintainers.
  
 Current Maintainers of this Open Repository
+
 * David Filip; GitHub ID:  https://github.com/DavidFatDavidF; WWW: [ADAPT Centre](http://adaptcentre.ie/)
-* Ján Husarčík; GitHub ID: https://github.com/JanHusarcik; WWW: [Moravia: An RWS Company](https://www.moravia.com/)
+* Ján Husarčík; GitHub ID: https://github.com/JanHusarcik; WWW: [Moravia: An RWS Company](https://www.moravia.com/)
  
 ## About TAPICC
 * [General info](https://www.gala-global.org/translation-api-class-and-cases)
