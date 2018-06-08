@@ -891,9 +891,8 @@
     <bibliodiv>
       <title>Normative references</title>
       <bibliomixed><abbrev>XML</abbrev>W3C: <title>Extensible Markup Language (XML)
-          1.0</title><date>26 November 2008</date><bibliomisc><link
-            xlink:href="https://www.w3.org/TR/xml/"
-           /></bibliomisc></bibliomixed>
+          1.0</title><date>26 November 2008</date>
+        <bibliomisc><link xlink:href="https://www.w3.org/TR/xml/" /></bibliomisc></bibliomixed>
       <bibliomixed>
         <abbrev>XLIFF-2.1</abbrev>Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
         Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>13 February 2018</date>
@@ -919,13 +918,6 @@
         <bibliomisc><link version="International Standard"
             xlink:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
       </bibliomixed>
-    </bibliodiv>
-    <bibliodiv>
-      <title>Non-Normative References</title>
-      <bibliomixed><abbrev><!--XML--></abbrev><!--W3C: --><title><!--Extensible Markup Language (XML) 1.0--></title><date><!--26
-        November 2008--></date><bibliomisc><link
-            xlink:href="https://www.w3.org/TR/xml/"
-           /></bibliomisc></bibliomixed>
     </bibliodiv>
   </bibliography>
 </article>
