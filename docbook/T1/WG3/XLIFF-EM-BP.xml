@@ -848,8 +848,8 @@
             </listitem>
           </itemizedlist></para>
         <para>each of them having a slightly different purpose and features.</para>
-        <para>A care should be taken when deciding which of the two should be used and they should
-          not be used interchangeably.</para>
+        <para>A care should be taken when deciding which of the two should be used to protect the
+          particular string, and they should not be used interchangeably.</para>
         <para>Usually, the translate annotation is suitable for protecting linguistically
           significant content, e. g. non-localizable terminology, while <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
@@ -857,15 +857,15 @@
           <note>
             <itemizedlist>
               <listitem>
-                <para><code><link
-                      xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-                      >&lt;ph></link></code> should be accompanied by appropriate context and
-                  editing hints</para>
+                <para>The <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+                    >&lt;ph></link></code> element should be accompanied by appropriate <link
+                  linkend="Hints">context and editing hints</link>.</para>
               </listitem>
               <listitem>
-                <para>XLIFF validations does not support validating translate annotations by design.
-                  If the validation is required, it should be created based on particular business
-                  needs.</para>
+                <para><link linkend="validations">XLIFF validations</link> do not support validating
+                translate annotations by design. If the validation is required, it should be created
+                based on particular business needs.</para>
               </listitem>
             </itemizedlist>
           </note>
