@@ -405,9 +405,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single"
             >multiple_codes_represented_as_single</link>.</para>
       </section>
-
     </section>
-
     <section xml:id="Target_content">
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code><link
@@ -570,16 +568,10 @@
         localizability of text; protecting non-deletable inline codes, or preserving their order;
         controlling the segmentation modification; or providing additional context to other agents
         downstream.</para>
-<<<<<<< HEAD
-      <para>The default values of the editing hits should be considered when creating extraction
-        rules, to prevent issues, which cannot be identified by automated validation.</para>
-      <section xml:id="canDelete">
-=======
       <para>The default values of the editing hints and potential need to set them otherwise need to
         be considered when creating <firstterm>Extraction</firstterm> rules to prevent issues which
         can be only identified by automated validation with editing hints set as intended.</para>
-      <section>
->>>>>>> 3d7ffa3ca3eab8986c602b5da23d95fee6eb8fea
+      <section xml:id="canDelete">
         <title>Non-deletable Inline Codes</title>
         <para>Original source text can contain functional inline codes apert from formatting ones,
           such as software placeholders to be replaced during runtime. Removal of these placeholders
@@ -604,22 +596,13 @@
           code is critical for <firstterm>Merging</firstterm> back of the <firstterm>XLIFF
             Document</firstterm>, their build process, or product functionality.</para>
       </section>
-<<<<<<< HEAD
       <section xml:id="canReorder">
-        <title>Preserving Order of Codes</title>
-        <para>In case the order/nesting of the inline codes in the original document is prescribed
-          (e. g. by a schema), it has to be preserved in the target content during the localization
-          roundtrip to prevent merge issues, or validation fails after the merging.</para>
-        <para>Using attribute <code><link
-=======
-      <section>
         <title> Preserving Order of Codes</title>
         <para>In case the order or nesting of inline codes in the original document is prescribed
           (for instance by a schema), it has to be preserved in the target content during the
           localization roundtrip to prevent <firstterm>Merge</firstterm> issues, or validation fails
           after <firstterm>Merging</firstterm>.</para>
         <para>The attribute <code><link
->>>>>>> 3d7ffa3ca3eab8986c602b5da23d95fee6eb8fea
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
               >canReorder</link></code> on the inline code determines, whether each code can be
           moved before, or after another code. Again, the default value of this attribute is
