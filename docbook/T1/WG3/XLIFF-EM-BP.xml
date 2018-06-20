@@ -405,7 +405,9 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single"
             >multiple_codes_represented_as_single</link>.</para>
       </section>
+
     </section>
+
     <section xml:id="Target_content">
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code><link
@@ -571,7 +573,7 @@
       <para>The default values of the editing hints and potential need to set them otherwise need to
         be considered when creating <firstterm>Extraction</firstterm> rules to prevent issues which
         can be only identified by automated validation with editing hints set as intended.</para>
-      <section xml:id="canDelete">
+      <section>
         <title>Non-deletable Inline Codes</title>
         <para>Original source text can contain functional inline codes apert from formatting ones,
           such as software placeholders to be replaced during runtime. Removal of these placeholders
@@ -596,7 +598,7 @@
           code is critical for <firstterm>Merging</firstterm> back of the <firstterm>XLIFF
             Document</firstterm>, their build process, or product functionality.</para>
       </section>
-      <section xml:id="canReorder">
+      <section>
         <title> Preserving Order of Codes</title>
         <para>In case the order or nesting of inline codes in the original document is prescribed
           (for instance by a schema), it has to be preserved in the target content during the
@@ -621,7 +623,7 @@
 ...          </programlisting>
         </example>
           
-        <para> Since this attribute is supported by native XLIFF validation artifacts
+        <para>Since this attribute is supported by native XLIFF validation artifacts
             (<firstterm>XLIFF Core</firstterm> Schematron Schemas), potential reordering of the
               <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
@@ -632,25 +634,28 @@
               ><code>&lt;target></code></link> element will be called out when validating <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               ><code>&lt;segment></code></link> elements with the state more advanced than
-            <code>initial</code>. See also the <link linkend="State_Machine">Sate Machine</link> section.</para>
+            <code>initial</code>. See also the <link linkend="State_Machine">Sate Machine</link>
+          section.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
            >editing_hints_canReorder</link>.</para>
       </section>
-      <section xml:id="canResegment">
+      <section>
         <title> Controlling Segmentation</title>
-        <para>Depending <firstterm>Extractor</firstterm>'s rules for mapping original document's
-          structure into XLIFF units, items of a list; rows, or cells of a table; or items in a
-          dialog windows might be extracted as segments of a single unit.</para>
-        <para>While it's generally desirable to be able to modify segmentation within a unit during
-          the roundtrip, doing so in above cases will most likely prevent merging, cause build
-          issues, or have negative impact on user experience.</para>
+        <para>Depending on <firstterm>Extraction</firstterm> rules for mapping of original document
+          structures into <firstterm>XLIFF Documents</firstterm>, individual sentences within a
+          paragraph, verses within a stanza, items or entries of a list, rows, or cells of a table,
+          items of a dialog window and so on will be extracted as segments of a single unit.</para>
+        <para>While it's generally desirable to be able to <firstterm>Modify</firstterm>
+          segmentation within a unit during the roundtrip, doing so in some of the above cases might
+          prevent merging, cause build issues, or have negative impact on target product user
+          experience.</para>
         <para>Attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-             >canResegment</link></code> on XLIFF core
-          structural elements can be used with care to control <firstterm>Modifier</firstterm>’s
-          behavior. It’s value can be controlled by rules devised from logic based on role of
-          structural and inline codes of native format, e.g. set to <code>no</code> for:<itemizedlist>
+              >canResegment</link></code> can be used with care to control segmentation
+            <firstterm>Modification</firstterm> behavior. It’s value can be controlled by rules
+          devised from logic based on role of structural and inline codes of native format, e.g. set
+          to <code>no</code> for:<itemizedlist>
             <listitem>
               <para>lists</para>
             </listitem>
@@ -664,8 +669,9 @@
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
            >mapping_to_unit</link>.</para>
+        <para>On the other hand, it is advisable not to change the default behavior </para>
       </section>
-      <section xml:id="context">
+      <section>
         <title>Providing Context</title>
         <para>The actors in the roundtrip, be it humans or machines, need enough information to make
           appropriate decision regarding operations on inline codes, and how the codes impact the
@@ -692,7 +698,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
            >context_hints</link>.</para>
       </section>
-      <section xml:id="canOverlap">
+      <section>
         <title>Considerations for Using Spanning Codes</title>
         <para>Compared to <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
@@ -728,13 +734,13 @@
            >editing_hints_canOverlap</link>.</para>
       </section>
     </section>
-    <section xml:id="XLIFF_Structure">
+    <section>
       <title>XLIFF Structure</title>
       <para>Taking time to consider not only what to extract, but how to extract it, and how to
         structure the <firstterm>XLIFF document</firstterm> can significantly reduce number of
         issues during the roundtrip and enable usage of additional features offered by XLIFF
         spec.</para>
-      <section xml:id="group">
+      <section>
         <title>File Structure</title>
         <para>Native file format can contain structural elements dividing its content into parts,
           such as title, body, header and footer, or tables, lists and divs for markup languages; or
@@ -795,7 +801,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
            >group</link>.</para>
       </section>
-      <section xml:id="unit">
+      <section>
         <title>Role of <code>&lt;unit></code></title>
         <para>Extractor sets the XLIFF structure, which cannot be modified during the roundtrip
           above the &lt;unit> level. Appropriate relationship between structures of native format
@@ -811,11 +817,11 @@
            >mapping_to_unit</link>.</para>
       </section>
     </section>
-    <section xml:id="miscellaneous">
+    <section>
       <title>Miscellaneous</title>
       <para>There are many other concepts, which does not belong to a particular category with some
         of them listed here.</para>
-      <section xml:id="id_attribute">
+      <section>
         <title>Value of attribute <code>id</code></title>
         <para>Implementers could be tempted to store values of resource Ids in the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
@@ -842,7 +848,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name"
            >id_and_name</link>.</para>
       </section>
-      <section xml:id="whitespaces">
+      <section>
         <title>Whitespace Handling</title>
         <para>Whitespaces can be important inside nodes like <code>&lt;pre></code>, containing e.g.
           code samples, and modifying them during roundtrip is not desirable.</para>
@@ -865,69 +871,32 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/xml_space_preserve"
            >xml_space_preserve</link>.</para>
       </section>
-      <section xml:id="non-localizables">
+      <section>
         <title>Protecting Non-localizable Content</title>
-        <para>There are cases, when it's necessary to protect parts of the text exposed to
-          localization, be it terminology, or functional string, i.e. software placeholders, during
-          a localization roundtrip.</para>
-        <para>XLIFF offers two options:<itemizedlist>
-            <listitem>
-              <para><link
-                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation"
-                  >translate annotations</link></para>
-            </listitem>
-            <listitem>
-              <para><code><link
-                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-                    >&lt;ph></link></code></para>
-            </listitem>
-          </itemizedlist></para>
-        <para>each of them having a slightly different purpose and features.</para>
-        <para>A care should be taken when deciding which of the two should be used to protect the
-          particular string, and they should not be used interchangeably.</para>
-        <para>Usually, the translate annotation is suitable for protecting linguistically
-          significant content, e. g. non-localizable terminology, while <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-              >&lt;ph></link></code> is better for representing standalone codes.</para>
-          <note>
-            <itemizedlist>
-              <listitem>
-                <para>The <code><link
-                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-                    >&lt;ph></link></code> element should be accompanied by appropriate <link
-                  linkend="Hints">context and editing hints</link>.</para>
-              </listitem>
-              <listitem>
-                <para><link linkend="validations">XLIFF validations</link> do not support validating
-                translate annotations by design. If the validation is required, it should be created
-                based on particular business needs.</para>
-              </listitem>
-            </itemizedlist>
-          </note>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk"
            >ph_and_mrk</link>.</para>
       </section>
-      <section xml:id="merging">
+      <section>
         <title>Merging Translated Content</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
            >merging</link>.</para>
       </section>
-      <section xml:id="langtags">
+      <section>
         <title>Selecting Language Tags</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/language_tags"
            >language_tags</link>.</para>
       </section>
-      <section xml:id="sanity_checks">
+      <section>
         <title>Validation of Extracted Content</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
            >sanity_check</link>.</para>
       </section>
     </section>
-    <section xml:id="validations">
+    <section>
       <title>XLIFF Validations</title>
       <para>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
         workflows bringing together best of breed specialized agents, it makes big business sense to
