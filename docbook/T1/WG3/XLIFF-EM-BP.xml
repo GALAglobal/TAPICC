@@ -832,6 +832,43 @@
       </section>
       <section>
         <title>Protecting Non-localizable Content</title>
+        <para>There are cases, when it's necessary to protect parts of the text exposed to
+          localization, be it terminology, or functional string, i.e. software placeholders, during
+          a localization roundtrip.</para>
+        <para>XLIFF offers two options:<itemizedlist>
+            <listitem>
+              <para><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation"
+                  >translate annotations</link></para>
+            </listitem>
+            <listitem>
+              <para><code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+                    >&lt;ph></link></code></para>
+            </listitem>
+          </itemizedlist></para>
+        <para>each of them having a slightly different purpose and features.</para>
+        <para>A care should be taken when deciding which of the two should be used and they should
+          not be used interchangeably.</para>
+        <para>Usually, the translate annotation is suitable for protecting linguistically
+          significant content, e. g. non-localizable terminology, while <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph></link></code> is better for representing standalone codes.</para>
+          <note>
+            <itemizedlist>
+              <listitem>
+                <para><code><link
+                      xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+                      >&lt;ph></link></code> should be accompanied by appropriate context and
+                  editing hints</para>
+              </listitem>
+              <listitem>
+                <para>XLIFF validations does not support validating translate annotations by design.
+                  If the validation is required, it should be created based on particular business
+                  needs.</para>
+              </listitem>
+            </itemizedlist>
+          </note>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk"
            >ph_and_mrk</link>.</para>
