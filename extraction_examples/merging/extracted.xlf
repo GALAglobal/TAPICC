@@ -2,7 +2,8 @@
     <file id="f1">
         <unit id="u1" xml:space="preserve">
             <segment>
-                <source>First paragraph
+                <source>First paragraph. &lt;i>HTML italic&lt;/i>.
+                    <!-- Extractor incompletely extracted HTML formatting -->
 
 <pc id="1">Second paragraph. In Bold.</pc></source>
             </segment>
