@@ -30,4 +30,8 @@ Current Maintainers of this Open Repository
 * [GitHub pages](https://galaglobal.github.io/TAPICC/)
  
 ## Feedback
-Questions or comments about this Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) listed above. Please send general questions about GALA to info@gala-global.org. 
+Questions or comments about this Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) listed above. Please send general questions about GALA to info@gala-global.org.
+
+## Public reviews and final published versions
+Final deliverables as well as public review documents and artifacts are being exposed through the following GitHub webpage:
+https://galaglobal.github.io/TAPICC/
