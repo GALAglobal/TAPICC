@@ -622,11 +622,34 @@
 >>>>>>> 3d7ffa3ca3eab8986c602b5da23d95fee6eb8fea
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
               >canReorder</link></code> on the inline code determines, whether each code can be
-          moved before, or after another code. This attribute is used to create and protect
-          non-reorderable sequences of inline codes. Again, the default value of this attribute is
+          moved before, or after another code. Again, the default value of this attribute is
             <code>yes</code> meaning that the inline codes can be reordered as the translators see
-          fit. B</para>
-        <para> This attribute is supported by native XLIFF validation artifacts.</para>
+          fit.</para>
+        <para>This attribute is used to create and protect non-reorderable sequences of inline codes
+          if necessary for proper inline code functionality. </para>
+        <example>
+          <title>Example of a non-reorderable source sequence of inline codes</title>
+          <programlisting>...
+&lt;source>&lt;pc id="1" canCopy="no" canDelete="no" canReorder="firstNo">
+            &lt;pc id="2" canCopy="no" canDelete="no" canReorder="no">this is linktext&lt;/pc>
+            &lt;ph id="3" canCopy="no" canDelete="no" canReorder="no"/>
+         &lt;/pc>
+&lt;/source>            
+...          </programlisting>
+        </example>
+          
+        <para> Since this attribute is supported by native XLIFF validation artifacts
+            (<firstterm>XLIFF Core</firstterm> Schematron Schemas), potential reordering of the
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc/></link></code> and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph/></link></code> tags in the corresponding <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              ><code>&lt;target></code></link> element will be called out when validating <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              ><code>&lt;segment></code></link> elements with the state more advanced than
+            <code>initial</code>. See also the <link linkend="State_Machine">Sate Machine</link> section.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
            >editing_hints_canReorder</link>.</para>
