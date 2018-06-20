@@ -573,7 +573,7 @@
         downstream.</para>
       <para>The default values of the editing hits should be considered when creating extraction
         rules, to prevent issues, which cannot be identified by automated validation.</para>
-      <section>
+      <section xml:id="canDelete">
         <title>Non-deletable Inline Codes</title>
         <para>Original source text can contain also functional inline codes, not only formatting
           ones, such as software placeholder replaced during runtime. Removal of these placeholders,
@@ -587,8 +587,8 @@
           control over importance of the inline codes, rather than setting a global rule to prevent
           removal of any code at all.</para>
       </section>
-      <section>
-        <title> Preserving Order of Codes</title>
+      <section xml:id="canReorder">
+        <title>Preserving Order of Codes</title>
         <para>In case the order/nesting of the inline codes in the original document is prescribed
           (e. g. by a schema), it has to be preserved in the target content during the localization
           roundtrip to prevent merge issues, or validation fails after the merging.</para>
@@ -602,7 +602,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
            >editing_hints_canReorder</link>.</para>
       </section>
-      <section>
+      <section xml:id="canResegment">
         <title> Controlling Segmentation</title>
         <para>Depending <firstterm>Extractor</firstterm>'s rules for mapping original document's
           structure into XLIFF units, items of a list; rows, or cells of a table; or items in a
@@ -630,7 +630,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
            >mapping_to_unit</link>.</para>
       </section>
-      <section>
+      <section xml:id="context">
         <title>Providing Context</title>
         <para>The actors in the roundtrip, be it humans or machines, need enough information to make
           appropriate decision regarding operations on inline codes, and how the codes impact the
@@ -657,7 +657,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
            >context_hints</link>.</para>
       </section>
-      <section>
+      <section xml:id="canOverlap">
         <title>Considerations for Using Spanning Codes</title>
         <para>Compared to <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
@@ -693,13 +693,13 @@
            >editing_hints_canOverlap</link>.</para>
       </section>
     </section>
-    <section>
+    <section xml:id="XLIFF_Structure">
       <title>XLIFF Structure</title>
       <para>Taking time to consider not only what to extract, but how to extract it, and how to
         structure the <firstterm>XLIFF document</firstterm> can significantly reduce number of
         issues during the roundtrip and enable usage of additional features offered by XLIFF
         spec.</para>
-      <section>
+      <section xml:id="group">
         <title>File Structure</title>
         <para>Native file format can contain structural elements dividing its content into parts,
           such as title, body, header and footer, or tables, lists and divs for markup languages; or
@@ -760,7 +760,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
            >group</link>.</para>
       </section>
-      <section>
+      <section xml:id="unit">
         <title>Role of <code>&lt;unit></code></title>
         <para>Extractor sets the XLIFF structure, which cannot be modified during the roundtrip
           above the &lt;unit> level. Appropriate relationship between structures of native format
@@ -776,11 +776,11 @@
            >mapping_to_unit</link>.</para>
       </section>
     </section>
-    <section>
+    <section xml:id="miscellaneous">
       <title>Miscellaneous</title>
       <para>There are many other concepts, which does not belong to a particular category with some
         of them listed here.</para>
-      <section>
+      <section xml:id="id_attribute">
         <title>Value of attribute <code>id</code></title>
         <para>Implementers could be tempted to store values of resource Ids in the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
@@ -807,7 +807,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name"
            >id_and_name</link>.</para>
       </section>
-      <section>
+      <section xml:id="whitespaces">
         <title>Whitespace Handling</title>
         <para>Whitespaces can be important inside nodes like <code>&lt;pre></code>, containing e.g.
           code samples, and modifying them during roundtrip is not desirable.</para>
@@ -830,7 +830,7 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/xml_space_preserve"
            >xml_space_preserve</link>.</para>
       </section>
-      <section>
+      <section xml:id="non-localizables">
         <title>Protecting Non-localizable Content</title>
         <para>There are cases, when it's necessary to protect parts of the text exposed to
           localization, be it terminology, or functional string, i.e. software placeholders, during
@@ -873,26 +873,26 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk"
            >ph_and_mrk</link>.</para>
       </section>
-      <section>
+      <section xml:id="merging">
         <title>Merging Translated Content</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
            >merging</link>.</para>
       </section>
-      <section>
+      <section xml:id="langtags">
         <title>Selecting Language Tags</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/language_tags"
            >language_tags</link>.</para>
       </section>
-      <section>
+      <section xml:id="sanity_checks">
         <title>Validation of Extracted Content</title>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
            >sanity_check</link>.</para>
       </section>
     </section>
-    <section>
+    <section xml:id="validations">
       <title>XLIFF Validations</title>
       <para>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
         workflows bringing together best of breed specialized agents, it makes big business sense to
