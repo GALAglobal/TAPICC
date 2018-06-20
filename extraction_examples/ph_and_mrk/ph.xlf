@@ -4,7 +4,7 @@
             <segment>
                 <source>This is a <ph id="1" disp="not translatable term"/></source>
                 <target>Toto je <ph id="1"/></target>
-                <!-- Using <ph> to mask not-translatable inline
+                <!-- Using <ph> to protect not-translatable inline
                     content could impair translation quality by
                     preventing translator from seeing the context,
                     especially if the <originalData> and context hints
