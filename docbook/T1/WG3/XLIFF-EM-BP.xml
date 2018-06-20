@@ -521,58 +521,58 @@
           sub-states based on their private workflow needs. </para>
         <para> The <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
-             >&lt;state></link></code> attribute defines
-          just a high level four states state engine. The values are <code>initial</code>,
-            <code>translated</code>, <code>reviewed</code>, and <code>final</code>. Although this
-          attribute is <glossterm>optional</glossterm> on the <link
+              >&lt;state></link></code> attribute defines just a high level four states state
+          engine. The values are <code>initial</code>, <code>translated</code>,
+            <code>reviewed</code>, and <code>final</code>. Although this attribute is
+            <glossterm>optional</glossterm> on the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
-           ><code>&lt;segment></code></link> element, it
-          is assumed as having the default value <code>initial</code> whenever not used explicitly.
-          There are some important advantages to using the state machine explicitly. Importantly,
+              ><code>&lt;segment></code></link> element, it is assumed as having the default value
+            <code>initial</code> whenever not used explicitly. There are some important advantages
+          to using the state machine explicitly. Importantly, <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              >&lt;target></link></code> elements are optional in the <code>initial</code> state. So
+          if you want to even enforce <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              >&lt;target></link></code> existence in your deliverables you should be using at least
+          the high level four states state engine provided by the <firstterm>Core</firstterm>
+          attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
+              >state</link></code>. Setting the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
+              >state</link></code> attribute of a <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              ><code>&lt;segment></code></link> to <code>translated</code> or later does enforce
               <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> elements are
-          optional in the <code>initial</code> state. So if you want to even enforce <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> existence in your
-          deliverables you should be using at least the high level four states state engine provided
-          by the attribute <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
-             >state</link></code>. Setting the
-              <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
-             >state</link></code> attribute to
-            <code>translated</code> or later does enforce <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> existence within
-          segments. </para>
+              >&lt;target></link></code> existence within that segment. </para>
         <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
           even more control over the progressive validation of the <firstterm>XLIFF
-            Documents</firstterm> you're roundtripping. Both of the states <code>translated</code>
-          and <code>reviewed</code> will trigger validation of the inline data model within
-
-<code><link xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target">&lt;target></link></code> elements, which
-          is not being validated in the <code>initial</code> state where even the existence of
-              <code><link
+            Documents</firstterm> you're roundtripping. All of the states <code>translated</code>,
+            <code>reviewed</code>, and <code>final</code> will trigger validation of the inline data
+          model within <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
+              >&lt;target></link></code> elements, which is not being validated in the
+            <code>initial</code> state where even the existence of <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-             >&lt;target></link></code> is not assumed.
-          Violations of the inline data model including Editing hints are being tested in all states
-          more advanced than <code>initial</code>. Those violations are considered "Warnings" at
+              >&lt;target></link></code> elements is not assumed. Violations of the inline data
+          model including Editing hints are being tested in all states more advanced than
+            <code>initial</code>. Those violations are considered "Warnings" at
             <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code>
-          state, those violations will become actual "Errors" that make the <firstterm>XLIFF
+          state, those violations will become actual "Errors" that render the <firstterm>XLIFF
             Document</firstterm> invalid.</para>
 
       </section>
     </section>
     <section xml:id="Hints">
       <title>Editing and Context Hints</title>
-      <para>XLIFF specification provides a plethora of attributes that allow to manage the behavior
+      <para>XLIFF specification provides a number of attributes that allow to manage the behavior
         and validation of structural and inline elements; such as controlling the localizability of
-        text, protecting non-deletable inline codes, or preserving their order, controlling the
+        text; protecting non-deletable inline codes, or preserving their order; controlling the
         segmentation modification; or providing additional context to other agents
         downstream.</para>
-      <para>The default values of the editing hits should be considered when creating extraction
-        rules, to prevent issues, which cannot be identified by automated validation.</para>
+      <para>The default values of the editing hints and potential need to set them otherwise need to
+        be considered when creating <firstterm>Extraction</firstterm> rules to prevent issues which
+        can be only identified by automated validation with editing hints set as intended.</para>
       <section>
         <title>Non-deletable Inline Codes</title>
         <para>Original source text can contain also functional inline codes, not only formatting
