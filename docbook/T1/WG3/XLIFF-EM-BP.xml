@@ -565,39 +565,53 @@
     </section>
     <section xml:id="Hints">
       <title>Editing and Context Hints</title>
-      <para>XLIFF specification provides a number of attributes that allow to manage the behavior
-        and validation of structural and inline elements; such as controlling the localizability of
-        text; protecting non-deletable inline codes, or preserving their order; controlling the
-        segmentation modification; or providing additional context to other agents
+      <para>The XLIFF specification provides a number of attributes that allow to manage the
+        behavior and validation of structural and inline elements; such as controlling the
+        localizability of text; protecting non-deletable inline codes, or preserving their order;
+        controlling the segmentation modification; or providing additional context to other agents
         downstream.</para>
       <para>The default values of the editing hints and potential need to set them otherwise need to
         be considered when creating <firstterm>Extraction</firstterm> rules to prevent issues which
         can be only identified by automated validation with editing hints set as intended.</para>
       <section>
         <title>Non-deletable Inline Codes</title>
-        <para>Original source text can contain also functional inline codes, not only formatting
-          ones, such as software placeholder replaced during runtime. Removal of these placeholders,
-          either intentional or accidental, during translation roundtrip can produce
-            <firstterm>XLIFF document</firstterm>, which cannot be merged to create target document,
-          or create functional issues in the translated product.</para>
-        <para>XLIFF specification provides attribute <code><link
+        <para>Original source text can contain functional inline codes apert from formatting ones,
+          such as software placeholders to be replaced during runtime. Removal of these placeholders
+          or other functional code, either intentional or accidental, during the
+            <firstterm>Translation</firstterm> roundtrip can produce valid <firstterm>XLIFF
+            Documents</firstterm> that will nevertheless fail to merge back, cause build failures
+          later on, or create other functional issues in the <firstterm>Translated</firstterm>
+          product.</para>
+        <para>The XLIFF specification provides the editing hint <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
-             >canDelete</link></code> with default value
-            <code>yes</code>, which can be used on any inline code, and allow for fine grained
-          control over importance of the inline codes, rather than setting a global rule to prevent
-          removal of any code at all.</para>
+              >canDelete</link></code> with its default value set to <code>yes</code> that is thus
+          automatically used or can be explicitly set on any inline code. For most of the formatting
+          codes, the default value <code>yes</code> is fine, so that there is no need to set the
+          attribute explicitly most of the times. The default value means that the codes can be
+          removed during localization as the translators see fit. A typical example is the need to
+          remove italics or bold formatting codes in Chinese or Japanese target content. These
+          languages don't use typographical methods of emphasis and non-deletable formatting codes
+          tend to complicate life of translators into such languages. On the other hand,
+            <firstterm>Extractors</firstterm> need to take care to set the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
+              >canDelete</link></code> attribute to <code>no</code> explicitly whenever an inline
+          code is critical for <firstterm>Merging</firstterm> back of the <firstterm>XLIFF
+            Document</firstterm>, their build process, or product functionality.</para>
       </section>
       <section>
         <title> Preserving Order of Codes</title>
-        <para>In case the order/nesting of the inline codes in the original document is prescribed
-          (e. g. by a schema), it has to be preserved in the target content during the localization
-          roundtrip to prevent merge issues, or validation fails after the merging.</para>
-        <para>Using attribute <code><link
+        <para>In case the order or nesting of inline codes in the original document is prescribed
+          (for instance by a schema), it has to be preserved in the target content during the
+          localization roundtrip to prevent <firstterm>Merge</firstterm> issues, or validation fails
+          after <firstterm>Merging</firstterm>.</para>
+        <para>The attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
-             >canReorder</link></code> (default value
-            <code>yes</code>) on the inline code determines, whether the code can be moved before,
-          or after another code. This attribute can also be used to create non-reorderable sequence
-          of inline codes. This attribute is supported by native XLIFF validation artifacts.</para>
+              >canReorder</link></code> on the inline code determines, whether each code can be
+          moved before, or after another code. This attribute is used to create and protect
+          non-reorderable sequences of inline codes. Again, the default value of this attribute is
+            <code>yes</code> meaning that the inline codes can be reordered as the translators see
+          fit. B</para>
+        <para> This attribute is supported by native XLIFF validation artifacts.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder"
            >editing_hints_canReorder</link>.</para>
