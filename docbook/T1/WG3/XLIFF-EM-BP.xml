@@ -926,7 +926,7 @@
           </itemizedlist></para>
         <para>Extraction not following the best practices usually just shifts the problems further
           downstream, requiring other agents to mitigate, creating unpredictable results.</para>
-        <para>Additiona guidance is also available in the <link
+        <para>Additional guidance is also available in the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e11123"
             >XLIFF spec</link>.</para>
         <para>Example: <link
@@ -935,6 +935,36 @@
       </section>
       <section xml:id="langtags">
         <title>Selecting Language Tags</title>
+        <para>The agents in the roundtrip; machine, and human; need to be able to sufficiently
+          identify the languages used in the XLIFF document, specified by attributes <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang"
+              >srcLang</link></code>, <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
+              >trglang</link></code>, and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_lang"
+              >xml:lang</link></code>.</para>
+        <para>While usually not an issue for languages like Slovak (<emphasis>sk</emphasis>), it
+          becomes a more prominent question for languages used in different regions, such as English
+            (<emphasis>en-GB</emphasis>, <emphasis>en-US</emphasis>); using various scripts, for
+          example Uyghur (<emphasis>ug-Arab</emphasis>, <emphasis>ug-Cyrl</emphasis>,
+            <emphasis>ug-Latn</emphasis>); or having multiple variants like Basic English
+            (<emphasis>en-basiceng</emphasis>).</para>
+        <para>The use cases for the correct language tags vary from simple, such as spell-check,
+          which will behave quite differently for <emphasis>en-GB</emphasis>, compared to
+            <emphasis>en-basiceng</emphasis>; to more complex, like using <emphasis>fr-FR</emphasis>
+          as reference language for <emphasis>fr-CA</emphasis> translation.</para>
+        <para>Even the MT engines would return a <emphasis>sr-Cyrl</emphasis> output, when the
+          request contains language tag <emphasis>sr</emphasis>, even though user might expect
+            <emphasis>sr-Latn</emphasis>.</para>
+        <para>The XLIFF spec prescribes <link linkend="bcp47">BCP 47</link> language tags are to be
+          used as values for attributes describing languages used in the XLIFF document. Unicode
+          offer a <link xlink:href="http://unicode.org/cldr/utility/languageid.jsp">tool available
+            online</link>, which can help to perform basic validation on selected language
+          tag.</para>
+        <para>Generally, a care should be taken when selecting descriptor for source, target, and
+          reference languages in the XLIFF document, and it could be worth the time to consult
+          external resources, or language experts; even more so, if the you are not familiar with
+          the language in question.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/language_tags"
             >language_tags</link>.</para>
@@ -1007,6 +1037,11 @@
         <bibliomisc><link version="International Standard"
             xlink:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
       </bibliomixed>
+      <bibliomixed xml:id="bcp47"><emphasis role="bold">BCP 47</emphasis> M. Davis, <emphasis role="italic">Tags
+          for Identifying Languages</emphasis>, <emphasis role="italic"><link
+            xlink:href="http://tools.ietf.org/html/bcp47"
+          >http://tools.ietf.org/html/bcp47</link></emphasis> IETF (Internet Engineering Task
+        Force).</bibliomixed>
     </bibliodiv>
   </bibliography>
 </article>
