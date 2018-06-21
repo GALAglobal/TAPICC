@@ -676,11 +676,11 @@
       </section>
       <section xml:id="context">
         <title>Providing Context</title>
-        <para>The actors in the roundtrip, be it humans or machines, need enough information to make
-          appropriate decision regarding operations on inline codes, and how the codes impact the
-          adequacy and fluency of target text, i. e. the context.</para>
-        <para>These additional metadata can be provided using <firstterm>context hints</firstterm>
-          attributes: <code><link
+        <para>The <firstterm>Agents</firstterm> in the roundtrip, human or machines, need enough
+          information to make appropriate decisions regarding operations on inline codes, and how
+          the codes impact the adequacy and fluency of the target text, the context in short.</para>
+        <para>These additional metadata can be provided using the <firstterm>context
+            hints</firstterm> attributes: <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> (<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispstart"
@@ -700,35 +700,64 @@
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
             >context_hints</link>.</para>
+        <para>[need an explanation of the relationship between @disp, @equiv, and &lt;original
+          data>]</para>
       </section>
       <section xml:id="canOverlap">
         <title>Considerations for Using Spanning Codes</title>
-        <para>Compared to <code><link
+        <para>Compared to the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              >&lt;pc></link></code> pair, which can be used to represent only well-formed spanning
-          codes within single <code><link
+              >&lt;pc></link></code> pair tag, which can be only used to represent well-formed
+          spanning codes within a single <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               >&lt;segment></link></code>, the more universal <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-              >&lt;sc></link></code>/<code><link
+              >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec></link></code> can handle segmentation changes; span across units; and even
-          represent orphaned, or overlapping codes.</para>
-        <para>The support for overlapping codes can, however, pose a problem in a situation, where
-              <code><link
+              >&lt;ec/></link></code> pair can handle segmentation changes, span across segments,
+          other codes, or annotations, and even represent orphaned native inline codes. Sounds
+          great, so why use <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc></link></code>at all? </para>
+        <para>The fact that <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              >&lt;sc/></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              >&lt;ec/></link></code> pairs do support for overlapping codes will, however, create
+          an issue in a situation where <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec></link></code> are used to represent multiple well-formed spanning codes
-          within a unit and their <code><link
+              >&lt;ec></link></code> pairs are used to represent multiple well-formed spanning codes
+          without setting their <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap"
-              >canOverlap</link></code> attribute is not specified, thus the default value
-            <code>yes</code> is used. In such case the well-formedness can be corrupted during the
-          roundtrip without possibility to validate using native XLIFF capabilities.</para>
-        <para>It's thus recommended to set <code><link
+              >canOverlap</link></code> attribute to <code>no</code>. In such cases, the
+          well-formedness of the original codes is not protected and can be corrupted during the
+          roundtrip. It will be impossible to prevent this corruption with native XLIFF methods
+          unless the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap"
-              >canOverlap</link></code> to <code>no</code> when representing well-formed spanning
-          codes.</para>
+              >canOverlap</link></code> and possibly <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap"
+              >canReorder</link></code> attributes are properly set. So in case of representing
+          well-formed native markup, using the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc></link></code> pair tag is likely to be easier for the
+            <firstterm>Extactor</firstterm>. On the other hand, it is important to consider that
+          transforming the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc></link></code> pair tag into an  <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              >&lt;sc/></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              >&lt;ec/></link></code> pair is always allowed. So the <firstterm>Mergers</firstterm>
+          need to prepared to handle <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+              >&lt;sc/></link></code>/<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+              >&lt;ec/></link></code> even in case their corresponding
+            <firstterm>Extractor</firstterm> used only the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+              >&lt;pc></link></code> pair tag.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canOverlap"
             >editing_hints_canOverlap</link>.</para>
@@ -737,7 +766,7 @@
     <section xml:id="XLIFF_Structure">
       <title>XLIFF Structure</title>
       <para>Taking time to consider not only what to extract, but how to extract it, and how to
-        structure the <firstterm>XLIFF document</firstterm> can significantly reduce number of
+        structure the <firstterm>XLIFF Document</firstterm> can significantly reduce number of
         issues during the roundtrip and enable usage of additional features offered by XLIFF
         spec.</para>
       <section xml:id="group">
