@@ -21,7 +21,7 @@
             </unit>
             <unit id="u3" canResegment="no">
                 <segment>
-                    <source>|invalid|row|</source>
+                    <source>|invalid|row</source>
                 </segment>
             </unit>
         </group>
