@@ -643,9 +643,11 @@
         <para>Attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> can be used with care to control segmentation
-            <firstterm>Modification</firstterm> behavior. It’s value can be controlled by rules
-          devised from logic based on role of structural and inline codes of native format, e.g. set
-          to <code>no</code> for:<itemizedlist>
+            <firstterm>Modification</firstterm> behavior. It’s values need to be controlled by rules
+          derived from the structural and inline logic of the native format, for instance more often
+          than not it will make sense to set <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> to <code>no</code> for:<itemizedlist>
             <listitem>
               <para>lists</para>
             </listitem>
@@ -659,7 +661,18 @@
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
             >mapping_to_unit</link>.</para>
-        <para>On the other hand, it is advisable not to change the default behavior </para>
+        <para>On the other hand, it is advisable not to change the default  <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link>="yes"</code> for normal paragraph text and similar. In UI
+          elements and tables, it is likely that the available segmentation needs protected,
+          however, preventing <firstterm>Modification</firstterm> of segmentation will also prevent
+          reordering of segments within a unit using the order attribute on target. So in case an
+          ordered list needs to be for instance alphabetically collated, translators would be
+          prevented from doing that in case <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> is set to <code>no</code>. It is up the process designer
+          to decide if it is more important to protect the segmentation and perform the collation as
+          a post-process or let the translator do the collation. </para>
       </section>
       <section xml:id="context">
         <title>Providing Context</title>
