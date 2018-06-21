@@ -895,6 +895,40 @@
       </section>
       <section xml:id="merging">
         <title>Merging Translated Content</title>
+        <para>The <firstterm>Modifiers</firstterm> can perform various <emphasis>valid</emphasis>
+          modifications during a roundtrip the XLIFF compliant <firstterm>Mergers</firstterm> need
+          to be able to correctly handle.</para>
+        <para>These operations are (in no particular order):<itemizedlist>
+            <listitem>
+              <para>segmentation modification</para>
+            </listitem>
+            <listitem>
+              <para>content enrichment with annotations</para>
+            </listitem>
+            <listitem>
+              <para>adding, and removing inline codes</para>
+            </listitem>
+            <listitem>
+              <para>convert CDATA sections and text into codes</para>
+            </listitem>
+            <listitem>
+              <para>use <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
+                    >&lt;pc></link></code>, and <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
+                    >&lt;sc></link></code>, <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
+                    >&lt;ec></link></code> interchangeably (for well-formed spanning codes)</para>
+            </listitem>
+            <listitem>
+              <para>perform other changes allowed by Processing Requirements</para>
+            </listitem>
+          </itemizedlist></para>
+        <para>Extraction not following the best practices usually just shifts the problems further
+          downstream, requiring other agents to mitigate, creating unpredictable results.</para>
+        <para>Additiona guidance is also available in the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e11123"
+            >XLIFF spec</link>.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
             >merging</link>.</para>
