@@ -971,6 +971,15 @@
       </section>
       <section xml:id="sanity_checks">
         <title>Validation of Extracted Content</title>
+        <para>The native document can contain various reserved characters, or their sequences for
+          structural, and inline markup, as well as for programmatic purposes. While not violating
+          XLIFF constraints and PRs, their incidence in extracted content could point out issues in
+          extraction process.</para>
+        <para>One could implement a <emphasis>sanity check</emphasis> for the
+            <firstterm>Extractor</firstterm>'s output, which would identify potential problems by
+          looking for such characters, or sequences of them. Failing the sanity check would ideally
+          interrupt the roundtrip as early as possible, allow to update the extraction rules, and
+          redo the extraction, to prevent problems farther downstream.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
             >sanity_check</link>.</para>
