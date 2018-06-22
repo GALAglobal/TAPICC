@@ -655,11 +655,22 @@
         <para>Depending on <firstterm>Extraction</firstterm> rules for mapping of original document
           structures into <firstterm>XLIFF Documents</firstterm>, individual sentences within a
           paragraph, verses within a stanza, items or entries of a list, rows, or cells of a table,
-          items of a dialog window and so on will be extracted as segments of a single unit.</para>
+          items of a dialog window and so on might be <firstterm>Extracted</firstterm> as segments
+          of a single unit. While it is generally not advisable to perform segmentation at the time
+          of <firstterm>Extraction</firstterm>, <firstterm>Extractors</firstterm> that
+            <firstterm>Extracted</firstterm> multiple sentences, verses, entries, rows and so on
+          into a single non-segmented unit and their corresponding <firstterm>Mergers</firstterm>
+          need to expect that the <firstterm>Modifiers</firstterm> will need to transform them into
+          individual segments within the same unit during the roundtrip. This said, it is strongly
+          discouraged to Extract any of the above as  </para>
+        <para>In case subsequent modifier cannot be reasonably expected to dectect the segmentation
+          logic, for instance due to lack of knowledge of the original format logic, the content
+          owner is advised to perform the segementation and protecting before sending their XLIFF
+          Documents for the service roundtrip.</para>
         <para>While it's generally desirable to be able to <firstterm>Modify</firstterm>
           segmentation within a unit during the roundtrip, doing so in some of the above cases might
-          prevent merging, cause build issues, or have negative impact on target product user
-          experience.</para>
+          prevent <firstterm>Merging</firstterm>, cause build issues, or have negative impact on
+          target product user experience.</para>
         <para>Attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> can be used with care to control segmentation
@@ -681,14 +692,14 @@
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
             >mapping_to_unit</link>.</para>
-        <para>On the other hand, it is advisable not to change the default  <code><link
+        <para>In UI elements and tables, it is likely that the available segmentation needs
+          protected, on the other hand, it is advisable not to change the default <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-              >canResegment</link>="yes"</code> for normal paragraph text and similar. In UI
-          elements and tables, it is likely that the available segmentation needs protected,
-          however, preventing <firstterm>Modification</firstterm> of segmentation will also prevent
-          reordering of segments within a unit using the order attribute on target. So in case an
-          ordered list needs to be for instance alphabetically collated, translators would be
-          prevented from doing that in case <code><link
+              >canResegment</link>="yes"</code> for normal paragraph text and similar. </para>
+        <para> however, preventing <firstterm>Modification</firstterm> of segmentation will also
+          prevent reordering of segments within a unit using the order attribute on target. So in
+          case an ordered list needs to be for instance alphabetically collated, translators would
+          be prevented from doing that in case <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> is set to <code>no</code>. It is up the process designer
           to decide if it is more important to protect the segmentation and perform the collation as
@@ -849,7 +860,7 @@
             >group</link>.</para>
       </section>
       <section xml:id="unit">
-        <title>Role of <code>&lt;unit></code></title>
+        <title>Role of the <code>&lt;unit></code> element</title>
         <para>Extractor sets the XLIFF structure, which cannot be modified during the roundtrip
           above the &lt;unit> level. Appropriate relationship between structures of native format
           and <code><link
