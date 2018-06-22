@@ -74,7 +74,7 @@
 
     <legalnotice role="related">
       <title>Related work</title>
-      <para>This note provides informative best practice for XLIFF 2 Specifications:</para>
+      <para>This note provides an informative best practice for XLIFF 2 Specifications:</para>
       <itemizedlist>
         <listitem>
           <para>XLIFF Version 2.1 <citation>[XLIFF-2.1]</citation></para>
@@ -90,7 +90,7 @@
 
     <abstract>
       <para>This &releaseinfo; specification targets designers of XLIFF
-          <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> Tools for content
+          <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> tools for content
         owners. It gathers common problems that are prone to appear when
           <firstterm>Extracting</firstterm>
         <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This
@@ -122,8 +122,8 @@
     <legalnotice role="notices">
       <title>Notices</title>
       <para>Copyright © GALA TAPICC &pubyear;. All rights reserved.</para>
-      <para> The Translation API Class and Cases (TAPICC) initiative is a collaborative,
-        community-driven, open-source project to advance API standards in the localization industry.
+      <para> The Translation API Cases and Classes (TAPICC) initiative is a collaborative,
+        community-driven, open source project to advance API standards in the Localization industry.
         The overall purpose of this project is to provide a metadata and API framework on which
         users can base their integration, automation and interoperability efforts.</para>
 
@@ -148,12 +148,13 @@
     <title>Terminology and Concepts</title>
     <para>Apart form terminology and concepts defined here, this specification makes heavy use of
       terms defined in the XLIFF Standards <citation>[XLIFF-2.1]</citation> such as:
-        <firstterm>Extractor</firstterm>, <firstterm>Merger</firstterm>, <firstterm>XLIFF
-        Document</firstterm>, <firstterm>XLIFF defined</firstterm>, etc.</para>
+        <firstterm>Extractor</firstterm>, <firstterm>Merger</firstterm>,
+        <firstterm>Translation</firstterm>, <firstterm>XLIFF Document</firstterm>,
+        <firstterm>XLIFF-defined</firstterm>, etc.</para>
     <glossentry>
       <glossterm>context hints</glossterm>
       <glossdef>
-        <para><firstterm>XLIFF defined</firstterm> attributes on structural or inline elements
+        <para><firstterm>XLIFF-defined</firstterm> attributes on structural or inline elements
           providing additional contexts, such as <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> or <code><link
@@ -165,20 +166,39 @@
     <glossentry>
       <glossterm>inline codes</glossterm>
       <glossdef>
-        <para><code>&lt;sc/></code>/<code>&lt;ec></code> pairs, orphaned <code>&lt;sc/></code> or
-            <code>&lt;ec/></code>, well formed <code>&lt;pc></code>, standalone
-            <code>&lt;ph/></code> and <code>&lt;cp></code> are inline codes used to represent native
-          format inline markup in <firstterm>XLIFF Documents</firstterm>.</para>
+        <para><link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#sc"
+              ><code>&lt;sc/></code></link>/<link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ec"
+              ><code>&lt;ec></code></link> pairs, orphaned <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#sc"
+              ><code>&lt;sc/></code></link> or <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ec"
+              ><code>&lt;ec/></code></link>, well formed <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#pc"
+              ><code>&lt;pc></code></link>, standalone <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ph"
+              ><code>&lt;ph/></code></link> and <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#cp"
+              ><code>&lt;cp></code></link> are <firstterm>inline codes</firstterm> used to represent
+          native format inline markup in <firstterm>XLIFF Documents</firstterm>.<note>
+            <para><firstterm>Inline codes</firstterm> can reference original data in the
+                <firstterm>XLIFF Core</firstterm>
+              <link
+                xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#originaldata"
+                >&lt;originalData></link> standoff element. </para>
+          </note></para>
       </glossdef>
     </glossentry>
     <glossentry>
       <glossterm>markers</glossterm>
       <glossdef>
-        <para><code>&lt;sm/></code>/<code>&lt;em/></code> pairs and well formed
-            <code>&lt;mrk></code> are <firstterm>XLIFF defined</firstterm> inline marker elements
-          designed for inline annotations of content with metadata. <note>
-            <para>Markers are distinct from <firstterm>inline codes</firstterm> (see). Markers can
-              be combined with standoff elements for rich metadata that would be complicated or
+        <para><link><code>&lt;sm/></code></link>/<link><code>&lt;em/></code></link> pairs and well
+          formed <link><code>&lt;mrk></code></link> are <firstterm>XLIFF-defined</firstterm> inline
+          marker elements designed for inline annotations of content with metadata. <note>
+            <para><firstterm>Markers</firstterm> are distinct from <firstterm>inline
+                codes</firstterm> (see). Markers can be combined with <firstterm>Module</firstterm>
+              or Extension based standoff elements for rich metadata that would be complicated or
               impossible to display inline.</para>
           </note></para>
       </glossdef>
