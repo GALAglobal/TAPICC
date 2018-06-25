@@ -917,46 +917,72 @@
     
     <section xml:id="miscellaneous">
       <title>Miscellaneous</title>
-      <para>There are many other concepts, which does not belong to a particular category with some
-        of them listed here.</para>
+      <para>There are many other good or bad practice concepts that do not belong to any of the
+        above categories. Some of them are listed in this section:</para>
       <section xml:id="id_attribute">
         <title>Value of attribute <code>id</code></title>
         <para>Implementers could be tempted to store values of resource Ids in the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
-              >id</link></code> attribute of XLIFF structural elements. While the attribute value is
-          restricted to <firstterm>NMTOKEN</firstterm> by schema, the native format may not have
-          such restrictions. Invalid characters in <code><link
+              >id</link></code> attribute of XLIFF structural or elements. While the XLIFF
+              <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
-              >id</link></code> would be discovered as soon as the first validation occurs, though
-          it can still be costly to fix in the long running projects.</para>
-        <para>Instead, XLIFF’s <code><link
+              >id</link></code> attribute value is restricted to <firstterm>NMTOKEN</firstterm> by
+          the normative XML Schema, the native format could not have such restrictions. Invalid
+          characters in XLIFF <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
+              >id</link></code> attributes will render the whole <firstterm>XLIFF
+            Document</firstterm> invalid. Although this would typically be discovered as soon as the
+          first validation occurs, it can still be costly to fix in a large or long running
+          project.</para>
+        <para>Instead, the XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name"
-              >name</link></code> is designed to store the original identifier of the resource,
-          without the risk of possible conflicts due to <firstterm>NMTOKEN</firstterm> restrictions.
-          Alternatively, <code><link
-              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#original"
-              >original</link></code> can be used on <code><link
+              >name</link></code> attribute is designed to store the original identifier of the
+          resource, it can be any string without restrictions. On the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#file"
-              >&lt;file></link></code> for the same purpose.</para>
+              >&lt;file></link></code> element, the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#original"
+              >original</link></code> attribute can be used  for the same purpose.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name"
             >id_and_name</link>.</para>
       </section>
       <section xml:id="whitespaces">
         <title>Whitespace Handling</title>
-        <para>Whitespaces can be important inside nodes like <code>&lt;pre></code>, containing e.g.
-          code samples, and modifying them during roundtrip is not desirable.</para>
-        <para>They are, however, often insignificant in the text nodes of markup format, such as XML
-          or HTML, and can be modified by, for example, reformatting and indentation (i. e.
-          pretty-print) without affecting the layout or rendered document.</para>
-        <para>Thus one cannot indiscriminately either preserve, or normalize; as in the former case,
-          with most TMS and CAT tools penalizing whitespace discrepancies, the leverage would be
-          negatively affected; and in the latter, the target layout could be corrupted.</para>
-        <para>Generally, the <firstterm>Extractor</firstterm> itself should normalize native content
-          where possible, not relying on other agents in the roundtrip to do that, thus ensuring
-          consistent approach; and protect XLIFF structural elements with <code><link
+        <para>Whitespaces can be important inside nodes such as <code>&lt;pre></code>, containing
+          for instance code samples, and <firstterm>Modifying</firstterm> them during the roundtrip
+          is not desirable.</para>
+        <para>Whitespaces (more than one of the whitespace characters in a sequence) are, however,
+          generally insignificant in the text nodes of markup formats, such as XML or HTML, and can
+          be changed anytime (even not intentionally as an XLIFF transform) by, for example,
+          reformatting and indentation (so called pretty-printing) without affecting the layout of
+          the rendered document.</para>
+        <para>Thus one cannot indiscriminately either preserve, or normalize. Since most of TMS and
+          CAT tools penalize whitespace discrepancies, the leverage could be negatively affected if
+          whitespace <firstterm>Modified</firstterm>, and layout of nodes with significant whitepace
+          could be corrupted.</para>
+        <para>The general best practice, also taking into account the <link
+            xlink:href="https://www.w3.org/TR/its20/#preservespace">ITS Preserve Space</link> data
+          category is the following: </para>
+        <para>The <firstterm>Extractor</firstterm> itself ought to<orderedlist>
+            <listitem>
+              <para>Normalize native content where possible, not relying on other
+                  <firstterm>Agents</firstterm> in the roundtrip to do so and</para>
+            </listitem>
+            <listitem>
+              <para>protect XLIFF structural elements with <code><link
+                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
+                    >xml:space</link></code> set to <code>preserve</code>. </para>
+            </listitem>
+          </orderedlist></para>
+        <para>Please note that the XLIFF default for <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
-              >xml:space</link></code> set to <code>preserve</code> where necessary.</para>
+              >xml:space</link></code> is <code>default</code>. Therefore it is important to ensure
+          that content with mixed whitespace behavior is normalized and then protected with
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
+              >xml:space</link></code> explicitly set to or inherited as <code>preserve</code>. The
+          default <firstterm>XLIFF Core</firstterm> behavior is only useful if all whitespace is
+          globally insignificant.</para>
         <para>Additional details in the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#preserve_space"
             >XLIFF spec</link>. </para>
