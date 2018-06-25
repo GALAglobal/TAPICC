@@ -237,8 +237,8 @@
         enable usage of additional features offered by the XLIFF Standards.</para>
       <section xml:id="group">
         <title>File Structure</title>
-        <para>Native file formats can contain structural elements dividing its content into parts,
-          such as title, body, header and footer, or tables, lists and divs for markup languages; or
+        <para>Native formats can contain structural elements dividing its content into parts, such
+          as title, body, header and footer, or tables, lists and divs for markup languages; or
           windows, dialogs, and menus for software resources. </para>
         <para>Representing native structural elements in XLIFF using potentially nested <code><link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
@@ -286,25 +286,41 @@
             </listitem>
           </itemizedlist></para>
         <para>Most of the above can still be achieved without using the optional <code><link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
-          >&lt;group></link></code> elements. It will be however at the cost of high redundancy
-          of unit level metadata and possibly cause overloading of some of the
-          <firstterm>XLIFF Core</firstterm> features. </para>
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
+              >&lt;group></link></code> elements. It will be however at the cost of high redundancy
+          of unit level metadata and possibly cause potentially illegal overload of some of the
+            <firstterm>XLIFF Core</firstterm> features. </para>
         <para>Example: <link
           xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
           >group</link>.</para>
       </section>
       <section xml:id="unit">
-        <title>Role of the <code>&lt;unit></code> element</title>
-        <para>Extractor sets the XLIFF structure, which cannot be modified during the roundtrip
-          above the &lt;unit> level. Appropriate relationship between structures of native format
-          and <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
-            >&lt;unit></link></code> can make all the difference between hindering the roundtrip
-          and making the most of XLIFF.</para>
-        <para>Problems can be caused by both extremes: too many and not enough <code><link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
-          >&lt;unit></link></code>s.</para>
+        <title>Role of the <code>&lt;unit></code> Element</title>
+        <para><firstterm>Extractors</firstterm> set the XLIFF structure, which cannot be modified
+          (an absolute prohibition expressed in the XLIFF Standards) during the roundtrip at the
+          unit level or higher. Ensuring or not that the appropriate relationships drive
+            <firstterm>Extraction</firstterm> from structures of the native format into XLIFF
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code> elements can make all the difference between hindering or
+          crippling the roundtrip and making the most of XLIFF features in a compliant way.</para>
+        <para>Severe problems can be caused by both extremes: too many or not enough <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code> elements. Especially dangerous is <link>Extracting</link>
+          every segment as a separate <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code> element as this will effectively prevent
+            <firstterm>Modifiers</firstterm> downstream to change segmentation. Changing
+          segmentation within logically self contained units is one of the key advantages of the
+          XLIFF 2 structural data model that makes a distinction between the immutable high level
+          structure (<code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code> and higher) and the transient segmentation structure (<link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              ><code>&lt;segment></code></link> elements within each <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code>) that interplays with the inline data model and the inline
+          annotations' logic.</para>
         <para>Example: <link
           xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
           >mapping_to_unit</link>.</para>
@@ -317,15 +333,24 @@
           items of a dialog window and so on might be <firstterm>Extracted</firstterm> as segments
           of a single unit. While it is generally not advisable to perform segmentation at the time
           of <firstterm>Extraction</firstterm>, <firstterm>Extractors</firstterm> that
-          <firstterm>Extracted</firstterm> multiple sentences, verses, entries, rows and so on
-          into a single non-segmented unit and their corresponding <firstterm>Mergers</firstterm>
-          need to expect that the <firstterm>Modifiers</firstterm> will need to transform them into
-          individual segments within the same unit during the roundtrip. This said, it is strongly
-          discouraged to Extract any of the above as  </para>
-        <para>In case subsequent modifier cannot be reasonably expected to dectect the segmentation
-          logic, for instance due to lack of knowledge of the original format logic, the content
-          owner is advised to perform the segementation and protecting before sending their XLIFF
-          Documents for the service roundtrip.</para>
+            <firstterm>Extracted</firstterm> multiple sentences, verses, entries, rows and so on
+          into a single non-segmented unit (a single <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              ><code>&lt;segment></code></link> element within each <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code>) and their corresponding <firstterm>Mergers</firstterm> need
+          to expect that the <firstterm>Modifiers</firstterm> will need to transform them into
+          individual segments within the same unit (multiple <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
+              ><code>&lt;segment></code></link> elements representing individual sentences, verses
+          and so on within each <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
+              >&lt;unit></link></code>) during the roundtrip.</para>
+        <para>In cases where subsequent <firstterm>Modifiers</firstterm> cannot be reasonably
+          expected to detect the segmentation logic, for instance due to the lack of knowledge of
+          the original format logic, the content owner is advised to perform the segmentation and
+          protection of that segmentation before sending their XLIFF Documents for the service
+          roundtrip.</para>
         <para>While it's generally desirable to be able to <firstterm>Modify</firstterm>
           segmentation within a unit during the roundtrip, doing so in some of the above cases might
           prevent <firstterm>Merging</firstterm>, cause build issues, or have negative impact on
@@ -348,21 +373,31 @@
                 <para>UI elements</para>
               </listitem>
             </itemizedlist></para>
-        <para>Example: <link
-          xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
-          >mapping_to_unit</link>.</para>
         <para>In UI elements and tables, it is likely that the available segmentation needs
           protected, on the other hand, it is advisable not to change the default <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-            >canResegment</link>="yes"</code> for normal paragraph text and similar. </para>
-        <para> however, preventing <firstterm>Modification</firstterm> of segmentation will also
-          prevent reordering of segments within a unit using the order attribute on target. So in
-          case an ordered list needs to be for instance alphabetically collated, translators would
-          be prevented from doing that in case <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-            >canResegment</link></code> is set to <code>no</code>. It is up the process designer
-          to decide if it is more important to protect the segmentation and perform the collation as
-          a post-process or let the translator do the collation. </para>
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link>="yes"</code> for normal paragraph text and similar, see <link
+            linkend="unit">Role of the &lt;unit> Element</link>. </para>
+        <para>Importantly, preventing <firstterm>Modification</firstterm> of segmentation using the
+          attribute <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> (set to <code>no</code> when necessary) will
+            <emphasis>not</emphasis> prevent reordering of segments within a unit using the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#order"
+              ><code>order</code></link> attribute on the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
+              ><code>&lt;target></code></link> elements within  the same unit. So in case an ordered
+          list needs to be for instance alphabetically collated, translators can do so even in case
+          the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> attribute is set to <code>no</code>. The segmentation
+          logic of the native format remains protected without preventing collation. This would be
+          all hampered if the <firstterm>Extractor</firstterm> decided to
+            <firstterm>Extract</firstterm> each segment as a separate unit, which is the most evil
+          practice that cannot be discouraged enough.</para>
+        <para>Example: <link
+            xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
+            >mapping_to_unit</link>. </para>
       </section>
     </section>
     <section xml:id="Inlines">
@@ -387,8 +422,8 @@
                   >&lt;ph></link></code></para>
           </listitem>
           <listitem>
-            <para>Include <firstterm>inline codes</firstterm> in <firstterm>Extracted</firstterm>
-              content</para>
+            <para>Include all (even the outermost) <firstterm>inline codes</firstterm> in the
+                <firstterm>Extracted</firstterm> content</para>
           </listitem>
           <listitem>
             <para><link
@@ -398,10 +433,11 @@
         </itemizedlist></para>
       <section xml:id="Spanning">
         <title>Representing Spanning Codes</title>
-        <para><firstterm>Spanning codes</firstterm> in the original format are created by opening
-          code, content and closing code. In HTML that can be <code>&lt;bold>text&lt;/bold></code>,
-          in RTF <code>\b text \b0</code>.</para>
-        <para>In XLIFF, such code can be always represented with an <code><link
+        <para><firstterm>Spanning codes</firstterm> in the original format are created by an opening
+          code, the content, and the closing code. In HTML that can be
+            <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text \b0</code>.</para>
+        <para>In <firstterm>XLIFF Documents</firstterm>, such code can be always represented with an
+              <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
@@ -430,15 +466,16 @@
         <para>This concept is illustrated by the <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
               ><code>spanning_as_ph</code></link>.</para>
-        <para>This kind of encoding doesn't inform the <firstterm>Translating</firstterm>
+        <para>This kind of bad practice encoding doesn't inform the
+            <firstterm>Translating</firstterm>
           <firstterm>Agent</firstterm> (human or machine <firstterm>Modifier</firstterm>) that the
           original code formed a span and effectively the original spanning code is not protected
           during the roundtrip. The standalone <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-              >&lt;ph/></link></code> codes can be switched, one of them omitted, the span is likely
-          to end up misplaced, malformed, or empty simply because the
+              >&lt;ph/></link></code> codes can be switched or one of them omitted; simply, the span
+          is likely to end up misplaced, malformed, or empty simply because the
             <firstterm>Translation</firstterm> editor cannot convey to the translator that the codes
-          enclose a certain portion of the original content and what is the semantics of the
+          need to enclose a certain portion of the original content and what is the semantics of the
           original code span.</para>
       </section>
       <section xml:id="Outermost">
@@ -570,8 +607,8 @@
       <para>Generally, one should omit the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             >&lt;target></link></code> element, unless there is an added value and also in cases
-        where the specification offers another dedicated solution. Proper support of the state
-        machine<!-- add internal reference --> during the whole roundtrip helps
+        where the specification offers another dedicated solution. Proper support of the <link linkend="State_Machine">state
+          machine</link> during the whole roundtrip helps
           <firstterm>Agents</firstterm> to process and validate the <firstterm>XLIFF
           Documents</firstterm> as intended.</para>
       <para>When looking at the situation from the <emphasis>microservices</emphasis> point of view,
@@ -589,8 +626,9 @@
           >Format Style Module</link>.</para>
       <para>Unless the implementer has a specific need to create <emphasis>target
           language</emphasis> specific instances of the extracted <firstterm>XLIFF
-          Document</firstterm>, for instance by <firstterm>Enriching</firstterm> with translation
-        candidates, <!-- insert module reference --> the <firstterm>Extracted</firstterm>
+          Document</firstterm>, for instance by <firstterm>Enriching</firstterm> with
+        <link xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates">translation candidates</link>, the
+          <firstterm>Extracted</firstterm>
         <firstterm>XLIFF Document</firstterm> could and ought to be sent downstream for the
         Localization roundtrip as-is.</para>
       <section xml:id="Source_copy_in_target">
