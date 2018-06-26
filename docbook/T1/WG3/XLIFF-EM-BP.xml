@@ -22,16 +22,24 @@
         <personname>Ján Husarčík</personname>
         <email>jhusarcik@moravia.com</email>
         <affiliation>
-          <orgname>Moravia</orgname>
+          <orgname>Moravia: An RWS Company</orgname>
         </affiliation>
       </editor>
 
       <!-- WG Chairs should be given credit -->
       <othercredit role="chair">
         <personname>Rodolfo M. Raya</personname>
+        <email>rmraya@maxprograms.com</email>
+        <affiliation>
+          <orgname>Maxprograms</orgname>
+        </affiliation>
       </othercredit>
       <othercredit role="chair">
         <personname>Andreas Galambos</personname>
+        <email>andreas.galambos@tmuebersetzungen.de</email>
+        <affiliation>
+          <orgname>Transmission Uebersetzungen</orgname>
+        </affiliation>
       </othercredit>
     </authorgroup>
 
@@ -77,13 +85,13 @@
       <para>This note provides an informative best practice for XLIFF 2 Specifications:</para>
       <itemizedlist>
         <listitem>
-          <para>XLIFF Version 2.1 <citation>[XLIFF-2.1]</citation></para>
+          <para>XLIFF Version 2.1 <citation>XLIFF-2.1</citation></para>
         </listitem>
         <listitem>
-          <para>XLIFF Version 2.0 <citation>[XLIFF-2.0]</citation></para>
+          <para>XLIFF Version 2.0 <citation>XLIFF-2.0</citation></para>
         </listitem>
         <listitem>
-          <para>ISO 21720:2017 <citation>[ISO XLIFF]</citation></para>
+          <para>ISO 21720:2017 <citation>ISO XLIFF</citation></para>
         </listitem>
       </itemizedlist>
     </legalnotice>
@@ -93,7 +101,7 @@
           <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> tools for content
         owners. It gathers common problems that are prone to appear when
           <firstterm>Extracting</firstterm>
-        <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This
+        <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or Markdown. This
         specification shows why some <firstterm>Extraction</firstterm> approaches will cause issues
         during an <firstterm>XLIFF Roundtrip</firstterm>. This best practice guidance provides
         better thought through alternatives and shows how to use many of advanced XLIFF features for
@@ -147,7 +155,7 @@
   <glossary xml:id="Glossary">
     <title>Terminology and Concepts</title>
     <para>Apart form terminology and concepts defined here, this specification makes heavy use of
-      terms defined in the XLIFF Standards <citation>[XLIFF-2.1]</citation> such as:
+      terms defined in the XLIFF Standards <citation>XLIFF-2.1</citation> such as:
         <firstterm>Extractor</firstterm>, <firstterm>Merger</firstterm>,
         <firstterm>Translation</firstterm>, <firstterm>XLIFF Document</firstterm>,
         <firstterm>XLIFF-defined</firstterm>, etc.</para>
@@ -221,7 +229,7 @@
       Format.</para>
     <para>This specification gathers common problems that are prone to appear when
         <firstterm>Extracting</firstterm>
-      <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This specification
+      <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or Markdown. This specification
       shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an
         <firstterm>XLIFF Roundtrip</firstterm>, issues often so severe that
         <firstterm>Merging</firstterm> back of target content will not be possible without costly
@@ -456,7 +464,7 @@
           above. To further help the <firstterm>Extraction</firstterm> process, the following
           recommendation could be implemented in the original XML format: <quote>For
             interoperability, the empty-element tag SHOULD be used, and SHOULD only be used, for
-            elements which are declared EMPTY.</quote><citation>[XML]</citation>.</para>
+            elements which are declared EMPTY.</quote><citation>XML</citation>.</para>
         <para>Following this recommendation of the XML specification, an empty
             <code>&lt;span></code> ought to be encoded as <code>&lt;span>&lt;/span></code> and
           therefore represented as an <code><link
@@ -534,7 +542,7 @@
             codes</firstterm> unprotected and increases the risk of their corruption during the
           roundtrip, simply pushing the problem of <firstterm>inline code</firstterm> handling
           downstream.</para>
-        <para>According to the XLIFF <citation>[XLIFF-2.1]</citation> Standards,
+        <para>According to the XLIFF <citation>XLIFF-2.1</citation> Standards,
             <firstterm>Modifiers</firstterm> can perform secondary parsing:</para>
         <para><quote><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
