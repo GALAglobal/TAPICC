@@ -219,15 +219,17 @@
       XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content.
       This is mostly because XLIFF is a native-format-agnostic Localization Interchange
       Format.</para>
-    <para>This specification gathers common problems that are prone to appear when Extracting XLIFF
-      Documents from HTML, generic XML, or MarkDown. This specification shows why some
-        <firstterm>Extraction</firstterm> approaches will cause issues during an <firstterm>XLIFF
-        Roundtrip</firstterm>, issues often so severe that <firstterm>Merging</firstterm> back of
-      target content will not be possible without costly post-processing or could fail utterly. This
-      best practice guidance provides better thought through alternatives and shows how to use many
-      of advanced XLIFF features for lossless Localization roundtrip of HTML and XML based content.
-      Most of the times there are no ultimate prescribed solutions, rather possible design goals are
-      described and best methods how to achieve them proposed.</para>
+    <para>This specification gathers common problems that are prone to appear when
+        <firstterm>Extracting</firstterm>
+      <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or MarkDown. This specification
+      shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an
+        <firstterm>XLIFF Roundtrip</firstterm>, issues often so severe that
+        <firstterm>Merging</firstterm> back of target content will not be possible without costly
+      post-processing or could fail utterly. This best practice guidance provides better thought
+      through alternatives and shows how to use many of advanced XLIFF features for lossless
+      Localization roundtrip of HTML and XML based content. Often, there are no ultimate prescribed
+      solutions, rather possible design goals are described and best methods how to achieve them
+      proposed.</para>
 
   </section>
   <section xml:id="Spec">
@@ -523,8 +525,8 @@
                   >inline_codes_plain_text</link>)</para>
             </listitem>
           </itemizedlist></para>
-        <para>Doing one of the above can be used as a useful interim
-            <firstterm>Extraction</firstterm> step when producing <firstterm>XLIFF
+        <para>Doing one of the above can be used as a useful <emphasis>interim</emphasis>
+          <firstterm>Extraction</firstterm> step when producing <firstterm>XLIFF
             Documents</firstterm> that are fit for roundtrip. However, it is strongly discouraged to
           send <firstterm>XLIFF Documents</firstterm> with the inline content not fully parsed for
           Localization roundtrip.</para>
@@ -1234,7 +1236,41 @@
   </section>
   <section xml:id="Summary">
     <title>Summary</title>
-    <para />
+    <para>This specification attempts (among other goals) to make the XLIFF Standards more
+      accessible to content owners that are not necessarily looking into the full nitty-gritty of
+      the XLIFF specs. It gives a general guidance how to handle constructs common in HTML and
+      generic XML, it also provides some basic information on <firstterm>Extraction</firstterm> from
+      Content Management Systems and software resources. The TAPICC &wg; and the Editors look
+      forward to receiving feedback how to make this &releaseinfo; even more useful, potentially how
+      and in what directions to expand its scope.</para>
+    <para>We haven't utterly failed if a multilingual publishing data flow designer took home what
+      are the basic design principles behind XLIFF as the exchange bitext format, both at the
+      structural and the inline levels. We hopefully managed to introduce and explain good business
+      reasons for thoughtful, properly structured, and metadata rich XLIFF
+        <firstterm>Extraction</firstterm> that will in turn facilitate fully automated, gold
+      standard  <firstterm>Merge</firstterm> and target build processes.</para>
+    <para>XLIFF <firstterm>Extraction</firstterm> can never make sense when perceived on its own, as
+      an isolated process. Since XLIFF doesn't purport to standardize <firstterm>Merging</firstterm>
+      without the full knowledge of the <firstterm>Extraction</firstterm> mechanism, all
+      implementers that build <firstterm>Extractors</firstterm> will need to build
+        <firstterm>Mergers</firstterm> in order to benefit from the exercise. In fact, for a
+      corporate owner the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> will be
+      considered a single application with two end points. Designers of such tools need to be
+      acutely aware that every design compromise made at the <firstterm>Extraction</firstterm>
+      endpoint will compromise the ability of downstream <firstterm>Agents</firstterm> to preform
+      lossless bitext transformations and thus will in the end undesirably and sometimes
+      unpredictably affect their own <firstterm>Merging</firstterm> endpoint that will have to
+      receive the <firstterm>XLIFF Documents</firstterm> after a localization roundtrip. </para>
+    <para>Sometimes, some service providers do accept horrible and ugly "XLIFF" pretending that
+      there is nothing to worry. In such cases, rest assured that the service provider had to
+      complement the poor <firstterm>Extraction</firstterm>/<firstterm>Merge</firstterm> job with
+      their own costly pre- and post-processing routines, or worse pushed them even further
+      downstream onto the translators who may or may not be tech-savvy enough to preserve
+      unprotected features that are critical for your build or runtime functionality. No matter if
+      issues resurface in your localized product, you can rest assured that you are paying extra for
+      solving issues that you could have solved easier on your own or you are not providing the
+      translators with sufficient metadata to produce the best possible technical and linguistic
+      in-context quality.</para>
   </section>
   <bibliography xml:id="references">
     <title>References</title>
