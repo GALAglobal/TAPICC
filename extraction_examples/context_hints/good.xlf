@@ -15,14 +15,14 @@
             </originalData>
             <segment>
                 <!-- newlines added for readability -->
-                <source>Hi <ph dataRef="1" disp="[User Name]" equiv="id" id="1" subType="xlf:var" type="ui" />, see 
+                <source>Hi <ph dataRef="1" disp="[User Name]" equiv="{id}" id="1" subType="xlf:var" type="ui" />, see 
                     <sc dataRef="2" equiv="&lt;i>" id="2" subType="xlf:i" type="fmt" />
                     what's new
                     <ec dataRef="3" disp="&lt;/i>" startRef="2" subType="xlf:i" type="fmt" />
                     in the
-                    <sc dataRef="4" disp="https://daily.digest" equiv="&lt;a>" id="3" subFlows="u1" type="link" />
+                    <sc dataRef="4" disp="[https://daily.digest]" equiv="&lt;a>" id="3" subFlows="u1" type="link" />
                     digest
-                    <ec dataRef="5" disp="&lt;/a>" startRef="3" type="link" />.</source>
+                    <ec dataRef="5" equiv="&lt;/a>" startRef="3" type="link" />.</source>
                 <!-- number of context hints helps translator to make accurate judgement -->
             </segment>
         </unit>
