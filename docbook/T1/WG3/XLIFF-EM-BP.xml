@@ -992,14 +992,14 @@
       </section>
       <section xml:id="non-localizables">
         <title>Protecting Non-localizable Content</title>
-        <para>There are cases, when it's necessary to protect parts of the text exposed to
-          localization, be it terminology, or functional string, i.e. software placeholders, during
-          a localization roundtrip.</para>
-        <para>XLIFF offers two options:<itemizedlist>
+        <para>There are cases, when it's necessary to prevent localization of inline content parts
+          otherwise exposed to localization, be it brand names, or functional inline code, such as
+          software placeholders.</para>
+        <para>XLIFF offers two options for :<itemizedlist>
             <listitem>
               <para><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation"
-                  >translate annotations</link></para>
+                  >translate annotation</link></para>
             </listitem>
             <listitem>
               <para><code><link
@@ -1007,37 +1007,61 @@
                     >&lt;ph></link></code></para>
             </listitem>
           </itemizedlist></para>
-        <para>each of them having a slightly different purpose and features.</para>
-        <para>A care should be taken when deciding which of the two should be used to protect the
-          particular string, and they should not be used interchangeably.</para>
-        <para>Usually, the translate annotation is suitable for protecting linguistically
-          significant content, e. g. non-localizable terminology, while <code><link
+        <para>each of them having different purpose and offering different features and
+          options.</para>
+        <para>Careful consideration is necessary to decide which way to protect a particular
+          non-translatable string, as the two methods are neither equivalent nor
+          interchangeable.</para>
+        <para>Usually, the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation"
+            >translate annotation</link> is suitable for protecting linguistically significant
+          content, e. g. non-localizable brand or product names, while <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-              >&lt;ph></link></code> is better for representing standalone codes.</para>
-        <note>
-          <itemizedlist>
-            <listitem>
-              <para>The <code><link
-                    xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
-                    >&lt;ph></link></code> element should be accompanied by appropriate <link
-                  linkend="Hints">context and editing hints</link>.</para>
-            </listitem>
-            <listitem>
-              <para><link linkend="validations">XLIFF validations</link> do not support validating
-                translate annotations by design. If the validation is required, it should be created
-                based on particular business needs.</para>
-            </listitem>
-          </itemizedlist>
-        </note>
+              >&lt;ph></link></code> is better for representing standalone codes without a syntactic
+          role, typically standalone formatting artifacts such as <code>&lt;br/></code>.<note>
+            <para><link linkend="validations">XLIFF Core validation artifacts</link> do not support
+              validating translate annotations by design. It is the ultimate decision of the
+                <firstterm>Modifier</firstterm> if a span annotated as non-translatable will indeed
+              stay unchanged based on linguistic and context considerations. If the validation of
+              the non-translatable annotations is necessary, it needs to be added for instance as
+              custom validation code or a custom Schematron rule, based on particular business needs
+              and validation infrastructure options.</para>
+          </note></para>
+        <para>Placeholders and variables to be replaced with syntactically significant content on
+          runtime are a particularly difficult use case to address. The functional variable usually
+          doesn't provide much of a context for the translator even in case when not replaced by the
+              <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph></link></code> element and just surrounded by the do-not-translate annotation.
+          The best way to represent such variables is to use <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph></link></code> with the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#type"
+              ><code>type</code></link> attribute set to <code>ui</code> and the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#subtype"
+              ><code>subType</code></link> attribute set to <code>xlf:var</code>. See the XLIFF
+          Constraints for the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#subtype"
+              ><code>subType</code></link> attribute. In general, the <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
+              >&lt;ph></link></code> elements need to be accompanied by appropriate <link
+            linkend="Hints">context and editing hints</link>. The <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#disp"
+              ><code>disp</code></link> is suitable to display (in a CAT tool GUI) an example value
+          that is likely to be used on runtime. The same or a related value can be used also for the
+          plain text equivalent (rendering) hint <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#equiv"
+              ><code>equiv</code></link>. </para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk"
             >ph_and_mrk</link>.</para>
       </section>
       <section xml:id="merging">
         <title>Merging Translated Content</title>
-        <para>The <firstterm>Modifiers</firstterm> can perform various <emphasis>valid</emphasis>
-          modifications during a roundtrip the XLIFF compliant <firstterm>Mergers</firstterm> need
-          to be able to correctly handle.</para>
+        <para><firstterm>Modifiers</firstterm> can perform various <emphasis>valid</emphasis>
+          transformations during an XLIFF roundtrip. XLIFF compliant <firstterm>Mergers</firstterm>
+          need to be able correctly handle all of them, as those changes are canonical validity
+          preserving operations. </para>
         <para>These operations are (in no particular order):<itemizedlist>
             <listitem>
               <para>segmentation modification</para>
