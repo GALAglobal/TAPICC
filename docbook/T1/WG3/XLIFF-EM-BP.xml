@@ -978,15 +978,16 @@
           well-formed native markup, using the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
               >&lt;pc></link></code> pair tag is likely to be easier for the
-            <firstterm>Extactor</firstterm>. On the other hand, it is important to consider that
-          transforming the <code><link
+            <firstterm>Extactor</firstterm>.
+          <?oxy_comment_start author="jhusarcik" timestamp="20180627T011312+0200" comment="&quot;Modifier best practices&quot;? M. should set attributes when converting …"?>On
+          the other hand, it is important to consider that transforming the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-              >&lt;pc></link></code> pair tag into an  <code><link
+              >&lt;pc></link></code> pair tag into an <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec/></link></code> pair is always allowed. So the <firstterm>Mergers</firstterm>
-          need to prepared to handle <code><link
+              >&lt;ec/></link></code> pair is always allowed. <?oxy_comment_end?>So the
+            <firstterm>Mergers</firstterm> need to prepared to handle <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
@@ -1008,11 +1009,17 @@
         <title>Value of attribute <code>id</code></title>
         <para>Implementers could be tempted to store values of resource Ids in the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
-              >id</link></code> attribute of XLIFF structural or elements. While the XLIFF
-              <code><link
+              >id</link></code> attribute of XLIFF structural or elements.
+          <?oxy_insert_start author="jhusarcik" timestamp="20180627T011835+0200"?>It should be
+          pointed out that the XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
-              >id</link></code> attribute value is restricted to <firstterm>NMTOKEN</firstterm> by
-          the normative XML Schema, the native format could not have such restrictions. Invalid
+              >id</link></code> attribute is intended purely for internal purposes of the format and
+          <?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180627T011948+0200" content="W"?><?oxy_insert_start author="jhusarcik" timestamp="20180627T011948+0200"?>w<?oxy_insert_end?>hile
+          <?oxy_insert_start author="jhusarcik" timestamp="20180627T012116+0200"?>its
+          <?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180627T011859+0200" content="the XLIFF &lt;code&gt;&lt;link xlink:href=&quot;http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id&quot;&gt;id&lt;/link&gt;&lt;/code&gt; attribute "?>value
+          is restricted to
+            <firstterm><?oxy_comment_start author="jhusarcik" timestamp="20180627T012155+0200" comment="link to definition?"?>NMTOKEN<?oxy_comment_end?></firstterm>
+          by the normative XML Schema, the native format could not have such restrictions. Invalid
           characters in XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
               >id</link></code> attributes will render the whole <firstterm>XLIFF
@@ -1043,7 +1050,9 @@
           the rendered document.</para>
         <para>Thus one cannot indiscriminately either preserve, or normalize. Since most of TMS and
           CAT tools penalize whitespace discrepancies, the leverage could be negatively affected if
-          whitespace <firstterm>Modified</firstterm>, and layout of nodes with significant whitepace
+          whitespace<?oxy_insert_start author="jhusarcik" timestamp="20180627T012311+0200"?>s are<?oxy_insert_end?>
+          <firstterm>Modified</firstterm>, and layout of nodes with significant
+          white<?oxy_insert_start author="jhusarcik" timestamp="20180627T012324+0200"?>s<?oxy_insert_end?>pace
           could be corrupted.</para>
         <para>The general best practice, also taking into account the <link
             xlink:href="https://www.w3.org/TR/its20/#preservespace">ITS Preserve Space</link> data
@@ -1054,9 +1063,10 @@
                   <firstterm>Agents</firstterm> in the roundtrip to do so and</para>
             </listitem>
             <listitem>
-              <para>protect XLIFF structural elements with <code><link
+              <para><?oxy_comment_start author="jhusarcik" timestamp="20180627T012420+0200" comment="as required?"?>protect
+                XLIFF structural elements with <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
-                    >xml:space</link></code> set to <code>preserve</code>. </para>
+                    >xml:space</link></code> set to <code>preserve</code><?oxy_comment_end?>. </para>
             </listitem>
           </orderedlist></para>
         <para>Please note that the XLIFF default for <code><link
@@ -1095,7 +1105,9 @@
         <para>each of them having different purpose and offering different features and
           options.</para>
         <para>Careful consideration is necessary to decide which way to protect a particular
-          non-translatable string, as the two methods are neither equivalent nor
+          non-translatable
+          string<?oxy_insert_start author="jhusarcik" timestamp="20180627T012633+0200"?>
+          type<?oxy_insert_end?>, as the two methods are neither equivalent nor
           interchangeable.</para>
         <para>Usually, the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation"
@@ -1162,14 +1174,16 @@
             <listitem>
               <para><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#spanningcodeusage"
-                  >Equivalent conversion</link> of  <code><link
+                  >Equivalent conversion</link> of <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
                     >&lt;pc></link></code> elements into <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
                     >&lt;sc></link></code>/<code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
                     >&lt;ec></link></code> pairs (always allowed and possible) and <emphasis>vice
-                  versa</emphasis> ( only possible with well-formed spanning codes),</para>
+                  versa</emphasis> ( only possible with well-formed spanning
+                codes<?oxy_insert_start author="jhusarcik" timestamp="20180627T013241+0200"?> within
+                single segment<?oxy_insert_end?>),</para>
             </listitem>
             <listitem>
               <para>Adding, and removing of <firstterm>inline codes</firstterm> (taking into account
@@ -1180,7 +1194,8 @@
             <listitem>
               <para>Content <firstterm>Enrichment</firstterm> with <link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#annotations"
-                  >Annotations</link>,</para>
+                  >Annotations</link><?oxy_insert_start author="jhusarcik" timestamp="20180627T013317+0200"?>
+                and <firstterm>Context Hints</firstterm><?oxy_insert_end?>,</para>
             </listitem>
             <listitem>
               <para>Performing of any other changes allowed by Processing Requirements.</para>
@@ -1208,19 +1223,22 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang"
               >srcLang</link></code> and <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
-              >trglang</link></code>. The optional <code><link
+              >trglang</link></code>.
+          <?oxy_comment_start author="jhusarcik" timestamp="20180627T013528+0200" comment="what about reference language?"?>The
+          optional <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_lang"
               >xml:lang</link></code> attributes on the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#source"
               ><code>&lt;source></code></link> and <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
-              ><code>&lt;target></code></link> elements are directly inherited from  <code><link
+              ><code>&lt;target></code></link> elements are directly inherited from <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang"
               >srcLang</link></code> and <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
               >trglang</link></code> respectively and are in fact provided only for generic XML
-          Processors interoperability. The attribute <link><code>itsm:lang</code></link> serves just
-          to define inline foreign language spans via annotations if necessary.</para>
+          Processors interoperability. <?oxy_comment_end?>The attribute
+            <link><code>itsm:lang</code></link> serves just to define inline foreign language spans
+          via annotations if necessary.</para>
         <para>What language tag to use is usually not an issue for languages like Slovak
             (<code>sk</code>) or Czech (<code>cs</code>) that are spoken predominantly in one
           country and encoded exclusively using one script. This becomes a more prominent question
@@ -1228,19 +1246,23 @@
             <code>en-US</code>); using various scripts, for example Uyghur (<code>ug-Arab</code>,
             <code>ug-Cyrl</code>, <code>ug-Latn</code>); or having multiple variants like Basic
           English (<emphasis>en-basiceng</emphasis>).</para>
-        <para>The use cases for the correctly set fain-grained language tags vary from simple, such
-          as spell-check, which will behave quite differently for <code>en-GB</code>, compared to
-            <code>en-basiceng</code>; to more complex, like using <code>fr-FR</code> as a reference
-          language for a <firstterm>Translation</firstterm> into <code>fr-CA</code> .</para>
+        <para>The use cases for the correctly set
+          <?oxy_delete author="jhusarcik" timestamp="20180627T013611+0200" content="fain"?><?oxy_insert_start author="jhusarcik" timestamp="20180627T013611+0200"?>fine<?oxy_insert_end?>-grained
+          language tags vary from simple, such as spell-check, which will behave quite differently
+          for <code>en-GB</code>, compared to <code>en-basiceng</code>; to more complex, like using
+            <code>fr-FR</code> as a reference language for a <firstterm>Translation</firstterm> into
+            <code>fr-CA</code> .</para>
         <para>MT engines will return Serbian encoded with the Cyrillic script (<code>sr-Cyrl</code>)
           output when the request contains the language tag <emphasis>sr</emphasis> albeit the user
-          might have meant and expected Serbian written wit the Latin script (<code>sr-Latn</code>).
-          Human translators would hopefully ask which of the two was the desired one or just provide
-            <code>sr-Cyrl</code> as the machines. More dangerous than translators would be
-          undocumented internal mapping tables and custom business rules facilitating communication
-          between roundtrip actors that could assume different defaults when not given an
-          unequivocal language tag, or worse ignore a valid fain-grained language tag they don't
-          cover.</para>
+          might have meant and expected Serbian written
+          wit<?oxy_insert_start author="jhusarcik" timestamp="20180627T013700+0200"?>h<?oxy_insert_end?>
+          the Latin script (<code>sr-Latn</code>). Human translators would hopefully ask which of
+          the two was the desired one or just provide <code>sr-Cyrl</code> as the machines. More
+          dangerous than translators would be undocumented internal mapping tables and custom
+          business rules facilitating communication between roundtrip actors that could assume
+          different defaults when not given an unequivocal language tag, or worse ignore a valid
+          <?oxy_delete author="jhusarcik" timestamp="20180627T013758+0200" content="fain"?><?oxy_insert_start author="jhusarcik" timestamp="20180627T013758+0200"?>fine<?oxy_insert_end?>-grained
+          language tag they don't cover.</para>
         <para>The XLIFF Standards prescribe that the <link linkend="bcp47">BCP 47</link> language
           tags are to be used as values for attributes specifying human natural languages used in
           the <firstterm>XLIFF Documents</firstterm>. The Unicode Consortium offers a <link
@@ -1337,7 +1359,8 @@
       corporate owner the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> will be
       considered a single application with two end points. Designers of such tools need to be
       acutely aware that every design compromise made at the <firstterm>Extraction</firstterm>
-      endpoint will compromise the ability of downstream <firstterm>Agents</firstterm> to preform
+      endpoint will compromise the ability of downstream <firstterm>Agents</firstterm> to
+      p<?oxy_delete author="jhusarcik" timestamp="20180627T014625+0200" content="r"?>e<?oxy_insert_start author="jhusarcik" timestamp="20180627T014627+0200"?>r<?oxy_insert_end?>form
       lossless bitext transformations and thus will in the end undesirably and sometimes
       unpredictably affect their own <firstterm>Merging</firstterm> endpoint that will have to
       receive the <firstterm>XLIFF Documents</firstterm> after a localization roundtrip. </para>
