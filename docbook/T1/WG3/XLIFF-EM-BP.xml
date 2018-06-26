@@ -160,7 +160,10 @@
               >disp</link></code> or <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
               >equiv</link></code>. Attributes <code>fs</code> and <code>subFs</code> defined in the
-          XLIFF Format Style Module are also considered <firstterm>context hints</firstterm>.</para>
+            <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#fs-mod"
+            >XLIFF Format Style Module</link> are also considered <firstterm>context
+            hints</firstterm>.</para>
       </glossdef>
     </glossentry>
     <glossentry>
@@ -1061,52 +1064,68 @@
         <para><firstterm>Modifiers</firstterm> can perform various <emphasis>valid</emphasis>
           transformations during an XLIFF roundtrip. XLIFF compliant <firstterm>Mergers</firstterm>
           need to be able correctly handle all of them, as those changes are canonical validity
-          preserving operations. </para>
-        <para>These operations are (in no particular order):<itemizedlist>
+          preserving operations. See in particular the clause 2.e. of the <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#Conformance"
+            >XLIFF Conformance section</link>.</para>
+        <para>These operations are (in order of importance or severity of issues caused if ignored):<itemizedlist>
             <listitem>
-              <para>segmentation modification</para>
+              <para>Converting CDATA sections and parseable text (such as XML entities) into XLIFF
+                  <firstterm>inline codes</firstterm>.</para>
             </listitem>
             <listitem>
-              <para>content enrichment with annotations</para>
+              <para><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#segmentationModification"
+                  >Segmentation <firstterm>Modification</firstterm></link>,</para>
             </listitem>
             <listitem>
-              <para>adding, and removing inline codes</para>
-            </listitem>
-            <listitem>
-              <para>convert CDATA sections and text into codes</para>
-            </listitem>
-            <listitem>
-              <para>use <code><link
+              <para><link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#spanningcodeusage"
+                  >Equivalent conversion</link> of  <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
-                    >&lt;pc></link></code>, and <code><link
+                    >&lt;pc></link></code> elements into <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
-                    >&lt;sc></link></code>, <code><link
+                    >&lt;sc></link></code>/<code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-                    >&lt;ec></link></code> interchangeably (for well-formed spanning codes)</para>
+                    >&lt;ec></link></code> pairs (always allowed and possible) and <emphasis>vice
+                  versa</emphasis> ( only possible with well-formed spanning codes),</para>
             </listitem>
             <listitem>
-              <para>perform other changes allowed by Processing Requirements</para>
+              <para>Adding, and removing of <firstterm>inline codes</firstterm> (taking into account
+                the <link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#editinghints"
+                  >editing hints</link> and their Processing Requirements),</para>
+            </listitem>
+            <listitem>
+              <para>Content <firstterm>Enrichment</firstterm> with <link
+                  xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#annotations"
+                  >Annotations</link>,</para>
+            </listitem>
+            <listitem>
+              <para>Performing of any other changes allowed by Processing Requirements.</para>
             </listitem>
           </itemizedlist></para>
-        <para>Extraction not following the best practices usually just shifts the problems further
-          downstream, requiring other agents to mitigate, creating unpredictable results.</para>
+        <para><firstterm>Extraction</firstterm> not following best practices usually just shifts the
+          problems further downstream, forcing  other <firstterm>Agents</firstterm> to mitigate the
+          inherited issues, more often than not leading to unexpected, undesirable, or unpredictable
+          results that will trip over the <firstterm>Merging</firstterm> after the roundtrip.</para>
         <para>Additional guidance is also available in the <link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e11123"
-            >XLIFF spec</link>.</para>
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#d0e11123"
+            >XLIFF Best Practice for <firstterm>Mergers</firstterm></link>.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
             >merging</link>.</para>
       </section>
       <section xml:id="langtags">
         <title>Selecting Language Tags</title>
-        <para>The agents in the roundtrip; machine, and human; need to be able to sufficiently
-          identify the languages used in the XLIFF document, specified by attributes <code><link
+        <para><firstterm>Agents</firstterm> in the roundtrip, machine and human, need to be able to
+          sufficiently identify the languages used in <firstterm>XLIFF Documents</firstterm>.
+          Languages used are primarily specified by the attributes <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang"
-              >srcLang</link></code>, <code><link
+              >srcLang</link></code> and <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
-              >trglang</link></code>, and <code><link
+              >trglang</link></code>.  Attributes <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_lang"
-              >xml:lang</link></code>.</para>
+              >xml:lang</link></code> and its:lang.</para>
         <para>While usually not an issue for languages like Slovak (<emphasis>sk</emphasis>), it
           becomes a more prominent question for languages used in different regions, such as English
             (<emphasis>en-GB</emphasis>, <emphasis>en-US</emphasis>); using various scripts, for
