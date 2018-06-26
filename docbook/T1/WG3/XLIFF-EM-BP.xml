@@ -130,7 +130,7 @@
     <legalnotice role="notices">
       <title>Notices</title>
       <para>Copyright © GALA TAPICC &pubyear;. All rights reserved.</para>
-      <para> The Translation API Cases and Classes (TAPICC) initiative is a collaborative,
+      <para>The Translation API Cases and Classes (TAPICC) initiative is a collaborative,
         community-driven, open source project to advance API standards in the Localization industry.
         The overall purpose of this project is to provide a metadata and API framework on which
         users can base their integration, automation and interoperability efforts.</para>
@@ -234,11 +234,16 @@
         <firstterm>XLIFF Roundtrip</firstterm>, issues often so severe that
         <firstterm>Merging</firstterm> back of target content will not be possible without costly
       post-processing or could fail utterly. This best practice guidance provides better thought
-      through alternatives and shows how to use many of advanced XLIFF features for lossless
-      Localization roundtrip of HTML and XML based content. Often, there are no ultimate prescribed
-      solutions, rather possible design goals are described and best methods how to achieve them
-      proposed.</para>
-
+      through alternatives and shows how to use many of
+      <?oxy_insert_start author="jhusarcik" timestamp="20180626T214804+0200"?>the
+      <?oxy_insert_end?>advanced XLIFF features for lossless Localization roundtrip of
+      <?oxy_insert_start author="jhusarcik" timestamp="20180626T214809+0200"?>mainly
+      <?oxy_insert_end?>HTML and XML based content. Often, there are no ultimate prescribed
+      solutions, rather possible design goals are described and
+      <?oxy_insert_start author="jhusarcik" timestamp="20180626T214824+0200"?>the
+      <?oxy_insert_end?>best methods how to achieve them proposed.</para>
+    <para>The concepts described in the <link linkend="Spec">next section</link> are usually grouped
+      by a common theme with no particular order.</para>
   </section>
   <section xml:id="Spec">
     <title>Specification</title>
@@ -319,10 +324,11 @@
           crippling the roundtrip and making the most of XLIFF features in a compliant way.</para>
         <para>Severe problems can be caused by both extremes: too many or not enough <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
-              >&lt;unit></link></code> elements. Especially dangerous is <link>Extracting</link>
-          every segment as a separate <code><link
+              >&lt;unit></link></code> elements.
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T215349+0200" comment="rephrase?"?>Especially
+          dangerous is <link>Extracting</link> every segment as a separate <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
-              >&lt;unit></link></code> element as this will effectively prevent
+              >&lt;unit></link></code><?oxy_comment_end?> element as this will effectively prevent
             <firstterm>Modifiers</firstterm> downstream to change segmentation. Changing
           segmentation within logically self contained units is one of the key advantages of the
           XLIFF 2 structural data model that makes a distinction between the immutable high level
@@ -342,12 +348,22 @@
         <title>Controlling Segmentation</title>
         <para>Depending on <firstterm>Extraction</firstterm> rules for mapping of original document
           structures into <firstterm>XLIFF Documents</firstterm>, individual sentences within a
-          paragraph, verses within a stanza, items or entries of a list, rows, or cells of a table,
-          items of a dialog window and so on might be <firstterm>Extracted</firstterm> as segments
-          of a single unit. While it is generally not advisable to perform segmentation at the time
-          of <firstterm>Extraction</firstterm>, <firstterm>Extractors</firstterm> that
-            <firstterm>Extracted</firstterm> multiple sentences, verses, entries, rows and so on
-          into a single non-segmented unit (a single <link
+          paragraph<?oxy_insert_start author="jhusarcik" timestamp="20180626T221902+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221902+0200" content=","?>
+          verses within a
+          stanza<?oxy_insert_start author="jhusarcik" timestamp="20180626T221907+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221907+0200" content=","?>
+          items<?oxy_insert_start author="jhusarcik" timestamp="20180626T221909+0200"?>,<?oxy_insert_end?>
+          or entries of a
+          list<?oxy_insert_start author="jhusarcik" timestamp="20180626T221913+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221912+0200" content=","?>
+          rows, or cells of a
+          table<?oxy_insert_start author="jhusarcik" timestamp="20180626T221918+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221916+0200" content=","?>
+          items of a dialog
+          window<?oxy_insert_start author="jhusarcik" timestamp="20180626T225334+0200"?>;<?oxy_insert_end?>
+          and so on might be <firstterm>Extracted</firstterm> as segments of a single unit. While it
+          is generally not advisable to perform segmentation at the time of
+            <firstterm>Extraction</firstterm>, <firstterm>Extractors</firstterm> that
+            <firstterm>Extracted</firstterm> multiple sentences, verses, entries,
+          rows<?oxy_insert_start author="jhusarcik" timestamp="20180626T222005+0200"?>,<?oxy_insert_end?>
+          and so on into a single non-segmented unit (a single <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               ><code>&lt;segment></code></link> element within each <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
@@ -355,7 +371,8 @@
           to expect that the <firstterm>Modifiers</firstterm> will need to transform them into
           individual segments within the same unit (multiple <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
-              ><code>&lt;segment></code></link> elements representing individual sentences, verses
+              ><code>&lt;segment></code></link> elements representing individual sentences,
+          verses<?oxy_insert_start author="jhusarcik" timestamp="20180626T222059+0200"?>,<?oxy_insert_end?>
           and so on within each <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
               >&lt;unit></link></code>) during the roundtrip.</para>
@@ -369,25 +386,32 @@
           prevent <firstterm>Merging</firstterm>, cause build issues, or have negative impact on
           target product user experience.</para>
         <para>Attribute <code><link
-          xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-          >canResegment</link></code> can be used with care to control segmentation
-          <firstterm>Modification</firstterm> behavior. It’s values need to be controlled by rules
-          derived from the structural and inline logic of the native format, for instance more often
-          than not it will make sense to set <code><link
-            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
-            >canResegment</link></code> to <code>no</code> for:<itemizedlist>
-              <listitem>
-                <para>lists</para>
-              </listitem>
-              <listitem>
-                <para>tables or table rows</para>
-              </listitem>
-              <listitem>
-                <para>UI elements</para>
-              </listitem>
-            </itemizedlist></para>
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> can be used
+            <?oxy_insert_start author="jhusarcik" timestamp="20180626T222246+0200" type="surround"?><emphasis><?oxy_insert_end?>with
+            care</emphasis> to control segmentation <firstterm>Modification</firstterm> behavior.
+          It<?oxy_delete author="jhusarcik" timestamp="20180626T222325+0200" content="’"?>s values
+          need to be controlled by rules derived from the structural and inline logic of the native
+          format, for instance more often than not it will make sense to set <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
+              >canResegment</link></code> to <code>no</code> for:<itemizedlist>
+            <listitem>
+              <para>lists</para>
+            </listitem>
+            <listitem>
+              <para>tables or table rows</para>
+            </listitem>
+            <listitem>
+              <para>UI elements</para>
+            </listitem>
+          </itemizedlist></para>
+        <?oxy_insert_start author="jhusarcik" timestamp="20180626T222400+0200"?>
+        <para><firstterm>Extracted</firstterm> as segments of a unit.</para>
+        <?oxy_insert_end?>
         <para>In UI elements and tables, it is likely that the available segmentation needs
-          protected, on the other hand, it is advisable not to change the default <code><link
+          <?oxy_insert_start author="jhusarcik" timestamp="20180626T222509+0200"?>to be
+          <?oxy_insert_end?>protected, on the other hand, it is advisable not to change the default
+              <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link>="yes"</code> for normal paragraph text and similar, see <link
             linkend="unit">Role of the &lt;unit> Element</link>. </para>
@@ -399,15 +423,17 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#order"
               ><code>order</code></link> attribute on the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-              ><code>&lt;target></code></link> elements within  the same unit. So in case an ordered
+              ><code>&lt;target></code></link> elements within the same unit. So in case an ordered
           list needs to be for instance alphabetically collated, translators can do so even in case
           the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> attribute is set to <code>no</code>. The segmentation
           logic of the native format remains protected without preventing collation. This would be
           all hampered if the <firstterm>Extractor</firstterm> decided to
-            <firstterm>Extract</firstterm> each segment as a separate unit, which is the most evil
-          practice that cannot be discouraged enough.</para>
+            <firstterm>Extract</firstterm> each
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T222635+0200" comment="rephrase?"?>segment
+          as a separate unit<?oxy_comment_end?>, which is the most evil practice that cannot be
+          discouraged enough.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit"
             >mapping_to_unit</link>. </para>
@@ -416,7 +442,9 @@
     <section xml:id="Inlines">
       <title>Inline Codes</title>
       <para>Guidance for processing standalone and spanning inline functional and formatting
-        elements of localizable content.<itemizedlist>
+        elements of localizable
+        content<?oxy_insert_start author="jhusarcik" timestamp="20180626T223126+0200"?>, which can
+        be summarized into the following list.<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T223143+0200" content="."?><itemizedlist>
           <listitem>
             <para>Perform complete extraction</para>
           </listitem>
@@ -439,13 +467,15 @@
                 <firstterm>Extracted</firstterm> content</para>
           </listitem>
           <listitem>
-            <para><link
+            <para><?oxy_insert_start author="jhusarcik" timestamp="20180626T223219+0200"?>Additional
+              details in the <?oxy_insert_end?><link
                 xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
                 >XLIFF2 prose</link>.</para>
           </listitem>
         </itemizedlist></para>
       <section xml:id="Spanning">
-        <title>Representing Spanning Codes</title>
+        <title><?oxy_comment_start author="jhusarcik" timestamp="20180626T224114+0200" comment="what about using &lt;pc&gt; to represent standalone?"?>Representing
+          Spanning Codes<?oxy_comment_end?></title>
         <para><firstterm>Spanning codes</firstterm> in the original format are created by an opening
           code, the content, and the closing code. In HTML that can be
             <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text \b0</code>.</para>
@@ -460,8 +490,9 @@
         <para>Ideally, the original format is documented well enough to instruct
             <firstterm>Extractors</firstterm> about the role of each <firstterm>inline
             code</firstterm>. For example, XML Schema allows to declare elements using the keyword
-          EMPTY. This way, all elements that are not declared EMPTY, can be represented as described
-          above. To further help the <firstterm>Extraction</firstterm> process, the following
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T223553+0200" comment="use some formatting?"?>EMPTY<?oxy_comment_end?>.
+          This way, all elements that are not declared EMPTY, can be represented as described above.
+          To further help the <firstterm>Extraction</firstterm> process, the following
           recommendation could be implemented in the original XML format: <quote>For
             interoperability, the empty-element tag SHOULD be used, and SHOULD only be used, for
             elements which are declared EMPTY.</quote><citation>XML</citation>.</para>
@@ -476,9 +507,10 @@
           code <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
               >&lt;ph/></link></code>.</para>
-        <para>This concept is illustrated by the <emphasis>bad practice</emphasis> example <link
+        <para><?oxy_comment_start author="jhusarcik" timestamp="20180626T224323+0200" comment="should be at the end of section?"?>This
+          concept is illustrated by the <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
-              ><code>spanning_as_ph</code></link>.</para>
+              ><code>spanning_as_ph</code></link>.<?oxy_comment_end?></para>
         <para>This kind of bad practice encoding doesn't inform the
             <firstterm>Translating</firstterm>
           <firstterm>Agent</firstterm> (human or machine <firstterm>Modifier</firstterm>) that the
@@ -517,7 +549,10 @@
       <section xml:id="CDATA">
         <title>Incomplete Extraction of Inline Codes</title>
         <para>Some implementers choose not to <firstterm>Extract</firstterm>
-          <firstterm>inline codes</firstterm> at all and use instead one of the following approaches:<itemizedlist>
+          <firstterm>inline codes</firstterm> at all and use
+          <?oxy_delete author="jhusarcik" timestamp="20180626T224349+0200" content="instead "?>one
+          of the following
+          approaches<?oxy_insert_start author="jhusarcik" timestamp="20180626T224353+0200"?> instead<?oxy_insert_end?>:<itemizedlist>
             <listitem>
               <para>CDATA sections as content of <code><link
                     xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source"
@@ -533,7 +568,9 @@
                   >inline_codes_plain_text</link>)</para>
             </listitem>
           </itemizedlist></para>
-        <para>Doing one of the above can be used as a useful <emphasis>interim</emphasis>
+        <para>Doing
+          <?oxy_delete author="jhusarcik" timestamp="20180626T224436+0200" content="one"?><?oxy_insert_start author="jhusarcik" timestamp="20180626T224436+0200"?>any<?oxy_insert_end?>
+          of the above can be used as a useful <emphasis>interim</emphasis>
           <firstterm>Extraction</firstterm> step when producing <firstterm>XLIFF
             Documents</firstterm> that are fit for roundtrip. However, it is strongly discouraged to
           send <firstterm>XLIFF Documents</firstterm> with the inline content not fully parsed for
@@ -548,7 +585,10 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
               >Writers <emphasis>may</emphasis> preserve original CDATA sections</link></quote>
           (meaning that it is entirely optional to preserve CDATA sections and that <firstterm>XLIFF
-            Writers</firstterm> are not obliged to preserve CDATA sections) and</para>
+            Writers</firstterm> are not obliged to preserve CDATA
+          sections)<?oxy_insert_start author="jhusarcik" timestamp="20180626T225100+0200"?>,<?oxy_insert_end?><?oxy_insert_start author="jhusarcik" timestamp="20180626T225123+0200" type="split"?></para>
+        <para><?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T225119+0200" content=" "?>and<?oxy_insert_start author="jhusarcik" timestamp="20180626T225106+0200"?>
+          <?oxy_insert_end?></para>
         <para>
           <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8993"
@@ -575,17 +615,18 @@
           effort when <firstterm>Merging</firstterm> back. </para>
         <para>Implementers need to consider that <firstterm>XLIFF Documents</firstterm> with
           unparsed inline content are very likely to return with critical inline syntax or
-          formatting corruptions that cannot be prevented on CDATA sections or entities that are
-          both opaque to <firstterm>XLIFF Modifiers</firstterm>. Such corruptions are likely to
-          prevent proper functionality of target content in the native environment. In case
-            <firstterm>XLIFF Modifiers</firstterm> do perform the secondary parsing of content
-          unparsed on <firstterm>Extraction</firstterm>, which is allowed by the standard,
-          corruption will be prevented, however, <firstterm>Mergers</firstterm> will need to perform
-            <emphasis>unparsing</emphasis> to facilitate merging back into the native environment,
-          because XLIFF Modifiers are not and cannot be obliged to <emphasis>unparse</emphasis> back
-          to CDATA sections or entities not knowing the <firstterm>Extraction</firstterm> and
-            <firstterm>Merging</firstterm> logic of the <firstterm>XLIFF Document</firstterm>
-          originator. </para>
+          formatting corruptions that cannot be prevented on CDATA
+          sections<?oxy_insert_start author="jhusarcik" timestamp="20180626T224653+0200"?>,<?oxy_insert_end?>
+          or entities that are both opaque to <firstterm>XLIFF Modifiers</firstterm>. Such
+          corruptions are likely to prevent proper functionality of target content in the native
+          environment. In case <firstterm>XLIFF Modifiers</firstterm> do perform the secondary
+          parsing of content unparsed on <firstterm>Extraction</firstterm>, which is allowed by the
+          standard, corruption will be prevented, however, <firstterm>Mergers</firstterm> will need
+          to perform <emphasis>unparsing</emphasis> to facilitate merging back into the native
+          environment, because XLIFF Modifiers are not and cannot be obliged to
+            <emphasis>unparse</emphasis> back to CDATA sections or entities not knowing the
+            <firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> logic of the
+            <firstterm>XLIFF Document</firstterm> originator. </para>
       </section>
       <section xml:id="Multiples">
         <title>Representing Multiple Subsequent Codes</title>
@@ -599,10 +640,13 @@
           format validation during the roundtrip.</para>
         <para>On the other hand, some potential benefit can be perceived in reducing markup inside
           segment content, which is useful in CAT tools that cannot properly display the inline
-          codes (reneder information available through original data or context hints). In such
-          tolls, less markup reduces the visual clutter and makes the translatable text more
-          readable. This can be solved by proper choice of CAT tools (short term) or by large buyers
-          requesting that offending tool vendors do support proper rendering of <firstterm>inline
+          codes
+          (<?oxy_delete author="jhusarcik" timestamp="20180626T224820+0200" content="reneder"?><?oxy_insert_start author="jhusarcik" timestamp="20180626T224820+0200"?>render<?oxy_insert_end?>
+          information available through original data or context hints). In such
+          to<?oxy_insert_start author="jhusarcik" timestamp="20180626T224908+0200"?>o<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T224907+0200" content="l"?>ls,
+          less markup reduces the visual clutter and makes the translatable text more readable. This
+          can be solved by proper choice of CAT tools (short term) or by large buyers requesting
+          that offending tool vendors do support proper rendering of <firstterm>inline
             code</firstterm> data and metadata (mid and long term).</para>
         <para>Implementers need to consider the pros and cons of both approaches and use the one
           that best matches their business need.</para>
@@ -624,9 +668,10 @@
           machine</link> during the whole roundtrip helps
           <firstterm>Agents</firstterm> to process and validate the <firstterm>XLIFF
           Documents</firstterm> as intended.</para>
-      <para>When looking at the situation from the <emphasis>microservices</emphasis> point of view,
-        the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> ought to be implemented
-        as just that — a single purpose
+      <para>When looking at the situation from the <emphasis>microservice<?oxy_insert_start author="jhusarcik" timestamp="20180626T225854+0200"?>
+          <?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T225856+0200" content="s"?><?oxy_insert_start author="jhusarcik" timestamp="20180626T225857+0200"?>architecture<?oxy_insert_end?></emphasis>
+        point of view, the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> ought to
+        be implemented as just that — a single purpose
           <firstterm>Extraction</firstterm>/<firstterm>Merging</firstterm> service that delegates
         any other operations, such as segmentation or <firstterm>Enriching</firstterm> to other
         specialized services.</para>
@@ -665,8 +710,11 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               >&lt;target></link></code> elements with source content used to facilitate parsing and
           editing of XLIFF in <emphasis>Translation</emphasis> editors or generic XML editors that
-          didn't have XLIFF support and could only open for translation certain elements in generic
-          XML formats. As such, this practice is strongly discouraged.</para>
+          didn't have XLIFF support and could only open
+          <?oxy_insert_start author="jhusarcik" timestamp="20180626T231110+0200"?>certain elements
+          in generic XML formats <?oxy_insert_end?>for
+          translation<?oxy_delete author="jhusarcik" timestamp="20180626T231100+0200" content=" certain elements in generic XML formats"?>.
+          As such, this practice is strongly discouraged.</para>
         <para><emphasis>Bad practice</emphasis> example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target"
             >source_in_target</link>.</para>
@@ -685,7 +733,8 @@
           way it's not possible to pass critical metadata about the translation candidate, such as
           its origin, similarity, or quality (all those are available in a dedicated module),
           causing interoperability issues for <firstterm>Agents</firstterm> without prior knowledge
-          of the workflow.</para>
+          of the workflow<?oxy_insert_start author="jhusarcik" timestamp="20180626T231346+0200"?>;
+          or even to address subsegment matches<?oxy_insert_end?>.</para>
         <para>Inserting translation candidates into <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               >&lt;target></link></code> elements during <firstterm>Extraction</firstterm> or
@@ -772,10 +821,11 @@
         can be only identified by automated validation with editing hints set as intended.</para>
       <section xml:id="canDelete">
         <title>Non-deletable Inline Codes</title>
-        <para>Original source text can contain functional inline codes apert from formatting ones,
-          such as software placeholders to be replaced during runtime. Removal of these placeholders
-          or other functional code, either intentional or accidental, during the
-            <firstterm>Translation</firstterm> roundtrip can produce valid <firstterm>XLIFF
+        <para>Original source text can contain functional inline codes
+          ap<?oxy_insert_start author="jhusarcik" timestamp="20180626T231922+0200"?>a<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T231921+0200" content="e"?>rt
+          from formatting ones, such as software placeholders to be replaced during runtime. Removal
+          of these placeholders or other functional code, either intentional or accidental, during
+          the <firstterm>Translation</firstterm> roundtrip can produce valid <firstterm>XLIFF
             Documents</firstterm> that will nevertheless fail to merge back, cause build failures
           later on, or create other functional issues in the <firstterm>Translated</firstterm>
           product.</para>
@@ -785,11 +835,14 @@
           automatically used or can be explicitly set on any inline code. For most of the formatting
           codes, the default value <code>yes</code> is fine, so that there is no need to set the
           attribute explicitly most of the times. The default value means that the codes can be
-          removed during localization as the translators see fit. A typical example is the need to
-          remove italics or bold formatting codes in Chinese or Japanese target content. These
-          languages don't use typographical methods of emphasis and non-deletable formatting codes
-          tend to complicate life of translators into such languages. On the other hand,
-            <firstterm>Extractors</firstterm> need to take care to set the <code><link
+          removed during localization as the
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T232059+0200" comment="agents?"?>translators<?oxy_comment_end?>
+          see fit. A typical example is the need to remove italics or bold formatting codes in
+          Chinese or Japanese target content. These languages don't use typographical methods of
+          emphasis and non-deletable formatting codes tend to complicate life of translators
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T232126+0200" comment="of?"?>into<?oxy_comment_end?>
+          such languages. On the other hand, <firstterm>Extractors</firstterm> need to take care to
+          set the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
               >canDelete</link></code> attribute to <code>no</code> explicitly whenever an inline
           code is critical for <firstterm>Merging</firstterm> back of the <firstterm>XLIFF
@@ -805,19 +858,20 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
               >canReorder</link></code> on the inline code determines, whether each code can be
           moved before, or after another code. Again, the default value of this attribute is
-            <code>yes</code> meaning that the inline codes can be reordered as the translators see
-          fit.</para>
+            <code>yes</code> meaning that the inline codes can be reordered as the
+          <?oxy_comment_start author="jhusarcik" timestamp="20180626T232301+0200" comment="agents?"?>translators<?oxy_comment_end?>
+          see fit.</para>
         <para>This attribute is used to create and protect non-reorderable sequences of inline codes
           if necessary for proper inline code functionality. </para>
         <example>
           <title>Example of a non-reorderable source sequence of inline codes</title>
-          <programlisting>...
+          <programlisting language="xml" xml:id="canReorder_fragment">...
 &lt;source>&lt;pc id="1" canCopy="no" canDelete="no" canReorder="firstNo">
             &lt;pc id="2" canCopy="no" canDelete="no" canReorder="no">this is linktext&lt;/pc>
             &lt;ph id="3" canCopy="no" canDelete="no" canReorder="no"/>
          &lt;/pc>
-&lt;/source>            
-...          </programlisting>
+&lt;/source><?oxy_delete author="jhusarcik" timestamp="20180626T233548+0200" content="            "?>
+...<?oxy_delete author="jhusarcik" timestamp="20180626T233558+0200" content="          "?></programlisting>
         </example>
 
         <para>Since this attribute is supported by native XLIFF validation artifacts
@@ -864,8 +918,7 @@
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
             >context_hints</link>.</para>
-        <para>[need an explanation of the relationship between @disp, @equiv, and &lt;original
-          data>]</para>
+        <para><!--need an explanation of the relationship between @disp, @equiv, and <original data>--></para>
       </section>
       <section xml:id="canOverlap">
         <title>Considerations for Using Spanning Codes</title>
@@ -1320,3 +1373,4 @@
     </bibliodiv>
   </bibliography>
 </article>
+<?oxy_options track_changes="on"?>
