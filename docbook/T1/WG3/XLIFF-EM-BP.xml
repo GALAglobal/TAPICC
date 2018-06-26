@@ -915,10 +915,29 @@
               >type</link></code>, and <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#subtype"
               >subType</link></code>.</para>
+        <?oxy_insert_start author="jhusarcik" timestamp="20180626T235003+0200"?>
+        <para>While the specification provides <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#originaldata"
+              >&lt;originalData></link></code> element, <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#data"
+              >&lt;data></link></code> descendants of which ought to be used to store the native
+          content being represented by the related inline elements possibly as the CDATA sections,
+          its content might be unsuitable to provide value for roundtrip agents, for instance be too
+          long to render correctly in the CAT tool.</para>
+        <para><firstterm>Extractor</firstterm> could populate the value of an <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
+              >equiv</link></code> attribute with a suitable plain text representation of the
+          original data and <code><link
+              xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
+              >disp</link></code> with user-friendly variant of the same.</para>
+        <para>Alternatively, the same task could be performed by the <firstterm>Enricher</firstterm>
+          farther downstream based on the content of <link
+            xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#originaldata"
+              ><code>&lt;originalData></code></link>.</para>
+        <?oxy_insert_end?>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints"
             >context_hints</link>.</para>
-        <para><!--need an explanation of the relationship between @disp, @equiv, and <original data>--></para>
       </section>
       <section xml:id="canOverlap">
         <title>Considerations for Using Spanning Codes</title>
@@ -1373,4 +1392,5 @@
     </bibliodiv>
   </bibliography>
 </article>
+
 <?oxy_options track_changes="on"?>
