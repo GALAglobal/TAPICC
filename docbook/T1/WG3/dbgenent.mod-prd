@@ -68,27 +68,28 @@
 
 <!ENTITY editorsdraft "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-ED">
 <!ENTITY this-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/&name;-V&version;-&stg;&substage;">
-<!ENTITY previous-loc "N/A">
-<!-- <!ENTITY previous-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/&name;-V&version;-&pstg;&psubstage;">
--->
-<!ENTITY latest "N/A">
-<!-- <!ENTITY latest "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-LP">
--->
+
+<!-- <!ENTITY previous-loc "N/A"> -->
+<!ENTITY previous-loc "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/&name;-V&version;-&pstg;&psubstage;">
+
+<!--  <!ENTITY latest "N/A"> -->
+<!ENTITY latest "https://galaglobal.github.io/TAPICC/&track;/&wg;/&name;-V&version;-LP">
+
 
 <!-- Entities for Artefact publication -->
 
 <!ENTITY EDArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/">
 <!ENTITY this-locArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/&stg;&substage;/">
-<!ENTITY previous-locArts "N/A">
-<!-- <!ENTITY previous-locArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/">
--->
-<!ENTITY latestArts "N/A">
-<!-- <!ENTITY latestArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/">
--->
+<!-- <!ENTITY previous-locArts "N/A"> -->
+<!ENTITY previous-locArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/&pstg;&psubstage;/">
+
+<!-- <!ENTITY latestArts "N/A"> -->
+<!ENTITY latestArts "https://galaglobal.github.io/TAPICC/&track;/&wg;/">
+
 
 
 
 <!-- End of GALA TAPICC publishing entities -->
 
-<!-- End of DocBook additional general entities V4.5 ...................... -->
+<!-- End of DocBook additional general entities V5.1 ...................... -->
 <!-- ...................................................................... -->
