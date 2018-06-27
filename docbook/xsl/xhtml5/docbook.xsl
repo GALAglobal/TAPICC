@@ -16,6 +16,6 @@
 <xsl:import href="xhtml-docbook.xsl"/>
 <xsl:include href="html5-element-mods.xsl"/>
 
-<xsl:output method="xml" encoding="UTF-8" xml:lang="en-US"/>
+<xsl:output method="xml" encoding="UTF-8" indent="yes" />
 
 </xsl:stylesheet>
