@@ -6,9 +6,11 @@
                 version="1.0">
 
 <!-- ********************************************************************
+     $Id: html-rtf.xsl 8345 2009-03-16 06:44:07Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->

@@ -1,15 +1,16 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:d="http://docbook.org/ns/docbook"
 		xmlns:fo="http://www.w3.org/1999/XSL/Format"
 		xmlns:xslthl="http://xslthl.sf.net"
-                exclude-result-prefixes="xslthl d"
+                exclude-result-prefixes="xslthl"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: highlight.xsl 8419 2009-04-29 20:37:52Z kosek $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      and other information.
 
      ******************************************************************** -->

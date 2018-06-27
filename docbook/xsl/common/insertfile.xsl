@@ -1,14 +1,14 @@
 <?xml version='1.0'?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:xi="http://www.w3.org/2001/XInclude"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: insertfile.xsl 5262 2005-10-12 14:58:42Z xmldoc $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -47,11 +47,11 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:textobject[child::d:textdata[@entityref|@fileref]]">
-  <xsl:apply-templates select="d:textdata"/>
+<xsl:template match="textobject[child::textdata[@entityref|@fileref]]">
+  <xsl:apply-templates select="textdata"/>
 </xsl:template>
 
-<xsl:template match="d:textdata[@entityref|@fileref]">
+<xsl:template match="textdata[@entityref|@fileref]">
   <xsl:variable name="filename">
     <xsl:call-template name="get.external.filename"/>
   </xsl:variable>
@@ -71,15 +71,15 @@
 <!-- ==================================================================== -->
 
 <xsl:template
-    match="d:inlinemediaobject
-           [child::d:imageobject
-           [child::d:imagedata
+    match="inlinemediaobject
+           [child::imageobject
+           [child::imagedata
            [@format = 'linespecific' and
            (@entityref|@fileref)]]]">
-  <xsl:apply-templates select="d:imageobject/d:imagedata"/>
+  <xsl:apply-templates select="imageobject/imagedata"/>
 </xsl:template>
 
-<xsl:template match="d:imagedata
+<xsl:template match="imagedata
                      [@format = 'linespecific' and
                      (@entityref|@fileref)]">
   <xsl:variable name="filename">
@@ -90,7 +90,7 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:inlinegraphic
+<xsl:template match="inlinegraphic
                      [@format = 'linespecific' and
                      (@entityref|@fileref)]">
   <xsl:variable name="filename">

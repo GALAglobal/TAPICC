@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="ASCII"?><book version="5.0">
+<?xml version="1.0" encoding="ASCII"?>
+<book version="5.0">
 <info>
 <title>HTML Parameter Reference</title>
 <releaseinfo role="meta">
+$Id: param.xweb 9995 2015-10-01 16:34:45Z bobstayton $
 </releaseinfo>
 <author>
   <personname>
@@ -5930,7 +5932,7 @@ following WiKi page</link>.</para>
 
 <refsynopsisdiv>
 <programlisting xml:id="bibliography.collection.frag">
-&lt;xsl:param name="bibliography.collection"&gt;http://cdn.docbook.org/release/xsl/bibliography/bibliography.xml&lt;/xsl:param&gt;
+&lt;xsl:param name="bibliography.collection"&gt;http://docbook.sourceforge.net/release/bibliography/bibliography.xml&lt;/xsl:param&gt;
 
 </programlisting>
 </refsynopsisdiv>
@@ -7391,7 +7393,7 @@ elements in HTML by including some JavaScript (see
 <programlisting xml:id="annotation.js.frag">
 
 &lt;xsl:param name="annotation.js"&gt;
-&lt;xsl:text&gt;http://cdn.docbook.org/release/xsl/script/AnchorPosition.js http://cdn.docbook.org/release/xsl/script/PopupWindow.js&lt;/xsl:text&gt;&lt;/xsl:param&gt;
+&lt;xsl:text&gt;http://docbook.sourceforge.net/release/script/AnchorPosition.js http://docbook.sourceforge.net/release/script/PopupWindow.js&lt;/xsl:text&gt;&lt;/xsl:param&gt;
 
 </programlisting>
 </refsynopsisdiv>
@@ -7485,7 +7487,7 @@ parameter will be included in the document.</para>
 
 <refsynopsisdiv>
 <programlisting xml:id="annotation.graphic.open.frag">
-&lt;xsl:param name="annotation.graphic.open"&gt;http://cdn.docbook.org/release/xsl/images/annot-open.png&lt;/xsl:param&gt;
+&lt;xsl:param name="annotation.graphic.open"&gt;http://docbook.sourceforge.net/release/images/annot-open.png&lt;/xsl:param&gt;
 </programlisting>
 </refsynopsisdiv>
 
@@ -7510,7 +7512,7 @@ annotations. It may be replaced by a user provided graphic. The size should be a
 <refsynopsisdiv>
 <programlisting xml:id="annotation.graphic.close.frag">
 &lt;xsl:param name="annotation.graphic.close"&gt;
-http://cdn.docbook.org/release/xsl/images/annot-close.png&lt;/xsl:param&gt;
+http://docbook.sourceforge.net/release/images/annot-close.png&lt;/xsl:param&gt;
 </programlisting>
 </refsynopsisdiv>
 
@@ -11152,9 +11154,11 @@ around all these parameters.</para>
 &lt;xsl:stylesheet exclude-result-prefixes="src" version="1.0"&gt;
 
 &lt;!-- ********************************************************************
+     $Id: param.xweb 9995 2015-10-01 16:34:45Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** --&gt;

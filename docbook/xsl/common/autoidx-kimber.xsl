@@ -8,15 +8,16 @@
 <!ENTITY lang 'concat(/*/@lang, /*/@xml:lang)'>
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		version="1.0"
+                version="1.0"
                 xmlns:k="java:com.isogen.saxoni18n.Saxoni18nService"
-                exclude-result-prefixes="k d">
+                exclude-result-prefixes="k">
 
 <!-- ********************************************************************
+     $Id: autoidx-kimber.xsl 8729 2010-07-15 16:43:56Z bobstayton $
+     ********************************************************************
 
      This file is part of the DocBook XSL Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/ for copyright
+     See ../README or http://docbook.sf.net/ for copyright
      copyright and other information.
 
      ******************************************************************** -->
@@ -37,7 +38,7 @@
 
 <!-- The following key used in the kimber indexing method. -->
 <xsl:key name="k-group"
-         match="d:indexterm"
+         match="indexterm"
          use="k:getIndexGroupKey(&lang;, &primary;)"/>
 
 </xsl:stylesheet>

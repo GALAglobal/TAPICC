@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<reference xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="charmap">
+<?xml version="1.0"?>
+
+<reference xml:id="charmap">
   <info>
     <title>Common » Character-Map Template Reference</title>
     <releaseinfo role="meta">
+      $Id: charmap.xsl 7266 2007-08-22 11:58:42Z xmldoc $
     </releaseinfo>
   </info>
   
@@ -34,7 +36,7 @@
 
   </partintro>
 
-<refentry xml:id="template.apply-character-map">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.apply-character-map">
 <refnamediv>
 <refname>apply-character-map</refname>
 <refpurpose>Applies an XSLT character map</refpurpose>
@@ -109,7 +111,7 @@
 
   </refsect1></refentry>
 
-<refentry xml:id="template.read-character-map">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.read-character-map">
 <refnamediv>
 <refname>read-character-map</refname>
 <refpurpose>Reads in all or part of an XSLT character map</refpurpose>
@@ -180,3 +182,4 @@
 
   </refsect1></refentry>
 </reference>
+

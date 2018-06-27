@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet 
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-  xmlns:d="http://docbook.org/ns/docbook"
   xmlns:exsl="http://exslt.org/common"
-  exclude-result-prefixes="exsl d"
+  exclude-result-prefixes="exsl"
   version="1.0">
 
+<!-- $Id$ -->
+
+
 <!-- Support for the DocBook Publishers extension -->
-<xsl:template match="d:drama">
+<xsl:template match="drama">
 
   <div>
     <xsl:call-template name="common.html.attributes"/>
@@ -21,7 +23,7 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:stagedir">
+<xsl:template match="stagedir">
 
   <div>
     <xsl:call-template name="common.html.attributes"/>
@@ -43,7 +45,7 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:inlinestagedir">
+<xsl:template match="inlinestagedir">
 
   <span>
     <xsl:call-template name="common.html.attributes"/>
@@ -66,7 +68,7 @@
   </span>
 </xsl:template>
 
-<xsl:template match="d:linegroup">
+<xsl:template match="linegroup">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -85,14 +87,14 @@
         <xsl:if test="$make.clean.html = 0">
           <xsl:attribute name="style">display: table-cell; width: 15%</xsl:attribute>
         </xsl:if>
-        <xsl:apply-templates select="d:speaker"/>
+        <xsl:apply-templates select="speaker"/>
       </div>
 
       <div>
         <xsl:if test="$make.clean.html = 0">
           <xsl:attribute name="style">display: table-cell; width: 85%</xsl:attribute>
         </xsl:if>
-        <xsl:apply-templates select="*[not(self::d:speaker)]"/>
+        <xsl:apply-templates select="*[not(self::speaker)]"/>
       </div>
 
     </div>
@@ -100,7 +102,7 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:speaker">
+<xsl:template match="speaker">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -109,7 +111,7 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:line">
+<xsl:template match="line">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -118,8 +120,8 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:drama/d:title"/>
-<xsl:template match="d:poetry/d:title"/>
-<xsl:template match="d:dialogue/d:title"/>
+<xsl:template match="drama/title"/>
+<xsl:template match="poetry/title"/>
+<xsl:template match="dialogue/title"/>
 
 </xsl:stylesheet>

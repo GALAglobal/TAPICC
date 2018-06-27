@@ -1,17 +1,18 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
+                xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
                 xmlns:dyn="http://exslt.org/dynamic"
                 xmlns:saxon="http://icl.com/saxon"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                exclude-result-prefixes="doc dyn saxon d"
+                exclude-result-prefixes="doc dyn saxon"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: utility.xsl 7101 2007-07-20 15:32:12Z xmldoc $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -19,6 +20,7 @@
   <info>
     <title>Common » Utility Template Reference</title>
     <releaseinfo role="meta">
+      $Id: utility.xsl 7101 2007-07-20 15:32:12Z xmldoc $
     </releaseinfo>
   </info>
   <!-- * yes, partintro is a valid child of a reference... -->

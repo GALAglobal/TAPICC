@@ -1,14 +1,15 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:d="http://docbook.org/ns/docbook"
 		xmlns:its="http://www.w3.org/2005/11/its"
-		exclude-result-prefixes="its d"
+		exclude-result-prefixes="its"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: html.xsl 9306 2012-04-28 03:49:00Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      Templates in this stylesheet convert ITS 2.0 markup

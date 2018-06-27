@@ -10,9 +10,11 @@
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: stripns.xsl 9016 2011-06-07 12:09:34Z nwalsh $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->

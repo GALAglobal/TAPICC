@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding="utf-8"?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:fo="http://www.w3.org/1999/XSL/Format"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: passivetex.xsl 5315 2005-10-20 10:08:42Z kosek $
+     ********************************************************************
       This extension stops PassiveTeX from merging subsequent '-' to 
       dashes. You must set passivetex.extensions to '1' if you want get
       this functionality.

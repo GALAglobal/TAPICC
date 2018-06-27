@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-xmlns:xslo="http://www.w3.org/1999/XSL/TransformAlias"
+                xmlns:xslo="http://www.w3.org/1999/XSL/TransformAlias"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
-                exclude-result-prefixes="fo d"
+                exclude-result-prefixes="fo"
                 version="1.0">
 
 <xsl:include href="../lib/lib.xsl"/>
@@ -64,9 +63,9 @@ xmlns:xslo="http://www.w3.org/1999/XSL/TransformAlias"
     <xslo:choose>
 
       <xslo:when test="$exsl.node.set.available != 0 and 
-                    namespace-uri(/*) != 'http://docbook.org/ns/docbook'">
-        <xslo:variable name="with.namespace">
-          <xslo:apply-templates select="/*" mode="addNS"/>
+                    namespace-uri(/*) = 'http://docbook.org/ns/docbook'">
+        <xslo:variable name="no.namespace">
+          <xslo:apply-templates select="/*" mode="stripNS"/>
         </xslo:variable>
         <xslo:call-template name="log.message">
           <xslo:with-param name="level">Note</xslo:with-param>
@@ -74,13 +73,13 @@ xmlns:xslo="http://www.w3.org/1999/XSL/TransformAlias"
             <xslo:call-template name="get.doc.title"/>
           </xslo:with-param>
           <xslo:with-param name="context-desc">
-            <xslo:text>namesp. add</xslo:text>
+            <xslo:text>namesp. cut</xslo:text>
           </xslo:with-param>
           <xslo:with-param name="message">
-            <xslo:text>added namespace before processing</xslo:text>
+            <xslo:text>stripped namespace before processing</xslo:text>
           </xslo:with-param>
         </xslo:call-template>
-        <xslo:apply-templates select="exslt:node-set($with.namespace)" mode="profile"/>
+        <xslo:apply-templates select="exslt:node-set($no.namespace)" mode="profile"/>
       </xslo:when>
       <xslo:otherwise>
         <xslo:apply-templates select="/" mode="profile"/>

@@ -1,13 +1,13 @@
 <?xml version='1.0'?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		version='1.0'>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                version='1.0'>
 
 <!-- ********************************************************************
+     $Id: block.xsl 9997 2015-10-15 17:44:09Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -15,7 +15,7 @@
 <!-- ==================================================================== -->
 <!-- What should we do about styling blockinfo? -->
 
-<xsl:template match="d:blockinfo|d:info">
+<xsl:template match="blockinfo|info">
   <!-- suppress -->
 </xsl:template>
 
@@ -32,7 +32,7 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:para">
+<xsl:template match="para">
   <xsl:call-template name="paragraph">
     <xsl:with-param name="class">
       <xsl:if test="@role and $para.propagates.style != 0">
@@ -40,9 +40,9 @@
       </xsl:if>
     </xsl:with-param>
     <xsl:with-param name="content">
-      <xsl:if test="position() = 1 and parent::d:listitem">
+      <xsl:if test="position() = 1 and parent::listitem">
         <xsl:call-template name="anchor">
-          <xsl:with-param name="node" select="parent::d:listitem"/>
+          <xsl:with-param name="node" select="parent::listitem"/>
         </xsl:call-template>
       </xsl:if>
 
@@ -88,7 +88,7 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:simpara">
+<xsl:template match="simpara">
   <!-- see also listitem/simpara in lists.xsl -->
   <p>
     <xsl:call-template name="id.attribute"/>
@@ -104,7 +104,7 @@
   </p>
 </xsl:template>
 
-<xsl:template match="d:formalpara">
+<xsl:template match="formalpara">
   <xsl:call-template name="paragraph">
     <xsl:with-param name="class">
       <xsl:if test="@role and $para.propagates.style != 0">
@@ -119,11 +119,11 @@
 </xsl:template>
 
 <!-- Only use title from info -->
-<xsl:template match="d:formalpara/d:info">
-  <xsl:apply-templates select="d:title"/>
+<xsl:template match="formalpara/info">
+  <xsl:apply-templates select="title"/>
 </xsl:template>
 
-<xsl:template match="d:formalpara/d:title|d:formalpara/d:info/d:title">
+<xsl:template match="formalpara/title|formalpara/info/title">
   <xsl:variable name="titleStr">
       <xsl:apply-templates/>
   </xsl:variable>
@@ -157,20 +157,20 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:formalpara/d:para">
+<xsl:template match="formalpara/para">
   <xsl:apply-templates/>
 </xsl:template>
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:blockquote">
+<xsl:template match="blockquote">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
     <xsl:call-template name="anchor"/>
 
     <xsl:choose>
-      <xsl:when test="d:attribution">
+      <xsl:when test="attribution">
         <table border="{$table.border.off}" class="blockquote">
           <xsl:if test="$css.decoration != 0">
             <xsl:attribute name="style">
@@ -191,7 +191,7 @@
             <td width="10%" valign="top">&#160;</td>
             <td colspan="2" align="{$direction.align.end}" valign="top">
               <xsl:text>--</xsl:text>
-              <xsl:apply-templates select="d:attribution"/>
+              <xsl:apply-templates select="attribution"/>
             </td>
           </tr>
         </table>
@@ -206,7 +206,7 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:blockquote/d:title|d:blockquote/d:info/d:title">
+<xsl:template match="blockquote/title|blockquote/info/title">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <div class="blockquote-title">
@@ -226,20 +226,20 @@
 </xsl:template>
 
 <!-- Use an em dash per Chicago Manual of Style and https://sourceforge.net/tracker/index.php?func=detail&aid=2793878&group_id=21935&atid=373747 -->
-<xsl:template match="d:epigraph">
+<xsl:template match="epigraph">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
     <xsl:apply-templates select="child::*[local-name(.)!='attribution']"/>
-    <xsl:if test="d:attribution">
+    <xsl:if test="attribution">
       <div class="attribution">
-        <span>&#x2014;<xsl:apply-templates select="d:attribution"/></span>
+        <span>&#x2014;<xsl:apply-templates select="attribution"/></span>
       </div>
     </xsl:if>
   </div>
 </xsl:template>
 
-<xsl:template match="d:attribution">
+<xsl:template match="attribution">
   <span>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -249,7 +249,7 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:sidebar">
+<xsl:template match="sidebar">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -259,12 +259,12 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:abstract/d:title|d:sidebar/d:title">
+<xsl:template match="abstract/title|sidebar/title">
 </xsl:template>
 
-<xsl:template match="d:sidebar/d:sidebarinfo|d:sidebar/d:info"/>
+<xsl:template match="sidebar/sidebarinfo|sidebar/info"/>
 
-<xsl:template match="d:abstract">
+<xsl:template match="abstract">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="anchor"/>
@@ -281,27 +281,27 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:msgset">
+<xsl:template match="msgset">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:msgentry">
+<xsl:template match="msgentry">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
-<xsl:template match="d:simplemsgentry">
+<xsl:template match="simplemsgentry">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
-<xsl:template match="d:msg">
+<xsl:template match="msg">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
-<xsl:template match="d:msgmain">
+<xsl:template match="msgmain">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:msgmain/d:title">
+<xsl:template match="msgmain/title">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <span class="msgmain-title">
@@ -314,11 +314,11 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgsub">
+<xsl:template match="msgsub">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:msgsub/d:title">
+<xsl:template match="msgsub/title">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <span class="msgsub-title">
@@ -331,11 +331,11 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgrel">
+<xsl:template match="msgrel">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:msgrel/d:title">
+<xsl:template match="msgrel/title">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <span class="msgrel-title">
@@ -348,15 +348,15 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgtext">
+<xsl:template match="msgtext">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:msginfo">
+<xsl:template match="msginfo">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
-<xsl:template match="d:msglevel">
+<xsl:template match="msglevel">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <div class="msglevel">
@@ -383,7 +383,7 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgorig">
+<xsl:template match="msgorig">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <div class="msgorig">
@@ -410,7 +410,7 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgaud">
+<xsl:template match="msgaud">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <div class="msgaud">
@@ -437,11 +437,11 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:msgexplan">
+<xsl:template match="msgexplan">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
-<xsl:template match="d:msgexplan/d:title">
+<xsl:template match="msgexplan/title">
   <xsl:choose>
     <xsl:when test="$make.clean.html != 0">
       <div class="msgexplan">
@@ -462,7 +462,7 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:revhistory">
+<xsl:template match="revhistory">
   <div>
     <xsl:call-template name="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
@@ -494,11 +494,11 @@
   </div>
 </xsl:template>
 
-<xsl:template match="d:revhistory/d:revision">
-  <xsl:variable name="revnumber" select="d:revnumber"/>
-  <xsl:variable name="revdate"   select="d:date"/>
-  <xsl:variable name="revauthor" select="d:authorinitials|d:author"/>
-  <xsl:variable name="revremark" select="d:revremark|d:revdescription"/>
+<xsl:template match="revhistory/revision">
+  <xsl:variable name="revnumber" select="revnumber"/>
+  <xsl:variable name="revdate"   select="date"/>
+  <xsl:variable name="revauthor" select="authorinitials|author"/>
+  <xsl:variable name="revremark" select="revremark|revdescription"/>
   <tr>
     <td align="{$direction.align.start}">
       <xsl:if test="$revnumber">
@@ -541,40 +541,40 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="d:revision/d:revnumber">
+<xsl:template match="revision/revnumber">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:revision/d:date">
+<xsl:template match="revision/date">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:revision/d:authorinitials">
+<xsl:template match="revision/authorinitials">
   <xsl:text>, </xsl:text>
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:revision/d:authorinitials[1]" priority="2">
+<xsl:template match="revision/authorinitials[1]" priority="2">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:revision/d:revremark">
+<xsl:template match="revision/revremark">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:revision/d:revdescription">
+<xsl:template match="revision/revdescription">
   <xsl:apply-templates/>
 </xsl:template>
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:ackno|d:acknowledgements[parent::d:article]">
+<xsl:template match="ackno|acknowledgements[parent::article]">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:highlights">
+<xsl:template match="highlights">
   <xsl:call-template name="block.object"/>
 </xsl:template>
 

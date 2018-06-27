@@ -1,25 +1,27 @@
 <?xml version='1.0'?>
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:d="http://docbook.org/ns/docbook"
   xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
   xmlns:date="http://exslt.org/dates-and-times"
   xmlns:exsl="http://exslt.org/common"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  exclude-result-prefixes="doc date exsl d"
+  exclude-result-prefixes="doc date exsl"
   extension-element-prefixes="date exsl"
   version='1.0'>
 
 <!-- ********************************************************************
+     $Id: pi.xsl 8782 2010-07-27 21:15:17Z mzjn $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
 
 <doc:reference xmlns=""><info><title>Common Processing Instruction Reference</title>
     <releaseinfo role="meta">
+      $Id: pi.xsl 8782 2010-07-27 21:15:17Z mzjn $
     </releaseinfo>
   </info>
   <partintro id="partintro">

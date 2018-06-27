@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding="utf-8"?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:fo="http://www.w3.org/1999/XSL/Format"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: spaces.xsl 9647 2012-10-26 17:42:03Z bobstayton $
+     ********************************************************************
      XSL-FO specification treats all space characters like ordinary spaces.
      We need to map them to fo:leader with different widths in order to
      simulate desired behaviour.

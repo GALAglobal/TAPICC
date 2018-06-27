@@ -1,13 +1,14 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
+                xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
 		version="1.0"
-                exclude-result-prefixes="doc d">
+                exclude-result-prefixes="doc">
 
 <!-- ********************************************************************
+     $Id: chunktoc.xsl 9866 2014-01-29 02:55:52Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -30,7 +31,7 @@
   <xsl:variable name="chunks" select="document($chunk.toc,/)"/>
 
   <xsl:choose>
-    <xsl:when test="$chunks//d:tocentry[@linkend=$id]">1</xsl:when>
+    <xsl:when test="$chunks//tocentry[@linkend=$id]">1</xsl:when>
     <xsl:otherwise>0</xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -46,7 +47,7 @@
 
   <xsl:variable name="chunks" select="document($chunk.toc,/)"/>
 
-  <xsl:variable name="chunk" select="$chunks//d:tocentry[@linkend=$id]"/>
+  <xsl:variable name="chunk" select="$chunks//tocentry[@linkend=$id]"/>
   <xsl:variable name="filename">
     <xsl:call-template name="pi.dbhtml_filename">
       <xsl:with-param name="node" select="$chunk"/>
@@ -72,13 +73,13 @@
 
   <xsl:variable name="chunks" select="document($chunk.toc,/)"/>
 
-  <xsl:variable name="chunk" select="$chunks//d:tocentry[@linkend=$id]"/>
+  <xsl:variable name="chunk" select="$chunks//tocentry[@linkend=$id]"/>
   <xsl:variable name="prev-id"
-                select="($chunk/preceding::d:tocentry
-                         |$chunk/ancestor::d:tocentry)[last()]/@linkend"/>
+                select="($chunk/preceding::tocentry
+                         |$chunk/ancestor::tocentry)[last()]/@linkend"/>
   <xsl:variable name="next-id"
-                select="($chunk/following::d:tocentry
-                         |$chunk/child::d:tocentry)[1]/@linkend"/>
+                select="($chunk/following::tocentry
+                         |$chunk/child::tocentry)[1]/@linkend"/>
 
   <xsl:variable name="prev" select="key('id',$prev-id)"/>
   <xsl:variable name="next" select="key('id',$next-id)"/>
@@ -122,67 +123,67 @@
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:set">
+<xsl:template match="set">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:book">
+<xsl:template match="book">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:book/d:appendix">
+<xsl:template match="book/appendix">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:book/d:glossary">
+<xsl:template match="book/glossary">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:book/d:bibliography">
+<xsl:template match="book/bibliography">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:dedication" mode="dedication">
+<xsl:template match="dedication" mode="dedication">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:preface|d:chapter">
+<xsl:template match="preface|chapter">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:part|d:reference">
+<xsl:template match="part|reference">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:refentry">
+<xsl:template match="refentry">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:colophon">
+<xsl:template match="colophon">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:article">
+<xsl:template match="article">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:topic">
+<xsl:template match="topic">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:article/d:appendix">
+<xsl:template match="article/appendix">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:article/d:glossary">
+<xsl:template match="article/glossary">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:article/d:bibliography">
+<xsl:template match="article/bibliography">
   <xsl:call-template name="process-chunk"/>
 </xsl:template>
 
-<xsl:template match="d:sect1|d:sect2|d:sect3|d:sect4|d:sect5|d:section">
+<xsl:template match="sect1|sect2|sect3|sect4|sect5|section">
   <xsl:variable name="ischunk">
     <xsl:call-template name="chunk"/>
   </xsl:variable>
@@ -197,9 +198,9 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:setindex
-                     |d:book/d:index
-                     |d:article/d:index">
+<xsl:template match="setindex
+                     |book/index
+                     |article/index">
   <!-- some implementations use completely empty index tags to indicate -->
   <!-- where an automatically generated index should be inserted. so -->
   <!-- if the index is completely empty, skip it. -->
@@ -223,23 +224,23 @@
       </xsl:message>
     </xsl:when>
     <xsl:when test="$exsl.node.set.available != 0 and 
-                  namespace-uri(/*) != 'http://docbook.org/ns/docbook'">
+                  namespace-uri(/*) = 'http://docbook.org/ns/docbook'">
       <xsl:call-template name="log.message">
         <xsl:with-param name="level">Note</xsl:with-param>
         <xsl:with-param name="source" select="$doc.title"/>
         <xsl:with-param name="context-desc">
-          <xsl:text>namesp. add</xsl:text>
+          <xsl:text>namesp. cut</xsl:text>
         </xsl:with-param>
         <xsl:with-param name="message">
-          <xsl:text>added namespace before processing</xsl:text>
+          <xsl:text>stripped namespace before processing</xsl:text>
         </xsl:with-param>
       </xsl:call-template>
-      <xsl:apply-templates select="exsl:node-set($with.namespace)"/>
+      <xsl:apply-templates select="exsl:node-set($no.namespace)"/>
     </xsl:when>
     <!-- Can't process unless namespace is correct -->
-    <xsl:when test="namespace-uri(/*) != 'http://docbook.org/ns/docbook'">
+    <xsl:when test="namespace-uri(/*) = 'http://docbook.org/ns/docbook'">
       <xsl:message terminate="yes">
-        <xsl:text>Unable to add the namespace from DB4 document,</xsl:text>
+        <xsl:text>Unable to strip the namespace from DB5 document,</xsl:text>
         <xsl:text> cannot proceed.</xsl:text>
       </xsl:message>
     </xsl:when>
@@ -320,7 +321,7 @@
             <xsl:with-param name="lot">
               <xsl:call-template name="list.of.titles">
                 <xsl:with-param name="titles" select="'figure'"/>
-                <xsl:with-param name="nodes" select=".//d:figure"/>
+                <xsl:with-param name="nodes" select=".//figure"/>
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
@@ -328,7 +329,7 @@
         <xsl:otherwise>
           <xsl:call-template name="list.of.titles">
             <xsl:with-param name="titles" select="'figure'"/>
-            <xsl:with-param name="nodes" select=".//d:figure"/>
+            <xsl:with-param name="nodes" select=".//figure"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -342,7 +343,7 @@
             <xsl:with-param name="lot">
               <xsl:call-template name="list.of.titles">
                 <xsl:with-param name="titles" select="'table'"/>
-                <xsl:with-param name="nodes" select=".//d:table"/>
+                <xsl:with-param name="nodes" select=".//table"/>
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
@@ -350,7 +351,7 @@
         <xsl:otherwise>
           <xsl:call-template name="list.of.titles">
             <xsl:with-param name="titles" select="'table'"/>
-            <xsl:with-param name="nodes" select=".//d:table"/>
+            <xsl:with-param name="nodes" select=".//table"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -364,7 +365,7 @@
             <xsl:with-param name="lot">
               <xsl:call-template name="list.of.titles">
                 <xsl:with-param name="titles" select="'example'"/>
-                <xsl:with-param name="nodes" select=".//d:example"/>
+                <xsl:with-param name="nodes" select=".//example"/>
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
@@ -372,7 +373,7 @@
         <xsl:otherwise>
           <xsl:call-template name="list.of.titles">
             <xsl:with-param name="titles" select="'example'"/>
-            <xsl:with-param name="nodes" select=".//d:example"/>
+            <xsl:with-param name="nodes" select=".//example"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -386,7 +387,7 @@
             <xsl:with-param name="lot">
               <xsl:call-template name="list.of.titles">
                 <xsl:with-param name="titles" select="'equation'"/>
-                <xsl:with-param name="nodes" select=".//d:equation"/>
+                <xsl:with-param name="nodes" select=".//equation"/>
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
@@ -394,7 +395,7 @@
         <xsl:otherwise>
           <xsl:call-template name="list.of.titles">
             <xsl:with-param name="titles" select="'equation'"/>
-            <xsl:with-param name="nodes" select=".//d:equation"/>
+            <xsl:with-param name="nodes" select=".//equation"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -408,7 +409,7 @@
             <xsl:with-param name="lot">
               <xsl:call-template name="list.of.titles">
                 <xsl:with-param name="titles" select="'procedure'"/>
-                <xsl:with-param name="nodes" select=".//d:procedure[d:title]"/>
+                <xsl:with-param name="nodes" select=".//procedure[title]"/>
               </xsl:call-template>
             </xsl:with-param>
           </xsl:call-template>
@@ -416,7 +417,7 @@
         <xsl:otherwise>
           <xsl:call-template name="list.of.titles">
             <xsl:with-param name="titles" select="'procedure'"/>
-            <xsl:with-param name="nodes" select=".//d:procedure[d:title]"/>
+            <xsl:with-param name="nodes" select=".//procedure[title]"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -442,8 +443,8 @@
           </xsl:with-param>
           <xsl:with-param name="content">
             <xsl:call-template name="chunk-element-content">
-              <xsl:with-param name="prev" select="/d:foo"/>
-              <xsl:with-param name="next" select="/d:foo"/>
+              <xsl:with-param name="prev" select="/foo"/>
+              <xsl:with-param name="next" select="/foo"/>
               <xsl:with-param name="nav.context" select="'toc'"/>
               <xsl:with-param name="content">
                 <h1>
@@ -496,8 +497,8 @@
       <xsl:with-param name="filename" select="$filename"/>
       <xsl:with-param name="content">
         <xsl:call-template name="chunk-element-content">
-          <xsl:with-param name="prev" select="/d:foo"/>
-          <xsl:with-param name="next" select="/d:foo"/>
+          <xsl:with-param name="prev" select="/foo"/>
+          <xsl:with-param name="next" select="/foo"/>
           <xsl:with-param name="nav.context" select="'toc'"/>
           <xsl:with-param name="content">
             <xsl:copy-of select="$lot"/>
