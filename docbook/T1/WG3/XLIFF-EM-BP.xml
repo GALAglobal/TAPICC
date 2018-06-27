@@ -1265,9 +1265,11 @@
           different defaults when not given an unequivocal language tag, or worse ignore a valid
           <?oxy_delete author="jhusarcik" timestamp="20180627T013758+0200" content="fain"?><?oxy_insert_start author="jhusarcik" timestamp="20180627T013758+0200"?>fine<?oxy_insert_end?>-grained
           language tag they don't cover.</para>
-        <para>The XLIFF Standards prescribe that the <link linkend="bcp47">BCP 47</link> language
-          tags are to be used as values for attributes specifying human natural languages used in
-          the <glossterm role="non-normative">XLIFF Documents</glossterm>. The Unicode Consortium offers a <link
+        <para>The XLIFF Standards prescribe that the
+            <?oxy_attributes linkend="&lt;change type=&quot;modified&quot; oldValue=&quot;bcp47&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T103203+0200&quot; /&gt;"?><link
+            linkend="BCP_47">BCP 47</link> language tags are to be used as values for attributes
+          specifying human natural languages used in the <glossterm role="non-normative"
+            >XLIFF Documents</glossterm>. The Unicode Consortium offers a <link
             xlink:href="http://unicode.org/cldr/utility/languageid.jsp">tool available
           online</link>, which can help to perform basic validation of selected language
           tags.</para>
@@ -1381,10 +1383,12 @@
     <title>References</title>
     <bibliodiv>
       <title>Normative references</title>
-      <bibliomixed><abbrev>XML</abbrev>W3C: <title>Extensible Markup Language (XML)
+      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102815+0200&quot; /&gt;"?>
+      <bibliomixed xml:id="XML"><abbrev>XML</abbrev>W3C: <title>Extensible Markup Language (XML)
           1.0</title><date>26 November 2008</date>
         <bibliomisc><link xlink:href="https://www.w3.org/TR/xml/" /></bibliomisc></bibliomixed>
-      <bibliomixed>
+      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102831+0200&quot; /&gt;"?>
+      <bibliomixed xml:id="XLIFF-2.1">
         <abbrev>XLIFF-2.1</abbrev>Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
         Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>13 February 2018</date>
         <bibliomisc><link version="OASIS Standard"
@@ -1393,7 +1397,8 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
            /></bibliomisc>
       </bibliomixed>
-      <bibliomixed>
+      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102852+0200&quot; /&gt;"?>
+      <bibliomixed xml:id="XLIFF-2.0">
         <abbrev>XLIFF-2.0</abbrev>Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
         Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
         <bibliomisc><link version="OASIS Standard"
@@ -1402,20 +1407,24 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
            /></bibliomisc>
       </bibliomixed>
-      <bibliomixed>
+      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102906+0200&quot; /&gt;"?>
+      <bibliomixed xml:id="ISO_XLIFF">
         <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
         Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file
           format)</title><date>November 2017</date>
         <bibliomisc><link version="International Standard"
             xlink:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
       </bibliomixed>
-      <bibliomixed xml:id="bcp47"><emphasis role="bold">BCP 47</emphasis> M. Davis, <emphasis role="italic">Tags
-          for Identifying Languages</emphasis>, <emphasis role="italic"><link
+      <?oxy_attributes xml:id="&lt;change type=&quot;modified&quot; oldValue=&quot;bcp47&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T103015+0200&quot; /&gt;"?>
+      <bibliomixed xml:id="BCP_47"><abbrev>BCP<?oxy_insert_start author="jhusarcik" timestamp="20180627T031552+0200"?>
+          <?oxy_insert_end?>47</abbrev> M. Davis<?oxy_insert_start author="jhusarcik" timestamp="20180627T031242+0200"?>:<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180627T031240+0200" content=","?>
+        <title>Tags for Identifying Languages</title>, <bibliomisc><link
             xlink:href="http://tools.ietf.org/html/bcp47"
-          >http://tools.ietf.org/html/bcp47</link></emphasis> IETF (Internet Engineering Task
+          >http://tools.ietf.org/html/bcp47</link></bibliomisc> IETF (Internet Engineering Task
         Force).</bibliomixed>
     </bibliodiv>
   </bibliography>
 </article>
+
 
 <?oxy_options track_changes="on"?>
