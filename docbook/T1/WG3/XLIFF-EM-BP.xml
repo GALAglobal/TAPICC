@@ -98,12 +98,12 @@
 
     <abstract>
       <para>This &releaseinfo; specification targets designers of XLIFF
-          <firstterm>Extracting</firstterm> and <firstterm>Merging</firstterm> tools for content
+          <glossterm role="non-normative">Extracting</glossterm> and <glossterm role="non-normative">Merging</glossterm> tools for content
         owners. It gathers common problems that are prone to appear when
-          <firstterm>Extracting</firstterm>
-        <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or Markdown. This
-        specification shows why some <firstterm>Extraction</firstterm> approaches will cause issues
-        during an <firstterm>XLIFF Roundtrip</firstterm>. This best practice guidance provides
+          <glossterm role="non-normative">Extracting</glossterm>
+        <glossterm role="non-normative">XLIFF Documents</glossterm> from HTML, generic XML, or Markdown. This
+        specification shows why some <glossterm role="non-normative">Extraction</glossterm> approaches will cause issues
+        during an <glossterm role="non-normative">XLIFF Roundtrip</glossterm>. This best practice guidance provides
         better thought through alternatives and shows how to use many of advanced XLIFF features for
         lossless Localization roundtrip of HTML and XML based content.</para>
 
@@ -156,13 +156,13 @@
     <title>Terminology and Concepts</title>
     <para>Apart form terminology and concepts defined here, this specification makes heavy use of
       terms defined in the XLIFF Standards <citation>XLIFF-2.1</citation> such as:
-        <firstterm>Extractor</firstterm>, <firstterm>Merger</firstterm>,
-        <firstterm>Translation</firstterm>, <firstterm>XLIFF Document</firstterm>,
-        <firstterm>XLIFF-defined</firstterm>, etc.</para>
+        <glossterm role="non-normative">Extractor</glossterm>, <glossterm role="non-normative">Merger</glossterm>,
+        <glossterm role="non-normative">Translation</glossterm>, <glossterm role="non-normative">XLIFF Document</glossterm>,
+        <glossterm role="non-normative">XLIFF-defined</glossterm>, etc.</para>
     <glossentry>
-      <glossterm>context hints</glossterm>
+      <glossterm role="non-normative">context hints</glossterm>
       <glossdef>
-        <para><firstterm>XLIFF-defined</firstterm> attributes on structural or inline elements
+        <para><glossterm role="non-normative">XLIFF-defined</glossterm> attributes on structural or inline elements
           providing additional contexts, such as <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> or <code><link
@@ -170,12 +170,12 @@
               >equiv</link></code>. Attributes <code>fs</code> and <code>subFs</code> defined in the
             <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#fs-mod"
-            >XLIFF Format Style Module</link> are also considered <firstterm>context
-            hints</firstterm>.</para>
+            >XLIFF Format Style Module</link> are also considered <glossterm role="non-normative">context
+            hints</glossterm>.</para>
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>inline codes</glossterm>
+      <glossterm role="non-normative">inline codes</glossterm>
       <glossdef>
         <para><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#sc"
@@ -191,10 +191,10 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ph"
               ><code>&lt;ph/></code></link> and <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#cp"
-              ><code>&lt;cp></code></link> are <firstterm>inline codes</firstterm> used to represent
-          native format inline markup in <firstterm>XLIFF Documents</firstterm>.<note>
-            <para><firstterm>Inline codes</firstterm> can reference original data in the
-                <firstterm>XLIFF Core</firstterm>
+              ><code>&lt;cp></code></link> are <glossterm role="non-normative">inline codes</glossterm> used to represent
+          native format inline markup in <glossterm role="non-normative">XLIFF Documents</glossterm>.<note>
+            <para><glossterm role="non-normative">Inline codes</glossterm> can reference original data in the
+                <glossterm role="non-normative">XLIFF Core</glossterm>
               <link
                 xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#originaldata"
                 >&lt;originalData></link> standoff element. </para>
@@ -202,13 +202,13 @@
       </glossdef>
     </glossentry>
     <glossentry>
-      <glossterm>markers</glossterm>
+      <glossterm role="non-normative">markers</glossterm>
       <glossdef>
         <para><link><code>&lt;sm/></code></link>/<link><code>&lt;em/></code></link> pairs and well
-          formed <link><code>&lt;mrk></code></link> are <firstterm>XLIFF-defined</firstterm> inline
+          formed <link><code>&lt;mrk></code></link> are <glossterm role="non-normative">XLIFF-defined</glossterm> inline
           marker elements designed for inline annotations of content with metadata. <note>
-            <para><firstterm>Markers</firstterm> are distinct from <firstterm>inline
-                codes</firstterm> (see). Markers can be combined with <firstterm>Module</firstterm>
+            <para><glossterm role="non-normative">Markers</glossterm> are distinct from <glossterm role="non-normative">inline
+                codes</glossterm> (see). Markers can be combined with <glossterm role="non-normative">Module</glossterm>
               or Extension based standoff elements for rich metadata that would be complicated or
               impossible to display inline.</para>
           </note></para>
@@ -217,22 +217,22 @@
   </glossary>
   <section xml:id="Intro">
     <title>Introduction</title>
-    <para>This &releaseinfo; targets designers of XLIFF <firstterm>Extracting</firstterm> and
-        <firstterm>Merging</firstterm> Tools for content owners. <firstterm>XLIFF
-        Roundtrip</firstterm> designers of all kinds will benefit, no matter if they design their
-        <firstterm>XLIFF Extractor/Merger</firstterm> for corporate or blog use.</para>
-    <para><firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> behavior is out of
+    <para>This &releaseinfo; targets designers of XLIFF <glossterm role="non-normative">Extracting</glossterm> and
+        <glossterm role="non-normative">Merging</glossterm> Tools for content owners. <glossterm role="non-normative">XLIFF
+        Roundtrip</glossterm> designers of all kinds will benefit, no matter if they design their
+        <glossterm role="non-normative">XLIFF Extractor/Merger</glossterm> for corporate or blog use.</para>
+    <para><glossterm role="non-normative">Extraction</glossterm> and <glossterm role="non-normative">Merging</glossterm> behavior is out of
       the normative scope of OASIS XLIFF Specifications. Although those specifications do provide
-      some guidance for <firstterm>Extractor</firstterm> and <firstterm>Merger Agents</firstterm>,
+      some guidance for <glossterm role="non-normative">Extractor</glossterm> and <glossterm role="non-normative">Merger Agents</glossterm>,
       XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content.
       This is mostly because XLIFF is a native-format-agnostic Localization Interchange
       Format.</para>
     <para>This specification gathers common problems that are prone to appear when
-        <firstterm>Extracting</firstterm>
-      <firstterm>XLIFF Documents</firstterm> from HTML, generic XML, or Markdown. This specification
-      shows why some <firstterm>Extraction</firstterm> approaches will cause issues during an
-        <firstterm>XLIFF Roundtrip</firstterm>, issues often so severe that
-        <firstterm>Merging</firstterm> back of target content will not be possible without costly
+        <glossterm role="non-normative">Extracting</glossterm>
+      <glossterm role="non-normative">XLIFF Documents</glossterm> from HTML, generic XML, or Markdown. This specification
+      shows why some <glossterm role="non-normative">Extraction</glossterm> approaches will cause issues during an
+        <glossterm role="non-normative">XLIFF Roundtrip</glossterm>, issues often so severe that
+        <glossterm role="non-normative">Merging</glossterm> back of target content will not be possible without costly
       post-processing or could fail utterly. This best practice guidance provides better thought
       through alternatives and shows how to use many of
       <?oxy_insert_start author="jhusarcik" timestamp="20180626T214804+0200"?>the
@@ -249,9 +249,9 @@
     <title>Specification</title>
     <section xml:id="XLIFF_Structure">
       <title>XLIFF Structure</title>
-      <para>Taking time to consider not only what to <firstterm>Extract</firstterm>, but how to
-        <firstterm>Extract</firstterm> it, and how to structure the <firstterm>XLIFF
-          Document</firstterm> can significantly reduce number of issues during the roundtrip and
+      <para>Taking time to consider not only what to <glossterm role="non-normative">Extract</glossterm>, but how to
+        <glossterm role="non-normative">Extract</glossterm> it, and how to structure the <glossterm role="non-normative">XLIFF
+          Document</glossterm> can significantly reduce number of issues during the roundtrip and
         enable usage of additional features offered by the XLIFF Standards.</para>
       <section xml:id="group">
         <title>File Structure</title>
@@ -307,18 +307,20 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
               >&lt;group></link></code> elements. It will be however at the cost of high redundancy
           of unit level metadata and possibly cause potentially illegal overload of some of the
-            <firstterm>XLIFF Core</firstterm> features. </para>
+            <?oxy_attributes role="&lt;change type=&quot;modified&quot; oldValue=&quot;non-normative&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T023409+0200&quot; /&gt;"?><glossterm
+            role="non-normative">XLIFF Core</glossterm> features. </para>
         <para>Example: <link
           xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
           >group</link>.</para>
       </section>
       <section xml:id="unit">
         <title>Role of the <code>&lt;unit></code> Element</title>
-        <para><firstterm>Extractors</firstterm> set the XLIFF structure, which cannot be modified
-          (an absolute prohibition expressed in the XLIFF Standards) during the roundtrip at the
-          unit level or higher. Ensuring or not that the appropriate relationships drive
-            <firstterm>Extraction</firstterm> from structures of the native format into XLIFF
-              <code><link
+        <para><?oxy_attributes role="&lt;change type=&quot;modified&quot; oldValue=&quot;non-normative&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T023306+0200&quot; /&gt;"?><glossterm
+            role="non-normative">Extractors</glossterm> set the XLIFF structure, which cannot be
+          modified (an absolute prohibition expressed in the XLIFF Standards) during the roundtrip
+          at the unit level or higher. Ensuring or not that the appropriate relationships drive
+            <glossterm role="non-normative">Extraction</glossterm> from structures of the native
+          format into XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
               >&lt;unit></link></code> elements can make all the difference between hindering or
           crippling the roundtrip and making the most of XLIFF features in a compliant way.</para>
@@ -329,10 +331,10 @@
           dangerous is <link>Extracting</link> every segment as a separate <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
               >&lt;unit></link></code><?oxy_comment_end?> element as this will effectively prevent
-            <firstterm>Modifiers</firstterm> downstream to change segmentation. Changing
-          segmentation within logically self contained units is one of the key advantages of the
-          XLIFF 2 structural data model that makes a distinction between the immutable high level
-          structure (<code><link
+            <glossterm role="non-normative">Modifiers</glossterm> downstream to change
+            segmentation. Changing segmentation within
+          logically self contained units is one of the key advantages of the XLIFF 2 structural data
+          model that makes a distinction between the immutable high level structure (<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
               >&lt;unit></link></code> and higher) and the transient segmentation structure (<link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
@@ -346,8 +348,8 @@
       </section>
       <section xml:id="canResegment">
         <title>Controlling Segmentation</title>
-        <para>Depending on <firstterm>Extraction</firstterm> rules for mapping of original document
-          structures into <firstterm>XLIFF Documents</firstterm>, individual sentences within a
+        <para>Depending on <glossterm role="non-normative">Extraction</glossterm> rules for mapping of original document
+          structures into <glossterm role="non-normative">XLIFF Documents</glossterm>, individual sentences within a
           paragraph<?oxy_insert_start author="jhusarcik" timestamp="20180626T221902+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221902+0200" content=","?>
           verses within a
           stanza<?oxy_insert_start author="jhusarcik" timestamp="20180626T221907+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221907+0200" content=","?>
@@ -358,17 +360,17 @@
           table<?oxy_insert_start author="jhusarcik" timestamp="20180626T221918+0200"?>;<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T221916+0200" content=","?>
           items of a dialog
           window<?oxy_insert_start author="jhusarcik" timestamp="20180626T225334+0200"?>;<?oxy_insert_end?>
-          and so on might be <firstterm>Extracted</firstterm> as segments of a single unit. While it
+          and so on might be <glossterm role="non-normative">Extracted</glossterm> as segments of a single unit. While it
           is generally not advisable to perform segmentation at the time of
-            <firstterm>Extraction</firstterm>, <firstterm>Extractors</firstterm> that
-            <firstterm>Extracted</firstterm> multiple sentences, verses, entries,
+            <glossterm role="non-normative">Extraction</glossterm>, <glossterm role="non-normative">Extractors</glossterm> that
+            <glossterm role="non-normative">Extracted</glossterm> multiple sentences, verses, entries,
           rows<?oxy_insert_start author="jhusarcik" timestamp="20180626T222005+0200"?>,<?oxy_insert_end?>
           and so on into a single non-segmented unit (a single <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               ><code>&lt;segment></code></link> element within each <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
-              >&lt;unit></link></code>) and their corresponding <firstterm>Mergers</firstterm> need
-          to expect that the <firstterm>Modifiers</firstterm> will need to transform them into
+              >&lt;unit></link></code>) and their corresponding <glossterm role="non-normative">Mergers</glossterm> need
+          to expect that the <glossterm role="non-normative">Modifiers</glossterm> will need to transform them into
           individual segments within the same unit (multiple <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               ><code>&lt;segment></code></link> elements representing individual sentences,
@@ -376,20 +378,20 @@
           and so on within each <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit"
               >&lt;unit></link></code>) during the roundtrip.</para>
-        <para>In cases where subsequent <firstterm>Modifiers</firstterm> cannot be reasonably
+        <para>In cases where subsequent <glossterm role="non-normative">Modifiers</glossterm> cannot be reasonably
           expected to detect the segmentation logic, for instance due to the lack of knowledge of
           the original format logic, the content owner is advised to perform the segmentation and
           protection of that segmentation before sending their XLIFF Documents for the service
           roundtrip.</para>
-        <para>While it's generally desirable to be able to <firstterm>Modify</firstterm>
+        <para>While it's generally desirable to be able to <glossterm role="non-normative">Modify</glossterm>
           segmentation within a unit during the roundtrip, doing so in some of the above cases might
-          prevent <firstterm>Merging</firstterm>, cause build issues, or have negative impact on
+          prevent <glossterm role="non-normative">Merging</glossterm>, cause build issues, or have negative impact on
           target product user experience.</para>
         <para>Attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> can be used
             <?oxy_insert_start author="jhusarcik" timestamp="20180626T222246+0200" type="surround"?><emphasis><?oxy_insert_end?>with
-            care</emphasis> to control segmentation <firstterm>Modification</firstterm> behavior.
+            care</emphasis> to control segmentation <glossterm role="non-normative">Modification</glossterm> behavior.
           It<?oxy_delete author="jhusarcik" timestamp="20180626T222325+0200" content="’"?>s values
           need to be controlled by rules derived from the structural and inline logic of the native
           format, for instance more often than not it will make sense to set <code><link
@@ -406,7 +408,7 @@
             </listitem>
           </itemizedlist></para>
         <?oxy_insert_start author="jhusarcik" timestamp="20180626T222400+0200"?>
-        <para><firstterm>Extracted</firstterm> as segments of a unit.</para>
+        <para><glossterm role="non-normative">Extracted</glossterm> as segments of a unit.</para>
         <?oxy_insert_end?>
         <para>In UI elements and tables, it is likely that the available segmentation needs
           <?oxy_insert_start author="jhusarcik" timestamp="20180626T222509+0200"?>to be
@@ -415,7 +417,7 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link>="yes"</code> for normal paragraph text and similar, see <link
             linkend="unit">Role of the &lt;unit> Element</link>. </para>
-        <para>Importantly, preventing <firstterm>Modification</firstterm> of segmentation using the
+        <para>Importantly, preventing <glossterm role="non-normative">Modification</glossterm> of segmentation using the
           attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> (set to <code>no</code> when necessary) will
@@ -429,8 +431,8 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment"
               >canResegment</link></code> attribute is set to <code>no</code>. The segmentation
           logic of the native format remains protected without preventing collation. This would be
-          all hampered if the <firstterm>Extractor</firstterm> decided to
-            <firstterm>Extract</firstterm> each
+          all hampered if the <glossterm role="non-normative">Extractor</glossterm> decided to
+            <glossterm role="non-normative">Extract</glossterm> each
           <?oxy_comment_start author="jhusarcik" timestamp="20180626T222635+0200" comment="rephrase?"?>segment
           as a separate unit<?oxy_comment_end?>, which is the most evil practice that cannot be
           discouraged enough.</para>
@@ -463,8 +465,8 @@
                   >&lt;ph></link></code></para>
           </listitem>
           <listitem>
-            <para>Include all (even the outermost) <firstterm>inline codes</firstterm> in the
-                <firstterm>Extracted</firstterm> content</para>
+            <para>Include all (even the outermost) <glossterm role="non-normative">inline codes</glossterm> in the
+                <glossterm role="non-normative">Extracted</glossterm> content</para>
           </listitem>
           <listitem>
             <para><?oxy_insert_start author="jhusarcik" timestamp="20180626T223219+0200"?>Additional
@@ -476,10 +478,10 @@
       <section xml:id="Spanning">
         <title><?oxy_comment_start author="jhusarcik" timestamp="20180626T224114+0200" comment="what about using &lt;pc&gt; to represent standalone?"?>Representing
           Spanning Codes<?oxy_comment_end?></title>
-        <para><firstterm>Spanning codes</firstterm> in the original format are created by an opening
+        <para><glossterm role="non-normative">Spanning codes</glossterm> in the original format are created by an opening
           code, the content, and the closing code. In HTML that can be
             <code>&lt;bold>text&lt;/bold></code>, in RTF <code>\b text \b0</code>.</para>
-        <para>In <firstterm>XLIFF Documents</firstterm>, such code can be always represented with an
+        <para>In <glossterm role="non-normative">XLIFF Documents</glossterm>, such code can be always represented with an
               <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
@@ -488,11 +490,11 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
               >&lt;pc>&lt;/pc></link></code>, only for well formed markup.</para>
         <para>Ideally, the original format is documented well enough to instruct
-            <firstterm>Extractors</firstterm> about the role of each <firstterm>inline
-            code</firstterm>. For example, XML Schema allows to declare elements using the keyword
+            <glossterm role="non-normative">Extractors</glossterm> about the role of each <glossterm role="non-normative">inline
+            code</glossterm>. For example, XML Schema allows to declare elements using the keyword
           <?oxy_comment_start author="jhusarcik" timestamp="20180626T223553+0200" comment="use some formatting?"?>EMPTY<?oxy_comment_end?>.
           This way, all elements that are not declared EMPTY, can be represented as described above.
-          To further help the <firstterm>Extraction</firstterm> process, the following
+          To further help the <glossterm role="non-normative">Extraction</glossterm> process, the following
           recommendation could be implemented in the original XML format: <quote>For
             interoperability, the empty-element tag SHOULD be used, and SHOULD only be used, for
             elements which are declared EMPTY.</quote><citation>XML</citation>.</para>
@@ -502,7 +504,7 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
-              >&lt;ec/></link></code> pair in <firstterm>XLIFF Documents</firstterm>, unlike the
+              >&lt;ec/></link></code> pair in <glossterm role="non-normative">XLIFF Documents</glossterm>, unlike the
           always empty <code>&lt;br/></code> that has to be represented as a standalone placeholder
           code <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
@@ -512,23 +514,23 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph"
               ><code>spanning_as_ph</code></link>.<?oxy_comment_end?></para>
         <para>This kind of bad practice encoding doesn't inform the
-            <firstterm>Translating</firstterm>
-          <firstterm>Agent</firstterm> (human or machine <firstterm>Modifier</firstterm>) that the
+            <glossterm role="non-normative">Translating</glossterm>
+          <glossterm role="non-normative">Agent</glossterm> (human or machine <glossterm role="non-normative">Modifier</glossterm>) that the
           original code formed a span and effectively the original spanning code is not protected
           during the roundtrip. The standalone <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph"
               >&lt;ph/></link></code> codes can be switched or one of them omitted; simply, the span
           is likely to end up misplaced, malformed, or empty simply because the
-            <firstterm>Translation</firstterm> editor cannot convey to the translator that the codes
+            <glossterm role="non-normative">Translation</glossterm> editor cannot convey to the translator that the codes
           need to enclose a certain portion of the original content and what is the semantics of the
           original code span.</para>
       </section>
       <section xml:id="Outermost">
         <title>Outermost Tag Pairs</title>
-        <para>In some cases, the <firstterm>inline codes</firstterm> can enclose the localizable
-          string in a way that could suggest omitting them in the <firstterm>Extracted</firstterm>
+        <para>In some cases, the <glossterm role="non-normative">inline codes</glossterm> can enclose the localizable
+          string in a way that could suggest omitting them in the <glossterm role="non-normative">Extracted</glossterm>
           text. For example, a paragraph containing only a link text, could be
-            <firstterm>Extracted</firstterm> as the link text only, without the
+            <glossterm role="non-normative">Extracted</glossterm> as the link text only, without the
             <code>&lt;a>&lt;/a></code> decoration being represented. This relates to the previous
             <emphasis>bad practice</emphasis>
           <link
@@ -540,16 +542,16 @@
           loses valuable context (they cannot check the link), more importantly they don't know that
           the text is a link text, and moreover are unable to add any text outside of the link span,
           which might be advisable or even mandatory in certain locales.</para>
-        <para>Ideally, a consistent approach to all <firstterm>inline codes</firstterm> ought to be
-          used during <firstterm>Extraction</firstterm>.</para>
+        <para>Ideally, a consistent approach to all <glossterm role="non-normative">inline codes</glossterm> ought to be
+          used during <glossterm role="non-normative">Extraction</glossterm>.</para>
         <para>See the relevant <emphasis>bad practice</emphasis> example <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded"
             >outermost_inline_excluded</link>.</para>
       </section>
       <section xml:id="CDATA">
         <title>Incomplete Extraction of Inline Codes</title>
-        <para>Some implementers choose not to <firstterm>Extract</firstterm>
-          <firstterm>inline codes</firstterm> at all and use
+        <para>Some implementers choose not to <glossterm role="non-normative">Extract</glossterm>
+          <glossterm role="non-normative">inline codes</glossterm> at all and use
           <?oxy_delete author="jhusarcik" timestamp="20180626T224349+0200" content="instead "?>one
           of the following
           approaches<?oxy_insert_start author="jhusarcik" timestamp="20180626T224353+0200"?> instead<?oxy_insert_end?>:<itemizedlist>
@@ -571,21 +573,21 @@
         <para>Doing
           <?oxy_delete author="jhusarcik" timestamp="20180626T224436+0200" content="one"?><?oxy_insert_start author="jhusarcik" timestamp="20180626T224436+0200"?>any<?oxy_insert_end?>
           of the above can be used as a useful <emphasis>interim</emphasis>
-          <firstterm>Extraction</firstterm> step when producing <firstterm>XLIFF
-            Documents</firstterm> that are fit for roundtrip. However, it is strongly discouraged to
-          send <firstterm>XLIFF Documents</firstterm> with the inline content not fully parsed for
+          <glossterm role="non-normative">Extraction</glossterm> step when producing <glossterm role="non-normative">XLIFF
+            Documents</glossterm> that are fit for roundtrip. However, it is strongly discouraged to
+          send <glossterm role="non-normative">XLIFF Documents</glossterm> with the inline content not fully parsed for
           Localization roundtrip.</para>
-        <para>Such incomplete <firstterm>Extraction</firstterm> leaves <firstterm>inline
-            codes</firstterm> unprotected and increases the risk of their corruption during the
-          roundtrip, simply pushing the problem of <firstterm>inline code</firstterm> handling
+        <para>Such incomplete <glossterm role="non-normative">Extraction</glossterm> leaves <glossterm role="non-normative">inline
+            codes</glossterm> unprotected and increases the risk of their corruption during the
+          roundtrip, simply pushing the problem of <glossterm role="non-normative">inline code</glossterm> handling
           downstream.</para>
         <para>According to the XLIFF <citation>XLIFF-2.1</citation> Standards,
-            <firstterm>Modifiers</firstterm> can perform secondary parsing:</para>
+            <glossterm role="non-normative">Modifiers</glossterm> can perform secondary parsing:</para>
         <para><quote><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112"
               >Writers <emphasis>may</emphasis> preserve original CDATA sections</link></quote>
-          (meaning that it is entirely optional to preserve CDATA sections and that <firstterm>XLIFF
-            Writers</firstterm> are not obliged to preserve CDATA
+          (meaning that it is entirely optional to preserve CDATA sections and that <glossterm role="non-normative">XLIFF
+            Writers</glossterm> are not obliged to preserve CDATA
           sections)<?oxy_insert_start author="jhusarcik" timestamp="20180626T225100+0200"?>,<?oxy_insert_end?><?oxy_insert_start author="jhusarcik" timestamp="20180626T225123+0200" type="split"?></para>
         <para><?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T225119+0200" content=" "?>and<?oxy_insert_start author="jhusarcik" timestamp="20180626T225106+0200"?>
           <?oxy_insert_end?></para>
@@ -593,7 +595,7 @@
           <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8993"
             >text can be converted into inline codes</link>.</para>
-        <para><firstterm>Mergers</firstterm>
+        <para><glossterm role="non-normative">Mergers</glossterm>
           <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ApplicationConformance"
             >have to accept XLIFF files with valid modifications</link>, even though <link
@@ -605,37 +607,37 @@
           course also valid for XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source"
               >&lt;source></link></code> elements.</para>
-        <para>Strictly speaking, it is not illegal to create <firstterm>XLIFF Documents</firstterm>
+        <para>Strictly speaking, it is not illegal to create <glossterm role="non-normative">XLIFF Documents</glossterm>
           that contain CDATA sections or unparsed entities instead of fully parsed XLIFF inline
           content. However, considering all of the above, it is clear that unparsed inline content
           makes XLIFF Documents unfit for a fully interoperable roundtrip. Again, strictly speaking,
-            <firstterm>XLIFF Documents</firstterm> with unparsed inline content are
+            <glossterm role="non-normative">XLIFF Documents</glossterm> with unparsed inline content are
             <emphasis>capable</emphasis> of roundtrip but all the effort that is saved on
-            <firstterm>Extraction</firstterm> will cause unpredictable issues and hence even more
-          effort when <firstterm>Merging</firstterm> back. </para>
-        <para>Implementers need to consider that <firstterm>XLIFF Documents</firstterm> with
+            <glossterm role="non-normative">Extraction</glossterm> will cause unpredictable issues and hence even more
+          effort when <glossterm role="non-normative">Merging</glossterm> back. </para>
+        <para>Implementers need to consider that <glossterm role="non-normative">XLIFF Documents</glossterm> with
           unparsed inline content are very likely to return with critical inline syntax or
           formatting corruptions that cannot be prevented on CDATA
           sections<?oxy_insert_start author="jhusarcik" timestamp="20180626T224653+0200"?>,<?oxy_insert_end?>
-          or entities that are both opaque to <firstterm>XLIFF Modifiers</firstterm>. Such
+          or entities that are both opaque to <glossterm role="non-normative">XLIFF Modifiers</glossterm>. Such
           corruptions are likely to prevent proper functionality of target content in the native
-          environment. In case <firstterm>XLIFF Modifiers</firstterm> do perform the secondary
-          parsing of content unparsed on <firstterm>Extraction</firstterm>, which is allowed by the
-          standard, corruption will be prevented, however, <firstterm>Mergers</firstterm> will need
+          environment. In case <glossterm role="non-normative">XLIFF Modifiers</glossterm> do perform the secondary
+          parsing of content unparsed on <glossterm role="non-normative">Extraction</glossterm>, which is allowed by the
+          standard, corruption will be prevented, however, <glossterm role="non-normative">Mergers</glossterm> will need
           to perform <emphasis>unparsing</emphasis> to facilitate merging back into the native
           environment, because XLIFF Modifiers are not and cannot be obliged to
             <emphasis>unparse</emphasis> back to CDATA sections or entities not knowing the
-            <firstterm>Extraction</firstterm> and <firstterm>Merging</firstterm> logic of the
-            <firstterm>XLIFF Document</firstterm> originator. </para>
+            <glossterm role="non-normative">Extraction</glossterm> and <glossterm role="non-normative">Merging</glossterm> logic of the
+            <glossterm role="non-normative">XLIFF Document</glossterm> originator. </para>
       </section>
       <section xml:id="Multiples">
         <title>Representing Multiple Subsequent Codes</title>
-        <para>As original <firstterm>inline codes</firstterm> can occur in clusters, for instance as
+        <para>As original <glossterm role="non-normative">inline codes</glossterm> can occur in clusters, for instance as
           nested formatting, implementers could be tempted to combine such markup on
-            <firstterm>Extraction</firstterm> and represent it as a single inline element.</para>
-        <para>This kind of <firstterm>Extraction</firstterm> is likely to prevent potentially
-          desirable <firstterm>Modification</firstterm> of <emphasis>inline codes</emphasis>,
-          affecting <firstterm>Translation</firstterm> quality. It will also prevent usage of fine
+            <glossterm role="non-normative">Extraction</glossterm> and represent it as a single inline element.</para>
+        <para>This kind of <glossterm role="non-normative">Extraction</glossterm> is likely to prevent potentially
+          desirable <glossterm role="non-normative">Modification</glossterm> of <emphasis>inline codes</emphasis>,
+          affecting <glossterm role="non-normative">Translation</glossterm> quality. It will also prevent usage of fine
           grained code metadata (for instance context, display, and editing hints) or automated
           format validation during the roundtrip.</para>
         <para>On the other hand, some potential benefit can be perceived in reducing markup inside
@@ -646,8 +648,8 @@
           to<?oxy_insert_start author="jhusarcik" timestamp="20180626T224908+0200"?>o<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T224907+0200" content="l"?>ls,
           less markup reduces the visual clutter and makes the translatable text more readable. This
           can be solved by proper choice of CAT tools (short term) or by large buyers requesting
-          that offending tool vendors do support proper rendering of <firstterm>inline
-            code</firstterm> data and metadata (mid and long term).</para>
+          that offending tool vendors do support proper rendering of <glossterm role="non-normative">inline
+            code</glossterm> data and metadata (mid and long term).</para>
         <para>Implementers need to consider the pros and cons of both approaches and use the one
           that best matches their business need.</para>
         <para>For examples see <link
@@ -659,35 +661,35 @@
       <title>Target Content in Extracted XLIFF</title>
       <para>This section focuses on reasons whether or not to populate the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-            >&lt;target></link></code> element during <firstterm>Extraction</firstterm> or
-          <firstterm>Enriching</firstterm> and when to do so, if at all.</para>
+            >&lt;target></link></code> element during <glossterm role="non-normative">Extraction</glossterm> or
+          <glossterm role="non-normative">Enriching</glossterm> and when to do so, if at all.</para>
       <para>Generally, one should omit the <code><link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
             >&lt;target></link></code> element, unless there is an added value and also in cases
         where the specification offers another dedicated solution. Proper support of the <link linkend="State_Machine">state
           machine</link> during the whole roundtrip helps
-          <firstterm>Agents</firstterm> to process and validate the <firstterm>XLIFF
-          Documents</firstterm> as intended.</para>
+          <glossterm role="non-normative">Agents</glossterm> to process and validate the <glossterm role="non-normative">XLIFF
+          Documents</glossterm> as intended.</para>
       <para>When looking at the situation from the <emphasis>microservice<?oxy_insert_start author="jhusarcik" timestamp="20180626T225854+0200"?>
           <?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T225856+0200" content="s"?><?oxy_insert_start author="jhusarcik" timestamp="20180626T225857+0200"?>architecture<?oxy_insert_end?></emphasis>
-        point of view, the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> ought to
+        point of view, the <glossterm role="non-normative">Extractor</glossterm>/<glossterm role="non-normative">Merger</glossterm> ought to
         be implemented as just that — a single purpose
-          <firstterm>Extraction</firstterm>/<firstterm>Merging</firstterm> service that delegates
-        any other operations, such as segmentation or <firstterm>Enriching</firstterm> to other
+          <glossterm role="non-normative">Extraction</glossterm>/<glossterm role="non-normative">Merging</glossterm> service that delegates
+        any other operations, such as segmentation or <glossterm role="non-normative">Enriching</glossterm> to other
         specialized services.</para>
       <para>Output of such extractor would be a <emphasis>target language</emphasis> agnostic
-          <firstterm>XLIFF Document</firstterm> with source content only, possibly with additional
+          <glossterm role="non-normative">XLIFF Document</glossterm> with source content only, possibly with additional
         modules/extensions which could not be generated after extraction, for example <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module"
           >Size and Length Restriction Module</link> or <link
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod"
           >Format Style Module</link>.</para>
       <para>Unless the implementer has a specific need to create <emphasis>target
-          language</emphasis> specific instances of the extracted <firstterm>XLIFF
-          Document</firstterm>, for instance by <firstterm>Enriching</firstterm> with
+          language</emphasis> specific instances of the extracted <glossterm role="non-normative">XLIFF
+          Document</glossterm>, for instance by <glossterm role="non-normative">Enriching</glossterm> with
         <link xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates">translation candidates</link>, the
-          <firstterm>Extracted</firstterm>
-        <firstterm>XLIFF Document</firstterm> could and ought to be sent downstream for the
+          <glossterm role="non-normative">Extracted</glossterm>
+        <glossterm role="non-normative">XLIFF Document</glossterm> could and ought to be sent downstream for the
         Localization roundtrip as-is.</para>
       <section xml:id="Source_copy_in_target">
         <title>Inserting Source Content into <code>&lt;target></code></title>
@@ -695,7 +697,7 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               >&lt;target></link></code> elements generally does not provide any advantage during
           the XLIFF roundtrip. On the contrary, it brings disadvantages such as needlessly
-          increasing the size of the <firstterm>XLIFF Document</firstterm> or enforcing existence of
+          increasing the size of the <glossterm role="non-normative">XLIFF Document</glossterm> or enforcing existence of
           the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang"
               ><code>trgLang</code></link> attribute with a specific BCP 47 compliant value.
@@ -721,7 +723,7 @@
       </section>
       <section xml:id="Candidates_in_target">
         <title>Inserting Possible Translations into <code>&lt;target></code> elements</title>
-        <para><firstterm>Enriching Agents</firstterm> can use translation memories, machine
+        <para><glossterm role="non-normative">Enriching Agents</glossterm> can use translation memories, machine
           translation engines, or other means to obtain suitable translation candidate strings in
           the target language to be used later in the roundtrip, for example as suggestions for
           translators, to achieve better leverage, or to get higher consistency with previous
@@ -732,13 +734,13 @@
           number of the possible proposed translations to a single one per segment. Moreover, this
           way it's not possible to pass critical metadata about the translation candidate, such as
           its origin, similarity, or quality (all those are available in a dedicated module),
-          causing interoperability issues for <firstterm>Agents</firstterm> without prior knowledge
+          causing interoperability issues for <glossterm role="non-normative">Agents</glossterm> without prior knowledge
           of the workflow<?oxy_insert_start author="jhusarcik" timestamp="20180626T231346+0200"?>;
           or even to address subsegment matches<?oxy_insert_end?>.</para>
         <para>Inserting translation candidates into <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
-              >&lt;target></link></code> elements during <firstterm>Extraction</firstterm> or
-            <firstterm>Enriching</firstterm> constitutes an illegal overload of the core element
+              >&lt;target></link></code> elements during <glossterm role="non-normative">Extraction</glossterm> or
+            <glossterm role="non-normative">Enriching</glossterm> constitutes an illegal overload of the core element
           with a clearly set purpose. The <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candidates"
             >Translation Candidates Module</link> was designed exactly to provide translators with
@@ -771,7 +773,7 @@
               >&lt;state></link></code> attribute defines just a high level four states state
           engine. The values are <code>initial</code>, <code>translated</code>,
             <code>reviewed</code>, and <code>final</code>. Although this attribute is
-            <glossterm>optional</glossterm> on the <link
+            <glossterm role="non-normative">optional</glossterm> on the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment"
               ><code>&lt;segment></code></link> element, it is assumed as having the default value
             <code>initial</code> whenever not used explicitly. There are some important advantages
@@ -781,7 +783,7 @@
           if you want to even enforce <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               >&lt;target></link></code> existence in your deliverables you should be using at least
-          the high level four states state engine provided by the <firstterm>Core</firstterm>
+          the high level four states state engine provided by the <glossterm role="non-normative">Core</glossterm>
           attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state"
               >state</link></code>. Setting the <code><link
@@ -793,8 +795,8 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target"
               >&lt;target></link></code> existence within that segment. </para>
         <para>Using the high level states <code>reviewed</code> and <code>final</code> gives you
-          even more control over the progressive validation of the <firstterm>XLIFF
-            Documents</firstterm> you're roundtripping. All of the states <code>translated</code>,
+          even more control over the progressive validation of the <glossterm role="non-normative">XLIFF
+            Documents</glossterm> you're roundtripping. All of the states <code>translated</code>,
             <code>reviewed</code>, and <code>final</code> will trigger validation of the inline data
           model within <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target"
@@ -805,8 +807,8 @@
           model including Editing hints are being tested in all states more advanced than
             <code>initial</code>. Those violations are considered "Warnings" at
             <code>translated</code> and <code>reviewed</code> states. Only in the <code>final</code>
-          state, those violations will become actual "Errors" that render the <firstterm>XLIFF
-            Document</firstterm> invalid.</para>
+          state, those violations will become actual "Errors" that render the <glossterm role="non-normative">XLIFF
+            Document</glossterm> invalid.</para>
       </section>
     </section>
     <section xml:id="Hints">
@@ -817,7 +819,7 @@
         controlling the segmentation modification; or providing additional context to other agents
         downstream.</para>
       <para>The default values of the editing hints and potential need to set them otherwise need to
-        be considered when creating <firstterm>Extraction</firstterm> rules to prevent issues which
+        be considered when creating <glossterm role="non-normative">Extraction</glossterm> rules to prevent issues which
         can be only identified by automated validation with editing hints set as intended.</para>
       <section xml:id="canDelete">
         <title>Non-deletable Inline Codes</title>
@@ -825,9 +827,9 @@
           ap<?oxy_insert_start author="jhusarcik" timestamp="20180626T231922+0200"?>a<?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180626T231921+0200" content="e"?>rt
           from formatting ones, such as software placeholders to be replaced during runtime. Removal
           of these placeholders or other functional code, either intentional or accidental, during
-          the <firstterm>Translation</firstterm> roundtrip can produce valid <firstterm>XLIFF
-            Documents</firstterm> that will nevertheless fail to merge back, cause build failures
-          later on, or create other functional issues in the <firstterm>Translated</firstterm>
+          the <glossterm role="non-normative">Translation</glossterm> roundtrip can produce valid <glossterm role="non-normative">XLIFF
+            Documents</glossterm> that will nevertheless fail to merge back, cause build failures
+          later on, or create other functional issues in the <glossterm role="non-normative">Translated</glossterm>
           product.</para>
         <para>The XLIFF specification provides the editing hint <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
@@ -841,19 +843,19 @@
           Chinese or Japanese target content. These languages don't use typographical methods of
           emphasis and non-deletable formatting codes tend to complicate life of translators
           <?oxy_comment_start author="jhusarcik" timestamp="20180626T232126+0200" comment="of?"?>into<?oxy_comment_end?>
-          such languages. On the other hand, <firstterm>Extractors</firstterm> need to take care to
+          such languages. On the other hand, <glossterm role="non-normative">Extractors</glossterm> need to take care to
           set the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete"
               >canDelete</link></code> attribute to <code>no</code> explicitly whenever an inline
-          code is critical for <firstterm>Merging</firstterm> back of the <firstterm>XLIFF
-            Document</firstterm>, their build process, or product functionality.</para>
+          code is critical for <glossterm role="non-normative">Merging</glossterm> back of the <glossterm role="non-normative">XLIFF
+            Document</glossterm>, their build process, or product functionality.</para>
       </section>
       <section xml:id="canReorder">
         <title> Preserving Order of Codes</title>
         <para>In case the order or nesting of inline codes in the original document is prescribed
           (for instance by a schema), it has to be preserved in the target content during the
-          localization roundtrip to prevent <firstterm>Merge</firstterm> issues, or validation fails
-          after <firstterm>Merging</firstterm>.</para>
+          localization roundtrip to prevent <glossterm role="non-normative">Merge</glossterm> issues, or validation fails
+          after <glossterm role="non-normative">Merging</glossterm>.</para>
         <para>The attribute <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder"
               >canReorder</link></code> on the inline code determines, whether each code can be
@@ -875,7 +877,7 @@
         </example>
 
         <para>Since this attribute is supported by native XLIFF validation artifacts
-            (<firstterm>XLIFF Core</firstterm> Schematron Schemas), potential reordering of the
+            (<glossterm role="non-normative">XLIFF Core</glossterm> Schematron Schemas), potential reordering of the
               <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
               >&lt;pc/></link></code> and <code><link
@@ -894,11 +896,11 @@
       
       <section xml:id="context">
         <title>Providing Context</title>
-        <para>The <firstterm>Agents</firstterm> in the roundtrip, human or machines, need enough
+        <para>The <glossterm role="non-normative">Agents</glossterm> in the roundtrip, human or machines, need enough
           information to make appropriate decisions regarding operations on inline codes, and how
           the codes impact the adequacy and fluency of the target text, the context in short.</para>
-        <para>These additional metadata can be provided using the <firstterm>context
-            hints</firstterm> attributes: <code><link
+        <para>These additional metadata can be provided using the <glossterm role="non-normative">context
+            hints</glossterm> attributes: <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> (<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispstart"
@@ -924,13 +926,13 @@
           content being represented by the related inline elements possibly as the CDATA sections,
           its content might be unsuitable to provide value for roundtrip agents, for instance be too
           long to render correctly in the CAT tool.</para>
-        <para><firstterm>Extractor</firstterm> could populate the value of an <code><link
+        <para><glossterm role="non-normative">Extractor</glossterm> could populate the value of an <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv"
               >equiv</link></code> attribute with a suitable plain text representation of the
           original data and <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp"
               >disp</link></code> with user-friendly variant of the same.</para>
-        <para>Alternatively, the same task could be performed by the <firstterm>Enricher</firstterm>
+        <para>Alternatively, the same task could be performed by the <glossterm role="non-normative">Enricher</glossterm>
           farther downstream based on the content of <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#originaldata"
               ><code>&lt;originalData></code></link>.</para>
@@ -978,7 +980,7 @@
           well-formed native markup, using the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
               >&lt;pc></link></code> pair tag is likely to be easier for the
-            <firstterm>Extactor</firstterm>.
+            <glossterm role="non-normative">Extactor</glossterm>.
           <?oxy_comment_start author="jhusarcik" timestamp="20180627T011312+0200" comment="&quot;Modifier best practices&quot;? M. should set attributes when converting …"?>On
           the other hand, it is important to consider that transforming the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
@@ -987,12 +989,12 @@
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
               >&lt;ec/></link></code> pair is always allowed. <?oxy_comment_end?>So the
-            <firstterm>Mergers</firstterm> need to prepared to handle <code><link
+            <glossterm role="non-normative">Mergers</glossterm> need to prepared to handle <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc"
               >&lt;sc/></link></code>/<code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec"
               >&lt;ec/></link></code> even in case their corresponding
-            <firstterm>Extractor</firstterm> used only the <code><link
+            <glossterm role="non-normative">Extractor</glossterm> used only the <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc"
               >&lt;pc></link></code> pair tag.</para>
         <para>Example: <link
@@ -1018,12 +1020,12 @@
           <?oxy_insert_start author="jhusarcik" timestamp="20180627T012116+0200"?>its
           <?oxy_insert_end?><?oxy_delete author="jhusarcik" timestamp="20180627T011859+0200" content="the XLIFF &lt;code&gt;&lt;link xlink:href=&quot;http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id&quot;&gt;id&lt;/link&gt;&lt;/code&gt; attribute "?>value
           is restricted to
-            <firstterm><?oxy_comment_start author="jhusarcik" timestamp="20180627T012155+0200" comment="link to definition?"?>NMTOKEN<?oxy_comment_end?></firstterm>
+            <glossterm role="non-normative"><?oxy_comment_start author="jhusarcik" timestamp="20180627T012155+0200" comment="link to definition?"?>NMTOKEN<?oxy_comment_end?></glossterm>
           by the normative XML Schema, the native format could not have such restrictions. Invalid
           characters in XLIFF <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id"
-              >id</link></code> attributes will render the whole <firstterm>XLIFF
-            Document</firstterm> invalid. Although this would typically be discovered as soon as the
+              >id</link></code> attributes will render the whole <glossterm role="non-normative">XLIFF
+            Document</glossterm> invalid. Although this would typically be discovered as soon as the
           first validation occurs, it can still be costly to fix in a large or long running
           project.</para>
         <para>Instead, the XLIFF <code><link
@@ -1041,7 +1043,7 @@
       <section xml:id="whitespaces">
         <title>Whitespace Handling</title>
         <para>Whitespaces can be important inside nodes such as <code>&lt;pre></code>, containing
-          for instance code samples, and <firstterm>Modifying</firstterm> them during the roundtrip
+          for instance code samples, and <glossterm role="non-normative">Modifying</glossterm> them during the roundtrip
           is not desirable.</para>
         <para>Whitespaces (more than one of the whitespace characters in a sequence) are, however,
           generally insignificant in the text nodes of markup formats, such as XML or HTML, and can
@@ -1051,16 +1053,16 @@
         <para>Thus one cannot indiscriminately either preserve, or normalize. Since most of TMS and
           CAT tools penalize whitespace discrepancies, the leverage could be negatively affected if
           whitespace<?oxy_insert_start author="jhusarcik" timestamp="20180627T012311+0200"?>s are<?oxy_insert_end?>
-          <firstterm>Modified</firstterm>, and layout of nodes with significant
+          <glossterm role="non-normative">Modified</glossterm>, and layout of nodes with significant
           white<?oxy_insert_start author="jhusarcik" timestamp="20180627T012324+0200"?>s<?oxy_insert_end?>pace
           could be corrupted.</para>
         <para>The general best practice, also taking into account the <link
             xlink:href="https://www.w3.org/TR/its20/#preservespace">ITS Preserve Space</link> data
           category is the following: </para>
-        <para>The <firstterm>Extractor</firstterm> itself ought to<orderedlist>
+        <para>The <glossterm role="non-normative">Extractor</glossterm> itself ought to<orderedlist>
             <listitem>
               <para>Normalize native content where possible, not relying on other
-                  <firstterm>Agents</firstterm> in the roundtrip to do so and</para>
+                  <glossterm role="non-normative">Agents</glossterm> in the roundtrip to do so and</para>
             </listitem>
             <listitem>
               <para><?oxy_comment_start author="jhusarcik" timestamp="20180627T012420+0200" comment="as required?"?>protect
@@ -1076,7 +1078,7 @@
               <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space"
               >xml:space</link></code> explicitly set to or inherited as <code>preserve</code>. The
-          default <firstterm>XLIFF Core</firstterm> behavior is only useful if all whitespace is
+          default <glossterm role="non-normative">XLIFF Core</glossterm> behavior is only useful if all whitespace is
           globally insignificant.</para>
         <para>Additional details in the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#preserve_space"
@@ -1118,7 +1120,7 @@
           role, typically standalone formatting artifacts such as <code>&lt;br/></code>.<note>
             <para><link linkend="validations">XLIFF Core validation artifacts</link> do not support
               validating translate annotations by design. It is the ultimate decision of the
-                <firstterm>Modifier</firstterm> if a span annotated as non-translatable will indeed
+                <glossterm role="non-normative">Modifier</glossterm> if a span annotated as non-translatable will indeed
               stay unchanged based on linguistic and context considerations. If the validation of
               the non-translatable annotations is necessary, it needs to be added for instance as
               custom validation code or a custom Schematron rule, based on particular business needs
@@ -1155,8 +1157,8 @@
       </section>
       <section xml:id="merging">
         <title>Merging Translated Content</title>
-        <para><firstterm>Modifiers</firstterm> can perform various <emphasis>valid</emphasis>
-          transformations during an XLIFF roundtrip. XLIFF compliant <firstterm>Mergers</firstterm>
+        <para><glossterm role="non-normative">Modifiers</glossterm> can perform various <emphasis>valid</emphasis>
+          transformations during an XLIFF roundtrip. XLIFF compliant <glossterm role="non-normative">Mergers</glossterm>
           need to be able correctly handle all of them, as those changes are canonical validity
           preserving operations. See in particular the clause 2.e. of the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#Conformance"
@@ -1164,12 +1166,12 @@
         <para>These operations are (in order of importance or severity of issues caused if ignored):<itemizedlist>
             <listitem>
               <para>Converting CDATA sections and parseable text (such as XML entities) into XLIFF
-                  <firstterm>inline codes</firstterm>.</para>
+                  <glossterm role="non-normative">inline codes</glossterm>.</para>
             </listitem>
             <listitem>
               <para><link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#segmentationModification"
-                  >Segmentation <firstterm>Modification</firstterm></link>,</para>
+                  >Segmentation <glossterm role="non-normative">Modification</glossterm></link>,</para>
             </listitem>
             <listitem>
               <para><link
@@ -1186,28 +1188,28 @@
                 single segment<?oxy_insert_end?>),</para>
             </listitem>
             <listitem>
-              <para>Adding, and removing of <firstterm>inline codes</firstterm> (taking into account
+              <para>Adding, and removing of <glossterm role="non-normative">inline codes</glossterm> (taking into account
                 the <link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#editinghints"
                   >editing hints</link> and their Processing Requirements),</para>
             </listitem>
             <listitem>
-              <para>Content <firstterm>Enrichment</firstterm> with <link
+              <para>Content <glossterm role="non-normative">Enrichment</glossterm> with <link
                   xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#annotations"
                   >Annotations</link><?oxy_insert_start author="jhusarcik" timestamp="20180627T013317+0200"?>
-                and <firstterm>Context Hints</firstterm><?oxy_insert_end?>,</para>
+                and <glossterm role="non-normative">Context Hints</glossterm><?oxy_insert_end?>,</para>
             </listitem>
             <listitem>
               <para>Performing of any other changes allowed by Processing Requirements.</para>
             </listitem>
           </itemizedlist></para>
-        <para><firstterm>Extraction</firstterm> not following best practices usually just shifts the
-          problems further downstream, forcing  other <firstterm>Agents</firstterm> to mitigate the
+        <para><glossterm role="non-normative">Extraction</glossterm> not following best practices usually just shifts the
+          problems further downstream, forcing  other <glossterm role="non-normative">Agents</glossterm> to mitigate the
           inherited issues, more often than not leading to unexpected, undesirable, or unpredictable
-          results that will trip over the <firstterm>Merging</firstterm> after the roundtrip.</para>
+          results that will trip over the <glossterm role="non-normative">Merging</glossterm> after the roundtrip.</para>
         <para>Additional guidance is also available in the <link
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#d0e11123"
-            >XLIFF Best Practice for <firstterm>Mergers</firstterm></link>.</para>
+            >XLIFF Best Practice for <glossterm role="non-normative">Mergers</glossterm></link>.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging"
             >merging</link>.</para>
@@ -1216,8 +1218,8 @@
         <title>Selecting Language Tags</title>
         <para
           xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#itsm_lang"
-            ><firstterm>Agents</firstterm> in the roundtrip, machine and human, need to be able to
-          sufficiently identify the languages used in <firstterm>XLIFF Documents</firstterm>. The
+            ><glossterm role="non-normative">Agents</glossterm> in the roundtrip, machine and human, need to be able to
+          sufficiently identify the languages used in <glossterm role="non-normative">XLIFF Documents</glossterm>. The
           two main languages (the source and the target language) of the XLIFF bitext are primarily
           specified by the attributes <code><link
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang"
@@ -1250,7 +1252,7 @@
           <?oxy_delete author="jhusarcik" timestamp="20180627T013611+0200" content="fain"?><?oxy_insert_start author="jhusarcik" timestamp="20180627T013611+0200"?>fine<?oxy_insert_end?>-grained
           language tags vary from simple, such as spell-check, which will behave quite differently
           for <code>en-GB</code>, compared to <code>en-basiceng</code>; to more complex, like using
-            <code>fr-FR</code> as a reference language for a <firstterm>Translation</firstterm> into
+            <code>fr-FR</code> as a reference language for a <glossterm role="non-normative">Translation</glossterm> into
             <code>fr-CA</code> .</para>
         <para>MT engines will return Serbian encoded with the Cyrillic script (<code>sr-Cyrl</code>)
           output when the request contains the language tag <emphasis>sr</emphasis> albeit the user
@@ -1265,12 +1267,12 @@
           language tag they don't cover.</para>
         <para>The XLIFF Standards prescribe that the <link linkend="bcp47">BCP 47</link> language
           tags are to be used as values for attributes specifying human natural languages used in
-          the <firstterm>XLIFF Documents</firstterm>. The Unicode Consortium offers a <link
+          the <glossterm role="non-normative">XLIFF Documents</glossterm>. The Unicode Consortium offers a <link
             xlink:href="http://unicode.org/cldr/utility/languageid.jsp">tool available
           online</link>, which can help to perform basic validation of selected language
           tags.</para>
         <para>Generally, language tags need to be carefully chosen for source, target, and reference
-          languages in <firstterm>XLIFF Documents</firstterm>, and it is worth your time to consult
+          languages in <glossterm role="non-normative">XLIFF Documents</glossterm>, and it is worth your time to consult
           external resources, or language experts; even more so, if you are not familiar with the
           defaults for the language in question.</para>
         <para>Example: <link
@@ -1282,17 +1284,17 @@
         <para>The native format can contain various reserved characters, or their sequences, for
           structural and inline markup, as well as for programmatic purposes. While not explicitly
           violating XLIFF Constraints and Processing Requirements, their incidence in the
-            <firstterm>Extracted</firstterm> content could point out issues with the
-            <firstterm>Extraction</firstterm> process.</para>
+            <glossterm role="non-normative">Extracted</glossterm> content could point out issues with the
+            <glossterm role="non-normative">Extraction</glossterm> process.</para>
         <para>One could implement a <emphasis>sanity check</emphasis> for the
-            <firstterm>Extractor</firstterm> output that would identify potential problems by
+            <glossterm role="non-normative">Extractor</glossterm> output that would identify potential problems by
           looking for such characters, or sequences of them. Failing such a sanity check would
           ideally interrupt the roundtrip as early as possible, allow for an update of the
-            <firstterm>Extraction</firstterm> rules, and for redoing the
-            <firstterm>Extraction</firstterm> in order to prevent problems further downstream. Not
-          at least, <firstterm>Extraction</firstterm> would expose such control characters or their
+            <glossterm role="non-normative">Extraction</glossterm> rules, and for redoing the
+            <glossterm role="non-normative">Extraction</glossterm> in order to prevent problems further downstream. Not
+          at least, <glossterm role="non-normative">Extraction</glossterm> would expose such control characters or their
           sequences to localization transformations that would most probably be harmful with regards
-          to the <firstterm>Merge</firstterm> and build processes.</para>
+          to the <glossterm role="non-normative">Merge</glossterm> and build processes.</para>
         <para>Example: <link
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
             >sanity_check</link>.</para>
@@ -1301,7 +1303,7 @@
     <section xml:id="validations">
       <title>XLIFF Validations</title>
       <para>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
-        workflows bringing together best of breed specialized <firstterm>Agents</firstterm>, it
+        workflows bringing together best of breed specialized <glossterm role="non-normative">Agents</glossterm>, it
         makes huge business sense to validate, to validate a lot, everywhere, and all the time.
         Successful validation on every input and output step is the critical factor for successful
         "blind", plug-and-play, or unsupervised interoperability. If you are designing a service
@@ -1309,16 +1311,16 @@
         integrating many services that are consuming and outputting XLIFF, it makes sense to expose
         XLIFF validation as a reusable microservice that is freely available and even mandated at
         every input and output step in your ecosystem, service layer, or service bus. When your tool
-        is supposed to receive <firstterm>XLIFF Documents</firstterm>, check first if the XLIFF you
-        are trying to consume is indeed valid. Also if you are outputting <firstterm>XLIFF
-          Documents</firstterm> that other <firstterm>Agents</firstterm> or service providers are
+        is supposed to receive <glossterm role="non-normative">XLIFF Documents</glossterm>, check first if the XLIFF you
+        are trying to consume is indeed valid. Also if you are outputting <glossterm role="non-normative">XLIFF
+          Documents</glossterm> that other <glossterm role="non-normative">Agents</glossterm> or service providers are
         supposed to consume, do check that you are outputting valid XLIFF. Don't force your service
         providers to accept invalid XLIFF, rather take their pushback as a signal that something
         might be wrong with your process. Do remember that problems pushed downstream will force
         various mitigation steps among a potentially large number of Agents and those problems will
         resurface unpredictably shape-shifted no later than at the time when you will try to
-          <firstterm>Merge</firstterm> the XLIFF back, or worse as the localized product's issues,
-        if <firstterm>Merging</firstterm> and building miraculously succeed.</para>
+          <glossterm role="non-normative">Merge</glossterm> the XLIFF back, or worse as the localized product's issues,
+        if <glossterm role="non-normative">Merging</glossterm> and building miraculously succeed.</para>
       <para>XLIFF is a format that has been blessed with multiple low level implementations,
         therefore you have also multiple options for XLIFF validation. Since XLIFF Version 2.1, most
         of the advanced validation checks that required custom code in XLIFF 2.0 can be validated
@@ -1341,7 +1343,7 @@
     <para>This specification attempts (among other goals) to make the XLIFF Standards more
       accessible to content owners that are not necessarily looking into the full nitty-gritty of
       the XLIFF specs. It gives a general guidance how to handle constructs common in HTML and
-      generic XML, it also provides some basic information on <firstterm>Extraction</firstterm> from
+      generic XML, it also provides some basic information on <glossterm role="non-normative">Extraction</glossterm> from
       Content Management Systems and software resources. The TAPICC &wg; and the Editors look
       forward to receiving feedback how to make this &releaseinfo; even more useful, potentially how
       and in what directions to expand its scope.</para>
@@ -1349,24 +1351,24 @@
       are the basic design principles behind XLIFF as the exchange bitext format, both at the
       structural and the inline levels. We hopefully managed to introduce and explain good business
       reasons for thoughtful, properly structured, and metadata rich XLIFF
-        <firstterm>Extraction</firstterm> that will in turn facilitate fully automated, gold
-      standard  <firstterm>Merge</firstterm> and target build processes.</para>
-    <para>XLIFF <firstterm>Extraction</firstterm> can never make sense when perceived on its own, as
-      an isolated process. Since XLIFF doesn't purport to standardize <firstterm>Merging</firstterm>
-      without the full knowledge of the <firstterm>Extraction</firstterm> mechanism, all
-      implementers that build <firstterm>Extractors</firstterm> will need to build
-        <firstterm>Mergers</firstterm> in order to benefit from the exercise. In fact, for a
-      corporate owner the <firstterm>Extractor</firstterm>/<firstterm>Merger</firstterm> will be
+        <glossterm role="non-normative">Extraction</glossterm> that will in turn facilitate fully automated, gold
+      standard  <glossterm role="non-normative">Merge</glossterm> and target build processes.</para>
+    <para>XLIFF <glossterm role="non-normative">Extraction</glossterm> can never make sense when perceived on its own, as
+      an isolated process. Since XLIFF doesn't purport to standardize <glossterm role="non-normative">Merging</glossterm>
+      without the full knowledge of the <glossterm role="non-normative">Extraction</glossterm> mechanism, all
+      implementers that build <glossterm role="non-normative">Extractors</glossterm> will need to build
+        <glossterm role="non-normative">Mergers</glossterm> in order to benefit from the exercise. In fact, for a
+      corporate owner the <glossterm role="non-normative">Extractor</glossterm>/<glossterm role="non-normative">Merger</glossterm> will be
       considered a single application with two end points. Designers of such tools need to be
-      acutely aware that every design compromise made at the <firstterm>Extraction</firstterm>
-      endpoint will compromise the ability of downstream <firstterm>Agents</firstterm> to
+      acutely aware that every design compromise made at the <glossterm role="non-normative">Extraction</glossterm>
+      endpoint will compromise the ability of downstream <glossterm role="non-normative">Agents</glossterm> to
       p<?oxy_delete author="jhusarcik" timestamp="20180627T014625+0200" content="r"?>e<?oxy_insert_start author="jhusarcik" timestamp="20180627T014627+0200"?>r<?oxy_insert_end?>form
       lossless bitext transformations and thus will in the end undesirably and sometimes
-      unpredictably affect their own <firstterm>Merging</firstterm> endpoint that will have to
-      receive the <firstterm>XLIFF Documents</firstterm> after a localization roundtrip. </para>
+      unpredictably affect their own <glossterm role="non-normative">Merging</glossterm> endpoint that will have to
+      receive the <glossterm role="non-normative">XLIFF Documents</glossterm> after a localization roundtrip. </para>
     <para>Sometimes, some service providers do accept horrible and ugly "XLIFF" pretending that
       there is nothing to worry. In such cases, rest assured that the service provider had to
-      complement the poor <firstterm>Extraction</firstterm>/<firstterm>Merge</firstterm> job with
+      complement the poor <glossterm role="non-normative">Extraction</glossterm>/<glossterm role="non-normative">Merge</glossterm> job with
       their own costly pre- and post-processing routines, or worse pushed them even further
       downstream onto the translators who may or may not be tech-savvy enough to preserve
       unprotected features that are critical for your build or runtime functionality. No matter if
