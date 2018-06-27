@@ -128,8 +128,8 @@
       <para>When referencing this specification the following citation format should be used:</para>
       <para><citation>XLIFF-EM-BP</citation></para>
       <para><emphasis>XLIFF 2 Extraction and Merging Best Practice, Version &version;</emphasis>
-        Edited by David Filip and Ján Husarčík. &pubdate;. &stage; &substage;. &this-loc;.html.
-        Latest version: &latest;.html.</para>
+        Edited by David Filip and Ján Husarčík. &pubdate;. &stage; &substage;. &this-loc;.xhtml.
+        Latest version: &latest;.xhtml.</para>
     </legalnotice>
     <legalnotice role="notices">
       <title>Notices</title>
