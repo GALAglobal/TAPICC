@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 
     <xsl:import href="xhtml5/docbook.xsl" />
-
+    <xsl:strip-space elements="*"/>
     <xsl:template match="glossterm[@role]">
         <span>
             <xsl:attribute name="class">
