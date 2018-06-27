@@ -88,6 +88,9 @@
 
 <xsl:param name="stylesheet.result.type" select="'fo'"/>
 
+<xsl:attribute-set name="monospace.verbatim.properties">
+    <xsl:attribute name="wrap-option">wrap</xsl:attribute>
+</xsl:attribute-set>
 <!-- ==================================================================== -->
 
 <xsl:key name="id" match="*" use="@id|@xml:id"/>

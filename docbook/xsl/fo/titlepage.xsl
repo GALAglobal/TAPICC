@@ -407,6 +407,7 @@
 
 <xsl:template match="editor[1]" priority="2" mode="titlepage.mode">
   <xsl:call-template name="gentext.edited.by"/>
+  <xsl:text>:</xsl:text>
   <xsl:call-template name="gentext.space"/>
   <xsl:call-template name="person.name.list">
     <xsl:with-param name="person.list" select="../editor"/>
@@ -501,17 +502,22 @@
     <xsl:when test="contrib">
       <xsl:if test="not(preceding-sibling::othercredit[string(contrib)=$contrib])">
         <fo:block>
+          <xsl:if test="string(contrib)='WG Chair'">
+            <xsl:text>WG chaired by</xsl:text>
+          </xsl:if>
+          <xsl:if test="not(string(contrib)='WG Chair')">
           <xsl:apply-templates mode="titlepage.mode" select="contrib"/>
+          </xsl:if>
           <xsl:text>: </xsl:text>
           <xsl:call-template name="person.name"/>
-          <xsl:apply-templates mode="titlepage.mode" select="affiliation"/>
+          <!--<xsl:apply-templates mode="titlepage.mode" select="affiliation"/>-->
           <xsl:apply-templates select="following-sibling::othercredit[string(contrib)=$contrib]" mode="titlepage.othercredits"/>
         </fo:block>
       </xsl:if>
     </xsl:when>
     <xsl:otherwise>
       <fo:block><xsl:call-template name="person.name"/></fo:block>
-      <xsl:apply-templates mode="titlepage.mode" select="./affiliation"/>
+      <!--<xsl:apply-templates mode="titlepage.mode" select="./affiliation"/>-->
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
