@@ -29,13 +29,15 @@
       <!-- WG Chairs should be given credit -->
       <othercredit role="chair">
         <personname>Rodolfo M. Raya</personname>
+        <contrib>WG Chair</contrib>
         <email>rmraya@maxprograms.com</email>
         <affiliation>
           <orgname>Maxprograms</orgname>
         </affiliation>
       </othercredit>
-      <othercredit role="chair">
+      <othercredit role="WG chair">
         <personname>Andreas Galambos</personname>
+        <contrib>WG Chair</contrib>
         <email>andreas.galambos@tmuebersetzungen.de</email>
         <affiliation>
           <orgname>Transmission Uebersetzungen</orgname>
