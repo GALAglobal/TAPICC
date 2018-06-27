@@ -11,7 +11,7 @@ title: Top level page for TAPICC deliverables
 #### XLIFF 2 Extraction and Merging Best Practice, Version 1.0
 [Editors draft in HTML](/T1/WG3/XLIFF-EM-BP-ED.xhtml) \| [Editors draft in PDF](/T1/WG3/XLIFF-EM-BP-ED.pdf)
 
-[Public review draft in HTML](/T1/WG3/XLIFF-EM-BP-prd01.xhtml) \| [Public review draft in PDF](/T1/WG3/XLIFF-EM-BP-prd01.pdf)
+[Public review draft in HTML](/T1/WG3/XLIFF-EM-BP-V1.0-prd01.xhtml) \| [Public review draft in PDF](/T1/WG3/XLIFF-EM-BP-V1.0-prd01.xhtml)
 
 This document has not yet been published
 
