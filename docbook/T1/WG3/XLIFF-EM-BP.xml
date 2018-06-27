@@ -99,8 +99,7 @@
     <abstract>
       <para>This &releaseinfo; specification targets designers of XLIFF <glossterm
           role="non-normative">Extracting</glossterm> and
-          <?oxy_attributes role="&lt;change type=&quot;modified&quot; oldValue=&quot;non-normative&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T130452+0200&quot; /&gt;"?><glossterm
-          role="non-normative">Merging</glossterm> tools for content owners. It gathers common
+          <glossterm role="non-normative">Merging</glossterm> tools for content owners. It gathers common
         problems that are prone to appear when <glossterm role="non-normative"
           >Extracting</glossterm>
         <glossterm role="non-normative">XLIFF Documents</glossterm> from HTML, generic XML, or
@@ -307,7 +306,7 @@
               xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group"
               >&lt;group></link></code> elements. It will be however at the cost of high redundancy
           of unit level metadata and possibly cause potentially illegal overload of some of the
-            <?oxy_attributes role="&lt;change type=&quot;modified&quot; oldValue=&quot;non-normative&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T023409+0200&quot; /&gt;"?><glossterm
+            <glossterm
             role="non-normative">XLIFF Core</glossterm> features. </para>
         <para>Example: <link
           xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group"
@@ -315,7 +314,7 @@
       </section>
       <section xml:id="unit">
         <title>Role of the <code>&lt;unit></code> Element</title>
-        <para><?oxy_attributes role="&lt;change type=&quot;modified&quot; oldValue=&quot;non-normative&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T023306+0200&quot; /&gt;"?><glossterm
+        <para><glossterm
             role="non-normative">Extractors</glossterm> set the XLIFF structure, which cannot be
           modified (an absolute prohibition expressed in the XLIFF Standards) during the roundtrip
           at the unit level or higher. Ensuring or not that the appropriate relationships drive
@@ -1234,7 +1233,7 @@
           when not given an unequivocal language tag, or worse ignore a valid fine-grained language
           tag they don't cover.</para>
         <para>The XLIFF Standards prescribe that the
-            <?oxy_attributes linkend="&lt;change type=&quot;modified&quot; oldValue=&quot;bcp47&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T103203+0200&quot; /&gt;"?><link
+            <link
             linkend="BCP_47">BCP 47</link> language tags are to be used as values for attributes
           specifying human natural languages used in the <glossterm role="non-normative"
             >XLIFF Documents</glossterm>. The Unicode Consortium offers a <link
@@ -1353,11 +1352,9 @@
     <title>References</title>
     <bibliodiv>
       <title>Normative references</title>
-      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102815+0200&quot; /&gt;"?>
       <bibliomixed xml:id="XML"><abbrev>XML</abbrev>W3C: <title>Extensible Markup Language (XML)
           1.0</title><date>26 November 2008</date>
         <bibliomisc><link xlink:href="https://www.w3.org/TR/xml/" /></bibliomisc></bibliomixed>
-      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102831+0200&quot; /&gt;"?>
       <bibliomixed xml:id="XLIFF-2.1">
         <abbrev>XLIFF-2.1</abbrev>Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
         Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>13 February 2018</date>
@@ -1367,7 +1364,6 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
            /></bibliomisc>
       </bibliomixed>
-      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102852+0200&quot; /&gt;"?>
       <bibliomixed xml:id="XLIFF-2.0">
         <abbrev>XLIFF-2.0</abbrev>Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
         Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
@@ -1377,7 +1373,6 @@
             xlink:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
            /></bibliomisc>
       </bibliomixed>
-      <?oxy_attributes xml:id="&lt;change type=&quot;inserted&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T102906+0200&quot; /&gt;"?>
       <bibliomixed xml:id="ISO_XLIFF">
         <abbrev>ISO XLIFF</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
         Savourel: <title>ISO 21720:2017 - XLIFF (XML Localisation interchange file
@@ -1385,7 +1380,6 @@
         <bibliomisc><link version="International Standard"
             xlink:href="https://www.iso.org/standard/71490.html" /></bibliomisc>
       </bibliomixed>
-      <?oxy_attributes xml:id="&lt;change type=&quot;modified&quot; oldValue=&quot;bcp47&quot; author=&quot;jhusarcik&quot; timestamp=&quot;20180627T103015+0200&quot; /&gt;"?>
       <bibliomixed xml:id="BCP_47"><abbrev>BCP 47</abbrev> M. Davis: <title>Tags for Identifying
           Languages</title>, <bibliomisc><link xlink:href="http://tools.ietf.org/html/bcp47"
             >http://tools.ietf.org/html/bcp47</link></bibliomisc> IETF (Internet Engineering Task
@@ -1393,5 +1387,4 @@
     </bibliodiv>
   </bibliography>
 </article>
-
 
