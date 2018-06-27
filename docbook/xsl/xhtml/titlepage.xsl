@@ -140,11 +140,13 @@
     <xsl:call-template name="id.attribute"/>
     <xsl:call-template name="anchor"/>
     <xsl:if test="$abstract.notitle.enabled = 0">
+      <h4>
       <xsl:call-template name="formal.object.heading">
         <xsl:with-param name="title">
           <xsl:apply-templates select="." mode="title.markup"/>
         </xsl:with-param>
       </xsl:call-template>
+      </h4>
     </xsl:if>
     <xsl:apply-templates mode="titlepage.mode"/>
     <xsl:call-template name="process.footnotes"/>
@@ -191,11 +193,11 @@
 </xsl:template>
 
 <xsl:template match="affiliation" mode="titlepage.mode">
-  <div>
+  <span>
     <xsl:apply-templates select="." mode="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
     <xsl:apply-templates mode="titlepage.mode"/>
-  </div>
+  </span>
 </xsl:template>
 
 <xsl:template match="artpagenums" mode="titlepage.mode">
@@ -203,23 +205,23 @@
     <xsl:apply-templates select="." mode="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
     <xsl:apply-templates mode="titlepage.mode"/>
-    <br/>
   </span>
 </xsl:template>
-
+<!-- tapicc modification start -->
 <xsl:template match="author|editor" mode="titlepage.mode">
+  <xsl:if test="self::editor and                    count(preceding-sibling::editor) = 0 and                    not($editedby.enabled = 0)">
+    <h4 class="editedby"><xsl:call-template name="gentext.edited.by"/></h4>
+  </xsl:if>
   <xsl:call-template name="credits.div"/>
 </xsl:template>
 
 <xsl:template name="credits.div">
+
+  
   <div>
     <xsl:apply-templates select="." mode="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
-    <xsl:if test="self::editor and                    count(preceding-sibling::editor) = 0 and                    not($editedby.enabled = 0)">
-      <h4 class="editedby"><xsl:call-template name="gentext.edited.by"/></h4>
-    </xsl:if>
-    <h3>
-      <xsl:apply-templates select="." mode="common.html.attributes"/>
+
       <xsl:choose>
         <xsl:when test="orgname">
           <xsl:apply-templates/>
@@ -228,10 +230,8 @@
           <xsl:call-template name="person.name"/>
         </xsl:otherwise>
       </xsl:choose>
-    </h3>
-    <xsl:if test="not($contrib.inline.enabled = 0)">
-      <xsl:apply-templates mode="titlepage.mode" select="contrib"/>
-    </xsl:if>
+    <xsl:text>, </xsl:text>
+    <xsl:apply-templates mode="titlepage.mode" select="contrib"/>
     <xsl:apply-templates mode="titlepage.mode" select="affiliation"/>
     <xsl:apply-templates mode="titlepage.mode" select="email"/>
     <xsl:if test="not($blurb.on.titlepage.enabled = 0)">
@@ -246,7 +246,7 @@
     </xsl:if>
   </div>
 </xsl:template>
-
+  <!-- tapicc modification end -->
 <xsl:template match="authorblurb|personblurb" mode="titlepage.mode">
   <div>
     <xsl:apply-templates select="." mode="common.html.attributes"/>
@@ -366,7 +366,7 @@
         <xsl:apply-templates select="." mode="common.html.attributes"/>
         <xsl:call-template name="id.attribute"/>
         <xsl:apply-templates mode="titlepage.mode"/>
-      </span><xsl:text>&#160;</xsl:text>
+      </span><xsl:text>, </xsl:text>
     </xsl:when>
     <xsl:otherwise>
       <div>
@@ -482,8 +482,22 @@
 </xsl:template>
 
 <xsl:template match="email" mode="titlepage.mode">
-  <!-- use the normal e-mail handling code -->
-  <xsl:apply-templates select="."/>
+  <xsl:text>, </xsl:text>
+  <xsl:if test="not($email.delimiters.enabled = 0)">
+    <xsl:text>&lt;</xsl:text>
+  </xsl:if>
+  <a>
+    <xsl:apply-templates select="." mode="common.html.attributes"/>
+    <xsl:call-template name="id.attribute"/>
+    <xsl:attribute name="href">
+      <xsl:text>mailto:</xsl:text>
+      <xsl:value-of select="."/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </a>
+  <xsl:if test="not($email.delimiters.enabled = 0)">
+    <xsl:text>&gt;</xsl:text>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="firstname" mode="titlepage.mode">
@@ -669,11 +683,13 @@
     <xsl:apply-templates select="." mode="common.html.attributes"/>
     <xsl:call-template name="id.attribute"/>
     <xsl:apply-templates mode="titlepage.mode"/>
-    <br/>
   </span>
 </xsl:template>
 
 <xsl:template match="othercredit" mode="titlepage.mode">
+  <xsl:if test="self::othercredit and count(preceding-sibling::othercredit) = 0">
+    <h4 class="others">Other credits</h4>
+  </xsl:if>
 <xsl:choose>
   <xsl:when test="not($othercredit.like.author.enabled = 0)">
   <xsl:variable name="contrib" select="string(contrib)"/>
@@ -693,6 +709,7 @@
       </xsl:if>
     </xsl:when>
     <xsl:otherwise>
+      <xsl:value-of select="./@role"/>
       <xsl:call-template name="paragraph">
         <xsl:with-param name="class" select="local-name(.)"/>
         <xsl:with-param name="content">

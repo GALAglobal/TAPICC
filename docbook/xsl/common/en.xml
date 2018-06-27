@@ -160,8 +160,8 @@
 <l:gentext key="optional-step" text="(Optional) "/>
 <l:gentext key="Edited" text="Edited"/>
 <l:gentext key="edited" text="Edited"/>
-<l:gentext key="Editedby" text="Edited by"/>
-<l:gentext key="editedby" text="Edited by"/>
+<l:gentext key="Editedby" text="Editors"/>
+<l:gentext key="editedby" text="Editors"/>
 <l:gentext key="in" text="in"/>
 <l:gentext key="lastlistcomma" text=","/>
 <l:gentext key="listcomma" text=","/>
