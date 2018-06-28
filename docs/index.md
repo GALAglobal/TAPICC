@@ -17,6 +17,6 @@ This document has not yet been published
 
 ## The fine print
 
-[Readme](../README.md)
+[Readme](https://github.com/GALAglobal/TAPICC/blob/master/README.md)
 
-[Legal](../LICENSE.md)
+[Legal](https://github.com/GALAglobal/TAPICC/blob/master/LICENSE.md)
