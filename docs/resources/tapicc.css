@@ -32,10 +32,25 @@ p.releaseinfo {
 .bibliomixed {
     text-align: left;
 }
-a{
+a {
     text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.programlisting {
+    /*      display: flex;*/
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+    list-style-type: decimal !important;
 }
