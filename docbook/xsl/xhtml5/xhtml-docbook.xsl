@@ -492,7 +492,7 @@ chunk-code.xsl; and in $chunk.hierarchy used in chunkfast.xsl -->
       <xsl:call-template name="user.head.content">
         <xsl:with-param name="node" select="$doc"/>
       </xsl:call-template>
-      
+      <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     </head>
     <body>
       <xsl:call-template name="body.attributes"/>

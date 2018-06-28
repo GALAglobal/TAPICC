@@ -53,9 +53,7 @@
         </xsl:choose>
       </xsl:variable>
       <xsl:element name="{$div.element}" namespace="http://www.w3.org/1999/xhtml">
-        <xsl:apply-templates select="." mode="common.html.attributes">
-          <xsl:with-param name="prettify">prettify</xsl:with-param>
-        </xsl:apply-templates>
+        <xsl:apply-templates select="." mode="common.html.attributes"/>
         <xsl:call-template name="id.attribute"/>
         <xsl:if test="@width != ''">
           <xsl:attribute name="width">
@@ -69,9 +67,7 @@
     </xsl:when>
     <xsl:otherwise>
       <xsl:element name="{$div.element}" namespace="http://www.w3.org/1999/xhtml">
-        <xsl:apply-templates select="." mode="common.html.attributes">
-          <xsl:with-param name="custom-class"> prettyprint</xsl:with-param>
-        </xsl:apply-templates>
+        <xsl:apply-templates select="." mode="common.html.attributes"/>
         <xsl:call-template name="id.attribute"/>
         <xsl:if test="@width != ''">
           <xsl:attribute name="width">
