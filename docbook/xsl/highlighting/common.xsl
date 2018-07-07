@@ -1,21 +1,24 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:d="http://docbook.org/ns/docbook"
+
 		xmlns:s6hl="http://net.sf.xslthl/ConnectorSaxon6" 
 		xmlns:sbhl="http://net.sf.xslthl/ConnectorSaxonB" 
 		xmlns:xhl="http://net.sf.xslthl/ConnectorXalan"
 		xmlns:saxon6="http://icl.com/saxon" 
 		xmlns:saxonb="http://saxon.sf.net/" 
 		xmlns:xalan="http://xml.apache.org/xalan"
+		
 		xmlns:exsl="http://exslt.org/common"
 		xmlns:xslthl="http://xslthl.sf.net"
-		exclude-result-prefixes="exsl xslthl s6hl sbhl xhl d"
+		exclude-result-prefixes="exsl xslthl s6hl sbhl xhl"
 		version='1.0'>
 
 <!-- ********************************************************************
+     $Id: common.xsl 8257 2009-02-20 04:40:16Z abdelazer $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      and other information.
 
      ******************************************************************** -->

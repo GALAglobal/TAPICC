@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:d="http://docbook.org/ns/docbook"
-xmlns:fo="http://www.w3.org/1999/XSL/Format"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
-  exclude-result-prefixes="dc d"
+  exclude-result-prefixes="dc"
   version='1.0'>
   
-<xsl:template match="d:drama/d:title"/>
-<xsl:template match="d:poetry/d:title"/>
-<xsl:template match="d:dialogue/d:title"/>
+<xsl:template match="drama/title"/>
+<xsl:template match="poetry/title"/>
+<xsl:template match="dialogue/title"/>
 
-<xsl:template match="d:drama">
+<xsl:template match="drama">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>
   </xsl:variable>
@@ -24,7 +23,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   </xsl:element>
 </xsl:template>
   
-<xsl:template match="d:dialogue">
+<xsl:template match="dialogue">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>
   </xsl:variable>
@@ -38,7 +37,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   </xsl:element>
 </xsl:template>
   
-<xsl:template match="d:poetry">
+<xsl:template match="poetry">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>
   </xsl:variable>
@@ -52,7 +51,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   </xsl:element>
 </xsl:template>
   
-<xsl:template match="d:stagedir">
+<xsl:template match="stagedir">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>
   </xsl:variable>
@@ -71,7 +70,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
 
 </xsl:template>
 
-<xsl:template match="d:inlinestagedir">
+<xsl:template match="inlinestagedir">
   <fo:inline xsl:use-attribute-sets="inlinestagedir.properties">
     <xsl:call-template name="anchor"/>
     <xsl:text> [</xsl:text>
@@ -80,7 +79,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   </fo:inline>
 </xsl:template>
 
-<xsl:template match="d:linegroup">
+<xsl:template match="linegroup">
   <xsl:variable name="id">
     <xsl:call-template name="object.id"/>
   </xsl:variable>
@@ -96,23 +95,23 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
     </xsl:if>
     <fo:list-item>
       <fo:list-item-label end-indent="label-end()">
-        <xsl:apply-templates select="d:speaker"/>
+        <xsl:apply-templates select="speaker"/>
       </fo:list-item-label>
       <fo:list-item-body start-indent="body-start()">
-        <xsl:apply-templates select="*[not(self::d:speaker)]"/>
+        <xsl:apply-templates select="*[not(self::speaker)]"/>
       </fo:list-item-body>
     </fo:list-item>
   </fo:list-block>
 </xsl:template>
 
-<xsl:template match="d:speaker">
+<xsl:template match="speaker">
   <fo:block xsl:use-attribute-sets="speaker.properties">
     <xsl:call-template name="anchor"/>
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>
 
-<xsl:template match="d:line">
+<xsl:template match="line">
   <fo:block xsl:use-attribute-sets="line.properties">
     <xsl:call-template name="anchor"/>
     <xsl:apply-templates/>

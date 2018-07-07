@@ -9,15 +9,16 @@
 
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:k="http://www.isogen.com/functions/com.isogen.saxoni18n.Saxoni18nService"
-                exclude-result-prefixes="k d"
+                xmlns:k="http://www.isogen.com/functions/com.isogen.saxoni18n.Saxoni18nService"
+                exclude-result-prefixes="k"
                 version="1.0">
 
 <!-- ********************************************************************
+     $Id: autoidx-kimber.xsl 8729 2010-07-15 16:43:56Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -81,7 +82,7 @@
   </xsl:variable>
 
   <xsl:variable name="terms"
-                select="//d:indexterm[count(.|key('k-group', k:getIndexGroupKey(&lang;, &primary;))[&scope;][1]) = 1 and not(@class = 'endofrange')]"/>
+                select="//indexterm[count(.|key('k-group', k:getIndexGroupKey(&lang;, &primary;))[&scope;][1]) = 1 and not(@class = 'endofrange')]"/>
 
   <xsl:variable name="alphabetical"
                 select="$terms[not(starts-with(
@@ -130,7 +131,7 @@
 
 </xsl:template>
 
-<xsl:template match="d:indexterm" mode="index-div-kimber">
+<xsl:template match="indexterm" mode="index-div-kimber">
   <xsl:param name="scope" select="."/>
   <xsl:param name="role" select="''"/>
   <xsl:param name="type" select="''"/>

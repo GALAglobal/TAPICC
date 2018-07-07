@@ -3,6 +3,9 @@
         https://www.iana.org/assignments/language-subtag-registry
         https://www.w3.org/International/questions/qa-choosing-language-tags
         https://www.w3.org/International/articles/language-tags/
+        https://tools.ietf.org/html/rfc6497
+        http://www.unicode.org/cldr/charts/latest/supplemental/likely_subtags.html#sr
+        http://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code
     -->
     <file id="f1">
         <unit id="u1">

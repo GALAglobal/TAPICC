@@ -18,7 +18,7 @@
                     kurzíva
                     <ec startRef="2" equiv="/i" /></target>
                 <!-- native XLIFF validation can detect overlapping
-                    with canOverlap="yes"
+                    with canOverlap="no"
                 -->
             </segment>
         </unit>

@@ -1,7 +1,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-xmlns:saxon="http://icl.com/saxon"
-                exclude-result-prefixes="saxon d"
+                xmlns:saxon="http://icl.com/saxon"
+                exclude-result-prefixes="saxon"
                 version="1.0">
 
 <!-- Should be base URI for imagedata and so on fixed? -->

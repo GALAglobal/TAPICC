@@ -1,15 +1,16 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
-                exclude-result-prefixes="doc d"
+                exclude-result-prefixes="doc"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: ebnf.xsl 9664 2012-11-07 20:02:17Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -17,6 +18,7 @@
 <doc:reference xmlns="">
 <referenceinfo>
 <releaseinfo role="meta">
+$Id: ebnf.xsl 9664 2012-11-07 20:02:17Z bobstayton $
 </releaseinfo>
 <author><surname>Walsh</surname>
 <firstname>Norman</firstname></author>
@@ -49,11 +51,11 @@ to be incomplete. Don't forget to read the source, too :-)</para>
 
 <!-- ==================================================================== -->
 
-<xsl:template match="d:productionset">
+<xsl:template match="productionset">
   <xsl:variable name="id"><xsl:call-template name="object.id"/></xsl:variable>
 
   <xsl:choose>
-    <xsl:when test="d:title">
+    <xsl:when test="title">
       <fo:block id="{$id}" xsl:use-attribute-sets="formal.object.properties">
         <xsl:call-template name="formal.object.heading">
           <xsl:with-param name="placement" select="'before'"/>
@@ -66,7 +68,7 @@ to be incomplete. Don't forget to read the source, too :-)</para>
           <fo:table-column column-number="4" column-width="52%"/>
           <fo:table-column column-number="5" column-width="25%"/>
           <fo:table-body start-indent="0pt" end-indent="0pt">
-            <xsl:apply-templates select="d:production|d:productionrecap"/>
+            <xsl:apply-templates select="production|productionrecap"/>
           </fo:table-body>
         </fo:table>
       </fo:block>
@@ -79,18 +81,18 @@ to be incomplete. Don't forget to read the source, too :-)</para>
         <fo:table-column column-number="4" column-width="52%"/>
         <fo:table-column column-number="5" column-width="25%"/>
         <fo:table-body start-indent="0pt" end-indent="0pt">
-          <xsl:apply-templates select="d:production|d:productionrecap"/>
+          <xsl:apply-templates select="production|productionrecap"/>
         </fo:table-body>
       </fo:table>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:productionset/d:title">
+<xsl:template match="productionset/title">
   <!-- suppressed -->
 </xsl:template>
 
-<xsl:template match="d:production">
+<xsl:template match="production">
   <xsl:param name="recap" select="false()"/>
   <xsl:variable name="id"><xsl:call-template name="object.id"/></xsl:variable>
   <fo:table-row>
@@ -107,12 +109,12 @@ to be incomplete. Don't forget to read the source, too :-)</para>
           <xsl:when test="$recap">
             <fo:basic-link internal-destination="{$id}"
                            xsl:use-attribute-sets="xref.properties">
-              <xsl:apply-templates select="d:lhs"/>
+              <xsl:apply-templates select="lhs"/>
             </fo:basic-link>
           </xsl:when>
           <xsl:otherwise>
             <fo:wrapper id="{$id}">
-              <xsl:apply-templates select="d:lhs"/>
+              <xsl:apply-templates select="lhs"/>
             </fo:wrapper>
           </xsl:otherwise>
         </xsl:choose>
@@ -125,16 +127,16 @@ to be incomplete. Don't forget to read the source, too :-)</para>
     </fo:table-cell>
     <fo:table-cell>
       <fo:block>
-        <xsl:apply-templates select="d:rhs"/>
+        <xsl:apply-templates select="rhs"/>
         <xsl:copy-of select="$ebnf.statement.terminator"/>
       </fo:block>
     </fo:table-cell>
     <fo:table-cell border-start-width="3pt">
       <fo:block text-align="start">
         <xsl:choose>
-          <xsl:when test="d:rhs/d:lineannotation|d:constraint">
-            <xsl:apply-templates select="d:rhs/d:lineannotation" mode="rhslo"/>
-            <xsl:apply-templates select="d:constraint"/>
+          <xsl:when test="rhs/lineannotation|constraint">
+            <xsl:apply-templates select="rhs/lineannotation" mode="rhslo"/>
+            <xsl:apply-templates select="constraint"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:text>&#160;</xsl:text>
@@ -145,7 +147,7 @@ to be incomplete. Don't forget to read the source, too :-)</para>
   </fo:table-row>
 </xsl:template>
 
-<xsl:template match="d:productionrecap">
+<xsl:template match="productionrecap">
   <xsl:variable name="targets" select="key('id',@linkend)"/>
   <xsl:variable name="target" select="$targets[1]"/>
 
@@ -170,15 +172,15 @@ to be incomplete. Don't forget to read the source, too :-)</para>
   </xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="d:lhs">
+<xsl:template match="lhs">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:rhs">
+<xsl:template match="rhs">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:nonterminal">
+<xsl:template match="nonterminal">
   <xsl:variable name="linkend">
     <xsl:call-template name="xpointer.idref">
       <xsl:with-param name="xpointer" select="@def"/>
@@ -237,7 +239,7 @@ to be incomplete. Don't forget to read the source, too :-)</para>
           <xsl:when test="$linkend != ''">
             <xsl:variable name="targets" select="key('id',$linkend)"/>
             <xsl:variable name="target" select="$targets[1]"/>
-            <xsl:apply-templates select="$target/d:lhs"/>
+            <xsl:apply-templates select="$target/lhs"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:text>???</xsl:text>
@@ -248,17 +250,17 @@ to be incomplete. Don't forget to read the source, too :-)</para>
   </fo:basic-link>
 </xsl:template>
 
-<xsl:template match="d:rhs/d:lineannotation">
+<xsl:template match="rhs/lineannotation">
   <!--nop-->
 </xsl:template>
 
-<xsl:template match="d:rhs/d:lineannotation" mode="rhslo">
+<xsl:template match="rhs/lineannotation" mode="rhslo">
   <xsl:text>/*&#160;</xsl:text>
   <xsl:apply-templates/>
   <xsl:text>&#160;*/</xsl:text>
 </xsl:template>
 
-<xsl:template match="d:constraint">
+<xsl:template match="constraint">
   <xsl:call-template name="check.id.unique">
     <xsl:with-param name="linkend" select="@linkend"/>
   </xsl:call-template>
@@ -276,7 +278,7 @@ to be incomplete. Don't forget to read the source, too :-)</para>
     </xsl:call-template>
   </xsl:variable>
 
-  <xsl:if test="preceding-sibling::d:constraint">
+  <xsl:if test="preceding-sibling::constraint">
     <fo:inline linefeed-treatment="preserve">&#xA;</fo:inline>
   </xsl:if>
   <xsl:text>[&#160;</xsl:text>
@@ -305,14 +307,14 @@ to be incomplete. Don't forget to read the source, too :-)</para>
   <xsl:text>&#160;]</xsl:text>
 </xsl:template>
 
-<xsl:template match="d:constraintdef">
+<xsl:template match="constraintdef">
   <xsl:variable name="id"><xsl:call-template name="object.id"/></xsl:variable>
   <fo:block id="{$id}">
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>
 
-<xsl:template match="d:constraintdef/d:title">
+<xsl:template match="constraintdef/title">
   <fo:block font-weight="bold">
     <xsl:apply-templates/>
   </fo:block>

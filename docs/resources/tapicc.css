@@ -1,0 +1,31 @@
+@import "normalize.css";
+body {
+    max-width: 960px;
+    margin: auto;
+}
+.glossterm.normative {
+    text-transform: uppercase;
+}
+.glossterm.non-normative {
+    font-style: italic;
+}
+p {
+    text-align: justify;
+    text-rendering: optimizeLegibility !important;
+    letter-spacing: .03em;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.25em;
+    padding: 0 0 .2em 0;
+    hyphens: auto;
+}
+li > p {
+    text-align: left;
+}
+
+p.releaseinfo {
+    display: none;
+}
+.bibliomixed {
+    text-align: left;
+}

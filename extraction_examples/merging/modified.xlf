@@ -2,8 +2,12 @@
     <file id="f1">
         <unit id="u1" xml:space="preserve">
             <segment state="final">
-                <source>First paragraph</source>
-                <target>Prvý odstavec</target>
+                <source>First paragraph.</source>
+                <target>Prvý odstavec.</target>
+            </segment>
+            <segment state="final">
+                <source><pc id="1" type="fmt" subType="xlf:i">HTML italic</pc>.</source>
+                <target><pc id="1">HTML kurzíva</pc>.</target>
             </segment>
             <ignorable>
                 <source>
@@ -11,12 +15,13 @@
                 </source>
             </ignorable>
             <segment state="final">
-                <source><sc id="1" />Second paragraph.</source>
+                <source><sc id="2" />Second paragraph.</source>
                 <target>Druhý odstavec</target>
             </segment>
             <segment>
-                <source>In Bold.<ec startRef="1" /></source>
+                <source>In Bold.<ec startRef="2" /></source>
             </segment>
+            <!-- HTML formatting was converted into <pc></pc> with hints-->
             <!-- Empty line was moved to <ignorable> by Modifier to improve recycling
                 and translatability of content.
                 Merger is advised to consider all children of unit, even though not all
@@ -26,6 +31,7 @@
             <!-- <pc></pc> was replaced by Modifier with <sc />, <ec />.
                 Agents MUST be able to handle any of the above two types of inline code representation.
                 http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#spanningcodeusage
+                No hints were added as not enough data was available to Modifier.
             -->
         </unit>
     </file>

@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="ASCII"?><book version="5.0">
+<?xml version="1.0" encoding="ASCII"?>
+<book version="5.0">
 <info>
 <title>FO Parameter Reference</title>
 <releaseinfo role="meta">
+$Id: param.xweb 9996 2015-10-01 16:35:10Z bobstayton $
 </releaseinfo>
 <author>
   <personname>
@@ -5198,7 +5200,7 @@ following WiKi page</link>.</para>
 
 <refsynopsisdiv>
 <programlisting xml:id="bibliography.collection.frag">
-&lt;xsl:param name="bibliography.collection"&gt;http://cdn.docbook.org/release/xsl/bibliography/bibliography.xml&lt;/xsl:param&gt;
+&lt;xsl:param name="bibliography.collection"&gt;http://docbook.sourceforge.net/release/bibliography/bibliography.xml&lt;/xsl:param&gt;
 
 </programlisting>
 </refsynopsisdiv>
@@ -13483,9 +13485,11 @@ around all these parameters.</para>
 &lt;!-- This file is generated from param.xweb --&gt;
 
 &lt;!-- ********************************************************************
+     $Id: param.xweb 9996 2015-10-01 16:35:10Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** --&gt;

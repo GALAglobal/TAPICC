@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<reference xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="table-templates"><?dbhtml dir="fo"?>
+<?xml version="1.0"?>
+
+<reference xml:id="table-templates"><?dbhtml dir="fo"?>
   
   <info>
     <title>Formatting Object Table Reference</title>
     <releaseinfo role="meta">
+      $Id: table.xsl 9819 2013-10-16 18:51:18Z mzjn $
     </releaseinfo>
   </info>
   <partintro xml:id="partintro">
@@ -19,7 +21,7 @@
 
   </partintro>
 
-<refentry xml:id="template.calc.column.width">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.calc.column.width">
 <refnamediv>
 <refname>calc.column.width</refname>
 <refpurpose>Calculate an XSL FO table column width specification from a
@@ -130,3 +132,4 @@ proportional-column-width() function.</para>
 
 </refsect1></refentry>
 </reference>
+

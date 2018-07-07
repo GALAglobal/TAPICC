@@ -1,27 +1,28 @@
 <?xml version='1.0'?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:mml="http://www.w3.org/1998/Math/MathML"
-                exclude-result-prefixes="mml d"
+                exclude-result-prefixes="mml"
                 version='1.0'>
 
 <!-- ********************************************************************
+     $Id: math.xsl 9647 2012-10-26 17:42:03Z bobstayton $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
 
-<xsl:template match="d:inlineequation">
+<xsl:template match="inlineequation">
   <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="d:alt">
+<xsl:template match="alt">
 </xsl:template>
 
-<xsl:template match="d:mathphrase">
+<xsl:template match="mathphrase">
   <fo:inline>
     <xsl:apply-templates/>
   </fo:inline>
@@ -45,7 +46,7 @@
   </xsl:copy>
 </xsl:template>
 
-<xsl:template match="d:equation/d:graphic | d:informalequation/d:graphic">
+<xsl:template match="equation/graphic | informalequation/graphic">
   <xsl:if test="$tex.math.in.alt = ''">
     <fo:block>
       <xsl:call-template name="process.image"/>
@@ -53,14 +54,14 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template match="d:inlineequation/d:alt[@role='tex'] |
-                     d:inlineequation/d:inlinemediaobject/d:textobject[@role='tex']" priority="1">
+<xsl:template match="inlineequation/alt[@role='tex'] | 
+                     inlineequation/inlinemediaobject/textobject[@role='tex']" priority="1">
   <xsl:param name="output.delims" select="1"/>
 </xsl:template>
 
-<xsl:template match="d:equation/d:alt[@role='tex'] | d:informalequation/d:alt[@role='tex'] |
-                     d:equation/d:mediaobject/d:textobject[@role='tex'] |
-                     d:informalequation/d:mediaobject/d:textobject[@role='tex']" priority="1">
+<xsl:template match="equation/alt[@role='tex'] | informalequation/alt[@role='tex'] |
+                     equation/mediaobject/textobject[@role='tex'] |
+                     informalequation/mediaobject/textobject[@role='tex']" priority="1">
   <xsl:variable name="output.delims">
     <xsl:call-template name="tex.math.output.delims"/>
   </xsl:variable>

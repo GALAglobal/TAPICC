@@ -1,13 +1,13 @@
 <?xml version='1.0'?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		version='1.0'>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                version='1.0'>
 
 <!-- ********************************************************************
+     $Id: html.xsl 9772 2013-05-15 08:05:56Z kosek $
+     ********************************************************************
 
      This file is part of the XSL DocBook Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/release/xsl/current/ for
+     See ../README or http://docbook.sf.net/release/xsl/current/ for
      copyright and other information.
 
      ******************************************************************** -->
@@ -58,10 +58,10 @@
   <xsl:apply-templates select="." mode="html.title.attribute"/>
 </xsl:template>
 
-<xsl:template match="d:acronym|d:abbrev" mode="html.title.attribute">
-  <xsl:if test="d:alt">
+<xsl:template match="acronym|abbrev" mode="html.title.attribute">
+  <xsl:if test="alt">
     <xsl:attribute name="title">
-      <xsl:value-of select="normalize-space(d:alt)"/>
+      <xsl:value-of select="normalize-space(alt)"/>
     </xsl:attribute>
   </xsl:if>
 </xsl:template>
@@ -122,19 +122,19 @@
       </xsl:attribute>
     </xsl:when>
     <!-- Fall back to alt if available -->
-    <xsl:when test="d:alt">
+    <xsl:when test="alt">
       <xsl:attribute name="title">
-        <xsl:value-of select="normalize-space(d:alt)"/>
+        <xsl:value-of select="normalize-space(alt)"/>
       </xsl:attribute>
     </xsl:when>
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="d:qandaentry" mode="html.title.attribute">
-  <xsl:apply-templates select="d:question" mode="html.title.attribute"/>
+<xsl:template match="qandaentry" mode="html.title.attribute">
+  <xsl:apply-templates select="question" mode="html.title.attribute"/>
 </xsl:template>
 
-<xsl:template match="d:question" mode="html.title.attribute">
+<xsl:template match="question" mode="html.title.attribute">
   <xsl:variable name="label.text">
     <xsl:apply-templates select="." mode="qanda.label"/>
   </xsl:variable>
@@ -146,9 +146,9 @@
       </xsl:attribute>
     </xsl:when>
     <!-- Fall back to alt if available -->
-    <xsl:when test="d:alt">
+    <xsl:when test="alt">
       <xsl:attribute name="title">
-        <xsl:value-of select="normalize-space(d:alt)"/>
+        <xsl:value-of select="normalize-space(alt)"/>
       </xsl:attribute>
     </xsl:when>
   </xsl:choose>
@@ -279,19 +279,19 @@
   <xsl:if test="$id.warnings != 0 and not(@id) and not(@xml:id) and parent::*">
     <xsl:variable name="title">
       <xsl:choose>
-        <xsl:when test="d:title">
-          <xsl:value-of select="d:title[1]"/>
+        <xsl:when test="title">
+          <xsl:value-of select="title[1]"/>
         </xsl:when>
         <xsl:when test="substring(local-name(*[1]),
                                   string-length(local-name(*[1])-3) = 'info')
-                        and *[1]/d:title">
-          <xsl:value-of select="*[1]/d:title[1]"/>
+                        and *[1]/title">
+          <xsl:value-of select="*[1]/title[1]"/>
         </xsl:when>
-        <xsl:when test="d:refmeta/d:refentrytitle">
-          <xsl:value-of select="d:refmeta/d:refentrytitle"/>
+        <xsl:when test="refmeta/refentrytitle">
+          <xsl:value-of select="refmeta/refentrytitle"/>
         </xsl:when>
-        <xsl:when test="d:refnamediv/d:refname">
-          <xsl:value-of select="d:refnamediv/d:refname[1]"/>
+        <xsl:when test="refnamediv/refname">
+          <xsl:value-of select="refnamediv/refname[1]"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>

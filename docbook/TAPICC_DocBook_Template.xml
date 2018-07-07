@@ -230,7 +230,7 @@
       Sasaki, and Yves Savourel: <title>XLIFF Version 2.1</title><date>12 October 2017</date>
       <bibliomisc><link version="Candidate OASIS Standard 01"
           xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/cos01/xliff-core-v2.1-cos01.html"
-           /><link version="latest"
+           /> <link version="latest"
           xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html"
          /></bibliomisc>
     </bibliomixed>
@@ -238,7 +238,7 @@
       <abbrev>XLIFF-2.0</abbrev> Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves Savourel: <title>XLIFF Version 2.0</title><date>04 August 2014</date>
       <bibliomisc><link version="OASIS Standard"
         xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html"
-      /><link version="latest"
+      /> <link version="latest"
         xl:href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html"
       /></bibliomisc>
     </bibliomixed>

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<xsl:stylesheet exclude-result-prefixes="d"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:d="http://docbook.org/ns/docbook"
-		version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                version="1.0">
 
 <!-- ********************************************************************
+     $Id: autoidx-ng.xsl 6910 2007-06-28 23:23:30Z xmldoc $
+     ********************************************************************
 
      This file is part of the DocBook XSL Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/ for copyright
+     See ../README or http://docbook.sf.net/ for copyright
      copyright and other information.
 
      ******************************************************************** -->

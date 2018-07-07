@@ -1,5 +1,5 @@
-# Translation API Class and Cases Initiative (TAPICC)
-The Translation API Class and Cases (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry.   The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
+# Translation API Cases and Classes Initiative (TAPICC)
+The Translation API Cases and Classes (TAPICC) initiative is a collaborative, community-driven, open-source project to advance API standards in the localization industry. The overall purpose of this project is to provide a metadata and API framework on which users can base their integration, automation and interoperability efforts.
 
 ## Governance
  
@@ -19,15 +19,19 @@ Open Repository Maintainers are responsible for oversight of this project's comm
 Initially, the TAPICC  Steering Committee members have designated one or more persons to serve as Maintainer(s); subsequently, participating community members may select additional or substitute Maintainers.
  
 Current Maintainers of this Open Repository
-* Klaus Fleischmann; GitHub ID: https://github.com/klauskaleidos; WWW:  [Kaleidoscope GmbH](http://www.kaleidoscope.at/)
+
 * David Filip; GitHub ID:  https://github.com/DavidFatDavidF; WWW: [ADAPT Centre](http://adaptcentre.ie/)
-* Serge Gladkoff; GitHub ID:  https://github.com/Sgladkoff; WWW: [Logrus Global](http://www.logrusglobal.com/)
-* Laura Brandon; GitHub ID: https://github.com/laurabrandon; WWW: [GALA](http://www.gala-global.org/)
+* Ján Husarčík; GitHub ID: https://github.com/JanHusarcik; WWW: [Moravia: An RWS Company](https://www.moravia.com/)
  
 ## About TAPICC
 * [General info](https://www.gala-global.org/translation-api-class-and-cases)
 * [Project charter](https://www.gala-global.org/sites/default/files/uploads/pdfs/GALA%20TAPICC%20Project%20Charter.pdf)
 * [TAPICC discussion group on GALA Connect](https://www.gala-global.org/tapicc-translation-api-class-and-cases-initiative)
+* [GitHub pages](https://galaglobal.github.io/TAPICC/)
  
 ## Feedback
-Questions or comments about this Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) listed above. Please send general questions about GALA to info@gala-global.org. 
+Questions or comments about this Open Repository's activities should be composed as GitHub issues or comments. If use of an issue/comment is not possible or appropriate, questions may be directed by email to the Maintainer(s) listed above. Please send general questions about GALA to info@gala-global.org.
+
+## Public reviews and final published versions
+Final deliverables as well as public review documents and artifacts are being exposed through the following GitHub webpage:
+https://galaglobal.github.io/TAPICC/

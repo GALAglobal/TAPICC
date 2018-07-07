@@ -4,5 +4,5 @@
 
 |valid|table|header|
 |-|-|-|
-|invalid|row|
+|invalid|row
 

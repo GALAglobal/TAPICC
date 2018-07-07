@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<reference xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="utility">
+<?xml version="1.0"?>
+
+<reference xml:id="utility">
   <info>
     <title>Common » Utility Template Reference</title>
     <releaseinfo role="meta">
+      $Id: utility.xsl 7101 2007-07-20 15:32:12Z xmldoc $
     </releaseinfo>
   </info>
   
@@ -34,7 +36,7 @@
 
   </partintro>
 
-<refentry xml:id="template.log.message">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.log.message">
 <refnamediv>
 <refname>log.message</refname>
 <refpurpose>Logs/emits formatted notes and warnings</refpurpose>
@@ -197,7 +199,7 @@
 <para>Outputs a message (generally, to standard error).</para>
 </refsect1></refentry>
 
-<refentry xml:id="template.get.doc.title">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.get.doc.title">
 <refnamediv>
 <refname>get.doc.title</refname>
 <refpurpose>Gets a title from the current document</refpurpose>
@@ -217,7 +219,7 @@
     current document .</para>
 </refsect1></refentry>
 
-<refentry xml:id="template.pad-string">
+<refentry xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="template.pad-string">
 <refnamediv>
 <refname>pad-string</refname>
 <refpurpose>Right-pads or left-pads a string out to a certain length</refpurpose>
@@ -254,3 +256,4 @@
 <para>Returns a (padded) string.</para>
 </refsect1></refentry>
 </reference>
+

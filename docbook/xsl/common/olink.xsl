@@ -3,9 +3,11 @@
                 version="1.0">
 
 <!-- ********************************************************************
+     $Id: olink.xsl 9817 2013-09-25 22:38:32Z stilor $
+     ********************************************************************
 
      This file is part of the DocBook XSL Stylesheet distribution.
-     See ../README or http://cdn.docbook.org/ for copyright
+     See ../README or http://docbook.sf.net/ for copyright
      copyright and other information.
 
      ******************************************************************** -->

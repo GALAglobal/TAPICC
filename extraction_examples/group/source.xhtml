@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Page title</title>
+    </head>
+    <body>
+        <div id="main">
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+        </div>
+        <table id="table1" translate="no">
+            <!-- HTML5 translate attribute specifies the values in table itself should not be translated
+            https://www.w3.org/TR/2013/CR-html5-20130806/dom.html#the-translate-attribute
+            -->
+            <tr translate="yes">
+                <!--Overriding parent translate value for table header-->
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>30</td>
+            </tr>
+        </table>
+    </body>
+</html>
