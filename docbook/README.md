@@ -21,15 +21,6 @@ Run from the project root folder:
 ```
 sudo apt-get -qq update
 sudo apt-get install -y xsltproc
-cd ./docbook
-xsltproc --encoding utf-8 -o ./../docs/T1/WG3/XLIFF-EM-BP-ED.html ./xsl/html/docbook_custom.xsl ./T1/WG3/XLIFF-EM-BP.xml
+cd ./docbook/T1/WG3
+xsltproc --encoding utf-8 -o ./../../../docs/T1/WG3/XLIFF-EM-BP.xhtml ./../../xsl/tapicc.xsl ./XLIFF-EM-BP.xml
 ```
-
-#### PDF
-
-To build PDF for personal preview you can use `fop` utility from `/docbook` directory:
-```
-fop -xsl ./xsl/html/docbook_custom.xsl -xml ./T1/WG3/XLIFF-EM-BP.xml -pdf ./../docs/T1/WG3/XLIFF-EM-BP-ED.pdf
-```
-
-PDF from `fop` does not look as good as PDF from XEP or Antenna House (AH). You can use Fop for testing but for real publishing, we should use XEP or AH.
