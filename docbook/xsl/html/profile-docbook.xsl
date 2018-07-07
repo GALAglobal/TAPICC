@@ -3,7 +3,7 @@
 <!--from the DocBook XSL stylesheets.-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:exslt="http://exslt.org/common" xmlns:ng="http://docbook.org/docbook-ng" xmlns:db="http://docbook.org/ns/docbook" exslt:dummy="dummy" ng:dummy="dummy" db:dummy="dummy" extension-element-prefixes="exslt" exclude-result-prefixes="exsl exslt" version="1.0">
 
-<xsl:output method="html" encoding="ISO-8859-1" indent="no"/>
+<xsl:output method="html" encoding="UTF-8" indent="no"/>
 
 <!-- ********************************************************************
      $Id: docbook.xsl 9983 2015-09-16 20:58:50Z bobstayton $

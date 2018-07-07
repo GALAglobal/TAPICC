@@ -6,7 +6,8 @@ addons:
     - xsltproc
 
 script:
-  - xsltproc --encoding utf-8 -o ./docs/T1/WG3/XLIFF-EM-BP-ED.html ./docbook/xsl/html/docbook_custom.xsl ./docbook/T1/WG3/XLIFF-EM-BP.xml
+  - cd ./docbook
+  - xsltproc --encoding utf-8 -o ./../docs/T1/WG3/XLIFF-EM-BP.html ./xsl/html/docbook_custom.xsl ./T1/WG3/XLIFF-EM-BP.xml
 
 deploy:
   provider: pages

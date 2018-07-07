@@ -15,16 +15,21 @@ If you are new to DocBook and XLST precessor check out good introductory video
 
 ### Building on Ubuntu
 
+#### HTML
+
 Run from the project root folder:
 ```
 sudo apt-get -qq update
 sudo apt-get install -y xsltproc
-xsltproc --encoding utf-8 -o ./docs/T1/WG3/XLIFF-EM-BP-ED.html ./docbook/xsl/html/docbook_custom.xsl ./docbook/T1/WG3/XLIFF-EM-BP.xml
+cd ./docbook
+xsltproc --encoding utf-8 -o ./../docs/T1/WG3/XLIFF-EM-BP-ED.html ./xsl/html/docbook_custom.xsl ./T1/WG3/XLIFF-EM-BP.xml
 ```
 
-To build PDF for personal preview you can use `fop` utility:
+#### PDF
+
+To build PDF for personal preview you can use `fop` utility from `/docbook` directory:
 ```
-fop -xsl ./docbook/xsl/html/docbook_custom.xsl -xml ./docbook/T1/WG3/XLIFF-EM-BP.xml -pdf ./docs/T1/WG3/XLIFF-EM-BP-ED.pdf
+fop -xsl ./xsl/html/docbook_custom.xsl -xml ./T1/WG3/XLIFF-EM-BP.xml -pdf ./../docs/T1/WG3/XLIFF-EM-BP-ED.pdf
 ```
 
 PDF from `fop` does not look as good as PDF from XEP or Antenna House (AH). You can use Fop for testing but for real publishing, we should use XEP or AH.
