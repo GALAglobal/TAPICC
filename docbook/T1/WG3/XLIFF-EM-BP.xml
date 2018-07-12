@@ -1271,6 +1271,14 @@
             >sanity_check</link>.</para>
       </section>
     </section>
+    <section xml:id="schema">
+      <title>Use schema for native format</title>
+      <para>If native format supports schema, use it.</para>
+    </section>
+    <section xml:id="ITS">
+      <title>Use ITS to drive extraction</title>
+      <para />
+    </section>
     <section xml:id="validations">
       <title>XLIFF Validations</title>
       <para>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
