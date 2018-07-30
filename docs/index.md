@@ -13,6 +13,8 @@ title: Top level page for TAPICC deliverables
 
 [Public review draft in HTML](/T1/WG3/XLIFF-EM-BP-V1.0-prd01.xhtml) \| [Public review draft in PDF](/T1/WG3/XLIFF-EM-BP-V1.0-prd01.pdf)
 
+This public review is open until 23:59 UTC 30th July 2018, see [the release page for instructions how to provide feedback](https://github.com/GALAglobal/TAPICC/releases/tag/XLIFF-EM-BP-prd_01) 
+
 This document has not yet been published
 
 ## The fine print
