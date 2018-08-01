@@ -13,7 +13,10 @@
             <xsl:apply-templates />
         </span>
     </xsl:template>
+    <xsl:param name="docbook.css.source" select="" />
     <xsl:param name="html.stylesheet" select="'../../resources/tapicc.css'" />
+    <xsl:param name="admon.graphics.path" select="'../../resources/img/'" />
+    <xsl:param name="admon.graphics.extension" select="'.png'" />
     <xsl:param name="admon.graphics" select="1" />
 
 </xsl:stylesheet>
