@@ -13,6 +13,9 @@
             <xsl:apply-templates />
         </span>
     </xsl:template>
+    <xsl:template name="user.header.content">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    </xsl:template>
     <xsl:param name="html.stylesheet" select="'../../resources/tapicc.css'" />
     <xsl:param name="admon.graphics" select="1" />
 

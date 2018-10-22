@@ -492,6 +492,7 @@ chunk-code.xsl; and in $chunk.hierarchy used in chunkfast.xsl -->
       <xsl:call-template name="user.head.content">
         <xsl:with-param name="node" select="$doc"/>
       </xsl:call-template>
+      
     </head>
     <body>
       <xsl:call-template name="body.attributes"/>

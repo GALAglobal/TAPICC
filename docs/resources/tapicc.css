@@ -1,7 +1,9 @@
 @import "normalize.css";
 body {
-    max-width: 960px;
-    margin: auto;
+    width: 36em;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 18px;
 }
 .glossterm.normative {
     text-transform: uppercase;
@@ -12,12 +14,13 @@ body {
 p {
     text-align: justify;
     text-rendering: optimizeLegibility !important;
-    letter-spacing: .03em;
+    /*letter-spacing: .03em;*/
     color: #333;
     font-size: 16px;
     line-height: 1.25em;
     padding: 0 0 .2em 0;
     hyphens: auto;
+    font-family: verdana, arial, helvetica, sans-serif;
 }
 li > p {
     text-align: left;
@@ -28,4 +31,26 @@ p.releaseinfo {
 }
 .bibliomixed {
     text-align: left;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.programlisting {
+    /*      display: flex;*/
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+    list-style-type: decimal !important;
 }

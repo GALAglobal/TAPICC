@@ -836,13 +836,13 @@
           if necessary for proper inline code functionality. </para>
         <example>
           <title>Example of a non-reorderable source sequence of inline codes</title>
-          <programlisting language="xml" xml:id="canReorder_fragment">...
-&lt;source>&lt;pc id="1" canCopy="no" canDelete="no" canReorder="firstNo">
-            &lt;pc id="2" canCopy="no" canDelete="no" canReorder="no">this is linktext&lt;/pc>
-            &lt;ph id="3" canCopy="no" canDelete="no" canReorder="no"/>
-         &lt;/pc>
-&lt;/source>
-...</programlisting>
+          <programlisting language="xml" xml:id="canReorder_fragment"><![CDATA[...
+<source><pc id="1" canCopy="no" canDelete="no" canReorder="firstNo">
+            <pc id="2" canCopy="no" canDelete="no" canReorder="no">this is linktext</pc>
+            <ph id="3" canCopy="no" canDelete="no" canReorder="no"/>
+        </pc>
+</source>
+...]]></programlisting>
         </example>
 
         <para>Since this attribute is supported by native XLIFF validation artifacts
@@ -1270,6 +1270,14 @@
             xlink:href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check"
             >sanity_check</link>.</para>
       </section>
+    </section>
+    <section xml:id="schema">
+      <title>Use schema for native format</title>
+      <para>If native format supports schema, use it.</para>
+    </section>
+    <section xml:id="ITS">
+      <title>Use ITS to drive extraction</title>
+      <para />
     </section>
     <section xml:id="validations">
       <title>XLIFF Validations</title>
