@@ -1,3 +1,6 @@
-[bad.xlf](bad.xlf) 
+[bad.xlf](bad.xlf)
+
 [good.xlf](good.xlf) 
+
 [source.html](source.html) 
+
