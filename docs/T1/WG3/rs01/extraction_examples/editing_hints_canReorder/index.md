@@ -1,4 +1,4 @@
-- [bad.xlf](bad.xlf
-- [bad_target.xml](bad_target.xml
-- [good.xlf](good.xlf
-- [source.xml](source.xml
+- [bad.xlf](bad.xlf) 
+- [bad_target.xml](bad_target.xml) 
+- [good.xlf](good.xlf) 
+- [source.xml](source.xml) 

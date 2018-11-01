@@ -1,2 +1,2 @@
-- [bad.xlf](bad.xlf
-- [good.xlf](good.xlf
+- [bad.xlf](bad.xlf) 
+- [good.xlf](good.xlf) 

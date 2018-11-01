@@ -1,4 +1,4 @@
-- [bad.xlf](bad.xlf
-- [good.xlf](good.xlf
-- [Invalid_bad.xhtml](Invalid_bad.xhtml
-- [source.xhtml](source.xhtml
+- [bad.xlf](bad.xlf) 
+- [good.xlf](good.xlf) 
+- [Invalid_bad.xhtml](Invalid_bad.xhtml) 
+- [source.xhtml](source.xhtml) 

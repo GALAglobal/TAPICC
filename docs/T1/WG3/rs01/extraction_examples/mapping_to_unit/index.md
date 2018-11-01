@@ -1,4 +1,4 @@
-- [bad_sing_unit.xlf](bad_sing_unit.xlf
-- [bad_too_many_units.xlf](bad_too_many_units.xlf
-- [good.xlf](good.xlf
-- [source.html](source.html
+- [bad_sing_unit.xlf](bad_sing_unit.xlf) 
+- [bad_too_many_units.xlf](bad_too_many_units.xlf) 
+- [good.xlf](good.xlf) 
+- [source.html](source.html) 

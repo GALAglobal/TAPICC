@@ -1,3 +1,3 @@
-- [good.xlf](good.xlf
-- [invalid_bad.xlf](invalid_bad.xlf
-- [source.json](source.json
+- [good.xlf](good.xlf) 
+- [invalid_bad.xlf](invalid_bad.xlf) 
+- [source.json](source.json) 

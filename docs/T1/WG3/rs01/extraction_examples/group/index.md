@@ -1,4 +1,4 @@
-- [bad.xlf](bad.xlf
-- [good.xlf](good.xlf
-- [good_with_modules.xlf](good_with_modules.xlf
-- [source.xhtml](source.xhtml
+- [bad.xlf](bad.xlf) 
+- [good.xlf](good.xlf) 
+- [good_with_modules.xlf](good_with_modules.xlf) 
+- [source.xhtml](source.xhtml) 

@@ -1,3 +1,3 @@
-- [extracted.xlf](extracted.xlf
-- [modified.xlf](modified.xlf
-- [source.md](source.md
+- [extracted.xlf](extracted.xlf) 
+- [modified.xlf](modified.xlf) 
+- [source.md](source.md) 
