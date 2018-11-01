@@ -3,7 +3,11 @@ body {
     width: 36em;
     max-width: 100%;
     margin: 0 auto;
-    font-size: 18px;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.25em;
+    padding: 0 0 .2em 0;
+    font-family: verdana, arial, helvetica, sans-serif;
 }
 .glossterm.normative {
     text-transform: uppercase;
@@ -15,19 +19,14 @@ p {
     text-align: justify;
     text-rendering: optimizeLegibility !important;
     /*letter-spacing: .03em;*/
-    color: #333;
-    font-size: 16px;
-    line-height: 1.25em;
-    padding: 0 0 .2em 0;
     hyphens: auto;
-    font-family: verdana, arial, helvetica, sans-serif;
 }
 li > p {
     text-align: left;
 }
 
 p.releaseinfo {
-    display: none;
+    text-align: left;
 }
 .bibliomixed {
     text-align: left;
