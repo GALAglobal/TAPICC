@@ -1,0 +1,3 @@
+- [merging\extracted.xlf](merging\extracted.xlf) 
+- [merging\modified.xlf](merging\modified.xlf) 
+- [merging\source.md](merging\source.md) 

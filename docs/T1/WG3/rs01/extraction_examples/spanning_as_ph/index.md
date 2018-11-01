@@ -1,0 +1,6 @@
+- [spanning_as_ph\bad.xlf](spanning_as_ph\bad.xlf) 
+- [spanning_as_ph\bad_opening_excluded.xlf](spanning_as_ph\bad_opening_excluded.xlf) 
+- [spanning_as_ph\bad_target_opening_excluded.html](spanning_as_ph\bad_target_opening_excluded.html) 
+- [spanning_as_ph\good.xlf](spanning_as_ph\good.xlf) 
+- [spanning_as_ph\invalid_bad_target.html](spanning_as_ph\invalid_bad_target.html) 
+- [spanning_as_ph\source.html](spanning_as_ph\source.html) 

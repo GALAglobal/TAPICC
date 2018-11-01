@@ -1,0 +1,2 @@
+- [sanity_check\bad.xlf](sanity_check\bad.xlf) 
+- [sanity_check\source.md](sanity_check\source.md) 

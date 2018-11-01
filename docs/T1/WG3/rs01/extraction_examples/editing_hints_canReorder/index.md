@@ -1,0 +1,4 @@
+- [editing_hints_canReorder\bad.xlf](editing_hints_canReorder\bad.xlf) 
+- [editing_hints_canReorder\bad_target.xml](editing_hints_canReorder\bad_target.xml) 
+- [editing_hints_canReorder\good.xlf](editing_hints_canReorder\good.xlf) 
+- [editing_hints_canReorder\source.xml](editing_hints_canReorder\source.xml) 

@@ -1,0 +1,4 @@
+- [editing_hints_canOverlap\bad.xlf](editing_hints_canOverlap\bad.xlf) 
+- [editing_hints_canOverlap\good.xlf](editing_hints_canOverlap\good.xlf) 
+- [editing_hints_canOverlap\Invalid_bad.xhtml](editing_hints_canOverlap\Invalid_bad.xhtml) 
+- [editing_hints_canOverlap\source.xhtml](editing_hints_canOverlap\source.xhtml) 

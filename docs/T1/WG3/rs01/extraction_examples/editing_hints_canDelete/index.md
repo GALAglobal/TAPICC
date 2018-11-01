@@ -1,0 +1,3 @@
+- [editing_hints_canDelete\bad.xlf](editing_hints_canDelete\bad.xlf) 
+- [editing_hints_canDelete\good.xlf](editing_hints_canDelete\good.xlf) 
+- [editing_hints_canDelete\source.html](editing_hints_canDelete\source.html) 
