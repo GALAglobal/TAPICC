@@ -1,0 +1,17 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sr-Latn-RS">
+    <!-- Specific enough locales are used, preventing interoperability issues.
+        https://www.iana.org/assignments/language-subtag-registry
+        https://www.w3.org/International/questions/qa-choosing-language-tags
+        https://www.w3.org/International/articles/language-tags/
+        https://tools.ietf.org/html/rfc6497
+        http://www.unicode.org/cldr/charts/latest/supplemental/likely_subtags.html#sr
+        http://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code
+    -->
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>text</source>
+            </segment>
+        </unit>
+    </file>
+</xliff>

@@ -1,0 +1,30 @@
+<xliff srcLang="en-US" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>Digest</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <originalData>
+                <data id="1"><![CDATA[{id}]]></data>
+                <data id="2"><![CDATA[<i>]]></data>
+                <data id="3"><![CDATA[</i>]]></data>
+                <data id="4"><![CDATA[<a href="https://daily.digest" title="Digest">]]></data>
+                <data id="5"><![CDATA[</a>]]></data>
+            </originalData>
+            <segment>
+                <!-- newlines added for readability -->
+                <source>Hi <ph dataRef="1" disp="[User Name]" equiv="{id}" id="1" subType="xlf:var" type="ui" />, see 
+                    <sc dataRef="2" equiv="&lt;i>" id="2" subType="xlf:i" type="fmt" />
+                    what's new
+                    <ec dataRef="3" equiv="&lt;/i>" startRef="2" />
+                    in the
+                    <sc dataRef="4" disp="[https://daily.digest]" equiv="&lt;a>" id="3" subFlows="u1" type="link" />
+                    digest
+                    <ec dataRef="5" equiv="&lt;/a>" startRef="3" />.</source>
+                <!-- number of context hints helps translator to make accurate judgement -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

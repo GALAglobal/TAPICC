@@ -1,0 +1,16 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-US">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>Digest</source>
+            </segment>
+        </unit>
+        <unit id="u2">
+            <segment>
+                <source>Hi <ph id="1"/>, see <pc id="2">what's new</pc> in the <pc id="2">digest</pc>.</source>
+                <!-- No additional context is provided to translator, which could impact the
+                    quality of translation. Role of the inline tags is unknown.-->
+            </segment>
+        </unit>
+    </file>
+</xliff>

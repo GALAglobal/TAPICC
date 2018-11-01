@@ -1,0 +1,19 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source><![CDATA[<b>bold</b> text]]></source>
+                <target><![CDATA[text <b>tučným</b>]]></target>
+                <!-- inline content does not enjoy benefits of proper extraction,
+                    such as correct representation in CAT tool and protection during
+                    the round-trip. It's not possible to use native XLIFF validation
+                    artifacts-->
+                <!-- It's legal for Modifier to change CDATA into normal escaped content.
+                     Merger  has to be able to accept such change
+                -->
+                <!-- http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112 (4.4 CDATA sections)-->
+                <!-- https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

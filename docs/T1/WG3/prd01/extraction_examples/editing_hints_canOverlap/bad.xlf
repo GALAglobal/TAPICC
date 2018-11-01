@@ -1,0 +1,21 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <!-- whitespace added for readability -->
+            <segment>
+                <source><sc id="1" equiv="b"/>
+                    bold
+                    <ec startRef="1" equiv="/b"/> 
+                    and 
+                    <sc id="2" equiv="i"/>
+                    italic
+                    <ec startRef="2" equiv="/i"/></source>
+                <target><sc id="1" equiv="b"/> <!-- opening bold -->
+                    tučné<sc id="2" equiv="i"/> <!-- opening italic -->
+                    <ec startRef="1" equiv="/b"/> <!-- closing bold -->
+                    a kurzíva
+                    <ec startRef="2" equiv="/i"/></target> <!-- closing italic -->
+            </segment>
+        </unit>
+    </file>
+</xliff>

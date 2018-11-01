@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>XLIFF 2 Extraction and Merging Best Practice, Version 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../resources/tapicc.css"/>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+      <meta name="description" content="This Informational Best Practice specification targets designers of XLIFF Extracting and Merging tools for content owners. It gathers common problems that are prone to appear when ExtractingXLIFF Documents from HTML, generic XML, or Markdown. This specification shows why some Extraction approaches will cause issues during an XLIFF Roundtrip. This best practice guidance provides better thought through alternatives and shows how to use many of advanced XLIFF features for lossless Localization roundtrip of HTML and XML based content."/>
+      <meta name="keywords" content="XLIFF, Extraction, Merging, Best Practice"/>
+   </head>
+   <body>
+      <section xml:lang="en-US" class="article" id="d5e1">
+         <div class="titlepage">
+            <div>
+               <div>
+                  <h2 class="title">XLIFF 2 Extraction and Merging Best Practice, Version 1.0</h2>
+               </div>
+               <div>
+                  <div class="authorgroup">
+                     <h4 class="editedby">Editors</h4>
+                     <div class="editor">David Filip, <span class="affiliation">
+                           <span class="orgname">ADAPT Centre</span>
+                        </span>, &lt;<a class="email" href="mailto:david.filip@adaptcentre.ie">david.filip@adaptcentre.ie</a>&gt;</div>
+                     <div class="editor">Ján Husarčík, <span class="affiliation">
+                           <span class="orgname">Moravia: An RWS Company</span>
+                        </span>, &lt;<a class="email" href="mailto:jhusarcik@moravia.com">jhusarcik@moravia.com</a>&gt;</div>
+                     <h4 class="others">Other credits</h4>
+                     <div class="othercredit">Rodolfo M. Raya, <span class="contrib">WG Chair</span>, <span class="affiliation">
+                           <span class="orgname">Maxprograms</span>
+                        </span>, &lt;<a class="email" href="mailto:rmraya@maxprograms.com">rmraya@maxprograms.com</a>&gt;</div>
+                     <div class="othercredit">Andreas Galambos, <span class="contrib">WG Chair</span>, <span class="affiliation">
+                           <span class="orgname">Transmission Uebersetzungen</span>
+                        </span>, &lt;<a class="email" href="mailto:andreas.galambos@tmuebersetzungen.de">andreas.galambos@tmuebersetzungen.de</a>&gt;</div>
+                  </div>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo"/>
+               </div>
+               <div>
+                  <p class="releaseinfo">TAPICC T1/WG3</p>
+               </div>
+               <div>
+                  <p class="copyright">Copyright © 2018 GALA TAPICC. All rights reserved.</p>
+               </div>
+               <div>
+                  <div class="legalnotice" id="d5e43">
+                     <p class="legalnotice-title">
+                        <strong>Additional artifacts</strong>
+                     </p>
+                     <p>This prose specification is one component of a Work Product that also includes:</p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" style="list-style-type: disc; ">
+                           <li class="listitem">
+                              <p>Extraction and merging examples from <a class="ulink" href="https://galaglobal.github.io/TAPICC/T1/WG3/wd01/extraction_examples/" target="_top">https://galaglobal.github.io/TAPICC/T1/WG3/wd01/extraction_examples/</a>
+                              </p>
+                              <p>An unstable editorial version of the examples might exist at <a class="ulink" href="https://galaglobal.github.io/TAPICC/T1/WG3/extraction_examples/" target="_top">https://galaglobal.github.io/TAPICC/T1/WG3/extraction_examples/</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="legalnotice" id="d5e52">
+                     <p class="legalnotice-title">
+                        <strong>Related work</strong>
+                     </p>
+                     <p>This note provides an informative best practice for XLIFF 2 Specifications:</p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" style="list-style-type: disc; ">
+                           <li class="listitem">
+                              <p>XLIFF Version 2.1 [<a class="citation" href="#XLIFF-2.1">
+                                    <span class="citation">XLIFF-2.1</span>
+                                 </a>]</p>
+                           </li>
+                           <li class="listitem">
+                              <p>XLIFF Version 2.0 [<a class="citation" href="#XLIFF-2.0">
+                                    <span class="citation">XLIFF-2.0</span>
+                                 </a>]</p>
+                           </li>
+                           <li class="listitem">
+                              <p>ISO 21720:2017 [<a class="citation" href="#ISO_XLIFF">
+                                    <span class="citation">ISO XLIFF</span>
+                                 </a>]</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <div class="legalnotice" id="d5e73">
+                     <p class="legalnotice-title">
+                        <strong>Status</strong>
+                     </p>
+                     <p>This Informational Best Practice was last revised by TAPICC T1/WG3 or the TAPICC Steering
+        Committee on the above date. The level of approval is also listed above. Check the “Latest
+        version” location noted above for possible later revisions of this document.</p>
+                     <p>Contributions to this deliverable or subsequent versions of this deliverable can be made
+        via the <a class="ulink" href="https://github.com/GALAglobal/TAPICC" target="_top">GALA TAPICC GitHub
+          Repository</a> subject to signing the <a class="ulink" href="https://www.gala-global.org/tapicc-legal-agreement" target="_top">TAPICC Legal
+          Agreement</a>.</p>
+                  </div>
+               </div>
+               <div>
+                  <div class="legalnotice" id="d5e79">
+                     <p class="legalnotice-title">
+                        <strong>Citation format</strong>
+                     </p>
+                     <p>When referencing this specification the following citation format should be used:</p>
+                     <p>[<span class="citation">XLIFF-EM-BP</span>]</p>
+                     <p>
+                        <span class="emphasis">
+                           <em>XLIFF 2 Extraction and Merging Best Practice, Version 1.0</em>
+                        </span>
+        Edited by David Filip and Ján Husarčík. 26 June 2018. Working Draft 01. https://galaglobal.github.io/TAPICC/T1/WG3/wd01/XLIFF-EM-BP-V1.0-wd01.html.
+        Latest version: N/A.html.</p>
+                  </div>
+               </div>
+               <div>
+                  <div class="legalnotice" id="d5e86">
+                     <p class="legalnotice-title">
+                        <strong>Notices</strong>
+                     </p>
+                     <p>Copyright © GALA TAPICC 2018. All rights reserved.</p>
+                     <p>The Translation API Cases and Classes (TAPICC) initiative is a collaborative,
+        community-driven, open source project to advance API standards in the Localization industry.
+        The overall purpose of this project is to provide a metadata and API framework on which
+        users can base their integration, automation and interoperability efforts.</p>
+                     <p>The usage of all deliverables of this initiative - including this specification - is
+        subject to open source license terms expressed in the BSD-3-Clause License and CC-BY 2.0
+        License, the declared applicable licenses when the project was chartered. </p>
+                     <div class="itemizedlist">
+                        <ul class="itemizedlist" style="list-style-type: disc; ">
+                           <li class="listitem">
+                              <p>The 3-Clause BSD License (BSD-3 Clause): <a class="ulink" href="https://opensource.org/licenses/BSD-3-Clause" target="_top">https://opensource.org/licenses/BSD-3-Clause</a>
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              <p>Creative Commons Legal Code (CC-BY 2.0): <a class="ulink" href="https://creativecommons.org/licenses/by/2.0/legalcode" target="_top">https://creativecommons.org/licenses/by/2.0/legalcode</a>
+                              </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <p class="pubdate">26 June 2018</p>
+               </div>
+               <div>
+                  <div class="abstract">
+                     <h4>
+                        <div class="abstract-title">Abstract</div>
+                     </h4>
+                     <p>This Informational Best Practice specification targets designers of XLIFF <span class="glossterm non-normative">Extracting</span> and
+          <span class="glossterm non-normative">Merging</span> tools for content owners. It gathers common
+        problems that are prone to appear when <span class="glossterm non-normative">Extracting</span>
+                        <span class="glossterm non-normative">XLIFF Documents</span> from HTML, generic XML, or
+        Markdown. This specification shows why some <span class="glossterm non-normative">Extraction</span> approaches will cause issues during an <span class="glossterm non-normative">XLIFF Roundtrip</span>. This best practice guidance provides
+        better thought through alternatives and shows how to use many of advanced XLIFF features for
+        lossless Localization roundtrip of HTML and XML based content.</p>
+                  </div>
+               </div>
+            </div>
+            <hr/>
+         </div>
+         <div class="toc">
+            <div class="toc-title">Table of Contents</div>
+            <ul class="toc">
+               <li>
+                  <span class="glossary">
+                     <a href="#Glossary">Terminology and Concepts</a>
+                  </span>
+               </li>
+               <li>
+                  <span class="section">
+                     <a href="#Intro">1. Introduction</a>
+                  </span>
+               </li>
+               <li>
+                  <span class="section">
+                     <a href="#Spec">2. Specification</a>
+                  </span>
+                  <ul>
+                     <li>
+                        <span class="section">
+                           <a href="#XLIFF_Structure">2.1. XLIFF Structure</a>
+                        </span>
+                     </li>
+                     <li>
+                        <span class="section">
+                           <a href="#Inlines">2.2. Inline Codes</a>
+                        </span>
+                     </li>
+                     <li>
+                        <span class="section">
+                           <a href="#Target_content">2.3. Target Content in Extracted XLIFF</a>
+                        </span>
+                     </li>
+                     <li>
+                        <span class="section">
+                           <a href="#Hints">2.4. Editing and Context Hints</a>
+                        </span>
+                     </li>
+                     <li>
+                        <span class="section">
+                           <a href="#miscellaneous">2.5. Miscellaneous</a>
+                        </span>
+                     </li>
+                     <li>
+                        <span class="section">
+                           <a href="#validations">2.6. XLIFF Validations</a>
+                        </span>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <span class="section">
+                     <a href="#Summary">3. Summary</a>
+                  </span>
+               </li>
+               <li>
+                  <span class="bibliography">
+                     <a href="#references">References</a>
+                  </span>
+               </li>
+            </ul>
+         </div>
+         <section class="glossary" id="Glossary">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title">Terminology and Concepts</h2>
+                  </div>
+               </div>
+            </div>
+            <p>Apart form terminology and concepts defined here, this specification makes heavy use of
+      terms defined in the XLIFF Standards [<a class="citation" href="#XLIFF-2.1">
+                  <span class="citation">XLIFF-2.1</span>
+               </a>] such as:
+        <span class="glossterm non-normative">Extractor</span>, <span class="glossterm non-normative">Merger</span>,
+        <span class="glossterm non-normative">Translation</span>, <span class="glossterm non-normative">XLIFF Document</span>,
+        <span class="glossterm non-normative">XLIFF-defined</span>, etc.</p>
+            <dl>
+               <dt>
+                  <span class="glossterm non-normative">context hints</span>
+               </dt>
+               <dd class="glossdef">
+                  <p>
+                     <span class="glossterm non-normative">XLIFF-defined</span> attributes on structural or inline elements
+          providing additional contexts, such as <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp" target="_top">disp</a>
+                     </code> or <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv" target="_top">equiv</a>
+                     </code>. Attributes <code class="code">fs</code> and <code class="code">subFs</code> defined in the
+            <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#fs-mod" target="_top">XLIFF Format Style Module</a> are also considered <span class="glossterm non-normative">context
+            hints</span>.</p>
+               </dd>
+               <dt>
+                  <span class="glossterm non-normative">inline codes</span>
+               </dt>
+               <dd class="glossdef">
+                  <p>
+                     <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#sc" target="_top">
+                        <code class="code">&lt;sc/&gt;</code>
+                     </a>/<a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ec" target="_top">
+                        <code class="code">&lt;ec&gt;</code>
+                     </a> pairs, orphaned <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#sc" target="_top">
+                        <code class="code">&lt;sc/&gt;</code>
+                     </a> or <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ec" target="_top">
+                        <code class="code">&lt;ec/&gt;</code>
+                     </a>, well formed <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#pc" target="_top">
+                        <code class="code">&lt;pc&gt;</code>
+                     </a>, standalone <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#ph" target="_top">
+                        <code class="code">&lt;ph/&gt;</code>
+                     </a> and <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#cp" target="_top">
+                        <code class="code">&lt;cp&gt;</code>
+                     </a> are <span class="glossterm non-normative">inline codes</span> used to represent
+          native format inline markup in <span class="glossterm non-normative">XLIFF Documents</span>.</p>
+                  <div class="note">
+                     <table style="border: 0; ">
+                        <tr>
+                           <td style="text-align: center; vertical-align: top; width: 25px; " rowspan="2">
+                              <img alt="[Note]" src="../../resources/img/note.png"/>
+                           </td>
+                           <th style="text-align: left; ">Note</th>
+                        </tr>
+                        <tr>
+                           <td style="text-align: left; vertical-align: top; ">
+                              <p>
+                                 <span class="glossterm non-normative">Inline codes</span> can reference original data in the
+                <span class="glossterm non-normative">XLIFF Core</span>
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#originaldata" target="_top">&lt;originalData&gt;</a> standoff element. </p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </dd>
+               <dt>
+                  <span class="glossterm non-normative">markers</span>
+               </dt>
+               <dd class="glossdef">
+                  <p>
+                     <code class="code">&lt;sm/&gt;</code>/<code class="code">&lt;em/&gt;</code> pairs and well
+          formed <code class="code">&lt;mrk&gt;</code> are <span class="glossterm non-normative">XLIFF-defined</span> inline
+          marker elements designed for inline annotations of content with metadata. </p>
+                  <div class="note">
+                     <table style="border: 0; ">
+                        <tr>
+                           <td style="text-align: center; vertical-align: top; width: 25px; " rowspan="2">
+                              <img alt="[Note]" src="../../resources/img/note.png"/>
+                           </td>
+                           <th style="text-align: left; ">Note</th>
+                        </tr>
+                        <tr>
+                           <td style="text-align: left; vertical-align: top; ">
+                              <p>
+                                 <span class="glossterm non-normative">Markers</span> are distinct from <span class="glossterm non-normative">inline
+                codes</span> (see). Markers can be combined with <span class="glossterm non-normative">Module</span>
+              or Extension based standoff elements for rich metadata that would be complicated or
+              impossible to display inline.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </dd>
+            </dl>
+         </section>
+         <section class="section" id="Intro">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">1. Introduction</h2>
+                  </div>
+               </div>
+            </div>
+            <p>This Informational Best Practice targets designers of XLIFF <span class="glossterm non-normative">Extracting</span> and
+        <span class="glossterm non-normative">Merging</span> Tools for content owners. <span class="glossterm non-normative">XLIFF
+        Roundtrip</span> designers of all kinds will benefit, no matter if they design their
+        <span class="glossterm non-normative">XLIFF Extractor/Merger</span> for corporate or blog use.</p>
+            <p>
+               <span class="glossterm non-normative">Extraction</span> and <span class="glossterm non-normative">Merging</span> behavior is out of
+      the normative scope of OASIS XLIFF Specifications. Although those specifications do provide
+      some guidance for <span class="glossterm non-normative">Extractor</span> and <span class="glossterm non-normative">Merger Agents</span>,
+      XLIFF TC did not attempt to prescribe how exactly to use XLIFF to represent native content.
+      This is mostly because XLIFF is a native-format-agnostic Localization Interchange
+      Format.</p>
+            <p>This specification gathers common problems that are prone to appear when <span class="glossterm non-normative">Extracting</span>
+               <span class="glossterm non-normative">XLIFF Documents</span> from HTML, generic XML, or
+      Markdown. This specification shows why some <span class="glossterm non-normative">Extraction</span> approaches will cause issues during an <span class="glossterm non-normative">XLIFF Roundtrip</span>, issues often so severe that <span class="glossterm non-normative">Merging</span> back of target content will not be possible without
+      costly post-processing or could fail utterly. This best practice guidance provides better
+      thought through alternatives and shows how to use many of the advanced XLIFF features for
+      lossless Localization roundtrip of mainly HTML and XML based content. Often, there are no
+      ultimate prescribed solutions, rather possible design goals are described and best methods how
+      to achieve them proposed.</p>
+            <p>The concepts described in the <a class="link" href="#Spec" title="2. Specification">next section</a> are usually grouped
+      by a common theme with no particular order.</p>
+         </section>
+         <section class="section" id="Spec">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">2. Specification</h2>
+                  </div>
+               </div>
+            </div>
+            <section class="section" id="XLIFF_Structure">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.1. XLIFF Structure</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Taking time to consider not only what to <span class="glossterm non-normative">Extract</span>, but how to
+        <span class="glossterm non-normative">Extract</span> it, and how to structure the <span class="glossterm non-normative">XLIFF
+          Document</span> can significantly reduce number of issues during the roundtrip and
+        enable usage of additional features offered by the XLIFF Standards.</p>
+               <section class="section" id="group">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.1.1. File Structure</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Native formats can contain structural elements dividing its content into parts, such
+          as title, body, header and footer, or tables, lists and divs for markup languages; or
+          windows, dialogs, and menus for software resources. </p>
+                  <p>Representing native structural elements in XLIFF using potentially nested <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group" target="_top">&lt;group&gt;</a>
+                     </code> elements can be useful for providing, and correctly scoping: </p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" style="list-style-type: disc; ">
+                        <li class="listitem">
+                           <p>additional context (<code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name" target="_top">name</a>
+                              </code>, <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#type" target="_top">type</a>
+                              </code>, <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#subtype" target="_top">subType</a>
+                              </code>, attributes from <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod" target="_top">Format Style Module</a>)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>restrictions (<a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canResegment" target="_top">
+                                 <code class="code">canResegment</code>
+                              </a>,
+                <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translate" target="_top">
+                                 <code class="code">translate</code>
+                              </a>, attributes from <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module" target="_top">Size and Length Restriction Module</a>)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>whitespace handling (<code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space" target="_top">xml:space</a>
+                              </code>)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>information from modules such as:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" style="list-style-type: circle; ">
+                                 <li class="listitem">
+                                    <p>
+                                       <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#metadata_module" target="_top">Metadata</a>
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>
+                                       <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#validation_module" target="_top">Validation</a>
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>
+                                       <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ITS-module" target="_top">ITS</a>
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>Most of the above can still be achieved without using the optional <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#group" target="_top">&lt;group&gt;</a>
+                     </code> elements. It will be however at the cost of high redundancy
+          of unit level metadata and possibly cause potentially illegal overload of some of the
+            <span class="glossterm non-normative">XLIFF Core</span> features. </p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/group" target="_top">group</a>.</p>
+               </section>
+               <section class="section" id="unit">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.1.2. Role of the <code class="code">&lt;unit&gt;</code> Element</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Extractors</span> set the XLIFF structure, which cannot be
+          modified (an absolute prohibition expressed in the XLIFF Standards) during the roundtrip
+          at the unit level or higher. Ensuring or not that the appropriate relationships drive
+            <span class="glossterm non-normative">Extraction</span> from structures of the native
+          format into XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code> elements can make all the difference between hindering or
+          crippling the roundtrip and making the most of XLIFF features in a compliant way.</p>
+                  <p>Severe problems can be caused by both extremes: too many or not enough <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code> elements. Especially dangerous is Extracting
+          every segment as a separate <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code> element as this will effectively prevent <span class="glossterm non-normative">Modifiers</span> downstream to change segmentation. Changing
+          segmentation within logically self contained units is one of the key advantages of the
+          XLIFF 2 structural data model that makes a distinction between the immutable high level
+          structure (<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code> and higher) and the transient segmentation structure (<a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> elements within each <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code>) that interplays with the inline data model and the inline
+          annotations' logic.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit" target="_top">mapping_to_unit</a>.</p>
+               </section>
+               <section class="section" id="canResegment">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.1.3. Controlling Segmentation</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Depending on <span class="glossterm non-normative">Extraction</span> rules for mapping
+          of original document structures into <span class="glossterm non-normative">XLIFF
+            Documents</span>, individual sentences within a paragraph; verses within a stanza;
+          items or entries of a list; rows or cells of a table; items of a dialog window; and so on
+          might be <span class="glossterm non-normative">Extracted</span> as segments of a single
+          unit. While it is generally not advisable to perform segmentation at the time of
+            <span class="glossterm non-normative">Extraction</span>, <span class="glossterm non-normative">Extractors</span> that <span class="glossterm non-normative">Extracted</span>
+          multiple sentences, verses, entries, rows, and so on into a single non-segmented unit (a
+          single <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> element within each <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code>) and their corresponding <span class="glossterm non-normative">Mergers</span> need to expect that the <span class="glossterm non-normative">Modifiers</span> will need to transform them into individual segments within the
+          same unit (multiple <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> elements representing individual sentences, verses,
+          and so on within each <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#unit" target="_top">&lt;unit&gt;</a>
+                     </code>) during the roundtrip.</p>
+                  <p>In cases where subsequent <span class="glossterm non-normative">Modifiers</span> cannot
+          be reasonably expected to detect the segmentation logic, for instance due to the lack of
+          knowledge of the original format logic, the content owner is advised to perform the
+          segmentation and protection of that segmentation before sending their XLIFF Documents for
+          the service roundtrip.</p>
+                  <p>While it's generally desirable to be able to <span class="glossterm non-normative">Modify</span> segmentation within a unit during the roundtrip, doing so in some of
+          the above cases might prevent <span class="glossterm non-normative">Merging</span>, cause
+          build issues, or have negative impact on target product user experience.</p>
+                  <p>Attribute <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment" target="_top">canResegment</a>
+                     </code> can be used <span class="emphasis">
+                        <em>with care</em>
+                     </span> to control
+          segmentation <span class="glossterm non-normative">Modification</span> behavior. Its values
+          need to be controlled by rules derived from the structural and inline logic of the native
+          format. For instance, more often than not it will make sense to set <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment" target="_top">canResegment</a>
+                     </code> to <code class="code">no</code> for:</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" style="list-style-type: disc; ">
+                        <li class="listitem">
+                           <p>lists</p>
+                        </li>
+                        <li class="listitem">
+                           <p>tables or table rows</p>
+                        </li>
+                        <li class="listitem">
+                           <p>UI elements</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Extracted</span> as segments of a unit.</p>
+                  <p>In UI elements and tables, it is likely that the available segmentation needs to be
+          protected, on the other hand, it is advisable not to change the default <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment" target="_top">canResegment</a>="yes"</code> for normal paragraph text and similar, see <a class="link" href="#unit" title="2.1.2. Role of the &lt;unit&gt; Element">Role of the &lt;unit&gt; Element</a>. </p>
+                  <p>Importantly, preventing <span class="glossterm non-normative">Modification</span> of
+          segmentation using the attribute <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment" target="_top">canResegment</a>
+                     </code> (set to <code class="code">no</code> when necessary) will
+            <span class="emphasis">
+                        <em>not</em>
+                     </span> prevent reordering of segments within a unit using the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#order" target="_top">
+                        <code class="code">order</code>
+                     </a> attribute on the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">
+                        <code class="code">&lt;target&gt;</code>
+                     </a> elements within the same unit. So in case an ordered
+          list needs to be for instance alphabetically collated, translators can do so even in case
+          the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canresegment" target="_top">canResegment</a>
+                     </code> attribute is set to <code class="code">no</code>. The segmentation
+          logic of the native format remains protected without preventing collation. This would be
+          all hampered if the <span class="glossterm non-normative">Extractor</span> decided to
+            <span class="glossterm non-normative">Extract</span> each segment as a separate unit,
+          which is the most evil practice that cannot be discouraged enough.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/mapping_to_unit" target="_top">mapping_to_unit</a>. </p>
+               </section>
+            </section>
+            <section class="section" id="Inlines">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.2. Inline Codes</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Guidance for processing standalone and spanning inline functional and formatting
+        elements of localizable content can be summarized into the following list:</p>
+               <div class="itemizedlist">
+                  <ul class="itemizedlist" style="list-style-type: disc; ">
+                     <li class="listitem">
+                        <p>Perform complete extraction</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Represent spanning code using <code class="code">
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                           </code> and <code class="code">
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                           </code> (or <code class="code">
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;&lt;/pc&gt;</a>
+                           </code> where possible)</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Represent standalone code using <code class="code">
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                           </code>
+                        </p>
+                     </li>
+                     <li class="listitem">
+                        <p>Include all (even the outermost) <span class="glossterm non-normative">inline
+                codes</span> in the <span class="glossterm non-normative">Extracted</span>
+              content</p>
+                     </li>
+                     <li class="listitem">
+                        <p>Additional details in the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html" target="_top">XLIFF2 prose</a>.</p>
+                     </li>
+                  </ul>
+               </div>
+               <section class="section" id="Spanning">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.2.1. Representing Spanning Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Spanning codes</span> in the original format are created by an opening
+          code, the content, and the closing code. In HTML that can be
+            <code class="code">&lt;bold&gt;text&lt;/bold&gt;</code>, in RTF <code class="code">\b text \b0</code>.</p>
+                  <p>In <span class="glossterm non-normative">XLIFF Documents</span>, such code can be always represented with an
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> pair, or with spanning <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;&lt;/pc&gt;</a>
+                     </code>, only for well formed markup.</p>
+                  <p>Ideally, the original format is documented well enough to instruct <span class="glossterm non-normative">Extractors</span> about the role of each <span class="glossterm non-normative">inline code</span>. For example, XML Schema allows to declare
+          elements using the keyword EMPTY. This way, all elements that are not declared EMPTY, can
+          be represented as described above. To further help the <span class="glossterm non-normative">Extraction</span> process, the following recommendation could be implemented in
+          the original XML format: <span class="quote">“<span class="quote">For interoperability, the empty-element tag SHOULD be
+            used, and SHOULD only be used, for elements which are declared
+            EMPTY.</span>”</span>[<a class="citation" href="#XML">
+                        <span class="citation">XML</span>
+                     </a>].</p>
+                  <p>Following this recommendation of the XML specification, an empty
+            <code class="code">&lt;span&gt;</code> ought to be encoded as <code class="code">&lt;span&gt;&lt;/span&gt;</code> and
+          therefore represented as an <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> pair in <span class="glossterm non-normative">XLIFF Documents</span>, unlike the
+          always empty <code class="code">&lt;br/&gt;</code> that has to be represented as a standalone placeholder
+          code <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph/&gt;</a>
+                     </code>.</p>
+                  <p>This concept is illustrated by the <span class="emphasis">
+                        <em>bad practice</em>
+                     </span> example <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/spanning_as_ph" target="_top">
+                        <code class="code">spanning_as_ph</code>
+                     </a>.</p>
+                  <p>This kind of bad practice encoding doesn't inform the
+            <span class="glossterm non-normative">Translating</span>
+                     <span class="glossterm non-normative">Agent</span> (human or machine <span class="glossterm non-normative">Modifier</span>) that the
+          original code formed a span and effectively the original spanning code is not protected
+          during the roundtrip. The standalone <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph/&gt;</a>
+                     </code> codes can be switched or one of them omitted; simply, the span
+          is likely to end up misplaced, malformed, or empty simply because the
+            <span class="glossterm non-normative">Translation</span> editor cannot convey to the translator that the codes
+          need to enclose a certain portion of the original content and what is the semantics of the
+          original code span.</p>
+               </section>
+               <section class="section" id="Outermost">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.2.2. Outermost Tag Pairs</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>In some cases, the <span class="glossterm non-normative">inline codes</span> can enclose the localizable
+          string in a way that could suggest omitting them in the <span class="glossterm non-normative">Extracted</span>
+          text. For example, a paragraph containing only a link text, could be
+            <span class="glossterm non-normative">Extracted</span> as the link text only, without the
+            <code class="code">&lt;a&gt;&lt;/a&gt;</code> decoration being represented. This relates to the previous
+            <span class="emphasis">
+                        <em>bad practice</em>
+                     </span>
+                     <a class="ulink" href="https://github.com/GALAglobal/TAPICC/blob/master/extraction_examples/spanning_as_ph/bad_opening_excluded.xlf" target="_top">example</a> with the spanning tag represented as two empty <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph/&gt;</a>
+                     </code> elements.</p>
+                  <p>In case the <code class="code">&lt;a&gt;&lt;/a&gt;</code> decoration is not represented, the translator
+          loses valuable context (they cannot check the link), more importantly they don't know that
+          the text is a link text, and moreover are unable to add any text outside of the link span,
+          which might be advisable or even mandatory in certain locales.</p>
+                  <p>Ideally, a consistent approach to all <span class="glossterm non-normative">inline codes</span> ought to be
+          used during <span class="glossterm non-normative">Extraction</span>.</p>
+                  <p>See the relevant <span class="emphasis">
+                        <em>bad practice</em>
+                     </span> example <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/outermost_inline_excluded" target="_top">outermost_inline_excluded</a>.</p>
+               </section>
+               <section class="section" id="CDATA">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.2.3. Incomplete Extraction of Inline Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Some implementers choose not to <span class="glossterm non-normative">Extract</span>
+                     <span class="glossterm non-normative">inline codes</span> at all and use one of the
+          following approaches instead:</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" style="list-style-type: disc; ">
+                        <li class="listitem">
+                           <p>CDATA sections as content of <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source" target="_top">&lt;source&gt;</a>
+                              </code> and <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                              </code> elements (<a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/cdata" target="_top">cdata</a>)</p>
+                        </li>
+                        <li class="listitem">
+                           <p>Escaping of native codes using XML entities (<a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/inline_codes_plain_text" target="_top">inline_codes_plain_text</a>)</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>Doing one of the above can be used as a useful <span class="emphasis">
+                        <em>interim</em>
+                     </span>
+                     <span class="glossterm non-normative">Extraction</span> step when producing <span class="glossterm non-normative">XLIFF Documents</span> that are fit for roundtrip. However, it
+          is strongly discouraged to send <span class="glossterm non-normative">XLIFF
+            Documents</span> with the inline content not fully parsed for Localization
+          roundtrip.</p>
+                  <p>Such incomplete <span class="glossterm non-normative">Extraction</span> leaves
+            <span class="glossterm non-normative">inline codes</span> unprotected and increases the
+          risk of their corruption during the roundtrip, simply pushing the problem of <span class="glossterm non-normative">inline code</span> handling downstream.</p>
+                  <p>According to the XLIFF [<a class="citation" href="#XLIFF-2.1">
+                        <span class="citation">XLIFF-2.1</span>
+                     </a>] Standards, <span class="glossterm non-normative">Modifiers</span> can perform secondary parsing:</p>
+                  <p>
+                     <span class="quote">“<span class="quote">
+                           <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8112" target="_top">
+                              <span class="glossterm non-normative">Writers</span>
+                              <span class="glossterm normative">may</span> preserve original
+            CDATA sections</a>
+                        </span>”</span> (meaning that it is entirely optional to preserve CDATA
+          sections and that <span class="glossterm non-normative">XLIFF Writers</span> are not
+          obliged to preserve CDATA sections)</p>
+                  <p>and </p>
+                  <p>
+                     <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#d0e8993" target="_top">text can be converted into inline codes</a>.</p>
+                  <p>
+                     <span class="glossterm non-normative">Mergers</span>
+                     <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ApplicationConformance" target="_top">have to accept XLIFF files with valid modifications</a>, even though <a class="ulink" href="addingcodeshttp://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#addingcodes" target="_top">they may ignore the added codes</a>.</p>
+                  <p>Finally, it is considered an <a class="ulink" href="https://www.w3.org/TR/xml-i18n-bp/#AuthCDATA" target="_top">XML internationalization best
+            practice</a> to avoid CDATA sections in localizable content. This best practice is of
+          course also valid for XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#source" target="_top">&lt;source&gt;</a>
+                     </code> elements.</p>
+                  <p>Strictly speaking, it is not illegal to create <span class="glossterm non-normative">XLIFF
+            Documents</span> that contain CDATA sections or unparsed entities instead of fully
+          parsed XLIFF inline content. However, considering all of the above, it is clear that
+          unparsed inline content makes XLIFF Documents unfit for a fully interoperable roundtrip.
+          Again, strictly speaking, <span class="glossterm non-normative">XLIFF Documents</span> with
+          unparsed inline content are <span class="emphasis">
+                        <em>capable</em>
+                     </span> of roundtrip but all the effort
+          that is saved on <span class="glossterm non-normative">Extraction</span> will cause
+          unpredictable issues and hence even more effort when <span class="glossterm non-normative">Merging</span> back. </p>
+                  <p>Implementers need to consider that <span class="glossterm non-normative">XLIFF
+            Documents</span> with unparsed inline content are very likely to return with
+          critical inline syntax or formatting corruptions that cannot be prevented on CDATA
+          sections or entities that are both opaque to <span class="glossterm non-normative">XLIFF
+            Modifiers</span>. Such corruptions are likely to prevent proper functionality of
+          target content in the native environment. In case <span class="glossterm non-normative">XLIFF
+            Modifiers</span> do perform the secondary parsing of content unparsed on <span class="glossterm non-normative">Extraction</span>, which is allowed by the standard,
+          corruption will be prevented, however, <span class="glossterm non-normative">Mergers</span>
+          will need to perform <span class="emphasis">
+                        <em>unparsing</em>
+                     </span> to facilitate merging back into the
+          native environment, because XLIFF Modifiers are not and cannot be obliged to
+            <span class="emphasis">
+                        <em>unparse</em>
+                     </span> back to CDATA sections or entities not knowing the
+            <span class="glossterm non-normative">Extraction</span> and <span class="glossterm non-normative">Merging</span> logic of the <span class="glossterm non-normative">XLIFF Document</span> originator. </p>
+               </section>
+               <section class="section" id="Multiples">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.2.4. Representing Multiple Subsequent Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>As original <span class="glossterm non-normative">inline codes</span> can occur in clusters, for instance as
+          nested formatting, implementers could be tempted to combine such markup on
+            <span class="glossterm non-normative">Extraction</span> and represent it as a single inline element.</p>
+                  <p>This kind of <span class="glossterm non-normative">Extraction</span> is likely to prevent potentially
+          desirable <span class="glossterm non-normative">Modification</span> of <span class="emphasis">
+                        <em>inline codes</em>
+                     </span>,
+          affecting <span class="glossterm non-normative">Translation</span> quality. It will also prevent usage of fine
+          grained code metadata (for instance context, display, and editing hints) or automated
+          format validation during the roundtrip.</p>
+                  <p>On the other hand, some potential benefit can be perceived in reducing markup inside
+          segment content, which is useful in CAT tools that cannot properly display the inline
+          codes (render information available through original data or context hints). In such
+          tools, less markup reduces the visual clutter and makes the translatable text more
+          readable. This can be solved by proper choice of CAT tools (short term) or by large buyers
+          requesting that offending tool vendors do support proper rendering of <span class="glossterm non-normative">inline code</span> data and metadata (mid and long
+          term).</p>
+                  <p>Implementers need to consider the pros and cons of both approaches and use the one
+          that best matches their business need.</p>
+                  <p>For examples see <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/multiple_codes_represented_as_single" target="_top">multiple_codes_represented_as_single</a>.</p>
+               </section>
+            </section>
+            <section class="section" id="Target_content">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.3. Target Content in Extracted XLIFF</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>This section focuses on reasons whether or not to populate the <code class="code">
+                     <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                  </code> element during <span class="glossterm non-normative">Extraction</span> or
+          <span class="glossterm non-normative">Enriching</span> and when to do so, if at all.</p>
+               <p>Generally, one should omit the <code class="code">
+                     <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                  </code> element, unless there is an added value and also in cases
+        where the specification offers another dedicated solution. Proper support of the <a class="link" href="#State_Machine" title="2.3.3.  State Machine">state
+          machine</a> during the whole roundtrip helps
+          <span class="glossterm non-normative">Agents</span> to process and validate the <span class="glossterm non-normative">XLIFF
+          Documents</span> as intended.</p>
+               <p>When looking at the situation from the <span class="emphasis">
+                     <em>microservices architecture</em>
+                  </span>
+        point of view, the <span class="glossterm non-normative">Extractor</span>/<span class="glossterm non-normative">Merger</span> ought to be implemented as just that — a single
+        purpose <span class="glossterm non-normative">Extraction</span>/<span class="glossterm non-normative">Merging</span> service that delegates any other operations, such
+        as segmentation or <span class="glossterm non-normative">Enriching</span> to other
+        specialized services.</p>
+               <p>Output of such extractor would be a <span class="emphasis">
+                     <em>target language</em>
+                  </span> agnostic
+          <span class="glossterm non-normative">XLIFF Document</span> with source content only, possibly with additional
+        modules/extensions which could not be generated after extraction, for example <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#size_restriction_module" target="_top">Size and Length Restriction Module</a> or <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fs-mod" target="_top">Format Style Module</a>.</p>
+               <p>Unless the implementer has a specific need to create <span class="emphasis">
+                     <em>target
+          language</em>
+                  </span> specific instances of the extracted <span class="glossterm non-normative">XLIFF
+          Document</span>, for instance by <span class="glossterm non-normative">Enriching</span> with
+        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#candidates" target="_top">translation candidates</a>, the
+          <span class="glossterm non-normative">Extracted</span>
+                  <span class="glossterm non-normative">XLIFF Document</span> could and ought to be sent downstream for the
+        Localization roundtrip as-is.</p>
+               <section class="section" id="Source_copy_in_target">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.3.1. Inserting Source Content into <code class="code">&lt;target&gt;</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The copy of the source content in <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements generally does not provide any advantage during
+          the XLIFF roundtrip. On the contrary, it brings disadvantages such as needlessly
+          increasing the size of the <span class="glossterm non-normative">XLIFF Document</span> or
+          enforcing existence of the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang" target="_top">
+                        <code class="code">trgLang</code>
+                     </a> attribute with a specific BCP 47 compliant value.
+          Populated <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements are also likely to prevent segmentation
+          modification, unless the target content is intentionally removed (which service providers
+          are understandably hesitant to do). Not the least issue is that the source content copied
+          to the target actually is <span class="emphasis">
+                        <em>not</em>
+                     </span> in the target language indicated by the
+          BCP 47 tag on the XLIFF root element, which can cause a host of other processing issues.
+          The <span class="emphasis">
+                        <em>bad practice</em>
+                     </span> of populating <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements with source content used to facilitate parsing and
+          editing of XLIFF in <span class="emphasis">
+                        <em>Translation</em>
+                     </span> editors or generic XML editors that
+          didn't have XLIFF support and could only open for translation certain elements in generic
+          XML formats. As such, this practice is strongly discouraged.</p>
+                  <p>
+                     <span class="emphasis">
+                        <em>Bad practice</em>
+                     </span> example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/source_in_target" target="_top">source_in_target</a>.</p>
+               </section>
+               <section class="section" id="Candidates_in_target">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.3.2. Inserting Possible Translations into <code class="code">&lt;target&gt;</code> elements</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Enriching Agents</span> can use translation memories, machine
+          translation engines, or other means to obtain suitable translation candidate strings in
+          the target language to be used later in the roundtrip, for example as suggestions for
+          translators, to achieve better leverage, or to get higher consistency with previous
+          translations.</p>
+                  <p>Using the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> element for storing such translation candidates limits the
+          number of the possible proposed translations to a single one per segment. Moreover, this
+          way it's not possible to pass critical metadata about the translation candidate, such as
+          its origin, similarity, or quality (all those are available in a dedicated module),
+          causing interoperability issues for <span class="glossterm non-normative">Agents</span>
+          without prior knowledge of the workflow.</p>
+                  <p>Inserting translation candidates into <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements during <span class="glossterm non-normative">Extraction</span> or <span class="glossterm non-normative">Enriching</span>
+          constitutes an illegal overload of the core element with a clearly set purpose. The <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candidates" target="_top">Translation Candidates Module</a> was designed exactly to provide translators with
+          multiple translation candidates along with metadata that facilitate decision making and
+          effective reuse. Moreover, the module can address sub-segment matches.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/pre-populated_target" target="_top">pre-populated_target</a>.</p>
+               </section>
+               <section class="section" id="State_Machine">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.3.3.  State Machine</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The XLIFF specification contains attributes for managing a segment state machine. The
+          attributes used are <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">&lt;state&gt;</a>
+                     </code> and <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate" target="_top">&lt;subState&gt;</a>
+                     </code>. The <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate" target="_top">&lt;subState&gt;</a>
+                     </code> attribute can only be used as long as the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">&lt;state&gt;</a>
+                     </code> attribute is used. The <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">&lt;state&gt;</a>
+                     </code> attribute is for high level interoperability. The <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#substate" target="_top">
+                        <code class="code">&lt;subState&gt;</code>
+                     </a> attribute allows implementers to define private
+          sub-state machines that can give more fine-grained sub-states based on their private
+          workflow needs. </p>
+                  <p> The <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">&lt;state&gt;</a>
+                     </code> attribute defines just a high level four states state
+          engine. The values are <code class="code">initial</code>, <code class="code">translated</code>,
+            <code class="code">reviewed</code>, and <code class="code">final</code>. Although this attribute is
+            <span class="glossterm non-normative">optional</span> on the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> element, it is assumed as having the default value
+            <code class="code">initial</code> whenever not used explicitly. There are some important advantages
+          to using the state machine explicitly. Importantly, <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements are optional in the <code class="code">initial</code> state. So
+          if you want to even enforce <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> existence in your deliverables you should be using at least
+          the high level four states state engine provided by the <span class="glossterm non-normative">Core</span>
+          attribute <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">state</a>
+                     </code>. Setting the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#state" target="_top">state</a>
+                     </code> attribute of a <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> to <code class="code">translated</code> or later does enforce
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> existence within that segment. </p>
+                  <p>Using the high level states <code class="code">reviewed</code> and <code class="code">final</code> gives you
+          even more control over the progressive validation of the <span class="glossterm non-normative">XLIFF
+            Documents</span> you're roundtripping. All of the states <code class="code">translated</code>,
+            <code class="code">reviewed</code>, and <code class="code">final</code> will trigger validation of the inline data
+          model within <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements, which is not being validated in the
+            <code class="code">initial</code> state where even the existence of <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">&lt;target&gt;</a>
+                     </code> elements is not assumed. Violations of the inline data
+          model including Editing hints are being tested in all states more advanced than
+            <code class="code">initial</code>. Those violations are considered "Warnings" at
+            <code class="code">translated</code> and <code class="code">reviewed</code> states. Only in the <code class="code">final</code>
+          state, those violations will become actual "Errors" that render the <span class="glossterm non-normative">XLIFF
+            Document</span> invalid.</p>
+               </section>
+            </section>
+            <section class="section" id="Hints">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.4. Editing and Context Hints</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>The XLIFF specification provides a number of attributes that allow to manage the
+        behavior and validation of structural and inline elements; such as controlling the
+        localizability of text; protecting non-deletable inline codes, or preserving their order;
+        controlling the segmentation modification; or providing additional context to other agents
+        downstream.</p>
+               <p>The default values of the editing hints and potential need to set them otherwise need to
+        be considered when creating <span class="glossterm non-normative">Extraction</span> rules to prevent issues which
+        can be only identified by automated validation with editing hints set as intended.</p>
+               <section class="section" id="canDelete">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.4.1. Non-deletable Inline Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Original source text can contain functional inline codes apart from formatting ones,
+          such as software placeholders to be replaced during runtime. Removal of these placeholders
+          or other functional code, either intentional or accidental, during the <span class="glossterm non-normative">Translation</span> roundtrip can produce valid <span class="glossterm non-normative">XLIFF Documents</span> that will nevertheless fail to merge
+          back, cause build failures later on, or create other functional issues in the <span class="glossterm non-normative">Translated</span> product.</p>
+                  <p>The XLIFF specification provides the editing hint <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete" target="_top">canDelete</a>
+                     </code> with its default value set to <code class="code">yes</code> that is thus
+          automatically used or can be explicitly set on any inline code. For most of the formatting
+          codes, the default value <code class="code">yes</code> is fine, so that there is no need to set the
+          attribute explicitly most of the times. The default value means that the codes can be
+          removed during localization as the translators see fit. A typical example is the need to
+          remove italics or bold formatting codes in Chinese or Japanese target content. These
+          languages don't use typographical methods of emphasis and non-deletable formatting codes
+          tend to complicate life of translators into such languages. On the other hand, <span class="glossterm non-normative">Extractors</span> need to take care to set the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candelete" target="_top">canDelete</a>
+                     </code> attribute to <code class="code">no</code> explicitly whenever an inline
+          code is critical for <span class="glossterm non-normative">Merging</span> back of the
+            <span class="glossterm non-normative">XLIFF Document</span>, their build process, or
+          product functionality.</p>
+               </section>
+               <section class="section" id="canReorder">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.4.2.  Preserving Order of Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>In case the order or nesting of inline codes in the original document is prescribed
+          (for instance by a schema), it has to be preserved in the target content during the
+          localization roundtrip to prevent <span class="glossterm non-normative">Merge</span> issues, or validation fails
+          after <span class="glossterm non-normative">Merging</span>.</p>
+                  <p>The attribute <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canreorder" target="_top">canReorder</a>
+                     </code> on the inline code determines, whether each code can be
+          moved before, or after another code. Again, the default value of this attribute is
+            <code class="code">yes</code> meaning that the inline codes can be reordered as the translators see
+          fit.</p>
+                  <p>This attribute is used to create and protect non-reorderable sequences of inline codes
+          if necessary for proper inline code functionality. </p>
+                  <div class="example" id="d5e640">
+                     <div class="example-title">Example 1. Example of a non-reorderable source sequence of inline codes</div>
+                     <div class="example-contents">
+                        <pre class="programlisting" id="canReorder_fragment">...
+&lt;source&gt;&lt;pc id="1" canCopy="no" canDelete="no" canReorder="firstNo"&gt;
+            &lt;pc id="2" canCopy="no" canDelete="no" canReorder="no"&gt;this is linktext&lt;/pc&gt;
+            &lt;ph id="3" canCopy="no" canDelete="no" canReorder="no"/&gt;
+         &lt;/pc&gt;
+&lt;/source&gt;
+...</pre>
+                     </div>
+                  </div>
+                  <br class="example-break"/>
+                  <p>Since this attribute is supported by native XLIFF validation artifacts
+            (<span class="glossterm non-normative">XLIFF Core</span> Schematron Schemas), potential reordering of the
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc/&gt;</a>
+                     </code> and <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph/&gt;</a>
+                     </code> tags in the corresponding <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#target" target="_top">
+                        <code class="code">&lt;target&gt;</code>
+                     </a> element will be called out when validating <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">
+                        <code class="code">&lt;segment&gt;</code>
+                     </a> elements with the state more advanced than
+            <code class="code">initial</code>. See also the <a class="link" href="#State_Machine" title="2.3.3.  State Machine">Sate Machine</a>
+          section.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canReorder" target="_top">editing_hints_canReorder</a>.</p>
+               </section>
+               <section class="section" id="context">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.4.3. Providing Context</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The <span class="glossterm non-normative">Agents</span> in the roundtrip, human or
+          machines, need enough information to make appropriate decisions regarding operations on
+          inline codes, and how the codes impact the adequacy and fluency of the target text, the
+          context in short.</p>
+                  <p>These additional metadata can be provided using the <span class="glossterm non-normative">context hints</span> attributes: <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp" target="_top">disp</a>
+                     </code> (<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispstart" target="_top">dispStart</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#dispend" target="_top">dispEnd</a>
+                     </code>), <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv" target="_top">equiv</a>
+                     </code> (<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equivstart" target="_top">equivStart</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equivend" target="_top">equivEnd</a>
+                     </code>), <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#type" target="_top">type</a>
+                     </code>, and <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#subtype" target="_top">subType</a>
+                     </code>.</p>
+                  <p>The XLIFF Standards provide the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#originaldata" target="_top">&lt;originalData&gt;</a>
+                     </code> that ought to be used to store the native content of
+          the represented inline elements. Its <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#data" target="_top">
+                        <code class="code">&lt;data&gt;</code>
+                     </a> child can even contain CDATA sections that are <a class="link" href="#CDATA" title="2.2.3. Incomplete Extraction of Inline Codes">strongly discouraged</a> in XLIFF content.</p>
+                  <p>Original data, as a sort of internal skeleton, are likely to be intended to facilitate
+          collaboration between the <span class="glossterm non-normative">Extractor</span> and the
+            <span class="glossterm non-normative">Merger</span>, not necessarily suitable for use by
+          other roundtrip <span class="glossterm non-normative">Agents</span>. The original data
+          content can be, for instance, too long to render correctly in the CAT tool.</p>
+                  <p>
+                     <span class="glossterm non-normative">Extractors</span> are encouraged to populate the
+          value of <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#equiv" target="_top">equiv</a>
+                     </code> attributes with a suitable plain text representation of the
+          original data and the corresponding <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#disp" target="_top">disp</a>
+                     </code> attributes with a user-friendly variant of the same.</p>
+                  <p>Alternatively, the same task could be performed further downstream by an <span class="glossterm non-normative">Enricher</span> that can understand the content of the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#originaldata" target="_top">
+                        <code class="code">&lt;originalData&gt;</code>
+                     </a>. Separating features of <span class="glossterm non-normative">Extractors</span> and <span class="glossterm non-normative">Enrichers</span> is in line with SOA and microservices architectures.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/context_hints" target="_top">context_hints</a>.</p>
+               </section>
+               <section class="section" id="canOverlap">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.4.4. Considerations for Using Spanning Codes</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Compared to the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                     </code> pair tag, which can be only used to represent well-formed
+          spanning codes within a single <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#segment" target="_top">&lt;segment&gt;</a>
+                     </code>, the more universal <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> pair can handle segmentation changes, span across segments,
+          other codes, or annotations, and even represent orphaned native inline codes. Sounds
+          great, so why use <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                     </code>at all? </p>
+                  <p>The fact that <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> pairs do support for overlapping codes will, however, create
+          an issue in a situation where <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec&gt;</a>
+                     </code> pairs are used to represent multiple well-formed spanning codes
+          without setting their <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap" target="_top">canOverlap</a>
+                     </code> attribute to <code class="code">no</code>. In such cases, the
+          well-formedness of the original codes is not protected and can be corrupted during the
+          roundtrip. It will be impossible to prevent this corruption with native XLIFF methods
+          unless the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap" target="_top">canOverlap</a>
+                     </code> and possibly <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#canoverlap" target="_top">canReorder</a>
+                     </code> attributes are properly set. So in case of representing
+          well-formed native markup, using the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                     </code> pair tag is likely to be easier for the <span class="glossterm non-normative">Extactor</span>. On the other hand, it is important to
+          consider that transforming the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                     </code> pair tag into an <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> pair is always allowed. So the <span class="glossterm non-normative">Mergers</span> need to prepared to handle <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc/&gt;</a>
+                     </code>/<code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec/&gt;</a>
+                     </code> even in case their corresponding <span class="glossterm non-normative">Extractor</span> used only the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                     </code> pair tag.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/editing_hints_canOverlap" target="_top">editing_hints_canOverlap</a>.</p>
+               </section>
+            </section>
+            <section class="section" id="miscellaneous">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.5. Miscellaneous</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>There are many other good or bad practice concepts that do not belong to any of the
+        above categories. Some of them are listed in this section:</p>
+               <section class="section" id="id_attribute">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.1. Value of the Attribute <code class="code">id</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Implementers could be tempted to store values of resource Ids in the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id" target="_top">id</a>
+                     </code> attribute of XLIFF structural or elements. It should be stressed
+          that the XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id" target="_top">id</a>
+                     </code> attribute is intended for internal and external addressing of <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#fragid" target="_top">XLIFF fragments</a>. While the XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id" target="_top">id</a>
+                     </code> value is restricted to <span class="glossterm non-normative">NMTOKEN</span>, the native format might not have such a restriction. Invalid
+          characters in XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id" target="_top">id</a>
+                     </code> attributes will render the whole <span class="glossterm non-normative">XLIFF Document</span> invalid. Although this would typically be discovered as soon
+          as the first validation occurs, it can still be costly to fix in a large or a long running project.</p>
+                  <div class="note">
+                     <table style="border: 0; ">
+                        <tr>
+                           <td style="text-align: center; vertical-align: top; width: 25px; " rowspan="2">
+                              <img alt="[Note]" src="../../resources/img/note.png"/>
+                           </td>
+                           <th style="text-align: left; ">Note</th>
+                        </tr>
+                        <tr>
+                           <td style="text-align: left; vertical-align: top; ">
+                              <p>A real life example:</p>
+                              <p>A long running software localization project used its resource Ids as XLIFF
+                  <code class="code">
+                                    <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#id" target="_top">id</a>
+                                 </code> attributes in the role of the guaranteed key for In-Context
+              Exact TM leverage. After a while, a new developer changed the style for generating
+              resource Ids. The new Id did not fit the NMTOKEN restriction, which led to a complex
+              redesign of the localization and TM leverage workflow.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <p>The XLIFF <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#name" target="_top">name</a>
+                     </code> attribute is designed to store the original identifier of the
+          resource, it can be any string without restrictions. On the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#file" target="_top">&lt;file&gt;</a>
+                     </code> element, the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#original" target="_top">original</a>
+                     </code> attribute can be used for the same purpose.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/id_and_name" target="_top">id_and_name</a>.</p>
+               </section>
+               <section class="section" id="whitespaces">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.2. Whitespace Handling</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>Whitespaces can be important inside nodes such as <code class="code">&lt;pre&gt;</code>, containing
+          for instance code samples, and <span class="glossterm non-normative">Modifying</span> them during the roundtrip
+          is not desirable.</p>
+                  <p>Whitespaces (more than one of the whitespace characters in a sequence) are, however,
+          generally insignificant in the text nodes of markup formats, such as XML or HTML, and can
+          be changed anytime (even not intentionally as an XLIFF transform) by, for example,
+          reformatting and indentation (so called pretty-printing) without affecting the layout of
+          the rendered document.</p>
+                  <p>Thus, one cannot indiscriminately either preserve, or normalize. Since most of TMS and
+          CAT tools penalize whitespace discrepancies, the leverage could be negatively affected if
+          whitespaces are <span class="glossterm non-normative">Modified</span>, and layout of nodes
+          with significant whitespace could be corrupted.</p>
+                  <p>The general best practice, also taking into account the <a class="ulink" href="https://www.w3.org/TR/its20/#preservespace" target="_top">ITS Preserve Space</a> data
+          category is the following: </p>
+                  <p>The <span class="glossterm non-normative">Extractor</span> itself ought to</p>
+                  <div class="orderedlist">
+                     <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                           <p>Normalize native content where possible, not relying on other
+                  <span class="glossterm non-normative">Agents</span> in the roundtrip to do so and</p>
+                        </li>
+                        <li class="listitem">
+                           <p>protect XLIFF structural elements with <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space" target="_top">xml:space</a>
+                              </code> set to <code class="code">preserve</code>. </p>
+                        </li>
+                     </ol>
+                  </div>
+                  <p>Please note that the XLIFF default for <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space" target="_top">xml:space</a>
+                     </code> is <code class="code">default</code>. Therefore, it is important to ensure
+          that content with mixed whitespace behavior is normalized and then protected with
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_space" target="_top">xml:space</a>
+                     </code> explicitly set to or inherited as <code class="code">preserve</code>. The
+          default <span class="glossterm non-normative">XLIFF Core</span> behavior is only useful if
+          all whitespace is globally insignificant.</p>
+                  <p>Additional details in the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#preserve_space" target="_top">XLIFF spec</a>. </p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/xml_space_preserve" target="_top">xml_space_preserve</a>.</p>
+               </section>
+               <section class="section" id="non-localizables">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.3. Protecting Non-localizable Content</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>There are cases, when it's necessary to prevent localization of inline content parts
+          otherwise exposed to localization, be it brand names, or functional inline code, such as
+          software placeholders.</p>
+                  <p>XLIFF offers two options for :</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" style="list-style-type: disc; ">
+                        <li class="listitem">
+                           <p>
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation" target="_top">translate annotation</a>
+                           </p>
+                        </li>
+                        <li class="listitem">
+                           <p>
+                              <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                              </code>
+                           </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>each of them having different purpose and offering different features and
+          options.</p>
+                  <p>Careful consideration is necessary to decide which way to protect a particular
+          non-translatable string type, as the two methods are neither equivalent nor
+          interchangeable.</p>
+                  <p>Usually, the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#translateAnnotation" target="_top">translate annotation</a> is suitable for protecting linguistically significant
+          content, e. g. non-localizable brand or product names, while <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                     </code> is better for representing standalone codes without a syntactic
+          role, typically standalone formatting artifacts such as <code class="code">&lt;br/&gt;</code>.</p>
+                  <div class="note">
+                     <table style="border: 0; ">
+                        <tr>
+                           <td style="text-align: center; vertical-align: top; width: 25px; " rowspan="2">
+                              <img alt="[Note]" src="../../resources/img/note.png"/>
+                           </td>
+                           <th style="text-align: left; ">Note</th>
+                        </tr>
+                        <tr>
+                           <td style="text-align: left; vertical-align: top; ">
+                              <p>
+                                 <a class="link" href="#validations" title="2.6. XLIFF Validations">XLIFF Core validation artifacts</a> do not support
+              validating translate annotations by design. It is the ultimate decision of the
+                <span class="glossterm non-normative">Modifier</span> if a span annotated as non-translatable will indeed
+              stay unchanged based on linguistic and context considerations. If the validation of
+              the non-translatable annotations is necessary, it needs to be added for instance as
+              custom validation code or a custom Schematron rule, based on particular business needs
+              and validation infrastructure options.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <p>Placeholders and variables to be replaced with syntactically significant content on
+          runtime are a particularly difficult use case to address. The functional variable usually
+          doesn't provide much of a context for the translator even in case when not replaced by the
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                     </code> element and just surrounded by the do-not-translate annotation.
+          The best way to represent such variables is to use <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                     </code> with the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#type" target="_top">
+                        <code class="code">type</code>
+                     </a> attribute set to <code class="code">ui</code> and the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#subtype" target="_top">
+                        <code class="code">subType</code>
+                     </a> attribute set to <code class="code">xlf:var</code>. See the XLIFF
+          Constraints for the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#subtype" target="_top">
+                        <code class="code">subType</code>
+                     </a> attribute. In general, the <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph" target="_top">&lt;ph&gt;</a>
+                     </code> elements need to be accompanied by appropriate <a class="link" href="#Hints" title="2.4. Editing and Context Hints">context and editing hints</a>. The <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#disp" target="_top">
+                        <code class="code">disp</code>
+                     </a> is suitable to display (in a CAT tool GUI) an example value
+          that is likely to be used on runtime. The same or a related value can be used also for the
+          plain text equivalent (rendering) hint <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#equiv" target="_top">
+                        <code class="code">equiv</code>
+                     </a>. </p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/ph_and_mrk" target="_top">ph_and_mrk</a>.</p>
+               </section>
+               <section class="section" id="merging">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.4. Merging Translated Content</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Modifiers</span> can perform various <span class="emphasis">
+                        <em>valid</em>
+                     </span>
+          transformations during an XLIFF roundtrip. XLIFF compliant <span class="glossterm non-normative">Mergers</span>
+          need to be able correctly handle all of them, as those changes are canonical validity
+          preserving operations. See in particular the clause 2.e. of the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#Conformance" target="_top">XLIFF Conformance section</a>.</p>
+                  <p>These operations are (in order of importance or severity of issues caused if ignored):</p>
+                  <div class="itemizedlist">
+                     <ul class="itemizedlist" style="list-style-type: disc; ">
+                        <li class="listitem">
+                           <p>Converting CDATA sections and parseable text (such as XML entities) into XLIFF
+                  <span class="glossterm non-normative">inline codes</span>.</p>
+                        </li>
+                        <li class="listitem">
+                           <p>
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#segmentationModification" target="_top">Segmentation <span class="glossterm non-normative">Modification</span>
+                              </a>,</p>
+                        </li>
+                        <li class="listitem">
+                           <p>
+                              <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#spanningcodeusage" target="_top">Equivalent conversion</a> of <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#pc" target="_top">&lt;pc&gt;</a>
+                              </code> elements into <code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#sc" target="_top">&lt;sc&gt;</a>
+                              </code>/<code class="code">
+                                 <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ec" target="_top">&lt;ec&gt;</a>
+                              </code> pairs (always allowed and possible) and <span class="emphasis">
+                                 <em>vice
+                  versa</em>
+                              </span> ( only possible with well-formed spanning codes),</p>
+                        </li>
+                        <li class="listitem">
+                           <p>Adding, and removing of <span class="glossterm non-normative">inline codes</span> (taking into account
+                the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#editinghints" target="_top">editing hints</a> and their Processing Requirements),</p>
+                        </li>
+                        <li class="listitem">
+                           <p>Content <span class="glossterm non-normative">Enrichment</span> with <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/csprd01/xliff-core-v2.1-csprd01.html#annotations" target="_top">Annotations</a> and <span class="glossterm non-normative">Context
+                Hints</span>,</p>
+                        </li>
+                        <li class="listitem">
+                           <p>Performing of any other changes allowed by Processing Requirements.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Extraction</span> not following best practices usually just shifts the
+          problems further downstream, forcing  other <span class="glossterm non-normative">Agents</span> to mitigate the
+          inherited issues, more often than not leading to unexpected, undesirable, or unpredictable
+          results that will trip over the <span class="glossterm non-normative">Merging</span> after the roundtrip.</p>
+                  <p>Additional guidance is also available in the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#d0e11123" target="_top">XLIFF Best Practice for <span class="glossterm non-normative">Mergers</span>
+                     </a>.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/merging" target="_top">merging</a>.</p>
+               </section>
+               <section class="section" id="langtags">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.5. Selecting Language Tags</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>
+                     <span class="glossterm non-normative">Agents</span> in the roundtrip, machine and human,
+          need to be able to sufficiently identify the languages used in <span class="glossterm non-normative">XLIFF Documents</span>. The two main languages (the source and
+          the target language) of the XLIFF bitext are primarily specified by the attributes
+              <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang" target="_top">srcLang</a>
+                     </code> and <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang" target="_top">trglang</a>
+                     </code>. The optional <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#xml_lang" target="_top">xml:lang</a>
+                     </code> attributes on the <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#source" target="_top">
+                        <code class="code">&lt;source&gt;</code>
+                     </a> and <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html#target" target="_top">
+                        <code class="code">&lt;target&gt;</code>
+                     </a> elements are directly inherited from <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#srcLang" target="_top">srcLang</a>
+                     </code> and <code class="code">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#trgLang" target="_top">trglang</a>
+                     </code> respectively and are in fact provided only for generic XML
+          Processors interoperability. The attribute <code class="code">itsm:lang</code> serves just
+          to define inline foreign language spans via annotations if necessary.</p>
+                  <p>What language tag to use is usually not an issue for languages like Slovak
+            (<code class="code">sk</code>) or Czech (<code class="code">cs</code>) that are spoken predominantly in one
+          country and encoded exclusively using one script. This becomes a more prominent question
+          for languages used in different regions, such as English (<code class="code">en-GB</code>,
+            <code class="code">en-US</code>); using various scripts, for example Uyghur (<code class="code">ug-Arab</code>,
+            <code class="code">ug-Cyrl</code>, <code class="code">ug-Latn</code>); or having multiple variants like Basic
+          English (<span class="emphasis">
+                        <em>en-basiceng</em>
+                     </span>).</p>
+                  <p>The use cases for the correctly set fine-grained language tags vary from simple, such
+          as spell-check, which will behave quite differently for <code class="code">en-GB</code>, compared to
+            <code class="code">en-basiceng</code>; to more complex, like using <code class="code">fr-FR</code> as a <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#candidates_reference" target="_top">reference language</a> for a <span class="glossterm non-normative">Translation</span>
+          into <code class="code">fr-CA</code> .</p>
+                  <p>MT engines will return Serbian encoded with the Cyrillic script (<code class="code">sr-Cyrl</code>)
+          output when the request contains the language tag <span class="emphasis">
+                        <em>sr</em>
+                     </span> albeit the user
+          might have meant and expected Serbian written with the Latin script
+          (<code class="code">sr-Latn</code>). Human translators would hopefully ask which of the two was the
+          desired one or just provide <code class="code">sr-Cyrl</code> as the machines. More dangerous than
+          translators would be undocumented internal mapping tables and custom business rules
+          facilitating communication between roundtrip actors that could assume different defaults
+          when not given an unequivocal language tag, or worse ignore a valid fine-grained language
+          tag they don't cover.</p>
+                  <p>The XLIFF Standards prescribe that the
+            <a class="link" href="#BCP_47" title="Tags for Identifying Languages">BCP 47</a> language tags are to be used as values for attributes
+          specifying human natural languages used in the <span class="glossterm non-normative">XLIFF Documents</span>. The Unicode Consortium offers a <a class="ulink" href="http://unicode.org/cldr/utility/languageid.jsp" target="_top">tool available
+          online</a>, which can help to perform basic validation of selected language
+          tags.</p>
+                  <p>Generally, language tags need to be carefully chosen for source, target, and reference
+          languages in <span class="glossterm non-normative">XLIFF Documents</span>, and it is worth your time to consult
+          external resources, or language experts; even more so, if you are not familiar with the
+          defaults for the language in question.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/language_tags" target="_top">language_tags</a>.</p>
+               </section>
+               <section class="section" id="sanity_checks">
+                  <div class="titlepage">
+                     <div>
+                        <div>
+                           <h4 class="title">2.5.6. Validation of Extracted Content</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <p>The native format can contain various reserved characters, or their sequences, for
+          structural and inline markup, as well as for programmatic purposes. While not explicitly
+          violating XLIFF Constraints and Processing Requirements, their incidence in the
+            <span class="glossterm non-normative">Extracted</span> content could point out issues with the
+            <span class="glossterm non-normative">Extraction</span> process.</p>
+                  <p>One could implement a <span class="emphasis">
+                        <em>sanity check</em>
+                     </span> for the
+            <span class="glossterm non-normative">Extractor</span> output that would identify potential problems by
+          looking for such characters, or sequences of them. Failing such a sanity check would
+          ideally interrupt the roundtrip as early as possible, allow for an update of the
+            <span class="glossterm non-normative">Extraction</span> rules, and for redoing the
+            <span class="glossterm non-normative">Extraction</span> in order to prevent problems further downstream. Not
+          at least, <span class="glossterm non-normative">Extraction</span> would expose such control characters or their
+          sequences to localization transformations that would most probably be harmful with regards
+          to the <span class="glossterm non-normative">Merge</span> and build processes.</p>
+                  <p>Example: <a class="ulink" href="https://github.com/GALAglobal/TAPICC/tree/master/extraction_examples/sanity_check" target="_top">sanity_check</a>.</p>
+               </section>
+            </section>
+            <section class="section" id="validations">
+               <div class="titlepage">
+                  <div>
+                     <div>
+                        <h3 class="title">2.6. XLIFF Validations</h3>
+                     </div>
+                  </div>
+               </div>
+               <p>Since XLIFF is a roundtrip oriented format that is supposed to facilitate complex
+        workflows bringing together best of breed specialized <span class="glossterm non-normative">Agents</span>, it
+        makes huge business sense to validate, to validate a lot, everywhere, and all the time.
+        Successful validation on every input and output step is the critical factor for successful
+        "blind", plug-and-play, or unsupervised interoperability. If you are designing a service
+        architecture facilitated by XLIFF as the canonical data model, or if you are otherwise
+        integrating many services that are consuming and outputting XLIFF, it makes sense to expose
+        XLIFF validation as a reusable microservice that is freely available and even mandated at
+        every input and output step in your ecosystem, service layer, or service bus. When your tool
+        is supposed to receive <span class="glossterm non-normative">XLIFF Documents</span>, check first if the XLIFF you
+        are trying to consume is indeed valid. Also if you are outputting <span class="glossterm non-normative">XLIFF
+          Documents</span> that other <span class="glossterm non-normative">Agents</span> or service providers are
+        supposed to consume, do check that you are outputting valid XLIFF. Don't force your service
+        providers to accept invalid XLIFF, rather take their pushback as a signal that something
+        might be wrong with your process. Do remember that problems pushed downstream will force
+        various mitigation steps among a potentially large number of Agents and those problems will
+        resurface unpredictably shape-shifted no later than at the time when you will try to
+          <span class="glossterm non-normative">Merge</span> the XLIFF back, or worse as the localized product's issues,
+        if <span class="glossterm non-normative">Merging</span> and building miraculously succeed.</p>
+               <p>XLIFF is a format that has been blessed with multiple low level implementations,
+        therefore you have also multiple options for XLIFF validation. Since XLIFF Version 2.1, most
+        of the advanced validation checks that required custom code in XLIFF 2.0 can be validated
+        using the XLIFF TC provided Schematron schemas that are in fact an integral normative part
+        of the OASIS Standard. XLIFF TC provided artifacts (xsd, sch, and NVDL) can be used for
+        validation in any generic XML editor. However, if you are trying to design an automated
+        workflow you'd not typically rely on manual or semi-automated validation in XML editors, you
+        ought rather try and build a service that is for instance using the xslt rendering of the
+        Schematron schemas or create a service out of the command line Lynx tool that is part of the
+        open source OAKAPI XLIFF Toolkit (java). The open source Microsoft XLIFF Object Model (.NET)
+        contains built in validation (can be disabled). The fourth option to validate XLIFF is Bryan
+        Schnabel's Xmarker. Advanced miscroservices architectures would ideally adopt more than one
+        low level method of validation. This can be used either for redundancy or for
+        double-checking of validation results, comparing of error messages for advanced
+        trouble-shooting and so on.</p>
+            </section>
+         </section>
+         <section class="section" id="Summary">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title" style="clear: both">3. Summary</h2>
+                  </div>
+               </div>
+            </div>
+            <p>This specification attempts (among other goals) to make the XLIFF Standards more
+      accessible to content owners that are not necessarily looking into the full nitty-gritty of
+      the XLIFF specs. It gives a general guidance how to handle constructs common in HTML and
+      generic XML, it also provides some basic information on <span class="glossterm non-normative">Extraction</span> from
+      Content Management Systems and software resources. The TAPICC WG3 and the Editors look
+      forward to receiving feedback how to make this Informational Best Practice even more useful, potentially how
+      and in what directions to expand its scope.</p>
+            <p>We haven't utterly failed if a multilingual publishing data flow designer took home what
+      are the basic design principles behind XLIFF as the exchange bitext format, both at the
+      structural and the inline levels. We hopefully managed to introduce and explain good business
+      reasons for thoughtful, properly structured, and metadata rich XLIFF
+        <span class="glossterm non-normative">Extraction</span> that will in turn facilitate fully automated, gold
+      standard  <span class="glossterm non-normative">Merge</span> and target build processes.</p>
+            <p>XLIFF <span class="glossterm non-normative">Extraction</span> can never make sense when
+      perceived on its own, as an isolated process. Since XLIFF doesn't purport to standardize
+        <span class="glossterm non-normative">Merging</span> without the full knowledge of the
+        <span class="glossterm non-normative">Extraction</span> mechanism, all implementers that
+      build <span class="glossterm non-normative">Extractors</span> will need to build <span class="glossterm non-normative">Mergers</span> in order to benefit from the exercise. In fact, for
+      a corporate owner the <span class="glossterm non-normative">Extractor</span>/<span class="glossterm non-normative">Merger</span> will be considered a single application with two end
+      points. Designers of such tools need to be acutely aware that every design compromise made at
+      the <span class="glossterm non-normative">Extraction</span> endpoint will compromise the
+      ability of downstream <span class="glossterm non-normative">Agents</span> to perform lossless
+      bitext transformations and thus will in the end undesirably and sometimes unpredictably affect
+      their own <span class="glossterm non-normative">Merging</span> endpoint that will have to
+      receive the <span class="glossterm non-normative">XLIFF Documents</span> after a localization
+      roundtrip. </p>
+            <p>Sometimes, some service providers do accept horrible and ugly "XLIFF" pretending that
+      there is nothing to worry. In such cases, rest assured that the service provider had to
+      complement the poor <span class="glossterm non-normative">Extraction</span>/<span class="glossterm non-normative">Merge</span> job with
+      their own costly pre- and post-processing routines, or worse pushed them even further
+      downstream onto the translators who may or may not be tech-savvy enough to preserve
+      unprotected features that are critical for your build or runtime functionality. No matter if
+      issues resurface in your localized product, you can rest assured that you are paying extra for
+      solving issues that you could have solved easier on your own or you are not providing the
+      translators with sufficient metadata to produce the best possible technical and linguistic
+      in-context quality.</p>
+         </section>
+         <div class="bibliography" id="references">
+            <div class="titlepage">
+               <div>
+                  <div>
+                     <h2 class="title">References</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="bibliodiv" id="d5e1005">
+               <h3 class="title">Normative references</h3>
+               <div class="bibliomixed" id="XML">
+                  <p class="bibliomixed">[<abbr class="abbrev">XML</abbr>] W3C: <span class="title">Extensible Markup Language (XML)
+          1.0</span>
+                     <span class="date">26 November 2008</span>
+                     <span class="bibliomisc">
+                        <a class="ulink" href="https://www.w3.org/TR/xml/" target="_top">https://www.w3.org/TR/xml/</a>
+                     </span>
+                  </p>
+               </div>
+               <div class="bibliomixed" id="XLIFF-2.1">
+                  <p class="bibliomixed">[<abbr class="abbrev">XLIFF-2.1</abbr>] Edited by David Filip, Tom Comerford, Soroush Saadatfar, Felix
+        Sasaki, and Yves Savourel: <span class="title">XLIFF Version 2.1</span>
+                     <span class="date">13 February 2018</span>
+                     <span class="bibliomisc">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html" target="_top">http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/xliff-core-v2.1-os.html</a>
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html" target="_top">http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html</a>
+                     </span>
+                  </p>
+               </div>
+               <div class="bibliomixed" id="XLIFF-2.0">
+                  <p class="bibliomixed">[<abbr class="abbrev">XLIFF-2.0</abbr>] Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+        Savourel: <span class="title">XLIFF Version 2.0</span>
+                     <span class="date">04 August 2014</span>
+                     <span class="bibliomisc">
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html" target="_top">http://docs.oasis-open.org/xliff/xliff-core/v2.0/os/xliff-core-v2.0-os.html</a>
+                        <a class="ulink" href="http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html" target="_top">http://docs.oasis-open.org/xliff/xliff-core/v2.0/xliff-core-v2.0.html</a>
+                     </span>
+                  </p>
+               </div>
+               <div class="bibliomixed" id="ISO_XLIFF">
+                  <p class="bibliomixed">[<abbr class="abbrev">ISO XLIFF</abbr>]  Edited by Tom Comerford, David Filip, Rodolfo M. Raya, and Yves
+        Savourel: <span class="title">ISO 21720:2017 - XLIFF (XML Localisation interchange file
+          format)</span>
+                     <span class="date">November 2017</span>
+                     <span class="bibliomisc">
+                        <a class="ulink" href="https://www.iso.org/standard/71490.html" target="_top">https://www.iso.org/standard/71490.html</a>
+                     </span>
+                  </p>
+               </div>
+               <div class="bibliomixed" id="BCP_47">
+                  <p class="bibliomixed">[<abbr class="abbrev">BCP 47</abbr>]  M. Davis: <span class="title">Tags for Identifying
+          Languages</span>, <span class="bibliomisc">
+                        <a class="ulink" href="http://tools.ietf.org/html/bcp47" target="_top">http://tools.ietf.org/html/bcp47</a>
+                     </span> IETF (Internet Engineering Task
+        Force).</p>
+               </div>
+            </div>
+         </div>
+      </section>
+   </body>
+</html>

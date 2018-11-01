@@ -1,0 +1,29 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>This is a <mrk id="2" translate="no"><pc id="1">not translatable term</pc></mrk>.</source>
+                <target>Toto je <mrk id="2" translate="no"><pc id="1">not translatable term</pc></mrk></target>
+                <!-- Compare with extractions samples in 
+                    http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#Locale_Filter_Inline
+                    with reversed order of <mrk> and <pc>
+                -->
+            </segment>
+            <segment>
+                <source><mrk id="4" translate="no"><pc id="3">Not translatable term</pc></mrk> does not necessarilly have to be included in
+                    translation.</source>
+                <target>, ktorý nemusí byť nutne v preklade.</target>
+            </segment>
+            <!-- custom validation is needed to verify:
+                        1. annotation is present in target (based on @id)
+                        2. text in annotation matches source
+                    as it's not implemented in native validation artifacts
+                -->
+            <segment>
+                <source>Also a <ph id="5" disp="[placeholder]" canDelete="no"/> replaced at runtime.</source>
+                <target>A nejaký <ph id="5" disp="[placeholder]" canDelete="no"/> nahradený za behu.</target>
+            </segment>
+            <!-- Using <ph> is preferable to represent inline codes with programmatic purposes. -->
+        </unit>
+    </file>
+</xliff>

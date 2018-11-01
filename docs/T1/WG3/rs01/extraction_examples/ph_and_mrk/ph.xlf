@@ -1,0 +1,42 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' srcLang="en-US" trgLang="sk-SK">
+    <file id="f1">
+        <unit id="u1">
+            <segment>
+                <source>This is a <ph id="1" disp="not translatable term"/></source>
+                <target>Toto je <ph id="1"/></target>
+                <!-- Using <ph> to protect not-translatable inline
+                    content could impair translation quality by
+                    preventing translator from seeing the context,
+                    especially if the <originalData> and context hints
+                    are missing
+                -->
+                <!-- This approach also does not allow to split
+                    the string during segmentation or adding
+                    additional (overlapping) annotations
+                -->
+                <!-- See Note in http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#ph -->
+                <!-- http://docs.oasis-open.org/xliff/xliff-core/v2.1/xliff-core-v2.1.html#Translate_Inline -->
+            </segment>
+            <segment>
+                <!-- Segments are kept separate for illustratory purposes.
+                    Would be most likely merged in real-world scenario.
+                -->
+                <source><ph id="2" disp="not translatable term" canDelete="no"/> does not necessarilly have to be included in
+                    translation.</source>
+                <target>, ktorý nemusí byť nutne v preklade.</target>
+                <!-- In addition to first segment, setting canDelete="no"
+                    will prevent linguist from removing the term altogether
+                    which could result in fluency issues for some languages
+                -->
+                <!-- Two source clauses are translated as complex sentence, in second segment the
+                    non-removable span becomes redundant.
+                -->
+            </segment>
+            <segment>
+                <source>Also a <ph id="3" disp="[placeholder]" canDelete="no"/> replaced at runtime.</source>
+                <target>A nejaký <ph id="3" disp="[placeholder]" canDelete="no"/> nahradený za behu.</target>
+            </segment>
+            <!-- Using <ph> is preferable to represent inline codes with programmatic purposes. -->
+        </unit>
+    </file>
+</xliff>

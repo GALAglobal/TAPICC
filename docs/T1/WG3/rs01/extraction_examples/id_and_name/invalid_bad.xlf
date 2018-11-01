@@ -1,0 +1,40 @@
+<xliff version='2.0' xmlns='urn:oasis:names:tc:xliff:document:2.0' xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" srcLang="en-US" >
+    <!-- This XLIFF is intentionally invalid -->
+    <file id="f1">
+        <unit id="u1">
+            <notes>
+                <note id="n1" category="resource_id">OK_button</note>
+            </notes>
+            <segment>
+                <source>OK</source>
+            </segment>
+            <!-- overloading note to store resource ID -->
+        </unit>
+        <unit id="u2">
+            <mda:metadata>
+                <mda:metaGroup>
+                    <mda:meta type="resource_id">Cancel_button</mda:meta>
+                </mda:metaGroup>
+            </mda:metadata>
+            <segment>
+                <source>Cancel</source>
+            </segment>
+            <!-- overloading metadata to store resource id -->
+        </unit>
+        <unit id="0AD7C1F1-CF51-47FC-A560-74B999AC4811">
+            <segment>
+                <source>Complex dialog. Multiple sentences. Maybe a question?</source>
+            </segment>
+            <!-- overloading unit id attribute to store resource id -->
+        </unit>
+        <unit id="?">
+            <segment>
+                <source>Help</source>
+            </segment>
+            <!-- Value of ID from source JSON is not a valid NMTOKEN, using @id for
+                storing the resource identifier puts restriction on the possible
+                values.
+            -->
+        </unit>
+    </file>
+</xliff>
