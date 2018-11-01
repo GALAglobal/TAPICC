@@ -1,3 +1,3 @@
-- [xml_space_preserve\bad.xlf](xml_space_preserve\bad.xlf) 
-- [xml_space_preserve\good.xlf](xml_space_preserve\good.xlf) 
-- [xml_space_preserve\source.html](xml_space_preserve\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

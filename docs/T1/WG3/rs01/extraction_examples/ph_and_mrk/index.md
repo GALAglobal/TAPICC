@@ -1,3 +1,3 @@
-- [ph_and_mrk\mrk.xlf](ph_and_mrk\mrk.xlf) 
-- [ph_and_mrk\ph.xlf](ph_and_mrk\ph.xlf) 
-- [ph_and_mrk\source.xhtml](ph_and_mrk\source.xhtml) 
+- [mrk.xlf](mrk.xlf
+- [ph.xlf](ph.xlf
+- [source.xhtml](source.xhtml

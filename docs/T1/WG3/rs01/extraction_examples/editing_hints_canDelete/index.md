@@ -1,3 +1,3 @@
-- [editing_hints_canDelete\bad.xlf](editing_hints_canDelete\bad.xlf) 
-- [editing_hints_canDelete\good.xlf](editing_hints_canDelete\good.xlf) 
-- [editing_hints_canDelete\source.html](editing_hints_canDelete\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

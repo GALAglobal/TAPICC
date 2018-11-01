@@ -1,3 +1,3 @@
-- [inline_codes_plain_text\bad.xlf](inline_codes_plain_text\bad.xlf) 
-- [inline_codes_plain_text\good.xlf](inline_codes_plain_text\good.xlf) 
-- [inline_codes_plain_text\source.html](inline_codes_plain_text\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

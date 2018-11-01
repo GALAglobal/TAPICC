@@ -1,2 +1,2 @@
-- [language_tags\bad.xlf](language_tags\bad.xlf) 
-- [language_tags\good.xlf](language_tags\good.xlf) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf

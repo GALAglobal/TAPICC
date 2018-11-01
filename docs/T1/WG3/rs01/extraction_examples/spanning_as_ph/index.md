@@ -1,6 +1,6 @@
-- [spanning_as_ph\bad.xlf](spanning_as_ph\bad.xlf) 
-- [spanning_as_ph\bad_opening_excluded.xlf](spanning_as_ph\bad_opening_excluded.xlf) 
-- [spanning_as_ph\bad_target_opening_excluded.html](spanning_as_ph\bad_target_opening_excluded.html) 
-- [spanning_as_ph\good.xlf](spanning_as_ph\good.xlf) 
-- [spanning_as_ph\invalid_bad_target.html](spanning_as_ph\invalid_bad_target.html) 
-- [spanning_as_ph\source.html](spanning_as_ph\source.html) 
+- [bad.xlf](bad.xlf
+- [bad_opening_excluded.xlf](bad_opening_excluded.xlf
+- [bad_target_opening_excluded.html](bad_target_opening_excluded.html
+- [good.xlf](good.xlf
+- [invalid_bad_target.html](invalid_bad_target.html
+- [source.html](source.html

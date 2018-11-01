@@ -1,3 +1,3 @@
-- [id_and_name\good.xlf](id_and_name\good.xlf) 
-- [id_and_name\invalid_bad.xlf](id_and_name\invalid_bad.xlf) 
-- [id_and_name\source.json](id_and_name\source.json) 
+- [good.xlf](good.xlf
+- [invalid_bad.xlf](invalid_bad.xlf
+- [source.json](source.json

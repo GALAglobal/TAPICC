@@ -1,3 +1,3 @@
-- [source_in_target\bad.xlf](source_in_target\bad.xlf) 
-- [source_in_target\good.xlf](source_in_target\good.xlf) 
-- [source_in_target\source.html](source_in_target\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

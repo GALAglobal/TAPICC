@@ -1,4 +1,4 @@
-- [group\bad.xlf](group\bad.xlf) 
-- [group\good.xlf](group\good.xlf) 
-- [group\good_with_modules.xlf](group\good_with_modules.xlf) 
-- [group\source.xhtml](group\source.xhtml) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [good_with_modules.xlf](good_with_modules.xlf
+- [source.xhtml](source.xhtml

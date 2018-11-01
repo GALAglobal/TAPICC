@@ -1,3 +1,3 @@
-- [multiple_codes_represented_as_single\bad.xlf](multiple_codes_represented_as_single\bad.xlf) 
-- [multiple_codes_represented_as_single\good.xlf](multiple_codes_represented_as_single\good.xlf) 
-- [multiple_codes_represented_as_single\source.html](multiple_codes_represented_as_single\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

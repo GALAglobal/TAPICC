@@ -1,3 +1,3 @@
-- [outermost_inline_excluded\bad.xlf](outermost_inline_excluded\bad.xlf) 
-- [outermost_inline_excluded\good.xlf](outermost_inline_excluded\good.xlf) 
-- [outermost_inline_excluded\source.html](outermost_inline_excluded\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html

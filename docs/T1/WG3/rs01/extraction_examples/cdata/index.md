@@ -1,3 +1,3 @@
-- [cdata\bad.xlf](cdata\bad.xlf) 
-- [cdata\good.xlf](cdata\good.xlf) 
-- [cdata\source.html](cdata\source.html) 
+- [bad.xlf](bad.xlf
+- [good.xlf](good.xlf
+- [source.html](source.html
