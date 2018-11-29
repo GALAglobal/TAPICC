@@ -43,6 +43,9 @@ a:hover {
     flex-wrap: nowrap;
     overflow-x: auto;
 }
+code {
+    hyphens: none;
+}
 li.L0,
 li.L1,
 li.L2,
